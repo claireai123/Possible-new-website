@@ -1,0 +1,73 @@
+# ClaireAI — AI Legal Receptionist
+> ClaireAI is an AI-powered virtual receptionist built for law firms. It answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers — in English or Spanish, 24/7/365.
+
+## Company
+- Legal name: ClaireAI, Inc.
+- Founded: 2024
+- Headquarters: Miami, FL, USA
+- Website: https://theclaireai.com
+- LinkedIn: https://linkedin.com/company/theclaireai
+
+## Product
+ClaireAI is a cloud-based AI receptionist that replaces missed calls with signed retainers. Key capabilities:
+
+- 24/7 call answering in 0.8 seconds (no hold music, no voicemail)
+- Bilingual intake (English and Spanish)
+- Autonomous lead qualification (police reports, fault, medical treatment, statute of limitations)
+- Consultation booking directly into attorney calendars
+- Retainer automation via DocuSign and PandaDoc
+- CRM integration (Clio, Filevine, MyCase, Lawmatics, PracticePanther, Salesforce, HubSpot)
+- Conflict checking against existing client database
+- Call recording with transcript storage
+
+## Pricing
+- Starter: $650/month (solo practitioners, up to 100 calls/month)
+- Growth: $1,299/month (small firms, up to 500 calls/month)
+- Enterprise: $2,999/month (multi-office firms, unlimited calls)
+- No per-minute billing. No hidden fees. Cancel anytime.
+
+## Practice Areas
+- [Personal Injury](https://theclaireai.com/solutions/personal-injury): Qualifies MVA, slip-and-fall, and premises liability leads. Checks police reports, fault, and medical treatment status.
+- [Criminal Defense](https://theclaireai.com/solutions/criminal-defense): 24/7 urgent felony and DUI case routing with instant attorney escalation.
+- [Family Law](https://theclaireai.com/solutions/family-law): Sensitive bilingual intake for custody, divorce, and protective order cases.
+- [Immigration Law](https://theclaireai.com/solutions/immigration-law): 10+ languages supported. Visa deadline tracking. Cross-timezone consultation booking.
+
+## Key Pages
+- [Homepage](https://theclaireai.com): Product overview and live demo
+- [Pricing](https://theclaireai.com/pricing): Plan comparison and ROI calculator
+- [Integrations](https://theclaireai.com/integrations): CRM and calendar integrations
+- [Case Studies](https://theclaireai.com/case-studies): Real results from real firms
+- [Legal Intake Report 2026](https://theclaireai.com/legal-intake-report): Original research on 1,000 law firms
+- [Blog](https://theclaireai.com/blog): Legal tech insights and analysis
+- [Help Center](https://theclaireai.com/help): Setup guides and documentation
+- [Compare vs Smith.ai](https://theclaireai.com/compare-smith-ai): Feature comparison
+- [Compare vs Ruby](https://theclaireai.com/compare-ruby-receptionists): Feature comparison
+
+## Compliance
+- SOC 2 Type II certified
+- HIPAA compliant
+- 256-bit AES encryption
+- 99.9% uptime SLA
+
+## FAQ
+- Q: How fast does ClaireAI answer calls?
+  A: ClaireAI answers every call in 0.8 seconds on the first ring, 24/7/365 — no hold music, no voicemail.
+
+- Q: What languages does ClaireAI support?
+  A: ClaireAI supports English and Spanish natively, with 10+ additional languages available for immigration law firms.
+
+- Q: Does ClaireAI integrate with my CRM?
+  A: Yes. ClaireAI integrates with Clio, Filevine, MyCase, Lawmatics, PracticePanther, Salesforce, and HubSpot. New contacts, matters, and calendar entries are created automatically.
+
+- Q: Can ClaireAI send retainer agreements?
+  A: Yes. ClaireAI checks the statute of limitations, sends retainers via DocuSign or PandaDoc, and follows up — all autonomously while attorneys sleep.
+
+- Q: How much does ClaireAI cost?
+  A: Plans start at $650/month with no per-minute billing and no hidden fees. Enterprise plans for multi-office firms start at $2,999/month.
+
+- Q: Is ClaireAI compliant with legal industry standards?
+  A: Yes. ClaireAI is SOC 2 Type II certified, HIPAA compliant, uses 256-bit encryption, and maintains a 99.9% uptime SLA.
+
+## Contact
+- Sales: contact@theclaireai.com
+- Demo: https://theclaireai.com/contact

@@ -30,7 +30,7 @@ const boxes = [
 
 export function FeatureBoxes() {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-3">
       {boxes.map((box, i) => (
         <Box key={box.title} {...box} delay={i * 0.1} />
       ))}
@@ -79,28 +79,27 @@ function Box({
         onMouseLeave={() => { mouseX.set(-200); mouseY.set(-200); }}
       >
         <div
-          className="relative aspect-[3/4] overflow-hidden rounded-[20px]"
+          className="relative aspect-[3/4] overflow-hidden rounded-lg"
           style={{ background: gradient }}
         >
           {/* Noise grain */}
           <div
-            className="pointer-events-none absolute inset-0 rounded-[20px] opacity-[0.04] mix-blend-overlay"
+            className="pointer-events-none absolute inset-0 rounded-lg opacity-[0.04] mix-blend-overlay"
             style={{ backgroundImage: noiseSvg }}
           />
           {/* Mouse spotlight */}
           <motion.div
-            className="pointer-events-none absolute inset-0 rounded-[20px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="pointer-events-none absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             style={{ background: spotlight }}
           />
           {/* Hover overlay */}
-          <div className="pointer-events-none absolute inset-0 rounded-[20px] bg-black/0 transition-colors duration-300 group-hover:bg-black/[.02]" />
-          {/* Placeholder — replace with wireframe illustrations or video */}
+          <div className="pointer-events-none absolute inset-0 rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/[.02]" />
         </div>
       </motion.div>
-      <h3 className="mt-5 text-[20px] font-semibold text-[#0a0a0a]" style={{ letterSpacing: "-0.02em" }}>
+      <h3 className="mt-4 text-[15px] font-normal text-[#0a0a0a]" style={{ lineHeight: "19.5px" }}>
         {title}
       </h3>
-      <p className="mt-1.5 text-[14px] leading-relaxed text-[#0a0a0a]/45">{desc}</p>
+      <p className="mt-2 text-[13px] leading-[1.3] text-[#0a0a0a]/45">{desc}</p>
     </motion.div>
   );
 }

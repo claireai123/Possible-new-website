@@ -48,7 +48,7 @@ export function MockCRM() {
     >
       {/* ── Main CRM card ── */}
       <div
-        className="flex flex-col overflow-hidden rounded-2xl bg-white"
+        className="flex flex-col overflow-hidden rounded-lg bg-white"
         style={{ boxShadow: "0 25px 80px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.03)" }}
       >
         {/* Top chrome */}
@@ -67,7 +67,7 @@ export function MockCRM() {
             <span className="text-[11px] text-white/35">Search matters, contacts...</span>
           </div>
           <div className="flex items-center gap-1.5 rounded-md bg-[#2a9d6e] px-[0.8vw] py-[0.5vh]">
-            <span className="text-[11px] font-semibold text-white">Quick Intake</span>
+            <span className="text-[11px] font-normal text-white">Quick Intake</span>
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
               <path d="M2 3L4 5L6 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
@@ -77,15 +77,15 @@ export function MockCRM() {
         {/* Matters header */}
         <div className="flex items-center justify-between border-b border-[#f0f0ee] px-[1.5vw] py-[1.5vh]">
           <div>
-            <h3 className="text-[16px] font-bold tracking-tight text-[#1a2332]">Matters</h3>
+            <h3 className="text-[16px] font-normal tracking-tight text-[#1a2332]">Matters</h3>
             <div className="mt-1.5 flex items-center gap-[1.2vw]">
-              <span className="border-b-2 border-[#2b5ea7] pb-1 text-[11px] font-semibold text-[#2b5ea7]">Intake</span>
+              <span className="border-b-2 border-[#2b5ea7] pb-1 text-[11px] font-normal text-[#2b5ea7]">Intake</span>
               <span className="pb-1 text-[11px] text-[#1a2332]/25">Hired</span>
               <span className="pb-1 text-[11px] text-[#1a2332]/25">Did Not Hire</span>
             </div>
           </div>
           <div className="flex items-center gap-1.5 rounded-md bg-[#2a9d6e] px-[0.8vw] py-[0.5vh]">
-            <span className="text-[11px] font-semibold text-white">New Matter</span>
+            <span className="text-[11px] font-normal text-white">New Matter</span>
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
               <path d="M2 3L4 5L6 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
@@ -100,7 +100,7 @@ export function MockCRM() {
               className={`flex flex-1 flex-col ${ci < columns.length - 1 ? "border-r border-[#f0f0ee]" : ""}`}
             >
               <div className="px-[0.8vw] pb-[0.8vh] pt-[1.2vh]">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#1a2332]/35">
+                <span className="text-[10px] font-normal uppercase tracking-wider text-[#1a2332]/35">
                   {col.title}
                 </span>
               </div>
@@ -120,12 +120,12 @@ export function MockCRM() {
                       <span className="h-2.5 w-2.5 rounded-full bg-[#2a9d6e]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#1a2332]" />
                     </div>
-                    <p className="text-[12px] font-semibold tracking-tight text-[#1a2332]">{card.name}</p>
+                    <p className="text-[12px] font-normal tracking-tight text-[#1a2332]">{card.name}</p>
                     <p className="mt-0.5 text-[10px] text-[#1a2332]/30">{card.type}</p>
                     {card.claire && (
                       <div className="mt-2 flex items-center gap-1">
                         <img src="https://res.cloudinary.com/dwzsqumf6/image/upload/w_48,h_48,c_fill,q_auto,f_auto/v1765854413/Gemini_Generated_Image_dpj1j6dpj1j6dpj1.jpg" alt="ClaireAI" className="h-5 w-5 rounded-md object-cover" />
-                        <span className="text-[9px] font-medium text-[#c4913c]/60">Added by ClaireAI</span>
+                        <span className="text-[9px] font-normal text-[#c4913c]/60">Added by ClaireAI</span>
                       </div>
                     )}
                   </motion.div>

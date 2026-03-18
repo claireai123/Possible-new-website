@@ -51,13 +51,13 @@ export function LiveDemo() {
   }, [started]);
 
   return (
-    <section ref={ref} className="bg-[#ecece7] px-6 py-4">
-      <div className="mx-auto max-w-[1400px]">
+    <section ref={ref} className="bg-[#ecece7] px-6 py-[120px]">
+      <div className="mx-auto max-w-[1728px]">
         {/* Two-column immersive area */}
-        <div className="grid min-h-[80vh] gap-6 lg:grid-cols-[1fr_380px]">
+        <div className="grid min-h-[80vh] gap-[80px] lg:grid-cols-[1fr_380px]">
 
           {/* Left: live call transcript — looks like a real document/interface */}
-          <div className="overflow-hidden rounded-2xl bg-white p-10 shadow-sm">
+          <div className="overflow-hidden rounded-lg bg-white p-10 shadow-sm">
             {/* Header bar */}
             <div className="mb-8 flex items-center justify-between border-b border-[#e4e4e7] pb-6">
               <div className="flex items-center gap-3">
@@ -65,7 +65,7 @@ export function LiveDemo() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
                 </div>
-                <span className="text-[13px] font-medium text-[#0a0a0a]">Live Intake Call</span>
+                <span className="text-[13px] font-normal text-[#0a0a0a]">Live Intake Call</span>
                 <span className="text-[13px] text-[#0a0a0a]/40">Personal Injury</span>
               </div>
               <div className="flex items-center gap-2">
@@ -87,7 +87,7 @@ export function LiveDemo() {
             <div className="space-y-6">
               {transcript.slice(0, lines).map((line, i) => (
                 <div key={i} className="animate-fade-up" style={{ animationDelay: `${i * 0.05}s` }}>
-                  <span className="text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">
+                  <span className="text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">
                     {line.who === "claire" ? "Claire" : "Caller"}
                   </span>
                   <p className={`mt-1 text-[17px] leading-relaxed ${
@@ -109,14 +109,14 @@ export function LiveDemo() {
 
           {/* Right: floating action cards — like Legora's "Sources" panel */}
           <div className="flex flex-col gap-4 py-10">
-            <p className="text-[13px] font-medium text-[#0a0a0a]/50">
+            <p className="text-[13px] font-normal text-[#0a0a0a]/50">
               Syncing to Clio
             </p>
 
             {actions.slice(0, acts).map((a, i) => (
               <div
                 key={i}
-                className="animate-fade-up rounded-2xl bg-white px-6 py-5 shadow-sm"
+                className="animate-fade-up rounded-lg bg-white px-6 py-5 shadow-sm"
                 style={{ animationDelay: `${i * 0.08}s` }}
               >
                 <div className="flex items-start gap-3">
@@ -124,7 +124,7 @@ export function LiveDemo() {
                     {a.icon}
                   </span>
                   <div>
-                    <p className="text-[14px] font-medium text-[#0a0a0a]">{a.label}</p>
+                    <p className="text-[14px] font-normal text-[#0a0a0a]">{a.label}</p>
                     <p className="mt-0.5 text-[12px] text-[#0a0a0a]/40">{a.detail}</p>
                   </div>
                 </div>
@@ -139,8 +139,8 @@ export function LiveDemo() {
             )}
 
             {acts >= actions.length && (
-              <div className="animate-fade-up rounded-2xl bg-[#0a0a0a] px-6 py-5 text-white">
-                <p className="text-[14px] font-medium">Intake complete</p>
+              <div className="animate-fade-up rounded-lg bg-[#0a0a0a] px-6 py-5 text-white">
+                <p className="text-[14px] font-normal">Intake complete</p>
                 <p className="mt-1 text-[12px] text-white/50">0:47 call · High value · Consultation booked</p>
               </div>
             )}

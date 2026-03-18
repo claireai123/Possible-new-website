@@ -76,7 +76,7 @@ export function Header() {
             borderBottom: scrolled ? "1px solid #e4e4e7" : "1px solid transparent",
           }}
         >
-          <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-6">
+          <div className="mx-auto flex h-12 max-w-[1728px] items-center justify-between px-6">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <img
@@ -100,7 +100,7 @@ export function Header() {
               <Link href="#" className="text-[13px] text-[#0a0a0a]/50 hover:text-[#0a0a0a]">Log in</Link>
               <Link
                 href="/contact"
-                className="rounded-full bg-[#c4913c] px-5 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#b07e2f]"
+                className="rounded bg-[#c4913c] px-4 py-2.5 text-[12px] font-normal text-white transition-colors hover:bg-[#b07e2f]"
               >
                 Book a Demo
               </Link>
@@ -123,7 +123,7 @@ export function Header() {
             <div className="grid grid-cols-[1fr_1fr_auto] gap-16">
               {/* Left two columns: product links */}
               <div className="col-span-2">
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">
                   Product
                 </p>
                 <div className="grid grid-cols-2 gap-x-12 gap-y-1">
@@ -133,7 +133,7 @@ export function Header() {
                       href={item.href}
                       className="group block py-3"
                     >
-                      <p className="text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">
+                      <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
                         {item.name}
                       </p>
                       <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">
@@ -146,7 +146,7 @@ export function Header() {
 
               {/* Right column: video cards */}
               <div className="w-[380px]">
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">
                   Product videos
                 </p>
                 <div className="space-y-6">
@@ -163,7 +163,7 @@ export function Header() {
                       <p className="mt-3 text-[11px] text-[#0a0a0a]/35">
                         {vid.label}
                       </p>
-                      <p className="mt-1 text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">
+                      <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
                         {vid.title}
                       </p>
                       <p className="mt-1 text-[13px] text-[#0a0a0a]/40">
@@ -182,25 +182,25 @@ export function Header() {
           <MegaPanel onEnter={() => open("solutions")} onLeave={close}>
             <div className="grid grid-cols-3 gap-16">
               <div>
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">By area</p>
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">By area</p>
                 {solutionsByArea.map((i) => (
                   <Link key={i.href} href={i.href} className="group block py-3">
-                    <p className="text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
+                    <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
                     <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
                   </Link>
                 ))}
               </div>
               <div>
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">By type</p>
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">By type</p>
                 {solutionsByType.map((i) => (
                   <Link key={i.href} href={i.href} className="group block py-3">
-                    <p className="text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
+                    <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
                     <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
                   </Link>
                 ))}
               </div>
               <div>
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">Latest</p>
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Latest</p>
                 {/* Placeholder for featured case study / blog post */}
                 <Link href="/case-studies" className="group block">
                   <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8e5de]">
@@ -209,7 +209,7 @@ export function Header() {
                     </div>
                   </div>
                   <p className="mt-3 text-[11px] text-[#0a0a0a]/35">Case study</p>
-                  <p className="mt-1 text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">
+                  <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
                     How a PI firm captured $1.2M in 30 days
                   </p>
                 </Link>
@@ -223,18 +223,18 @@ export function Header() {
           <MegaPanel onEnter={() => open("resources")} onLeave={close}>
             <div className="grid grid-cols-[1fr_1fr_auto] gap-16">
               <div className="col-span-2">
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">Resources</p>
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Resources</p>
                 <div className="grid grid-cols-2 gap-x-12 gap-y-1">
                   {resourceItems.map((i) => (
                     <Link key={i.href} href={i.href} className="group block py-3">
-                      <p className="text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
+                      <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
                       <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
                     </Link>
                   ))}
                 </div>
               </div>
               <div className="w-[300px]">
-                <p className="mb-6 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
+                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
                 <Link href="/legal-intake-report" className="group block">
                   <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8e5de]">
                     <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
@@ -242,7 +242,7 @@ export function Header() {
                     </div>
                   </div>
                   <p className="mt-3 text-[11px] text-[#0a0a0a]/35">Report</p>
-                  <p className="mt-1 text-[15px] font-semibold text-[#0a0a0a] group-hover:text-[#c4913c]">
+                  <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
                     2026 Legal Intake Report
                   </p>
                   <p className="mt-1 text-[13px] text-[#0a0a0a]/40">Download free →</p>
@@ -271,7 +271,7 @@ export function Header() {
                 <Link key={t.href} href={t.href} className="block py-2.5 text-base text-[#0a0a0a]" onClick={() => setMobileOpen(false)}>{t.name}</Link>
               ))}
             </div>
-            <Link href="/contact" className="mt-6 block w-full rounded-full bg-[#c4913c] py-3 text-center text-sm font-medium text-white" onClick={() => setMobileOpen(false)}>
+            <Link href="/contact" className="mt-6 block w-full rounded bg-[#c4913c] py-2.5 text-center text-[12px] font-normal text-white" onClick={() => setMobileOpen(false)}>
               Book a Demo
             </Link>
           </div>
@@ -313,7 +313,7 @@ function MegaPanel({ children, onEnter, onLeave }: { children: React.ReactNode; 
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
-      <div className="mx-auto max-w-[1400px] px-6 py-10">
+      <div className="mx-auto max-w-[1728px] px-6 py-10">
         {children}
       </div>
     </div>
@@ -323,7 +323,7 @@ function MegaPanel({ children, onEnter, onLeave }: { children: React.ReactNode; 
 function MG({ title, items, close }: { title: string; items: { name: string; href: string }[]; close: () => void }) {
   return (
     <div className="mb-6">
-      <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/30">{title}</p>
+      <p className="mb-2 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">{title}</p>
       {items.map((i) => (
         <Link key={i.href} href={i.href} className="block py-2 text-base text-[#0a0a0a]" onClick={close}>{i.name}</Link>
       ))}
