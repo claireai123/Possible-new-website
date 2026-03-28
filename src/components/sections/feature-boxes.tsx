@@ -1,9 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useMotionTemplate, useInView } from "framer-motion";
-import { useRef, MouseEvent } from "react";
-
-const noiseSvg = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const blurFade = {
   hidden: { y: 8, opacity: 0, filter: "blur(6px)" },
@@ -12,17 +10,14 @@ const blurFade = {
 
 const boxes = [
   {
-    gradient: "linear-gradient(160deg, #c9c3b6 0%, #d5cfc3 50%, #c0bab0 100%)",
     title: "Claire answers",
     desc: "First ring. Every time. English or Spanish, 24/7/365.",
   },
   {
-    gradient: "linear-gradient(160deg, #c4c6d1 0%, #d0d2dc 50%, #bfc1cc 100%)",
     title: "Claire qualifies",
     desc: "Police report? Not at fault? Medical treatment? Every qualifying detail confirmed.",
   },
   {
-    gradient: "linear-gradient(160deg, #bec8bc 0%, #cdd6ca 50%, #b9c3b7 100%)",
     title: "Claire sends retainers",
     desc: "Statute checked. Consultation booked. Retainer emailed. Case signed before morning.",
   },
@@ -31,75 +26,34 @@ const boxes = [
 export function FeatureBoxes() {
   return (
     <div className="grid gap-6 md:grid-cols-3">
-      {boxes.map((box, i) => (
-        <Box key={box.title} {...box} delay={i * 0.1} />
-      ))}
-    </div>
-  );
-}
-
-function Box({
-  gradient,
-  title,
-  desc,
-  delay,
-}: {
-  gradient: string;
-  title: string;
-  desc: string;
-  delay: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const mouseX = useMotionValue(-200);
-  const mouseY = useMotionValue(-200);
-
-  function handleMouse(e: MouseEvent) {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  }
-
-  const spotlight = useMotionTemplate`radial-gradient(280px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.08), transparent 80%)`;
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={blurFade}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      transition={{ delay: 0.1 + delay, duration: 0.5, ease: "easeOut" }}
-    >
-      <motion.div
-        className="group relative transform-gpu cursor-default"
-        whileHover={{ y: -3 }}
-        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-        onMouseMove={handleMouse}
-        onMouseLeave={() => { mouseX.set(-200); mouseY.set(-200); }}
-      >
-        <div
-          className="relative aspect-[3/4] overflow-hidden rounded-lg"
-          style={{ background: gradient }}
-        >
-          {/* Noise grain */}
-          <div
-            className="pointer-events-none absolute inset-0 rounded-lg opacity-[0.04] mix-blend-overlay"
-            style={{ backgroundImage: noiseSvg }}
-          />
-          {/* Mouse spotlight */}
+      {boxes.map((box, i) => {
+        const ref = useRef<HTMLDivElement>(null);
+        const isInView = useInView(ref, { once: true, margin: "-80px" });
+        return (
           <motion.div
-            className="pointer-events-none absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            style={{ background: spotlight }}
-          />
-          {/* Hover overlay */}
-          <div className="pointer-events-none absolute inset-0 rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/[.02]" />
-        </div>
-      </motion.div>
-      <h3 className="mt-4 text-[15px] font-normal text-[#0a0a0a]" style={{ lineHeight: "19.5px" }}>
-        {title}
-      </h3>
-      <p className="mt-2 text-[13px] leading-[1.3] text-[#0a0a0a]/45">{desc}</p>
-    </motion.div>
+            key={box.title}
+            ref={ref}
+            variants={blurFade}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: "easeOut" }}
+            className="group cursor-pointer"
+          >
+            {/* Tall placeholder image area — like Legora */}
+            <div
+              className="overflow-hidden rounded-xl bg-[#e8e5de] transition-transform duration-500 group-hover:scale-[0.98]"
+              style={{ aspectRatio: "3/4" }}
+            />
+            {/* Title + desc below the card */}
+            <h3 className="mt-6 text-[15px] text-[#0a0a0a]" style={{ fontWeight: 450 }}>
+              {box.title}
+            </h3>
+            <p className="mt-2 text-[15px] leading-[1.5] text-[#0a0a0a]/45">
+              {box.desc}
+            </p>
+          </motion.div>
+        );
+      })}
+    </div>
   );
 }

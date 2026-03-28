@@ -194,6 +194,27 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen">
         <Header />
+        {/* Banner — not fixed, scrolls away naturally like Legora */}
+        <div style={{ paddingTop: 48 }}>
+          <a
+            href="/legal-intake-report"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "16px 24px",
+              backgroundColor: "#1b4332",
+              color: "white",
+              fontSize: 13,
+              fontWeight: 500,
+              textDecoration: "none",
+            }}
+          >
+            <span>2026 Legal Intake Report</span>
+            <span style={{ color: "rgba(255,255,255,0.5)" }}>Read more →</span>
+          </a>
+        </div>
         <main>{children}</main>
         <Footer />
       </body>

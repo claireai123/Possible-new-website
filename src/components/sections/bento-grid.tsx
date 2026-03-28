@@ -66,7 +66,7 @@ export function BentoGrid() {
                   </p>
                   <h2
                     className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
-                    style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
+                    style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                   >
                     One receptionist.<br />
                     <span className="font-normal">Every capability.</span>
@@ -102,7 +102,7 @@ export function BentoGrid() {
                 </p>
                 <h2
                   className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
-                  style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
+                  style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                 >
                   Your CRM.<br />
                   <span className="font-normal">Already connected.</span>
@@ -160,7 +160,7 @@ export function BentoGrid() {
                 </p>
                 <h2
                   className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
-                  style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
+                  style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                 >
                   Signed before<br />
                   <span className="font-normal">morning.</span>
@@ -196,7 +196,7 @@ export function BentoGrid() {
               </p>
               <h2
                 className="font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
-                style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
+                style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
               >
                 Claire meets your firm<br />
                 where you are.
@@ -212,37 +212,33 @@ export function BentoGrid() {
                 {
                   area: "Personal Injury",
                   desc: "Capture every lead at first ring — qualify police reports, treatment status, and fault in seconds.",
-                  gradient: "from-[#d4c5a0] to-[#b8a88a]",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646534/alex-robertson-RPFvgzbPWxA-unsplash_zkn0wy.jpg",
                 },
                 {
                   area: "Criminal Defense",
                   desc: "Route urgent felony and DUI calls 24/7 with instant attorney escalation, day or night.",
-                  gradient: "from-[#8a7e6b] to-[#6b6254]",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
                 },
                 {
                   area: "Family Law",
                   desc: "Sensitive intake in English or Spanish — custody, divorce, and protective orders handled with care.",
-                  gradient: "from-[#a69882] to-[#8a7d6a]",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
                 },
                 {
                   area: "Immigration",
                   desc: "10+ languages supported. Visa deadlines tracked. Consultations booked across every time zone.",
-                  gradient: "from-[#c4b8a0] to-[#a89c84]",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646535/jean-philippe-delberghe-zZvYBYY70uo-unsplash_x0davy.jpg",
                 },
               ].map((item, i) => (
                 <FadeIn key={item.area} delay={0.08 * i}>
                   <div className="group cursor-pointer">
-                    {/* Tall image placeholder */}
-                    <div
-                      className={`aspect-[3/4] overflow-hidden rounded-lg bg-gradient-to-br ${item.gradient} transition-transform duration-500 group-hover:scale-[0.98]`}
-                    >
-                      <div className="flex h-full items-end p-6">
-                        <span className="text-[13px] font-normal text-white/40">
-                          {item.area}
-                        </span>
-                      </div>
+                    <div className="aspect-[3/4] overflow-hidden rounded-lg transition-transform duration-500 group-hover:scale-[0.98]">
+                      <img
+                        src={item.img}
+                        alt={item.area}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    {/* Label + description */}
                     <h3 className="mt-4 text-[15px] font-normal text-[#0a0a0a]" style={{ lineHeight: "19.5px" }}>
                       {item.area}
                     </h3>

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
-import { LiveDemo } from "@/components/sections/live-demo";
 import { FeatureBoxes } from "@/components/sections/feature-boxes";
-import { BentoGrid } from "@/components/sections/bento-grid";
 import { HearClaire } from "@/components/sections/hear-claire";
+import { SocialProof } from "@/components/sections/social-proof";
+import { PracticeAreas } from "@/components/sections/practice-areas";
 
 const logos = ["Clio", "Filevine", "MyCase", "Lawmatics", "PracticePanther", "Salesforce", "HubSpot"];
 
@@ -27,18 +27,23 @@ export default function Home() {
 
       <HearClaire />
 
-      {/* ── How it works — GEO: question heading + citable answer block ── */}
+      {/* ── How it works ── */}
       <section className="bg-[#fefefc] px-6 py-[120px]">
         <div className="mx-auto max-w-[1728px]">
           <h2
-            className="max-w-3xl font-serif text-[clamp(2.5rem,5vw,64px)] font-normal text-[#0a0a0a]"
-            style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
+            className="max-w-4xl font-serif text-[#0a0a0a]"
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 72px)",
+              letterSpacing: "-0.02em",
+              fontFeatureSettings: '"liga" 0',
+              lineHeight: "0.95",
+            }}
           >
             How does ClaireAI turn<br />
             missed calls into signed retainers?
           </h2>
-          <p className="mt-6 max-w-2xl text-[15px] leading-[1.3] text-[#0a0a0a]/40">
-            ClaireAI is an AI legal receptionist that answers every law firm call in 0.8 seconds — on the first ring, 24 hours a day, 365 days a year. It qualifies the lead by confirming police reports, fault, and medical treatment status. Then it books a consultation, checks the statute of limitations, and sends a retainer agreement via DocuSign or PandaDoc — all before the attorney wakes up. In a 2026 study of 1,000 law firms, 41% of personal injury practices reported missing after-hours calls entirely, representing an estimated $44 billion in industry-wide lost revenue.
+          <p className="mt-6 max-w-3xl text-[18px] leading-[1.5] text-[#0a0a0a]/50">
+            ClaireAI streamlines everything from intake to retainer signing — helping lawyers spend less time managing calls, and more time delivering value.
           </p>
 
           <div className="mt-[80px]">
@@ -47,29 +52,34 @@ export default function Home() {
         </div>
       </section>
 
-      <BentoGrid />
+      <PracticeAreas />
 
-      {/* ── Final CTA — Legora style ── */}
+      <SocialProof />
+
+      {/* ── Final CTA ── */}
       <section className="bg-[#f5f4f1] px-6 py-[120px]">
         <div className="mx-auto max-w-[1728px]">
-          <div className="flex flex-col gap-[80px] lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <h2
-                className="font-serif text-[clamp(2.8rem,5.5vw,64px)] font-normal text-[#0a0a0a]"
-                style={{ letterSpacing: "-0.02em", lineHeight: "0.95" }}
-              >
-                The future of legal intake<br />
-                is already here.
-              </h2>
-              <p className="mt-6 max-w-md text-[13px] leading-[1.3] text-[#0a0a0a]/40">
-                Discover how Claire can put time back in your hands for what matters most.
-              </p>
-            </div>
+          <h2
+            className="font-serif text-[#0a0a0a]"
+            style={{
+              fontSize: "clamp(2.8rem,5.5vw,64px)",
+              letterSpacing: "-0.02em",
+              lineHeight: "0.95",
+              fontFeatureSettings: '"liga" 0',
+            }}
+          >
+            The future of legal intake<br />
+            is already here.
+          </h2>
+          <div className="mt-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-md text-[16px] leading-[1.55] text-[#0a0a0a]/40">
+              Discover how Claire can put time back in your hands for what matters most.
+            </p>
             <Link
               href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-4 py-2.5 text-[16px] font-normal text-white transition-colors hover:bg-[#0a0a0a]/85"
+              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-6 py-3.5 text-[15px] font-normal text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
-              Book a Demo
+              Book a demo
             </Link>
           </div>
         </div>

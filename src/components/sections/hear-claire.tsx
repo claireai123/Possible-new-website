@@ -58,106 +58,130 @@ export function HearClaire() {
   const revealed = progress >= 1 ? 4 : Math.floor(progress * 5);
 
   return (
-    <section className="bg-[#fefefc] px-6 py-[140px]">
-      <div className="mx-auto max-w-[1080px]">
+    <section className="relative overflow-hidden px-6 py-[120px]" style={{ backgroundColor: "#f5f4f1" }}>
+      {/* Background waveform decoration */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.05]">
+        <div className="flex items-end gap-[3px]" style={{ height: 300, width: "80%" }}>
+          {waveform.map((h, i) => (
+            <div
+              key={i}
+              className="flex-1"
+              style={{
+                height: `${h * 100}%`,
+                borderRadius: 2,
+                background: "#0a0a0a",
+              }}
+            />
+          ))}
+        </div>
+      </div>
 
-        {/* Header */}
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div className="relative mx-auto max-w-[1728px]">
+        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
+          {/* Left: headline + subtitle */}
           <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#c4913c]/50">
-              Live Demo
+            <p className="text-[11px] uppercase tracking-[0.2em] text-[#c4913c]/60">
+              Voice AI
             </p>
             <h2
-              className="mt-5 font-serif text-[clamp(2rem,4vw,44px)] font-normal text-white/90"
-              style={{ letterSpacing: "-0.025em", lineHeight: 1.1 }}
+              className="mt-5 font-serif text-[clamp(2.5rem,5vw,56px)] font-normal text-[#0a0a0a]"
+              style={{ letterSpacing: "-0.02em", lineHeight: 1.05 }}
             >
-              Hear Claire qualify a PI lead.
+              Hear Claire qualify<br />
+              a PI lead.
             </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-[1.5] text-[#0a0a0a]/45">
+              Real conversation. Every qualifying question asked,
+              consultation booked, retainer sent — under two minutes.
+            </p>
           </div>
-          <p className="max-w-sm text-[14px] leading-[1.5] text-white/35 lg:text-right">
-            Real conversation. Every qualifying question asked,
-            consultation booked, retainer sent — under two minutes.
-          </p>
-        </div>
 
-        {/* Player card */}
-        <div className="mt-14 rounded-2xl p-8 ring-1 ring-white/[0.06]">
-          <div className="flex items-center gap-5">
-            <button
-              onClick={play}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#c4913c] transition-transform hover:scale-[1.04] active:scale-[0.97]"
-              aria-label={isPlaying ? "Pause" : "Play"}
+          {/* Right: player card */}
+          <div className="flex justify-center lg:justify-end">
+            <div
+              className="w-full max-w-[480px] rounded-2xl p-8"
+              style={{
+                backgroundColor: "#fefefc",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 12px 40px -8px rgba(0,0,0,0.08)",
+                border: "1px solid rgba(0,0,0,0.06)",
+              }}
             >
-              {isPlaying ? (
-                <svg width="13" height="13" viewBox="0 0 12 12">
-                  <rect x="2" y="1" width="2.5" height="10" rx=".5" fill="white" />
-                  <rect x="7.5" y="1" width="2.5" height="10" rx=".5" fill="white" />
-                </svg>
-              ) : (
-                <svg width="13" height="13" viewBox="0 0 12 12" className="ml-[2px]">
-                  <path d="M3 1l8 5-8 5V1z" fill="white" />
-                </svg>
-              )}
-            </button>
+              {/* Title */}
+              <p className="text-[13px] font-medium text-[#0a0a0a]/50">PI Intake Call</p>
 
-            <div className="flex flex-1 items-end gap-[1.5px]" style={{ height: 44 }}>
-              {waveform.map((h, i) => {
-                const pos = i / waveform.length;
-                const past = pos <= progress;
-                return (
-                  <div
-                    key={i}
-                    className="flex-1 transition-colors duration-150"
-                    style={{
-                      height: `${h * 100}%`,
-                      borderRadius: 1,
-                      background: past
-                        ? "#c4913c"
-                        : "rgba(255,255,255,0.10)",
-                    }}
-                  />
-                );
-              })}
-            </div>
-
-            <span className="shrink-0 text-[13px] tabular-nums text-white/30">
-              {fmt(progress * DURATION)}
-              <span className="text-white/15">{" / "}</span>
-              1:47
-            </span>
-          </div>
-
-          {/* Outcomes row inside the card */}
-          <div className="mt-8 grid grid-cols-4 border-t border-white/[0.06] pt-7">
-            {outcomes.map((o, i) => {
-              const active = i < revealed;
-              return (
-                <div
-                  key={i}
-                  className="transition-all duration-500"
-                  style={{
-                    paddingLeft: i > 0 ? 24 : 0,
-                    borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
-                  }}
+              {/* Player */}
+              <div className="mt-5 flex items-center gap-4">
+                <button
+                  onClick={play}
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#c4913c] transition-transform hover:scale-[1.04] active:scale-[0.97]"
+                  aria-label={isPlaying ? "Pause" : "Play"}
                 >
-                  <p
-                    className="text-[10px] uppercase tracking-[0.16em] transition-colors duration-500"
-                    style={{ color: active ? "#c4913c" : "rgba(255,255,255,0.25)" }}
-                  >
-                    {o.label}
-                  </p>
-                  <p
-                    className="mt-2 text-[14px] leading-snug transition-colors duration-500"
-                    style={{ color: active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.30)" }}
-                  >
-                    {o.value}
-                  </p>
+                  {isPlaying ? (
+                    <svg width="13" height="13" viewBox="0 0 12 12">
+                      <rect x="2" y="1" width="2.5" height="10" rx=".5" fill="white" />
+                      <rect x="7.5" y="1" width="2.5" height="10" rx=".5" fill="white" />
+                    </svg>
+                  ) : (
+                    <svg width="13" height="13" viewBox="0 0 12 12" className="ml-[2px]">
+                      <path d="M3 1l8 5-8 5V1z" fill="white" />
+                    </svg>
+                  )}
+                </button>
+
+                <div className="flex flex-1 items-end gap-[1.5px]" style={{ height: 40 }}>
+                  {waveform.map((h, i) => {
+                    const pos = i / waveform.length;
+                    const past = pos <= progress;
+                    return (
+                      <div
+                        key={i}
+                        className="flex-1 transition-colors duration-150"
+                        style={{
+                          height: `${h * 100}%`,
+                          borderRadius: 1,
+                          background: past ? "#c4913c" : "rgba(10,10,10,0.10)",
+                        }}
+                      />
+                    );
+                  })}
                 </div>
-              );
-            })}
+
+                <span className="shrink-0 text-[12px] tabular-nums text-[#0a0a0a]/30">
+                  {fmt(progress * DURATION)}
+                  <span className="text-[#0a0a0a]/15">{" / "}</span>
+                  1:47
+                </span>
+              </div>
+
+              {/* Outcomes */}
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                {outcomes.map((o, i) => {
+                  const active = i < revealed;
+                  return (
+                    <div
+                      key={i}
+                      className="rounded-lg p-3 transition-all duration-500"
+                      style={{ backgroundColor: "rgba(10,10,10,0.03)" }}
+                    >
+                      <p
+                        className="text-[9px] uppercase tracking-[0.14em] transition-colors duration-500"
+                        style={{ color: active ? "#c4913c" : "rgba(10,10,10,0.25)" }}
+                      >
+                        {o.label}
+                      </p>
+                      <p
+                        className="mt-1 text-[13px] leading-snug transition-colors duration-500"
+                        style={{ color: active ? "rgba(10,10,10,0.80)" : "rgba(10,10,10,0.25)" }}
+                      >
+                        {o.value}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

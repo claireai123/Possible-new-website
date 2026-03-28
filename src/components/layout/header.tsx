@@ -7,17 +7,21 @@ import { useState, useEffect, useRef } from "react";
 
 const productLinks = [
   { name: "Overview", desc: "The AI receptionist for law firms", href: "/product" },
-  { name: "Legal Intake", desc: "Autonomous client capture & qualification", href: "/product/legal-intake" },
+  { name: "Intake", desc: "Every call answered on the first ring", href: "/product/intake" },
+  { name: "Case Qualification", desc: "Police reports, fault & treatment confirmed", href: "/product/case-qualification" },
   { name: "Retainer Automation", desc: "From intake to signed retainer, hands-free", href: "/product/retainer-automation" },
-  { name: "Integrations", desc: "Clio, Filevine, MyCase & more", href: "/integrations" },
+  { name: "Consultation Booking", desc: "Calendar synced, conflicts checked", href: "/product/consultation-booking" },
+  { name: "Bilingual Support", desc: "English & Spanish, native fluency", href: "/product/bilingual" },
+  { name: "CRM Integrations", desc: "Clio, Filevine, MyCase & more", href: "/integrations" },
+  { name: "Call Analytics", desc: "Transcripts, scoring & insights", href: "/product/analytics" },
 ];
 
 const productVideos = [
   {
-    title: "See Claire handle a live intake call",
+    title: "Every call answered, every lead qualified",
     label: "Product demo",
-    href: "/demo",
-    img: "/images/demo-thumb.jpg",
+    href: "https://www.youtube.com/watch?v=eo5AUYB9g6o",
+    thumb: "https://img.youtube.com/vi/eo5AUYB9g6o/maxresdefault.jpg",
   },
 ];
 
@@ -100,7 +104,7 @@ export function Header() {
               <Link href="#" className="text-[13px] text-[#0a0a0a]/50 hover:text-[#0a0a0a]">Log in</Link>
               <Link
                 href="/contact"
-                className="rounded bg-[#c4913c] px-4 py-2.5 text-[12px] font-normal text-white transition-colors hover:bg-[#b07e2f]"
+                className="rounded bg-[#0a0a0a] px-5 py-2.5 text-[13px] font-normal text-white transition-colors hover:bg-[#0a0a0a]/85"
               >
                 Book a Demo
               </Link>
@@ -117,26 +121,27 @@ export function Header() {
           </div>
         </nav>
 
+
         {/* ── Product mega-menu (Legora-style: links left, videos right) ── */}
         {active === "product" && (
           <MegaPanel onEnter={() => open("product")} onLeave={close}>
-            <div className="grid grid-cols-[1fr_1fr_auto] gap-16">
+            <div className="grid grid-cols-[1fr_1fr_auto] gap-20">
               {/* Left two columns: product links */}
               <div className="col-span-2">
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">
+                <p className="mb-8 text-[11px] font-normal text-[#0a0a0a]/30">
                   Product
                 </p>
-                <div className="grid grid-cols-2 gap-x-12 gap-y-1">
+                <div className="grid grid-cols-2 gap-x-16 gap-y-2">
                   {productLinks.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="group block py-3"
+                      className="group block py-4"
                     >
-                      <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
+                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450 }}>
                         {item.name}
                       </p>
-                      <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">
+                      <p className="mt-1 text-[14px] text-[#0a0a0a]/35">
                         {item.desc}
                       </p>
                     </Link>
@@ -144,32 +149,38 @@ export function Header() {
                 </div>
               </div>
 
-              {/* Right column: video cards */}
-              <div className="w-[380px]">
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">
+              {/* Right column: video card */}
+              <div className="w-[420px]">
+                <p className="mb-8 text-[11px] font-normal text-[#0a0a0a]/30">
                   Product videos
                 </p>
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {productVideos.map((vid) => (
-                    <Link key={vid.href} href={vid.href} className="group block">
-                      {/* Image placeholder */}
-                      <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
-                        <div className="flex h-full items-center justify-center">
-                          <svg className="h-10 w-10 text-[#0a0a0a]/15" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
+                    <a key={vid.href} href={vid.href} target="_blank" rel="noopener noreferrer" className="group block">
+                      <div className="relative aspect-[16/9] overflow-hidden bg-[#e8e5de]">
+                        <img
+                          src={vid.thumb}
+                          alt={vid.title}
+                          className="h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0a0a0a]/60 transition-transform group-hover:scale-110">
+                            <svg className="ml-1 h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
-                      <p className="mt-3 text-[11px] text-[#0a0a0a]/35">
+                      <p className="mt-4 text-[11px] text-[#0a0a0a]/30">
                         {vid.label}
                       </p>
-                      <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
+                      <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450 }}>
                         {vid.title}
                       </p>
-                      <p className="mt-1 text-[13px] text-[#0a0a0a]/40">
+                      <p className="mt-2 text-[14px] text-[#0a0a0a]/35">
                         Watch video
                       </p>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -271,7 +282,7 @@ export function Header() {
                 <Link key={t.href} href={t.href} className="block py-2.5 text-base text-[#0a0a0a]" onClick={() => setMobileOpen(false)}>{t.name}</Link>
               ))}
             </div>
-            <Link href="/contact" className="mt-6 block w-full rounded bg-[#c4913c] py-2.5 text-center text-[12px] font-normal text-white" onClick={() => setMobileOpen(false)}>
+            <Link href="/contact" className="mt-6 block w-full rounded bg-[#0a0a0a] py-2.5 text-center text-[13px] font-normal text-white" onClick={() => setMobileOpen(false)}>
               Book a Demo
             </Link>
           </div>
