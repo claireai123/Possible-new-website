@@ -92,7 +92,7 @@ export function Header() {
 
             {/* Center nav */}
             <div className="hidden items-center lg:flex">
-              <NavDrop label="Product" id="product" active={active} open={open} close={close} />
+              <NavDrop label="Platform" id="product" active={active} open={open} close={close} />
               <NavDrop label="Solutions" id="solutions" active={active} open={open} close={close} />
               <NL href="/pricing">Pricing</NL>
               <NavDrop label="Resources" id="resources" active={active} open={open} close={close} />

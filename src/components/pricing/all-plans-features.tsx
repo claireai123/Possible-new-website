@@ -51,25 +51,23 @@ const features = [
 export function AllPlansFeatures() {
   return (
     <div className="w-full max-w-[1728px] mx-auto px-6 md:px-12 py-24 bg-[#fefefc]">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl text-[#0a0a0a] font-bold tracking-tight mb-4">
-          Enjoy with all plans
+      <div className="mb-16 border-b border-[#0a0a0a] pb-4">
+        <h2 className="text-3xl text-[#0a0a0a] font-serif tracking-tight uppercase">
+          Core Infrastructure
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-5 w-full border-t border-l border-[#e4e4e7]">
         {features.map((feature, i) => (
           <div 
             key={i} 
-            className="bg-white px-6 py-12 md:px-10 md:py-16 flex flex-col items-center justify-start text-center shadow-sm border border-[#e4e4e7] rounded-3xl hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 h-full min-h-[480px]"
+            className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-[500px]"
           >
-            <div className="mb-8 flex items-center justify-center p-4 rounded-full bg-slate-50">
-              {feature.icon}
-            </div>
-            <h3 className="text-[#0a0a0a] font-bold text-[19px] mb-4 leading-tight tracking-tight px-1 mt-auto">
+            <h3 className="text-[#0a0a0a] font-serif font-bold text-xl md:text-2xl mb-8 leading-tight tracking-tight">
+              <span className="opacity-40 text-xs block mb-3 uppercase tracking-widest font-sans">{String(i + 1).padStart(2, '0')} //</span>
               {feature.title}
             </h3>
-            <p className="text-[#0a0a0a]/60 text-[15px] leading-relaxed px-1">
+            <p className="text-[#0a0a0a]/60 text-base md:text-lg leading-relaxed font-sans">
               {feature.desc}
             </p>
           </div>

@@ -16,12 +16,14 @@
   --color-cta: #18181b;
   --color-cta-text: #fafafa;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
 
-  /* Vesence exact tracking value */
-  --tracking-heading: -0.06em;
+  /* Universal Legora Typography Constraints */
+  --tracking-heading: -0.04em;
+  --tracking-body: -0.01em;
+  --line-height-body: 1.3em;
 }
 
 html {
@@ -34,6 +36,8 @@ body {
   background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--tracking-body);
 }
 
 /* Animated waveform bars */

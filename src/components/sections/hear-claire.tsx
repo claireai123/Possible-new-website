@@ -2,185 +2,149 @@
 
 import { useState, useRef, useEffect } from "react";
 
-/* Waveform shaped like a real two-person phone call */
-const waveform = [
-  .18,.35,.52,.68,.74,.81,.70,.58,.65,.72,.80,.68,.55,.42,.30,
-  .08,.05,.06,.04,
-  .15,.28,.45,.55,.62,.70,.58,.48,.55,.65,.72,.60,.45,.32,.20,
-  .06,.04,.05,.03,
-  .12,.25,.40,.52,.65,.78,.85,.72,.60,.68,.75,.82,.70,.55,.62,.75,.80,.65,.50,.38,.25,
-  .05,.04,.06,.04,
-  .10,.22,.38,.50,.60,.55,.45,.52,.62,.68,.55,.40,.28,.18,
-  .04,.05,.03,.04,
-  .10,.20,.35,.48,.58,.68,.75,.82,.88,.80,.72,.65,.70,.78,.85,.90,.82,.75,.68,.72,.80,.85,.78,.65,.52,.40,.30,.20,.12,
-  .06,.04,.03,.02,
-];
-
-const outcomes = [
-  { label: "Injury", value: "Neck & back — ER same day" },
-  { label: "Report", value: "Police report filed" },
-  { label: "Consult", value: "Booked tomorrow, 10 AM" },
-  { label: "Retainer", value: "Sent via email + SMS" },
-];
-
-const DURATION = 107;
-
 export function HearClaire() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const startRef = useRef(0);
-  const rafRef = useRef<number>(0);
-
-  useEffect(() => {
-    if (!isPlaying) return;
-    startRef.current = Date.now() - progress * DURATION * 1000;
-
-    const tick = () => {
-      const p = Math.min((Date.now() - startRef.current) / (DURATION * 1000), 1);
-      setProgress(p);
-      if (p >= 1) { setIsPlaying(false); return; }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [isPlaying]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const play = () => {
-    if (progress >= 1) setProgress(0);
-    setIsPlaying((v) => !v);
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      if (progress >= 1) {
+        audioRef.current.currentTime = 0;
+      }
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(err => console.error("Audio block:", err));
+    }
   };
 
-  const fmt = (s: number) => {
-    const m = Math.floor(s / 60);
-    return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      const current = audioRef.current.currentTime;
+      const total = audioRef.current.duration || 1;
+      const p = Math.min(current / total, 1);
+      setProgress(p);
+      
+      if (p >= 1) {
+        setIsPlaying(false);
+      }
+    }
   };
-
-  const revealed = progress >= 1 ? 4 : Math.floor(progress * 5);
 
   return (
-    <section className="relative overflow-hidden px-6 py-[120px]" style={{ backgroundColor: "#f5f4f1" }}>
-      {/* Background waveform decoration */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.05]">
-        <div className="flex items-end gap-[3px]" style={{ height: 300, width: "80%" }}>
-          {waveform.map((h, i) => (
-            <div
-              key={i}
-              className="flex-1"
-              style={{
-                height: `${h * 100}%`,
-                borderRadius: 2,
-                background: "#0a0a0a",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="relative mx-auto max-w-[1728px]">
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
-          {/* Left: headline + subtitle */}
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#c4913c]/60">
-              Voice AI
-            </p>
-            <h2
-              className="mt-5 font-serif text-[clamp(2.5rem,5vw,56px)] font-normal text-[#0a0a0a]"
-              style={{ letterSpacing: "-0.02em", lineHeight: 1.05 }}
-            >
-              Hear Claire qualify<br />
-              a PI lead.
+    <section className="relative overflow-hidden px-6 py-[120px] font-sans bg-[#fefefc]">
+      <audio 
+        ref={audioRef} 
+        src="/EditedMUSIC.mp3" 
+        onTimeUpdate={handleTimeUpdate} 
+        onEnded={() => setIsPlaying(false)} 
+        preload="auto"
+      />
+      <div className="relative mx-auto max-w-[1680px]">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          
+          {/* Left: Minimal Copy block mimicking Legora */}
+          <div className="max-w-xl">
+            <h2 className="text-[#0a0a0a] font-serif text-[3.5rem] md:text-[5rem] leading-[1.05] tracking-[-0.04em] mb-4">
+              Never miss a lead.
             </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-[1.5] text-[#0a0a0a]/45">
-              Real conversation. Every qualifying question asked,
-              consultation booked, retainer sent — under two minutes.
+            
+            <p className="text-[16px] md:text-[18px] text-[#0a0a0a]/50 max-w-[400px] mb-8">
+              Capture the right clients 24/7 and entirely automate routine client update calls. Help your lawyers spend significantly less time managing calls.
             </p>
+
+            <button className="bg-[#0a0a0a] text-white px-10 py-5 text-[12px] tracking-[0.2em] uppercase font-bold hover:bg-black/80 transition-colors">
+              Book a Demo
+            </button>
           </div>
 
-          {/* Right: player card */}
-          <div className="flex justify-center lg:justify-end">
-            <div
-              className="w-full max-w-[480px] rounded-2xl p-8"
-              style={{
-                backgroundColor: "#fefefc",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 12px 40px -8px rgba(0,0,0,0.08)",
-                border: "1px solid rgba(0,0,0,0.06)",
-              }}
-            >
-              {/* Title */}
-              <p className="text-[13px] font-medium text-[#0a0a0a]/50">PI Intake Call</p>
-
-              {/* Player */}
-              <div className="mt-5 flex items-center gap-4">
-                <button
-                  onClick={play}
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#c4913c] transition-transform hover:scale-[1.04] active:scale-[0.97]"
-                  aria-label={isPlaying ? "Pause" : "Play"}
-                >
-                  {isPlaying ? (
-                    <svg width="13" height="13" viewBox="0 0 12 12">
-                      <rect x="2" y="1" width="2.5" height="10" rx=".5" fill="white" />
-                      <rect x="7.5" y="1" width="2.5" height="10" rx=".5" fill="white" />
-                    </svg>
-                  ) : (
-                    <svg width="13" height="13" viewBox="0 0 12 12" className="ml-[2px]">
-                      <path d="M3 1l8 5-8 5V1z" fill="white" />
-                    </svg>
-                  )}
-                </button>
-
-                <div className="flex flex-1 items-end gap-[1.5px]" style={{ height: 40 }}>
-                  {waveform.map((h, i) => {
-                    const pos = i / waveform.length;
-                    const past = pos <= progress;
-                    return (
-                      <div
-                        key={i}
-                        className="flex-1 transition-colors duration-150"
-                        style={{
-                          height: `${h * 100}%`,
-                          borderRadius: 1,
-                          background: past ? "#c4913c" : "rgba(10,10,10,0.10)",
-                        }}
-                      />
-                    );
-                  })}
+          {/* Right: Mock Dashboard + Floating Player */}
+          <div className="relative w-full flex justify-end">
+            
+            {/* The Dashboard Mockup Wrapper */}
+            <div className="w-full max-w-[850px] bg-white rounded-none border border-[#e4e4e7] shadow-sm relative overflow-hidden">
+              
+              {/* Fake Platform Header */}
+              <div className="p-8 pb-0">
+                <div className="flex items-center justify-between border-b border-[#0a0a0a] pb-6 mb-6">
+                  <div>
+                    <p className="text-[10px] font-bold tracking-widest text-[#0a0a0a]/40 uppercase mb-2 font-sans">by claire.ai</p>
+                    <h3 className="text-3xl font-serif text-[#0a0a0a] uppercase tracking-tight">Voice AI</h3>
+                  </div>
+                  <div className="hidden md:flex gap-6 text-[12px] font-bold text-[#0a0a0a]/40 uppercase tracking-widest font-sans">
+                    <span>Voice AI</span>
+                    <span className="text-[#0a0a0a] border-b-2 border-[#0a0a0a] pb-1">Call Logs</span>
+                    <span>Agents</span>
+                    <span>Numbers</span>
+                    <span>Analytics</span>
+                  </div>
                 </div>
-
-                <span className="shrink-0 text-[12px] tabular-nums text-[#0a0a0a]/30">
-                  {fmt(progress * DURATION)}
-                  <span className="text-[#0a0a0a]/15">{" / "}</span>
-                  1:47
-                </span>
               </div>
 
-              {/* Outcomes */}
-              <div className="mt-7 grid grid-cols-2 gap-3">
-                {outcomes.map((o, i) => {
-                  const active = i < revealed;
-                  return (
-                    <div
-                      key={i}
-                      className="rounded-lg p-3 transition-all duration-500"
-                      style={{ backgroundColor: "rgba(10,10,10,0.03)" }}
-                    >
-                      <p
-                        className="text-[9px] uppercase tracking-[0.14em] transition-colors duration-500"
-                        style={{ color: active ? "#c4913c" : "rgba(10,10,10,0.25)" }}
-                      >
-                        {o.label}
-                      </p>
-                      <p
-                        className="mt-1 text-[13px] leading-snug transition-colors duration-500"
-                        style={{ color: active ? "rgba(10,10,10,0.80)" : "rgba(10,10,10,0.25)" }}
-                      >
-                        {o.value}
-                      </p>
+              {/* Fake Table */}
+              <div className="w-full px-8 pb-8 font-sans">
+                <div className="grid grid-cols-4 text-[11px] font-bold text-[#0a0a0a] uppercase tracking-widest bg-[#f4f4f5] rounded-none px-4 py-3 border border-[#e4e4e7] border-b-0">
+                  <div>From</div>
+                  <div>Status</div>
+                  <div>Duration</div>
+                  <div>Agent</div>
+                </div>
+                
+                {[
+                  { from: "(555) 019-3847", dur: "2:40", agent: "Harrington" },
+                  { from: "(555) 442-1065", dur: "2:12", agent: "Siv" },
+                  { from: "(555) 734-2210", dur: "0:39", agent: "North" },
+                  { from: "(555) 308-7902", dur: "1:50", agent: "Ashford, Ke" },
+                  { from: "(555) 669-5571", dur: "1:11", agent: "Grantham" },
+                ].map((row, i) => (
+                  <div key={i} className="grid grid-cols-4 items-center text-[13px] text-[#0a0a0a]/80 border border-[#e4e4e7] border-t-0 px-4 py-4 hover:bg-[#fafafa]">
+                    <div className="font-mono text-[#0a0a0a]/60 text-xs">{row.from}</div>
+                    <div className="flex items-center gap-2">
+                       <span className="text-[10px] font-bold text-[#0a0a0a] uppercase tracking-widest border border-[#e4e4e7] px-2 py-0.5 bg-white">Completed</span>
                     </div>
-                  );
-                })}
+                    <div className="flex items-center gap-2">
+                       <div className="w-5 h-5 bg-[#0a0a0a] flex items-center justify-center text-white"><svg width="8" height="8" viewBox="0 0 12 12" className="ml-[2px]"><path d="M3 1l8 5-8 5V1z" fill="white" /></svg></div>
+                       <span className="font-mono text-xs">{row.dur}</span>
+                    </div>
+                    <div className="truncate text-[#0a0a0a]/60 uppercase text-[11px] tracking-wider">{row.agent}</div>
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Floating Mobile Audio UI */}
+            <div className="absolute right-[0] bottom-[-40px] md:right-[-40px] md:bottom-[20px] w-[300px] bg-[#0a0a0a] rounded-none p-8 border border-white/20 z-20 shadow-2xl flex flex-col items-center">
+              
+              <div className="text-center mb-8">
+                <h4 className="text-white font-serif text-2xl mb-2">Exotic Law</h4>
+                <p className="text-white/40 text-[10px] tracking-widest uppercase font-bold mt-1">Voice AI Assistant</p>
+              </div>
+
+              <button 
+                onClick={play}
+                className="w-full py-4 border border-white/20 hover:border-white hover:bg-white text-white hover:text-black transition-all font-bold tracking-[0.2em] text-[11px] uppercase flex items-center justify-center gap-3"
+              >
+                {isPlaying ? (
+                  <>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                    PAUSE
+                  </>
+                ) : (
+                  <>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    PLAY
+                  </>
+                )}
+              </button>
+            </div>
+
           </div>
+          
         </div>
       </div>
     </section>

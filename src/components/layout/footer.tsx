@@ -53,18 +53,18 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0a0a0a] text-white">
-      <div className="mx-auto max-w-[1728px] px-8 pt-20 pb-10">
+      <div className="mx-auto max-w-[1680px] px-8 pt-[120px] pb-10">
         
         {/* Harvey-style Minimalist CTA Block */}
         <div className="flex flex-col justify-between border-b border-white/10 pb-16 mb-16 md:flex-row md:items-center">
           <div>
-            <h2 className="text-[36px] tracking-[0.2px] text-white md:text-[48px]" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            <h2 className="text-[36px] tracking-[-0.03em] font-serif text-white md:text-[48px] leading-[1]">
               Unlock World-Class Intake for Your Firm
             </h2>
           </div>
           <div className="mt-8 flex md:mt-0 md:justify-end">
             <Link href="/contact" className="w-full transition-opacity hover:opacity-90 md:w-auto">
-              <div className="flex min-w-[160px] items-center justify-center rounded-[2px] bg-white px-6 py-[14px] text-[#0a0a0a] text-[13px] font-semibold tracking-[0.5px]">
+              <div className="flex items-center justify-center rounded-none bg-white px-10 py-5 text-[#0a0a0a] text-[12px] uppercase font-bold tracking-[0.2em]">
                 Request a Demo
               </div>
             </Link>

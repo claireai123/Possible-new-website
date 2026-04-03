@@ -35,14 +35,14 @@ function FadeIn({
 
 export function SocialProof() {
   return (
-    <section className="bg-[#0a0a0a] px-6 py-[120px]">
-      <div className="mx-auto max-w-[1728px]">
+    <section className="bg-white px-6 py-[120px]">
+      <div className="mx-auto max-w-[1680px]">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
           {/* ── Left column: stat ── */}
           <FadeIn>
             <div>
               <span
-                className="block font-serif text-white"
+                className="block font-serif text-[#0a0a0a]"
                 style={{
                   fontSize: "clamp(5rem, 12vw, 140px)",
                   letterSpacing: "-0.03em",
@@ -51,9 +51,7 @@ export function SocialProof() {
               >
                 312
               </span>
-              <p
-                className="mt-6 max-w-md text-[16px] leading-[1.5] text-white/40"
-              >
+              <p className="mt-6 max-w-[400px] text-[16px] text-[#0a0a0a]/50">
                 consultations captured in a single month that would have been
                 missed.
               </p>
@@ -64,16 +62,13 @@ export function SocialProof() {
           <FadeIn delay={0.15}>
             <div className="flex h-full flex-col justify-center">
               <blockquote>
-                <p className="text-[18px] leading-[1.6] text-white/70 lg:text-[20px]">
+                <p className="text-[20px] max-w-xl text-[#0a0a0a]/80">
                   &ldquo;ClaireAI captured 312 consultations we would have
                   missed. $1.2 million in new case value in a single month. The
                   ROI was obvious within the first week.&rdquo;
                 </p>
                 <footer className="mt-8">
-                  <span
-                    className="text-[13px] tracking-wide text-white/30"
-                    style={{ letterSpacing: "0.05em" }}
-                  >
+                  <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-[#0a0a0a]/40">
                     &mdash; Managing Partner, Top 50 PI Firm
                   </span>
                 </footer>

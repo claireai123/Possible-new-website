@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { RoiCalculator } from '@/components/pricing/roi-calculator';
 import { FaqSection } from '@/components/pricing/faq-section';
 import { AllPlansFeatures } from '@/components/pricing/all-plans-features';
 
@@ -14,7 +13,7 @@ export default function PricingPage() {
           className="text-6xl md:text-7xl lg:text-[80px] font-serif text-[#0a0a0a]"
           style={{
             fontSize: "clamp(3.5rem, 6vw, 80px)",
-            letterSpacing: "-0.02em",
+            letterSpacing: "normal",
             fontFeatureSettings: '"liga" 0',
             lineHeight: "0.95",
           }}
@@ -30,7 +29,7 @@ export default function PricingPage() {
       <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start relative z-10 w-full">
         
         {/* Starter Tier */}
-        <div className="rounded-[32px] border border-[#e4e4e7] bg-white p-10 md:p-14 flex flex-col h-full hover:border-[#0a0a0a]/20 transition-colors shadow-sm">
+        <div className="rounded-none border border-[#e4e4e7] bg-white p-10 md:p-14 flex flex-col h-full hover:border-[#0a0a0a]/20 transition-colors shadow-sm">
           <div className="mb-8">
             <h3 className="text-xl font-bold tracking-wide text-[#0a0a0a] uppercase mb-2">Starter</h3>
             <p className="text-[#0a0a0a]/50 text-sm h-10">
@@ -46,7 +45,7 @@ export default function PricingPage() {
             </div>
           </div>
           
-          <Link href="/contact" className="w-full text-center py-3 rounded-full border border-[#e4e4e7] text-[#0a0a0a] font-medium hover:border-[#0a0a0a] hover:bg-[#fafafa] transition-all mb-8 shadow-sm">
+          <Link href="/contact" className="w-full text-center py-3 rounded-none border border-[#e4e4e7] text-[#0a0a0a] font-medium hover:border-[#0a0a0a] hover:bg-[#fafafa] transition-all mb-8 shadow-sm">
             Get Started
           </Link>
 
@@ -82,9 +81,9 @@ export default function PricingPage() {
         </div>
 
         {/* Professional Tier */}
-        <div className="rounded-[32px] border-2 border-[#1b4332] bg-[#fcfdfc] p-10 md:p-14 flex flex-col h-full transform md:-translate-y-4 shadow-xl relative z-20">
+        <div className="rounded-none border-2 border-[#1b4332] bg-[#fcfdfc] p-10 md:p-14 flex flex-col h-full transform md:-translate-y-4 shadow-xl relative z-20">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <span className="bg-[#1b4332] text-white text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full">
+            <span className="bg-[#1b4332] text-white text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-none">
               Most Popular
             </span>
           </div>
@@ -103,7 +102,7 @@ export default function PricingPage() {
             </div>
           </div>
           
-          <Link href="/contact" className="w-full text-center py-3 rounded-full bg-[#0a0a0a] text-white font-semibold hover:bg-black/85 transition-all mb-8 shadow-md">
+          <Link href="/contact" className="w-full text-center py-3 rounded-none bg-[#0a0a0a] text-white font-semibold hover:bg-black/85 transition-all mb-8 shadow-md">
             Get Professional
           </Link>
 
@@ -145,7 +144,7 @@ export default function PricingPage() {
         </div>
 
         {/* Enterprise Tier */}
-        <div className="rounded-[32px] border border-[#e4e4e7] bg-white p-10 md:p-14 flex flex-col h-full hover:border-[#0a0a0a]/20 transition-colors shadow-sm">
+        <div className="rounded-none border border-[#e4e4e7] bg-white p-10 md:p-14 flex flex-col h-full hover:border-[#0a0a0a]/20 transition-colors shadow-sm">
           <div className="mb-8">
             <h3 className="text-xl font-bold tracking-wide text-[#0a0a0a] uppercase mb-2">Enterprise</h3>
             <p className="text-[#0a0a0a]/50 text-sm h-10">
@@ -160,7 +159,7 @@ export default function PricingPage() {
             </div>
           </div>
           
-          <Link href="/contact" className="w-full text-center py-3 rounded-full border border-[#e4e4e7] text-[#0a0a0a] font-medium hover:border-[#0a0a0a] hover:bg-[#fafafa] transition-all mb-8 shadow-sm">
+          <Link href="/contact" className="w-full text-center py-3 rounded-none border border-[#e4e4e7] text-[#0a0a0a] font-medium hover:border-[#0a0a0a] hover:bg-[#fafafa] transition-all mb-8 shadow-sm">
             Contact Sales
           </Link>
 
@@ -195,14 +194,8 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
-
       {/* All Plans Tombstone Cards */}
       <AllPlansFeatures />
-
-      {/* ROI Calculator Section */}
-      <div className="px-6">
-        <RoiCalculator />
-      </div>
 
       {/* FAQ Section */}
       <div className="px-6">

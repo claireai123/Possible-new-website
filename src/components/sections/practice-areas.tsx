@@ -51,16 +51,13 @@ const items = [
 export function PracticeAreas() {
   return (
     <section className="bg-white px-6 py-[120px]">
-      <div className="mx-auto w-full max-w-[1728px]">
+      <div className="mx-auto w-full max-w-[1680px]">
         <FadeIn>
           <div className="grid items-end gap-[80px] lg:grid-cols-[1fr_2fr]">
-            <p className="max-w-xs text-[13px] leading-[1.3] text-[#0a0a0a]/40">
+            <p className="max-w-xs text-[13px] text-[#0a0a0a]/40">
               Every practice area has different intake needs. Claire adapts her questions, qualifications, and urgency routing to match yours.
             </p>
-            <h2
-              className="font-serif text-[clamp(3rem,7vw,88px)] font-light text-[#0a0a0a]"
-              style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
-            >
+            <h2 className="font-serif text-[clamp(2.5rem,7vw,88px)] text-[#0a0a0a] tracking-[-0.03em] leading-[0.95] [font-feature-settings:'liga'_0]">
               Built for every<br />
               practice area.
             </h2>
@@ -72,17 +69,17 @@ export function PracticeAreas() {
             {items.map((item, i) => (
               <FadeIn key={item.area} delay={0.08 * i}>
                 <div className="group cursor-pointer">
-                  <div className="aspect-[3/4] overflow-hidden rounded-lg transition-transform duration-500 group-hover:scale-[0.98]">
+                  <div className="aspect-[3/4] overflow-hidden rounded-none transition-transform duration-500 group-hover:scale-[0.98]">
                     <img
                       src={item.img}
                       alt={item.area}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="mt-5 text-[15px] text-[#0a0a0a]" style={{ fontWeight: 450, lineHeight: "19.5px" }}>
+                  <h3 className="mt-5 text-[15px] font-medium text-[#0a0a0a]">
                     {item.area}
                   </h3>
-                  <p className="mt-2 text-[15px] leading-[1.5] text-[#0a0a0a]/40">
+                  <p className="mt-2 text-[15px] max-w-[400px] text-[#0a0a0a]/50">
                     {item.desc}
                   </p>
                 </div>
