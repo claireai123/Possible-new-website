@@ -422,24 +422,38 @@ export default async function ArticlePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* ─────────── Final CTA (kept minimal — Legora-clean) ─────────── */}
-      <section className="bg-[#0a0a0a] text-white px-6 py-24">
-        <div className="mx-auto max-w-[1100px]">
+      {/* ─────────── Final CTA (sage radial — matches site-wide pattern) ─────────── */}
+      <section
+        className="px-6 py-[120px]"
+        style={{
+          backgroundColor: "#8c9c82",
+          backgroundImage: `
+            url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+            radial-gradient(120% 90% at 20% 10%, #a9b8a0 0%, #8c9c82 45%, #7a8a72 100%)
+          `,
+          backgroundSize: "280px 280px, 100% 100%",
+          backgroundRepeat: "repeat, no-repeat",
+        }}
+      >
+        <div className="mx-auto max-w-[1680px]">
           <h2
+            className="font-serif text-[#0a0a0a] max-w-[22ch]"
             style={{
-              fontSize: "clamp(2rem, 4vw, 40px)",
-              lineHeight: "1.1",
-              letterSpacing: "-0.025em",
-              fontWeight: 400,
-              maxWidth: "22ch",
+              fontSize: "clamp(2.5rem, 5vw, 72px)",
+              lineHeight: "1.05",
+              letterSpacing: "-0.02em",
+              fontWeight: 500,
             }}
           >
             See ClaireAI handle a live intake call.
           </h2>
-          <div className="mt-10">
+          <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
+              Book a 30-minute walk-through. We&apos;ll show Claire handling a live intake call calibrated to your firm&apos;s practice area and rubric.
+            </p>
             <Link
               href="/contact"
-              className="inline-flex h-fit items-center justify-center bg-white px-6 py-3 text-[13px] uppercase tracking-[0.1em] text-[#0a0a0a] transition-colors hover:bg-white/85"
+              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
               Book a demo
             </Link>
