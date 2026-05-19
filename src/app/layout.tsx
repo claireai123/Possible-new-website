@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
     googleBot: {
       index: true,
       follow: true,
@@ -82,31 +85,62 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://theclaireai.com/#organization",
       name: "ClaireAI",
+      alternateName: ["Claire AI", "Claire"],
       legalName: "ClaireAI, Inc.",
       url: "https://theclaireai.com",
       logo: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1772837716/Claire_AI_White-removebg-preview.png",
       foundingDate: "2024",
+      foundingLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Miami",
+          addressRegion: "FL",
+          addressCountry: "US",
+        },
+      },
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
         addressRegion: "FL",
         addressCountry: "US",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "sales",
-        availableLanguage: ["English", "Spanish"],
-        url: "https://theclaireai.com/contact",
-      },
+      areaServed: { "@type": "Country", name: "United States" },
+      naics: "541512",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          availableLanguage: ["English", "Spanish"],
+          url: "https://theclaireai.com/contact",
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          availableLanguage: ["English", "Spanish"],
+          url: "https://theclaireai.com/contact",
+        },
+      ],
       sameAs: [
         "https://www.linkedin.com/company/theclaireai",
+        "https://www.crunchbase.com/organization/claireai",
+        "https://www.g2.com/products/claireai",
+        "https://www.capterra.com/p/claireai",
       ],
       knowsAbout: [
-        "Legal Technology",
-        "Artificial Intelligence",
-        "Client Intake Automation",
-        "CRM Integration",
-        "Virtual Receptionist",
+        "AI Receptionist",
+        "Legal Intake Automation",
+        "Law Firm Answering Service",
+        "Personal Injury Intake",
+        "Criminal Defense Intake",
+        "Family Law Intake",
+        "Clio Integration",
+        "MyCase Integration",
+        "Filevine Integration",
+        "Lawmatics Integration",
+        "DocuSign Retainer Automation",
+        "Bilingual Legal Intake",
+        "24/7 Legal Answering",
       ],
     },
     {
@@ -128,46 +162,32 @@ const jsonLd = {
         "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers.",
     },
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
+      "@id": "https://theclaireai.com/#webapp",
       name: "ClaireAI",
       applicationCategory: "BusinessApplication",
-      applicationSubCategory: "Legal Software",
-      operatingSystem: "Cloud-based",
+      applicationSubCategory: "AI Receptionist for Law Firms",
+      operatingSystem: "Web, iOS, Android",
+      url: "https://theclaireai.com",
+      provider: { "@id": "https://theclaireai.com/#organization" },
       offers: {
         "@type": "AggregateOffer",
         lowPrice: "450",
         highPrice: "1800",
         priceCurrency: "USD",
         offerCount: 3,
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "50",
-        bestRating: "5",
+        url: "https://theclaireai.com/pricing",
       },
       featureList: [
         "24/7 call answering in 0.8 seconds",
-        "Bilingual intake (English & Spanish)",
+        "Bilingual intake (English and Spanish)",
         "Autonomous lead qualification",
         "Consultation booking",
-        "Retainer automation via DocuSign/PandaDoc",
-        "CRM integration (Clio, Filevine, MyCase, Lawmatics, PracticePanther)",
+        "Retainer automation via DocuSign and PandaDoc",
+        "CRM integration with Clio, Filevine, MyCase, Lawmatics, PracticePanther",
         "Conflict checking",
         "Call recording with transcripts",
-      ],
-      review: [
-        {
-          "@type": "Review",
-          author: { "@type": "Person", name: "Managing Partner" },
-          reviewBody:
-            "ClaireAI captured 312 consultations we would have missed. $1.2 million in new case value in a single month.",
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: "5",
-            bestRating: "5",
-          },
-        },
+        "Lead IQ grading A through D",
       ],
     },
   ],
@@ -184,7 +204,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -194,7 +214,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen">
         <Header />
-        <main>{children}</main>
+        <div style={{ paddingTop: 48 }}>
+          <main>{children}</main>
+        </div>
         <Footer />
       </body>
     </html>
