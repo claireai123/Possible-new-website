@@ -501,7 +501,10 @@ export const POSTS: Post[] = [
     title: "Legal intake question bank: 85+ questions by practice area",
     excerpt:
       "Copy-paste intake scripts for personal injury, criminal defense, family law, and immigration. Calibrated by practitioners and validated against the 1,000-firm benchmark.",
-    hero: { img: undefined, imgAlt: "Legal intake question bank by practice area" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779215715/ChatGPT_Image_May_19_2026_at_02_34_34_PM.jpg",
+      imgAlt: "Legal intake question bank by practice area",
+    },
     author: {
       name: "Cal Stein",
       credentials: "Co-Founder, ClaireAI",
