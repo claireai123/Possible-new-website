@@ -322,7 +322,10 @@ export const POSTS: Post[] = [
     title: "How to outsource legal intake: the 2026 complete guide",
     excerpt:
       "Cost breakdowns, vendor models, and decision frameworks from 200+ firms. The complete guide to outsourcing legal intake without losing case quality or compliance.",
-    hero: { img: undefined, imgAlt: "Outsourced legal intake — vendor selection and cost breakdown" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779215106/ChatGPT_Image_May_19_2026_at_02_24_50_PM.jpg",
+      imgAlt: "Outsourced legal intake — vendor selection and cost breakdown",
+    },
     author: {
       name: "Tiago Strammiello",
       credentials: "Founder, ClaireAI",
