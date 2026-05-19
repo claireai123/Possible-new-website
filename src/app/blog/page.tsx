@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { POSTS } from "@/data/posts";
 
 const BASE_URL = "https://theclaireai.com/blog";
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-type Post = {
+type CardPost = {
   date: string;
   title: string;
   excerpt: string;
@@ -25,14 +26,23 @@ type Post = {
   category?: string;
 };
 
-const FEATURED: Post = {
-  category: "Research",
-  date: "Feb 14, 2026",
-  title: "Measuring the impact of AI on 1,000 law firms",
-  excerpt:
-    "Three months. 1,000 law firms surveyed. The largest-ever benchmark of intake conversion, response time, and revenue recovery — and where AI receptionists have the largest measurable effect.",
-  href: "/blog/2026-legal-intake-benchmark-report",
-};
+// Map the typed Post[] from /data/posts.ts into the card shape this page renders.
+const ALL_AS_CARDS: CardPost[] = POSTS.map((p) => ({
+  category: p.category,
+  date: p.date,
+  title: p.title,
+  excerpt: p.excerpt,
+  href: `/blog/${p.slug}`,
+}));
+
+// Featured = first post in posts.ts (the 1,000-firm benchmark).
+const FEATURED: CardPost = ALL_AS_CARDS[0];
+
+// Grid posts = posts 2 through 7 (up to 6 cards in the 3-column grid).
+const GRID_POSTS: CardPost[] = ALL_AS_CARDS.slice(1, 7);
+
+// List posts = remaining posts (rendered as horizontal cards).
+const LIST_POSTS: CardPost[] = ALL_AS_CARDS.slice(7);
 
 const CATEGORIES = [
   "All",
@@ -41,96 +51,6 @@ const CATEGORIES = [
   "Product",
   "Industry",
   "Switching",
-];
-
-const GRID_POSTS: Post[] = [
-  {
-    date: "Feb 12, 2026",
-    title: "How to outsource legal intake: the 2026 complete guide",
-    excerpt:
-      "Cost breakdowns and implementation steps from 200+ firms — outsourced legal intake, vendor selection, and CRM integration paths.",
-    href: "/blog/outsource-legal-intake-guide",
-  },
-  {
-    date: "Jan 28, 2026",
-    title: "Legal intake question bank: 85+ questions by practice area",
-    excerpt:
-      "Copy-paste intake scripts for personal injury, criminal defense, family law, and immigration. Calibrated by practitioners.",
-    href: "/blog/legal-intake-question-bank",
-  },
-  {
-    date: "Feb 4, 2026",
-    title: "Answering service pricing comparison 2026: what law firms actually pay",
-    excerpt:
-      "Real pricing data from 847 law firms comparing Smith.ai, Ruby, AnsweringLegal, and AI receptionists across volume tiers.",
-    href: "/blog/answering-service-pricing-comparison",
-  },
-  {
-    date: "Jan 22, 2026",
-    title: "Best AI receptionist for law firms in 2026",
-    excerpt:
-      "Comparative analysis of major AI receptionist platforms — features, integrations, pricing, and the practice areas they each handle.",
-    href: "/blog/best-ai-receptionist-law-firms-2026",
-  },
-  {
-    date: "Jan 18, 2026",
-    title: "The $100,000 missed-call problem at PI law firms",
-    excerpt:
-      "Analysis of inbound call data showing how PI firms recover up to 1,200% ROI by closing the missed-call gap on first contact.",
-    href: "/blog/missed-call-revenue-loss-law-firms",
-  },
-  {
-    date: "Jan 14, 2026",
-    title: "From legacy to logic: switching from Ruby or Smith.ai",
-    excerpt:
-      "A practical roadmap for transitioning from a legacy answering service to AI-driven intake — without dropping a single live caller.",
-    href: "/blog/switching-guide-legacy-to-claireai",
-  },
-];
-
-const LIST_POSTS: Post[] = [
-  {
-    date: "Feb 8, 2026",
-    title: "openClaw and legal AI: what law firms need to know in 2026",
-    excerpt:
-      "A deep dive into open-source AI agents reshaping legal workflows — and what to evaluate before deploying one in your intake stack.",
-    href: "/blog/openclaw-legal-ai-automation",
-  },
-  {
-    date: "Feb 5, 2026",
-    title: "After-hours answering service for law firms: what actually works",
-    excerpt:
-      "42% of inbound law-firm calls happen after hours. The data behind which after-hours patterns convert into retained matters.",
-    href: "/blog/after-hours-answering-service-law-firms",
-  },
-  {
-    date: "Jan 30, 2026",
-    title: "Priority intelligence: urgency-based routing for critical cases",
-    excerpt:
-      "How Claire detects DV, arraignment, statute-of-limitations, and emergency-custody urgency on the live call and routes to on-call counsel.",
-    href: "/blog/urgency-based-smart-routing",
-  },
-  {
-    date: "Jan 24, 2026",
-    title: "Ethical by design: AI-powered conflict detection per Rule 1.18",
-    excerpt:
-      "Fuzzy-match conflict screening at the door — caller, opposing party, co-defendants, paramours, prior counsel — before any privileged fact lands.",
-    href: "/blog/conflict-aware-intake-prevention",
-  },
-  {
-    date: "Jan 16, 2026",
-    title: "Context is king: why your law firm outgrew scripted answering services",
-    excerpt:
-      "Real intelligence means understanding context. Where the script-based answering model fails — and what replaces it.",
-    href: "/blog/scripted-receptionist-end",
-  },
-  {
-    date: "Jan 10, 2026",
-    title: "How AI phone intake reduces malpractice risk at law firms",
-    excerpt:
-      "22% of malpractice claims trace back to intake errors — missed conflicts, missed deadlines, mis-routed urgency. A risk-management framework.",
-    href: "/blog/ai-intake-reduces-malpractice-risk",
-  },
 ];
 
 const blogSchema = {
