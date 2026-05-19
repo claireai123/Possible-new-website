@@ -733,7 +733,10 @@ export const POSTS: Post[] = [
     title: "Answering service pricing comparison 2026: what law firms actually pay",
     excerpt:
       "Real pricing data from 847 law firms comparing Smith.ai, Ruby, AnsweringLegal, and AI receptionists across volume tiers. The hidden costs nobody tells you.",
-    hero: { img: undefined, imgAlt: "Answering service pricing comparison for law firms 2026" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779216213/ChatGPT_Image_May_19_2026_at_02_43_13_PM.jpg",
+      imgAlt: "Answering service pricing comparison for law firms 2026",
+    },
     author: {
       name: "Tiago Strammiello",
       credentials: "Founder, ClaireAI",
