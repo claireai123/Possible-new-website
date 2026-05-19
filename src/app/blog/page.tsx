@@ -79,7 +79,7 @@ function CardImage({ ratio = "aspect-[4/3]", img, alt }: { ratio?: string; img?:
   if (img) {
     return (
       <div className={`relative ${ratio} overflow-hidden rounded-md bg-[#ecebe7]`}>
-        <img src={img} alt={alt ?? ""} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <img src={img} alt={alt ?? ""} className="absolute inset-0 h-full w-full object-contain" loading="lazy" />
       </div>
     );
   }
