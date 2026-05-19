@@ -5,7 +5,7 @@ import { AllPlansFeatures } from '@/components/pricing/all-plans-features';
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-[#fefefc] text-[#0a0a0a] pt-32 pb-24 font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-screen bg-[#ffffff] text-[#0a0a0a] pt-32 pb-24 font-sans selection:bg-[#0a0a0a]/10">
       
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-20 space-y-6">

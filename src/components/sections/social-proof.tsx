@@ -33,46 +33,96 @@ function FadeIn({
   );
 }
 
+const grainyGreen: React.CSSProperties = {
+  backgroundColor: "#ffffff",
+};
+
 export function SocialProof() {
   return (
-    <section className="bg-white px-6 py-[120px]">
-      <div className="mx-auto max-w-[1680px]">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
-          {/* ── Left column: stat ── */}
+    <section style={grainyGreen} className="px-6 py-[120px]">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:gap-20">
+          {/* ── Left: editorial quote + attribution ── */}
           <FadeIn>
-            <div>
+            <div className="flex h-full flex-col justify-start">
               <span
-                className="block font-serif text-[#0a0a0a]"
-                style={{
-                  fontSize: "clamp(5rem, 12vw, 140px)",
-                  letterSpacing: "-0.03em",
-                  lineHeight: "0.9",
-                }}
+                aria-hidden
+                className="font-serif text-[#0a0a0a]/80"
+                style={{ fontSize: 48, lineHeight: 0.6, letterSpacing: "-0.02em" }}
               >
-                312
+                &rdquo;
               </span>
-              <p className="mt-6 max-w-[400px] text-[16px] text-[#0a0a0a]/50">
-                consultations captured in a single month that would have been
-                missed.
-              </p>
+              <blockquote>
+                <p
+                  className="font-serif text-[#0a0a0a]"
+                  style={{
+                    fontSize: "clamp(1.75rem, 2.4vw, 2.5rem)",
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.015em",
+                    fontWeight: 400,
+                    marginTop: 20,
+                  }}
+                >
+                  ClaireAI captured 312 consultations we would have missed. $1.2
+                  million in new case value in a single month. The ROI was
+                  obvious within the first week.
+                </p>
+                <footer className="mt-10">
+                  <p className="text-[15px] font-medium text-[#0a0a0a]">
+                    Managing Partner
+                  </p>
+                  <p className="mt-1 text-[14px] text-[#0a0a0a]/55">
+                    Top 50 Personal Injury Firm
+                  </p>
+                </footer>
+              </blockquote>
             </div>
           </FadeIn>
 
-          {/* ── Right column: testimonial ── */}
+          {/* ── Right: video / poster with play button ── */}
           <FadeIn delay={0.15}>
-            <div className="flex h-full flex-col justify-center">
-              <blockquote>
-                <p className="text-[20px] max-w-xl text-[#0a0a0a]/80">
-                  &ldquo;ClaireAI captured 312 consultations we would have
-                  missed. $1.2 million in new case value in a single month. The
-                  ROI was obvious within the first week.&rdquo;
-                </p>
-                <footer className="mt-8">
-                  <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-[#0a0a0a]/40">
-                    &mdash; Managing Partner, Top 50 PI Firm
-                  </span>
-                </footer>
-              </blockquote>
+            <div>
+              <button
+                type="button"
+                aria-label="Play testimonial video"
+                className="group relative block w-full overflow-hidden rounded-[6px]"
+                style={{
+                  aspectRatio: "16 / 10",
+                  backgroundColor: "#1a1f1c",
+                  backgroundImage:
+                    "linear-gradient(135deg, #2a332d 0%, #1a1f1c 55%, #0e120f 100%)",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                {/* play button */}
+                <span
+                  className="absolute left-1/2 top-1/2 flex items-center justify-center rounded-full bg-white/95 backdrop-blur transition-transform duration-300 ease-out group-hover:scale-105"
+                  style={{
+                    width: 72,
+                    height: 72,
+                    transform: "translate(-50%, -50%)",
+                    boxShadow: "0 6px 24px rgba(0,0,0,0.25)",
+                  }}
+                >
+                  <svg
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M19 11L0.999999 21.3923L1 0.607696L19 11Z" fill="#0a0a0a" />
+                  </svg>
+                </span>
+              </button>
+
+              <p
+                className="mt-6 max-w-[640px] text-[15px] leading-[1.55] text-[#0a0a0a]/70"
+              >
+                Firms that deploy ClaireAI stop leaking after-hours leads within
+                the first week — converting missed calls into booked
+                consultations and signed cases.
+              </p>
             </div>
           </FadeIn>
         </div>

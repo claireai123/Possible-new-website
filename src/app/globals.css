@@ -16,14 +16,19 @@
   --color-cta: #18181b;
   --color-cta-text: #fafafa;
 
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  /* Site is sans-serif everywhere — alias kept for any code still referencing var(--font-serif) or the `font-serif` Tailwind class */
+  --font-serif: var(--font-sans);
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
 
-  /* Universal Legora Typography Constraints */
-  --tracking-heading: -0.04em;
-  --tracking-body: -0.01em;
-  --line-height-body: 1.3em;
+  /* Vesence exact tracking value */
+  --tracking-heading: -0.02em;
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 html {
@@ -36,8 +41,6 @@ body {
   background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  line-height: var(--line-height-body);
-  letter-spacing: var(--tracking-body);
 }
 
 /* Animated waveform bars */
@@ -67,3 +70,4 @@ body {
   0%, 100% { box-shadow: 0 0 0 0 rgba(196, 145, 60, 0.4); }
   50% { box-shadow: 0 0 0 12px rgba(196, 145, 60, 0); }
 }
+

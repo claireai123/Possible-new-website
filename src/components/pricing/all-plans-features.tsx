@@ -11,11 +11,11 @@ const features = [
     )
   },
   {
-    title: "Award-winning 24/7 support",
-    desc: "Get the support you need, when you need it with unlimited support by phone, email, or live chat.",
+    title: "Trained on proven intake playbooks",
+    desc: "Claire's qualifying flows come from thousands of reviewed legal intake scripts and attorney playbooks — not from your clients' calls.",
     icon: (
       <svg className="w-14 h-14 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6.25c-1.857-1.1-4.64-1.75-7-1.75v13c2.36 0 5.143.65 7 1.75m0-13c1.857-1.1 4.64-1.75 7-1.75v13c-2.36 0-5.143.65-7 1.75m0-13v13" />
       </svg>
     )
   },
@@ -50,9 +50,19 @@ const features = [
 
 export function AllPlansFeatures() {
   return (
-    <div className="w-full max-w-[1728px] mx-auto px-6 md:px-12 py-24 bg-[#fefefc]">
-      <div className="mb-16 border-b border-[#0a0a0a] pb-4">
-        <h2 className="text-3xl text-[#0a0a0a] font-serif tracking-tight uppercase">
+    <div className="w-full max-w-[1728px] mx-auto px-6 md:px-12 py-24 bg-[#ffffff]">
+      <div className="mb-16 border-b border-[#0a0a0a]/15 pb-6">
+        <h2
+          className="font-serif text-[#0a0a0a]"
+          style={{
+            fontSize: "clamp(2.25rem, 4vw, 56px)",
+            lineHeight: "1",
+            letterSpacing: "-0.01em",
+            fontWeight: 400,
+            fontVariationSettings: '"opsz" 144',
+            fontFeatureSettings: '"liga" 0',
+          }}
+        >
           Core Infrastructure
         </h2>
       </div>
@@ -63,8 +73,13 @@ export function AllPlansFeatures() {
             key={i} 
             className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-[500px]"
           >
-            <h3 className="text-[#0a0a0a] font-serif font-bold text-xl md:text-2xl mb-8 leading-tight tracking-tight">
-              <span className="opacity-40 text-xs block mb-3 uppercase tracking-widest font-sans">{String(i + 1).padStart(2, '0')} //</span>
+            <h3
+              className="text-[#0a0a0a] mb-8 leading-[1.25]"
+              style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.01em" }}
+            >
+              <span className="opacity-40 text-[10px] block mb-3 uppercase tracking-[0.14em] font-medium">
+                {String(i + 1).padStart(2, '0')} //
+              </span>
               {feature.title}
             </h3>
             <p className="text-[#0a0a0a]/60 text-base md:text-lg leading-relaxed font-sans">
