@@ -49,7 +49,7 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/case-studies`, source: "src/app/case-studies/page.tsx" },
   { url: `${BASE_URL}/blog`, source: "src/app/blog/page.tsx" },
   { url: `${BASE_URL}/help`, source: "src/app/help/page.tsx" },
-  { url: `${BASE_URL}/legal-intake-report`, source: "src/app/legal-intake-report/page.tsx" },
+  { url: `${BASE_URL}/blog/2026-legal-intake-benchmark-report`, source: "src/data/posts.ts" },
   { url: `${BASE_URL}/compare-smith-ai`, source: "src/app/compare-smith-ai/page.tsx" },
   { url: `${BASE_URL}/compare-ruby-receptionists`, source: "src/app/compare-ruby-receptionists/page.tsx" },
   { url: `${BASE_URL}/privacy-policy`, source: "src/app/privacy-policy/page.tsx" },

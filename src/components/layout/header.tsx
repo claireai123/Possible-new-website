@@ -30,7 +30,6 @@ const solutionsLinks = [
 const resourceItems = [
   { name: "Blog", desc: "Insights and analysis", href: "/blog" },
   { name: "Case Studies", desc: "Real results from real firms", href: "/case-studies" },
-  { name: "Legal Intake Report", desc: "2026 benchmark data", href: "/legal-intake-report" },
   { name: "Help Center", desc: "Guides and documentation", href: "/help" },
 ];
 
@@ -223,17 +222,17 @@ export function Header() {
               </div>
               <div className="w-[420px]">
                 <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
-                <Link href="/legal-intake-report" className="group block">
+                <Link href="/blog/2026-legal-intake-benchmark-report" className="group block">
                   <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
                     <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
                       Report cover
                     </div>
                   </div>
-                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Report</p>
+                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Research</p>
                   <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
-                    2026 Legal Intake Report
+                    Measuring the impact of AI on 1,000 law firms
                   </p>
-                  <p className="mt-2 text-[14px] text-[#0a0a0a]/35">Download free →</p>
+                  <p className="mt-2 text-[14px] text-[#0a0a0a]/35">Read the report →</p>
                 </Link>
               </div>
             </div>
