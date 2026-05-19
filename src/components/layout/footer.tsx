@@ -5,29 +5,24 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 
 const cols = {
-  Platform: [
-    { name: "Virtual Receptionist", href: "/solutions/virtual-receptionist" },
-    { name: "Legal Intake", href: "/solutions/legal-intake" },
+  Product: [
+    { name: "Product Overview", href: "/product" },
+    { name: "How It Works", href: "/how-it-works" },
+    { name: "Lead IQ", href: "/product/lead-iq" },
     { name: "Integrations", href: "/integrations" },
+  ],
+  Solutions: [
+    { name: "Personal Injury", href: "/solutions/personal-injury" },
+    { name: "Family Law", href: "/solutions/family-law" },
+    { name: "Criminal Defense", href: "/solutions/criminal-defense" },
+  ],
+  Resources: [
+    { name: "Blog", href: "/blog" },
     { name: "Pricing", href: "/pricing" },
   ],
   Company: [
-    { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "Careers", href: "/careers" },
-  ],
-  Resources: [
-    { name: "Help Center", href: "/help" },
-    { name: "Features", href: "#" },
-    { name: "Integrations", href: "/integrations" },
-    { name: "Legal Encyclopedia", href: "#" },
-  ],
-  "Support & Legal": [
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Service", href: "/terms-of-service" },
     { name: "Contact", href: "/contact" },
-    { name: "Security", href: "#" },
+    { name: "Book a demo", href: "/contact" },
   ],
 };
 

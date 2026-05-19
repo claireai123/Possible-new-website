@@ -3,17 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
-/* ── Dropdown data ── */
+/* ── Dropdown data (trimmed) ── */
 
 const productLinks = [
   { name: "Overview", desc: "The AI receptionist for law firms", href: "/product" },
-  { name: "Intake", desc: "Every call answered on the first ring", href: "/product/intake" },
-  { name: "Case Qualification", desc: "Police reports, fault & treatment confirmed", href: "/product/case-qualification" },
-  { name: "Retainer Automation", desc: "From intake to signed retainer, hands-free", href: "/product/retainer-automation" },
-  { name: "Consultation Booking", desc: "Calendar synced, conflicts checked", href: "/product/consultation-booking" },
-  { name: "Bilingual Support", desc: "English & Spanish, native fluency", href: "/product/bilingual" },
+  { name: "How it works", desc: "From first ring to signed retainer in minutes", href: "/how-it-works" },
+  { name: "Lead IQ", desc: "AI lead scoring with a one-page brief to your team", href: "/product/lead-iq" },
   { name: "CRM Integrations", desc: "Clio, Filevine, MyCase & more", href: "/integrations" },
-  { name: "Call Analytics", desc: "Transcripts, scoring & insights", href: "/product/analytics" },
 ];
 
 const productVideos = [
@@ -25,26 +21,17 @@ const productVideos = [
   },
 ];
 
-const solutionsByArea = [
+const solutionsLinks = [
   { name: "Personal Injury", desc: "Maximize case intake value", href: "/solutions/personal-injury" },
   { name: "Criminal Defense", desc: "24/7 urgent case capture", href: "/solutions/criminal-defense" },
   { name: "Family Law", desc: "Sensitive, bilingual intake", href: "/solutions/family-law" },
-  { name: "Immigration Law", desc: "Multilingual client support", href: "/solutions/immigration-law" },
-];
-
-const solutionsByType = [
-  { name: "Solo & Small Firms", desc: "Never miss a lead", href: "/solutions/small-firms" },
-  { name: "Mid-Size Firms", desc: "Scale without headcount", href: "/solutions/mid-size" },
-  { name: "Enterprise", desc: "Multi-office, multi-practice", href: "/solutions/enterprise" },
 ];
 
 const resourceItems = [
   { name: "Blog", desc: "Insights and analysis", href: "/blog" },
   { name: "Case Studies", desc: "Real results from real firms", href: "/case-studies" },
-  { name: "Help Center", desc: "Guides and documentation", href: "/help" },
   { name: "Legal Intake Report", desc: "2026 benchmark data", href: "/legal-intake-report" },
-  { name: "vs Smith.ai", desc: "Feature comparison", href: "/compare-smith-ai" },
-  { name: "vs Ruby", desc: "Feature comparison", href: "/compare-ruby-receptionists" },
+  { name: "Help Center", desc: "Guides and documentation", href: "/help" },
 ];
 
 /* ── Header component ── */
@@ -75,7 +62,7 @@ export function Header() {
         <nav
           className="transition-all duration-300"
           style={{
-            backgroundColor: scrolled ? "rgba(255,255,255,0.92)" : "#fefefc",
+            backgroundColor: scrolled ? "rgba(255,255,255,0.92)" : "#ffffff",
             backdropFilter: scrolled ? "blur(12px)" : "none",
             borderBottom: scrolled ? "1px solid #e4e4e7" : "1px solid transparent",
           }}
@@ -86,7 +73,7 @@ export function Header() {
               <img
                 src="https://res.cloudinary.com/dwzsqumf6/image/upload/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png"
                 alt="ClaireAI — AI Legal Receptionist"
-                className="h-8 w-auto"
+                className="h-6 w-auto"
               />
             </Link>
 
@@ -122,12 +109,11 @@ export function Header() {
         </nav>
 
 
-        {/* ── Product mega-menu (Legora-style: links left, videos right) ── */}
+        {/* ── Product mega-menu (Legora-style: links left, video right) ── */}
         {active === "product" && (
           <MegaPanel onEnter={() => open("product")} onLeave={close}>
-            <div className="grid grid-cols-[1fr_1fr_auto] gap-20">
-              {/* Left two columns: product links */}
-              <div className="col-span-2">
+            <div className="grid grid-cols-[1fr_auto] gap-20">
+              <div>
                 <p className="mb-8 text-[11px] font-normal text-[#0a0a0a]/30">
                   Product
                 </p>
@@ -138,7 +124,7 @@ export function Header() {
                       href={item.href}
                       className="group block py-4"
                     >
-                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450 }}>
+                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
                         {item.name}
                       </p>
                       <p className="mt-1 text-[14px] text-[#0a0a0a]/35">
@@ -149,7 +135,6 @@ export function Header() {
                 </div>
               </div>
 
-              {/* Right column: video card */}
               <div className="w-[420px]">
                 <p className="mb-8 text-[11px] font-normal text-[#0a0a0a]/30">
                   Product videos
@@ -174,7 +159,7 @@ export function Header() {
                       <p className="mt-4 text-[11px] text-[#0a0a0a]/30">
                         {vid.label}
                       </p>
-                      <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450 }}>
+                      <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
                         {vid.title}
                       </p>
                       <p className="mt-2 text-[14px] text-[#0a0a0a]/35">
@@ -191,36 +176,28 @@ export function Header() {
         {/* ── Solutions mega-menu ── */}
         {active === "solutions" && (
           <MegaPanel onEnter={() => open("solutions")} onLeave={close}>
-            <div className="grid grid-cols-3 gap-16">
+            <div className="grid grid-cols-[1fr_auto] gap-20">
               <div>
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">By area</p>
-                {solutionsByArea.map((i) => (
-                  <Link key={i.href} href={i.href} className="group block py-3">
-                    <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
-                    <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
-                  </Link>
-                ))}
+                <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Practice areas</p>
+                <div className="grid grid-cols-2 gap-x-16 gap-y-2">
+                  {solutionsLinks.map((i) => (
+                    <Link key={i.href} href={i.href} className="group block py-4">
+                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>{i.name}</p>
+                      <p className="mt-1 text-[14px] text-[#0a0a0a]/35">{i.desc}</p>
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div>
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">By type</p>
-                {solutionsByType.map((i) => (
-                  <Link key={i.href} href={i.href} className="group block py-3">
-                    <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
-                    <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
-                  </Link>
-                ))}
-              </div>
-              <div>
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Latest</p>
-                {/* Placeholder for featured case study / blog post */}
+              <div className="w-[420px]">
+                <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
                 <Link href="/case-studies" className="group block">
-                  <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8e5de]">
+                  <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
                     <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
                       Case study image
                     </div>
                   </div>
-                  <p className="mt-3 text-[11px] text-[#0a0a0a]/35">Case study</p>
-                  <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
+                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Case study</p>
+                  <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
                     How a PI firm captured $1.2M in 30 days
                   </p>
                 </Link>
@@ -232,31 +209,31 @@ export function Header() {
         {/* ── Resources mega-menu ── */}
         {active === "resources" && (
           <MegaPanel onEnter={() => open("resources")} onLeave={close}>
-            <div className="grid grid-cols-[1fr_1fr_auto] gap-16">
-              <div className="col-span-2">
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Resources</p>
-                <div className="grid grid-cols-2 gap-x-12 gap-y-1">
+            <div className="grid grid-cols-[1fr_auto] gap-20">
+              <div>
+                <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Resources</p>
+                <div className="grid grid-cols-2 gap-x-16 gap-y-2">
                   {resourceItems.map((i) => (
-                    <Link key={i.href} href={i.href} className="group block py-3">
-                      <p className="text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">{i.name}</p>
-                      <p className="mt-0.5 text-[13px] text-[#0a0a0a]/40">{i.desc}</p>
+                    <Link key={i.href} href={i.href} className="group block py-4">
+                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>{i.name}</p>
+                      <p className="mt-1 text-[14px] text-[#0a0a0a]/35">{i.desc}</p>
                     </Link>
                   ))}
                 </div>
               </div>
-              <div className="w-[300px]">
-                <p className="mb-6 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
+              <div className="w-[420px]">
+                <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
                 <Link href="/legal-intake-report" className="group block">
-                  <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8e5de]">
+                  <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
                     <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
                       Report cover
                     </div>
                   </div>
-                  <p className="mt-3 text-[11px] text-[#0a0a0a]/35">Report</p>
-                  <p className="mt-1 text-[15px] font-normal text-[#0a0a0a] group-hover:text-[#c4913c]">
+                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Report</p>
+                  <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
                     2026 Legal Intake Report
                   </p>
-                  <p className="mt-1 text-[13px] text-[#0a0a0a]/40">Download free →</p>
+                  <p className="mt-2 text-[14px] text-[#0a0a0a]/35">Download free →</p>
                 </Link>
               </div>
             </div>
@@ -266,18 +243,15 @@ export function Header() {
 
       {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-[#fefefc] pt-20 lg:hidden">
+        <div className="fixed inset-0 z-40 bg-[#ffffff] pt-20 lg:hidden">
           <div className="h-full overflow-y-auto px-6 pb-8">
             <MG title="Product" items={productLinks} close={() => setMobileOpen(false)} />
-            <MG title="By area" items={solutionsByArea} close={() => setMobileOpen(false)} />
-            <MG title="By type" items={solutionsByType} close={() => setMobileOpen(false)} />
+            <MG title="Practice areas" items={solutionsLinks} close={() => setMobileOpen(false)} />
+            <MG title="Resources" items={resourceItems} close={() => setMobileOpen(false)} />
             <div className="mt-6 border-t border-[#e4e4e7] pt-6">
               {[
                 { name: "Pricing", href: "/pricing" },
                 { name: "About", href: "/about" },
-                { name: "Blog", href: "/blog" },
-                { name: "Case Studies", href: "/case-studies" },
-                { name: "Help Center", href: "/help" },
               ].map((t) => (
                 <Link key={t.href} href={t.href} className="block py-2.5 text-base text-[#0a0a0a]" onClick={() => setMobileOpen(false)}>{t.name}</Link>
               ))}

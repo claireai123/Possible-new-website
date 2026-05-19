@@ -1,59 +1,100 @@
 # ClaireAI — AI Legal Receptionist
 # https://theclaireai.com
+# Updated 2026-05-18: granular AI crawler allowlist + new Anthropic 3-bot breakdown
 
+# Catch-all: allow indexing, block ops paths
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
+Disallow: /admin/
+Disallow: /portal/
 
-# AI Search Crawlers — Allowed
-User-agent: GPTBot
+# Google
+User-agent: Googlebot
 Allow: /
 
-User-agent: OAI-SearchBot
+User-agent: Googlebot-Image
 Allow: /
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
+User-agent: Googlebot-News
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Googlebot
-Allow: /
-
+# Microsoft Bing
 User-agent: Bingbot
 Allow: /
 
-User-agent: Meta-ExternalAgent
+# OpenAI — search-time (ChatGPT citations)
+User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: Amazonbot
+# OpenAI — training-time
+User-agent: GPTBot
 Allow: /
 
+# OpenAI — user-initiated ChatGPT browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — training (Claude foundation models)
+User-agent: ClaudeBot
+Allow: /
+
+# Anthropic — user-initiated Claude browsing
+User-agent: Claude-User
+Allow: /
+
+# Anthropic — search-time (Claude search features)
+User-agent: Claude-SearchBot
+Allow: /
+
+# Anthropic — legacy web fetcher
+User-agent: Claude-Web
+Allow: /
+
+# Anthropic — legacy training
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity — search-time
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity — user-initiated
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
 User-agent: Applebot
 Allow: /
 
-User-agent: Bytespider
+User-agent: Applebot-Extended
 Allow: /
 
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Amazon Alexa / Q
+User-agent: Amazonbot
+Allow: /
+
+# Cohere
 User-agent: cohere-ai
 Allow: /
 
-# Training-only crawlers — Blocked
+# ByteDance / TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Common Crawl — used to train many LLMs
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 Sitemap: https://theclaireai.com/sitemap.xml

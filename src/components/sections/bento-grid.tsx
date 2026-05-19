@@ -65,7 +65,7 @@ export function BentoGrid() {
                     The Platform
                   </p>
                   <h2
-                    className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
+                    className="mt-6 font-serif text-[clamp(1.75rem,3vw,2.5rem)] text-[#0a0a0a]"
                     style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                   >
                     One receptionist.<br />
@@ -101,7 +101,7 @@ export function BentoGrid() {
                   Integrations
                 </p>
                 <h2
-                  className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
+                  className="mt-6 font-serif text-[clamp(1.75rem,3vw,2.5rem)] text-[#0a0a0a]"
                   style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                 >
                   Your CRM.<br />
@@ -130,7 +130,7 @@ export function BentoGrid() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          Section 3: Retainer Automation
+          Section 3: Lead IQ
           ═══════════════════════════════════════════════════════ */}
       <section className="border-t border-[#e4e4e7] bg-[#f5f4f1] px-6 pt-6 pb-[120px]">
         <div className="mx-auto w-full max-w-[1728px]">
@@ -144,11 +144,11 @@ export function BentoGrid() {
                   <div className="text-center">
                     <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0a0a0a]/5">
                       <svg className="h-5 w-5 text-[#0a0a0a]/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     </div>
-                    <p className="text-[13px] font-normal text-[#0a0a0a]/25">Retainer preview</p>
-                    <p className="mt-1 text-[11px] text-[#0a0a0a]/15">Photo coming soon</p>
+                    <p className="text-[13px] font-normal text-[#0a0a0a]/25">Claire&apos;s Brief preview</p>
+                    <p className="mt-1 text-[11px] text-[#0a0a0a]/15">Screenshot coming soon</p>
                   </div>
                 </div>
               </div>
@@ -156,24 +156,23 @@ export function BentoGrid() {
               {/* Right: copy */}
               <div className="flex flex-col justify-center">
                 <p className="text-[11px] font-normal uppercase tracking-[0.01em] text-[#0a0a0a]/25">
-                  Retainer Automation
+                  Lead IQ
                 </p>
                 <h2
-                  className="mt-6 font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
+                  className="mt-6 font-serif text-[clamp(1.75rem,3vw,2.5rem)] text-[#0a0a0a]"
                   style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
                 >
-                  Signed before<br />
-                  <span className="font-normal">morning.</span>
+                  Graded before<br />
+                  <span className="font-normal">hang-up.</span>
                 </h2>
                 <p className="mt-6 max-w-lg text-[13px] leading-[1.3] text-[#0a0a0a]/40">
-                  Claire checks the statute of limitations, sends the retainer via DocuSign or PandaDoc,
-                  and follows up — all while your attorneys sleep. Cases signed before the first coffee.
+                  Every call gets an A through D grade and a one-page Claire&apos;s Brief — written into SMS, Slack, Teams, email, or your CRM within seconds. Cuts intake review time roughly in half.
                 </p>
                 <Link
-                  href="/product/retainer-automation"
+                  href="/product/lead-iq"
                   className="mt-6 inline-flex items-center gap-2 text-[16px] font-normal text-[#0a0a0a] hover:text-[#c4913c]"
                 >
-                  See how it works
+                  See how Lead IQ works
                   <span className="text-[15px]">→</span>
                 </Link>
               </div>
@@ -195,7 +194,7 @@ export function BentoGrid() {
                 practice area, your intake flow, your language.
               </p>
               <h2
-                className="font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal text-[#0a0a0a]"
+                className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] text-[#0a0a0a]"
                 style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
               >
                 Claire meets your firm<br />

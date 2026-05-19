@@ -35,13 +35,105 @@ ClaireAI is a cloud-based AI receptionist that replaces missed calls with signed
 ## Key Pages
 - [Homepage](https://theclaireai.com): Product overview and live demo
 - [Pricing](https://theclaireai.com/pricing): Plan comparison and ROI calculator
-- [Integrations](https://theclaireai.com/integrations): CRM and calendar integrations
+- [How It Works](https://theclaireai.com/how-it-works): Bento walkthrough of answer, qualify, book
+- [Integrations](https://theclaireai.com/integrations): Directory of all 66 live integrations
 - [Case Studies](https://theclaireai.com/case-studies): Real results from real firms
 - [Legal Intake Report 2026](https://theclaireai.com/legal-intake-report): Original research on 1,000 law firms
 - [Blog](https://theclaireai.com/blog): Legal tech insights and analysis
 - [Help Center](https://theclaireai.com/help): Setup guides and documentation
 - [Compare vs Smith.ai](https://theclaireai.com/compare-smith-ai): Feature comparison
 - [Compare vs Ruby](https://theclaireai.com/compare-ruby-receptionists): Feature comparison
+
+## Integrations
+ClaireAI integrates with 66 systems law firms already run — every integration is live, with no per-sync fees. Each link below points to a dedicated integration page with setup steps, sync map, FAQs, and structured data.
+
+### Practice Management Systems
+- [Clio Manage](https://theclaireai.com/integrations/clio): Most-used legal CRM; full intake sync over OAuth 2.0
+- [MyCase](https://theclaireai.com/integrations/mycase): Native two-way sync with MyCase Advanced tier
+- [Filevine](https://theclaireai.com/integrations/filevine): PI-focused; mechanism of injury and treatment fields mapped
+- [CASEpeer](https://theclaireai.com/integrations/casepeer): PI-only intake mapped to CASEpeer cases
+- [SmartAdvocate](https://theclaireai.com/integrations/smartadvocate): Volume PI firms; full custom-field sync
+- [Litify](https://theclaireai.com/integrations/litify): Salesforce-native PI firms
+- [Neos (Assembly)](https://theclaireai.com/integrations/neos): Assembly Neos for serious PI volume
+- [CloudLex](https://theclaireai.com/integrations/cloudlex): Cloud-native PI matter management
+- [PracticePanther](https://theclaireai.com/integrations/practicepanther): 5-minute OAuth setup
+- [Smokeball](https://theclaireai.com/integrations/smokeball): Smokeball matters created from call transcript
+- [Rocket Matter](https://theclaireai.com/integrations/rocket-matter): Rocket Matter with intake wired in
+- [CARET Legal](https://theclaireai.com/integrations/caret-legal): CARET Legal (formerly Zola Suite)
+- [CosmoLex](https://theclaireai.com/integrations/cosmolex): CosmoLex with built-in trust accounting
+- [Actionstep](https://theclaireai.com/integrations/actionstep): Actionstep for full-suite firms
+
+### Intake CRMs & Lead Management
+- [Lawmatics](https://theclaireai.com/integrations/lawmatics): The intake CRM, kept in sync from the first ring
+- [HubSpot](https://theclaireai.com/integrations/hubspot): HubSpot CRM with intake calls turning into deals
+- [Lead Docket](https://theclaireai.com/integrations/lead-docket): PI-focused intake CRM with API + webhooks
+- [Clio Grow](https://theclaireai.com/integrations/clio-grow): Clio's intake CRM
+- [Captorra](https://theclaireai.com/integrations/captorra): PI / mass-tort intake
+- [Law Ruler](https://theclaireai.com/integrations/law-ruler): PI intake CRM
+- [SimplyConvert](https://theclaireai.com/integrations/simplyconvert): PI intake automation
+
+### Payments & E-Signature
+- [DocuSign](https://theclaireai.com/integrations/docusign): Retainers signed before the caller dials the next firm
+- [LawPay](https://theclaireai.com/integrations/lawpay): Trust-compliant retainer payment in the same call
+- [AffiniPay](https://theclaireai.com/integrations/affinipay): Legal-specific payment processor
+- [Adobe Sign](https://theclaireai.com/integrations/adobe-sign): E-signature for engagement letters
+- [Vinesign](https://theclaireai.com/integrations/vinesign): PI-focused e-signature
+- [Gravity Legal](https://theclaireai.com/integrations/gravity-legal): Trust-account-aware payment processing
+
+### Phone Systems & VoIP
+- [Telnyx](https://theclaireai.com/integrations/telnyx): SIP-native carrier integration
+- [RingCentral](https://theclaireai.com/integrations/ringcentral): RingCentral number forwarding to Claire
+- [Dialpad](https://theclaireai.com/integrations/dialpad): Dialpad SIP forwarding
+- [Zoom Phone](https://theclaireai.com/integrations/zoom-phone): Zoom Phone forwarding
+- [Microsoft Teams Phone](https://theclaireai.com/integrations/ms-teams-phone): Teams calling routed to Claire
+- [8x8](https://theclaireai.com/integrations/8x8): 8x8 cloud PBX
+- [Vonage](https://theclaireai.com/integrations/vonage): Vonage Business Communications
+- [Nextiva](https://theclaireai.com/integrations/nextiva): Nextiva cloud phone
+- [OpenPhone](https://theclaireai.com/integrations/openphone): OpenPhone for solo and small firms
+
+### Jail Inmate Phone Systems
+- [Securus](https://theclaireai.com/integrations/securus): Securus Tech inmate calls accepted
+- [ViaPath (GTL)](https://theclaireai.com/integrations/viapath): GTL / ViaPath inmate call routing
+- [IC Solutions](https://theclaireai.com/integrations/ic-solutions): IC Solutions inmate call routing
+- [Smart Communications](https://theclaireai.com/integrations/smart-comms): Smart Communications inmate calls
+
+### Calendar & Scheduling
+- [Microsoft 365 / Outlook](https://theclaireai.com/integrations/ms365): Outlook calendar booking per attorney
+- [Google Workspace](https://theclaireai.com/integrations/google-workspace): Google Calendar booking per attorney
+- [Calendly](https://theclaireai.com/integrations/calendly): Calendly event types reused by Claire
+- [Acuity Scheduling](https://theclaireai.com/integrations/acuity): Acuity availability honored
+- [Microsoft Bookings](https://theclaireai.com/integrations/ms-bookings): Microsoft Bookings appointment writes
+
+### Document Management
+- [NetDocuments](https://theclaireai.com/integrations/netdocuments): Per-matter NetDocuments folders auto-created
+- [iManage](https://theclaireai.com/integrations/imanage): iManage workspace folders for new matters
+- [SharePoint / OneDrive](https://theclaireai.com/integrations/sharepoint): Microsoft SharePoint and OneDrive
+- [Google Drive](https://theclaireai.com/integrations/google-drive): Google Drive matter folders
+- [Box](https://theclaireai.com/integrations/box): Box workspace folders
+- [Dropbox](https://theclaireai.com/integrations/dropbox): Dropbox matter folders
+
+### Court Records & Deadlines
+- [PACER](https://theclaireai.com/integrations/pacer): Federal PACER court records lookup
+- [CourtListener](https://theclaireai.com/integrations/courtlistener): Free Law Project CourtListener
+- [LawToolBox](https://theclaireai.com/integrations/lawtoolbox): Court deadline calculation
+- [Docket Alarm](https://theclaireai.com/integrations/docket-alarm): Docket Alarm court tracking
+
+### Accounting
+- [QuickBooks Online](https://theclaireai.com/integrations/quickbooks): QuickBooks Online trust-aware posting
+- [Xero](https://theclaireai.com/integrations/xero): Xero accounting integration
+- [LeanLaw](https://theclaireai.com/integrations/leanlaw): LeanLaw for QuickBooks-using law firms
+
+### Call Tracking & Marketing
+- [CallRail](https://theclaireai.com/integrations/callrail): CallRail attribution preserved through Claire
+- [WhatConverts](https://theclaireai.com/integrations/whatconverts): WhatConverts source attribution
+- [CallTrackingMetrics](https://theclaireai.com/integrations/ctm): CallTrackingMetrics conversion events
+
+### Notifications & Workflow
+- [Slack](https://theclaireai.com/integrations/slack): New-lead alerts and on-call escalation
+- [Microsoft Teams](https://theclaireai.com/integrations/ms-teams): Teams channel notifications
+- [Zapier](https://theclaireai.com/integrations/zapier): 6,000+ app workflows via Zapier
+- [Make](https://theclaireai.com/integrations/make): Make.com scenario automation
+- [n8n](https://theclaireai.com/integrations/n8n): Self-hosted n8n workflow automation
 
 ## Compliance
 - SOC 2 Type II certified

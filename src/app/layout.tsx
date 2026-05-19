@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | ClaireAI",
   },
   description:
-    "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers — in English or Spanish, 24/7/365. Plans start at $650/month.",
+    "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers — in English or Spanish, 24/7/365. Plans start at $450/month.",
   metadataBase: new URL("https://theclaireai.com"),
   keywords: [
     "AI legal receptionist",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   other: {
     "ai:title": "ClaireAI — AI Legal Receptionist",
     "ai:description":
-      "ClaireAI answers every law firm call in 0.8 seconds, qualifies leads, books consultations, and sends retainers autonomously. Bilingual. 24/7. Plans from $650/month.",
+      "ClaireAI answers every law firm call in 0.8 seconds, qualifies leads, books consultations, and sends retainers autonomously. Bilingual. 24/7. Plans from $450/month.",
     "ai:category": "Legal Technology",
     "ai:positioning": "AI-powered virtual receptionist for law firms",
   },
@@ -135,8 +135,8 @@ const jsonLd = {
       operatingSystem: "Cloud-based",
       offers: {
         "@type": "AggregateOffer",
-        lowPrice: "650",
-        highPrice: "2999",
+        lowPrice: "450",
+        highPrice: "1800",
         priceCurrency: "USD",
         offerCount: 3,
       },
