@@ -84,9 +84,9 @@ export const POSTS: Post[] = [
       "The largest-ever benchmark of intake conversion, response time, and revenue recovery — three months, 1,000 firms, 50 states. Where AI receptionists have the most measurable effect on law-firm revenue.",
     hero: { img: undefined, imgAlt: "1,000 firms surveyed — the 2026 legal intake benchmark" },
     author: {
-      name: "Dr. Sarah Chen, J.D., Ph.D.",
-      credentials: "Director of Legal Technology Research, ClaireAI",
-      bio: "Dr. Chen leads ClaireAI's research arm and has spent 12 years analyzing operational performance at U.S. law firms. Prior research published with Clio Legal Trends and ABA TechReport.",
+      name: "Caleo Tsiapalis",
+      credentials: "Co-Founder, ClaireAI",
+      bio: "Caleo led the research for the 2026 ClaireAI Legal Intake Benchmark. He works directly with the firms in ClaireAI's customer base on intake operations and lead quality.",
     },
     tldr: [
       "1,000 U.S. law firms across all 50 states participated; 5,000+ inbound calls analyzed and 150,000+ telephony records cross-referenced (Oct 2025 – Jan 2026).",
@@ -210,11 +210,6 @@ export const POSTS: Post[] = [
           { kind: "text", text: " on grade-A leads (from a baseline 18% to 47%)." },
         ],
       },
-      {
-        type: "quote",
-        text: "This is the most comprehensive analysis of legal intake performance I've seen. The data confirms what we've suspected for years: the firms that win aren't necessarily the best lawyers — they're the ones who answer the phone.",
-        source: "Robert Ambrogi, Legal Tech Journalist and Publisher of LawSites",
-      },
       { type: "h3", text: "Where AI moves the needle most" },
       {
         type: "ul",
@@ -278,7 +273,7 @@ export const POSTS: Post[] = [
           },
           {
             q: "Is the 1,000-firm dataset available for independent verification?",
-            a: "Aggregated dataset summaries are available for academic and journalistic use upon request. Individual firm data is anonymized and not released. Methodology documentation is reviewed by an independent legal-technology research advisory board.",
+            a: "Aggregated dataset summaries are available for academic and journalistic use upon request. Individual firm data is anonymized and not released. Use the contact form to request methodology documentation.",
           },
           {
             q: "Where can I see ClaireAI handling a live intake call?",
@@ -292,7 +287,7 @@ export const POSTS: Post[] = [
       {
         type: "callout",
         kind: "highlight",
-        text: "Chen, S., Torres, M., & ClaireAI Research Team. (2026). The 2026 Legal Intake Benchmark Report: Measuring the Impact of AI on 1,000 Law Firms. Retrieved from https://theclaireai.com/blog/2026-legal-intake-benchmark-report",
+        text: "Tsiapalis, C., & ClaireAI. (2026). The 2026 Legal Intake Benchmark Report: Measuring the Impact of AI on 1,000 Law Firms. Retrieved from https://theclaireai.com/blog/2026-legal-intake-benchmark-report",
       },
     ],
     related: [
@@ -328,7 +323,7 @@ export const POSTS: Post[] = [
     author: {
       name: "Tiago Strammiello",
       credentials: "Founder, ClaireAI",
-      bio: "Tiago is the founder of ClaireAI and has spent five years operating intake systems for U.S. law firms. Previously built AI customer-service systems at scale.",
+      bio: "Tiago is the founder of ClaireAI. He's spent the past several years building AI systems that handle inbound voice traffic for U.S. law firms.",
     },
     tldr: [
       "Outsourced legal intake covers three models: AI receptionist ($195-$650/mo flat), human answering service ($300-$1,500/mo per-minute), and full BPO call center ($2,000+/mo). Each fits a different firm size and call volume profile.",
@@ -427,11 +422,6 @@ export const POSTS: Post[] = [
           "Your local jurisdiction or bar rules have specific in-house intake requirements (rare but worth checking)",
         ],
       },
-      {
-        type: "quote",
-        text: "We replaced a $52,000 receptionist with a $450 AI plan and recovered an additional $310,000 in retained case value in the first year. The math wasn't even close.",
-        source: "Managing Partner, mid-sized PI firm (interviewed for the 2026 Benchmark)",
-      },
       { type: "h2", text: "How to switch without disrupting your firm", id: "how-to-switch" },
       {
         type: "ol",
@@ -507,9 +497,9 @@ export const POSTS: Post[] = [
       "Copy-paste intake scripts for personal injury, criminal defense, family law, and immigration. Calibrated by practitioners and validated against the 1,000-firm benchmark.",
     hero: { img: undefined, imgAlt: "Legal intake question bank by practice area" },
     author: {
-      name: "Dr. Sarah Chen, J.D., Ph.D.",
-      credentials: "Director of Legal Technology Research, ClaireAI",
-      bio: "Dr. Chen led the calibration of these intake questions against 5,000+ mystery-shopper calls in the 2026 benchmark.",
+      name: "Cal Stein",
+      credentials: "Co-Founder, ClaireAI",
+      bio: "Cal calibrates ClaireAI's intake scripts with the practitioners in the customer base. The question bank below is the same script set used across ClaireAI's law-firm deployments.",
     },
     tldr: [
       "Every practice area has a different intake script. Using a generic 'what kind of case is this?' wastes the most valuable 90 seconds of the call.",
@@ -815,7 +805,6 @@ export const POSTS: Post[] = [
           [{ kind: "bold", text: "The conversion penalty: " }, { kind: "text", text: "The Forrester/InsideSales 5-minute response data shows a 400% conversion lift inside the window. Slow human services that pick up at 30+ seconds lose this lift entirely." }],
         ],
       },
-      { type: "quote", text: "We were paying $1,400/month with Ruby and getting 70-80% of our calls answered. We switched to ClaireAI at $450 and now answer 100% of calls — including the 6pm calls we never picked up before. The math was a no-brainer.", source: "Office Administrator, mid-sized family law firm (2026 Pricing Survey)" },
       { type: "h2", text: "Making the right choice", id: "right-choice" },
       { type: "p", text: "Use this decision matrix:" },
       {
@@ -953,9 +942,9 @@ export const POSTS: Post[] = [
       "Analysis of inbound call data showing how the average PI firm loses $250,000 per year to missed and mishandled intake — and how AI recovers 92% of the gap.",
     hero: { img: undefined, imgAlt: "Missed call revenue loss at U.S. law firms — the $100K problem" },
     author: {
-      name: "Dr. Sarah Chen, J.D., Ph.D.",
-      credentials: "Director of Legal Technology Research, ClaireAI",
-      bio: "Dr. Chen leads ClaireAI's research arm and has analyzed inbound call data at 1,000+ U.S. law firms.",
+      name: "Caleo Tsiapalis",
+      credentials: "Co-Founder, ClaireAI",
+      bio: "Caleo analyzes inbound call data across ClaireAI's customer firms and led the research on the missed-call revenue model published here.",
     },
     tldr: [
       "Across the 1,000-firm 2026 benchmark, the average law firm misses 35% of inbound calls. For PI firms (highest case value per call), this translates to $250,000-$410,000 in lost annual revenue.",
@@ -966,7 +955,7 @@ export const POSTS: Post[] = [
     ],
     body: [
       { type: "p", text: [
-        { kind: "text", text: "A trucking-defense attorney we interviewed recently lost a $180,000 case — not because of the merits, but because the client called at 6:47 PM on a Tuesday. Voicemail picked up. By 8 AM Wednesday, that client had signed with the firm down the street. " },
+        { kind: "text", text: "The single most expensive moment in legal intake isn't the case itself — it's the call that goes to voicemail at 6:47 PM. The caller has a list of three firms to try, and by 8 AM the next morning they've signed with whichever one picked up first. " },
         { kind: "bold", text: "This is the $100,000 problem." },
       ]},
       { type: "stat-grid", stats: [
@@ -1005,8 +994,6 @@ export const POSTS: Post[] = [
         "Front-desk first-pass rejection (caller hits IVR or wrong department)",
         "Mid-hold abandonment (caller gives up before reaching a person)",
       ]},
-      { type: "h2", text: "Before and after: a real firm's results", id: "before-after" },
-      { type: "quote", text: "We were a 4-attorney PI firm doing about 400 inbound calls/month. Voicemail caught 35% of them after 5pm and 12-15% during the day. We deployed ClaireAI and watched our intake captured-leads count go from 260 to 392 in the first 30 days. That's $310,000 in added case value in one month. The annualized number speaks for itself.", source: "Managing Partner, mid-sized PI firm (Florida)" },
       { type: "h2", text: "How AI receptionists solve this", id: "ai-solves" },
       { type: "ul", items: [
         [{ kind: "bold", text: "Sub-1-second pickup on every call. " }, { kind: "text", text: "No IVR, no hold music, no shift gaps." }],
