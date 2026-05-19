@@ -24,6 +24,8 @@ type CardPost = {
   excerpt: string;
   href: string;
   category?: string;
+  img?: string;
+  imgAlt?: string;
 };
 
 // Map the typed Post[] from /data/posts.ts into the card shape this page renders.
@@ -33,6 +35,8 @@ const ALL_AS_CARDS: CardPost[] = POSTS.map((p) => ({
   title: p.title,
   excerpt: p.excerpt,
   href: `/blog/${p.slug}`,
+  img: p.hero.img,
+  imgAlt: p.hero.imgAlt,
 }));
 
 // Featured = first post in posts.ts (the 1,000-firm benchmark).
@@ -71,7 +75,14 @@ const blogSchema = {
   })),
 };
 
-function CardImagePlaceholder({ ratio = "aspect-[4/3]" }: { ratio?: string }) {
+function CardImage({ ratio = "aspect-[4/3]", img, alt }: { ratio?: string; img?: string; alt?: string }) {
+  if (img) {
+    return (
+      <div className={`relative ${ratio} overflow-hidden rounded-md bg-[#ecebe7]`}>
+        <img src={img} alt={alt ?? ""} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      </div>
+    );
+  }
   return (
     <div className={`relative ${ratio} overflow-hidden rounded-md bg-[#ecebe7]`}>
       <div className="absolute inset-0 flex items-center justify-center">
@@ -137,7 +148,7 @@ export default function BlogPage() {
 
               {/* Image right (landscape) */}
               <div>
-                <CardImagePlaceholder ratio="aspect-[16/10]" />
+                <CardImage ratio="aspect-[16/10]" img={FEATURED.img} alt={FEATURED.imgAlt ?? FEATURED.title} />
               </div>
             </div>
           </Link>
@@ -171,7 +182,7 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {GRID_POSTS.map((p) => (
               <Link key={p.href} href={p.href} className="group block">
-                <CardImagePlaceholder ratio="aspect-[4/3]" />
+                <CardImage ratio="aspect-[4/3]" img={p.img} alt={p.imgAlt ?? p.title} />
                 <div className="mt-5">
                   <p className="text-[12px] text-[#0a0a0a]/55">{p.date}</p>
                   <h3
@@ -229,7 +240,7 @@ export default function BlogPage() {
                   </div>
                   {/* Thumb right */}
                   <div>
-                    <CardImagePlaceholder ratio="aspect-[16/10]" />
+                    <CardImage ratio="aspect-[16/10]" img={p.img} alt={p.imgAlt ?? p.title} />
                   </div>
                 </div>
               </Link>

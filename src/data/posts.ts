@@ -82,7 +82,10 @@ export const POSTS: Post[] = [
     title: "Measuring the impact of AI on 1,000 law firms",
     excerpt:
       "The largest-ever benchmark of intake conversion, response time, and revenue recovery — three months, 1,000 firms, 50 states. Where AI receptionists have the most measurable effect on law-firm revenue.",
-    hero: { img: undefined, imgAlt: "1,000 firms surveyed — the 2026 legal intake benchmark" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779214207/ChatGPT_Image_May_19_2026_at_02_09_40_PM.jpg",
+      imgAlt: "1,000 firms surveyed — the 2026 ClaireAI legal intake benchmark report",
+    },
     author: {
       name: "Caleo Tsiapalis",
       credentials: "Co-Founder, ClaireAI",
