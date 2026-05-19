@@ -866,7 +866,10 @@ export const POSTS: Post[] = [
     title: "Best AI receptionist for law firms in 2026",
     excerpt:
       "Comparative analysis of the top 7 AI receptionist platforms — features, integrations, pricing, and the practice areas each handles best. Independent benchmark data from 1,000 firms.",
-    hero: { img: undefined, imgAlt: "Best AI receptionist for law firms in 2026 — comparative analysis" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779216707/ChatGPT_Image_May_19_2026_at_02_51_25_PM.jpg",
+      imgAlt: "Best AI receptionist for law firms in 2026 — comparative analysis",
+    },
     author: {
       name: "Tiago Strammiello",
       credentials: "Founder, ClaireAI",
