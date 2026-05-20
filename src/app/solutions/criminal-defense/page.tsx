@@ -343,12 +343,12 @@ export default function CriminalDefensePage() {
           <section key={idx} className={`bg-white px-6 pb-10 md:pb-16 ${firstClasses}`}>
             <div className="mx-auto max-w-[1680px]">
               <div
-                className={`grid grid-cols-1 gap-6 lg:gap-8 items-stretch ${
+                className={`grid grid-cols-1 gap-6 lg:gap-8 items-center ${
                   textLeft ? "lg:grid-cols-[1fr_1.6fr]" : "lg:grid-cols-[1.6fr_1fr]"
                 }`}
               >
                 <div
-                  className={`flex flex-col justify-start lg:py-8 lg:pr-10 ${
+                  className={`flex flex-col justify-center lg:pr-10 ${
                     textLeft ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
@@ -368,29 +368,29 @@ export default function CriminalDefensePage() {
                   </p>
                 </div>
 
-                <div
-                  className={`relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl ${
-                    textLeft ? "lg:order-2" : "lg:order-1"
-                  }`}
-                  style={{ backgroundColor: f.img ? "transparent" : "#f5f4f1" }}
-                >
+                <div className={textLeft ? "lg:order-2" : "lg:order-1"}>
                   {f.img ? (
                     <img
                       src={f.img}
                       alt={f.imgAlt ?? f.headline}
-                      className="absolute inset-0 h-full w-full object-cover object-center"
+                      className="block w-full h-auto rounded-2xl"
                       loading={idx === 0 ? "eager" : "lazy"}
                       fetchPriority={idx === 0 ? "high" : "auto"}
                     />
                   ) : (
-                    <div className="text-center">
-                      <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0a0a0a]/5">
-                        <svg className="h-5 w-5 text-[#0a0a0a]/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                    <div
+                      className="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl"
+                      style={{ backgroundColor: "#f5f4f1" }}
+                    >
+                      <div className="text-center">
+                        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0a0a0a]/5">
+                          <svg className="h-5 w-5 text-[#0a0a0a]/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <p className="text-[13px] text-[#0a0a0a]/30">Feature mockup placeholder</p>
+                        <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#0a0a0a]/20">16 : 10</p>
                       </div>
-                      <p className="text-[13px] text-[#0a0a0a]/30">Feature mockup placeholder</p>
-                      <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#0a0a0a]/20">16 : 10</p>
                     </div>
                   )}
                 </div>
