@@ -29,7 +29,6 @@ const solutionsLinks = [
 
 const resourceItems = [
   { name: "Blog", desc: "Insights and analysis", href: "/blog" },
-  { name: "Case Studies", desc: "Real results from real firms", href: "/case-studies" },
   { name: "Help Center", desc: "Guides and documentation", href: "/help" },
 ];
 
@@ -189,15 +188,25 @@ export function Header() {
               </div>
               <div className="w-[420px]">
                 <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
-                <Link href="/case-studies" className="group block">
-                  <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
-                    <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
-                      Case study image
+                <Link href="/solutions/personal-injury" className="group block">
+                  <div
+                    className="aspect-[16/9] overflow-hidden rounded-lg"
+                    style={{
+                      backgroundColor: "#8c9c82",
+                      backgroundImage:
+                        "radial-gradient(120% 90% at 20% 10%, #a9b8a0 0%, #8c9c82 45%, #7a8a72 100%)",
+                    }}
+                  >
+                    <div className="flex h-full flex-col justify-end p-6 text-white">
+                      <p className="text-[11px] uppercase tracking-wider opacity-70">Solution spotlight</p>
+                      <p className="mt-2 font-serif text-[22px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
+                        Personal injury intake
+                      </p>
                     </div>
                   </div>
-                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Case study</p>
+                  <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Featured solution</p>
                   <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
-                    How a PI firm captured $1.2M in 30 days
+                    Purpose-built for PI firms
                   </p>
                 </Link>
               </div>

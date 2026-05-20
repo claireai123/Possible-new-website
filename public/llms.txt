@@ -37,7 +37,6 @@ ClaireAI is a cloud-based AI receptionist that replaces missed calls with signed
 - [Pricing](https://theclaireai.com/pricing): Plan comparison and ROI calculator
 - [How It Works](https://theclaireai.com/how-it-works): Bento walkthrough of answer, qualify, book
 - [Integrations](https://theclaireai.com/integrations): Directory of all 66 live integrations
-- [Case Studies](https://theclaireai.com/case-studies): Real results from real firms
 - [Measuring the impact of AI on 1,000 law firms](https://theclaireai.com/blog/2026-legal-intake-benchmark-report): The 2026 ClaireAI Legal Intake Benchmark — 1,000 firms surveyed, 5,000+ inbound calls analyzed
 - [Blog](https://theclaireai.com/blog): Legal tech insights and analysis
 - [Help Center](https://theclaireai.com/help): Setup guides and documentation

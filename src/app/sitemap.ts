@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { INTEGRATIONS } from "@/data/integrations";
+import { HELP_ARTICLES } from "@/data/help-articles";
 
 const BASE_URL = "https://theclaireai.com";
 const ROOT = path.resolve(__dirname, "../..");
@@ -46,7 +47,6 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/solutions/small-firms`, source: "src/app/solutions/small-firms/page.tsx" },
   { url: `${BASE_URL}/solutions/mid-size`, source: "src/app/solutions/mid-size/page.tsx" },
   { url: `${BASE_URL}/solutions/enterprise`, source: "src/app/solutions/enterprise/page.tsx" },
-  { url: `${BASE_URL}/case-studies`, source: "src/app/case-studies/page.tsx" },
   { url: `${BASE_URL}/blog`, source: "src/app/blog/page.tsx" },
   { url: `${BASE_URL}/help`, source: "src/app/help/page.tsx" },
   { url: `${BASE_URL}/blog/2026-legal-intake-benchmark-report`, source: "src/data/posts.ts" },
@@ -74,5 +74,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: perIntegrationLastMod,
   }));
 
-  return [...core, ...integrations];
+  // Help articles: use each article's own lastUpdated, falling back to git mtime
+  // of the data file. Per-article dates are honest signals to Google and to
+  // AI crawlers that re-index when content changes.
+  const helpDataMtime = gitMtime("src/data/help-articles.ts");
+  const help: Entry[] = HELP_ARTICLES.map((a) => {
+    const parsed = new Date(a.lastUpdated + "T00:00:00Z");
+    return {
+      url: `${BASE_URL}/help/${a.slug}`,
+      lastModified: !isNaN(parsed.getTime()) ? parsed : helpDataMtime,
+    };
+  });
+
+  return [...core, ...help, ...integrations];
 }
