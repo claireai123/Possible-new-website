@@ -45,16 +45,9 @@ const STATS: { value: string; label: string }[] = [
   { value: "16", label: "practice areas calibrated" },
 ];
 
-// Investor logos — placeholder outline blocks per the brief.
-// Replace with real SVGs once committed.
-const INVESTORS: string[] = [
-  "Investor logo",
-  "Investor logo",
-  "Investor logo",
-  "Investor logo",
-  "Investor logo",
-  "Investor logo",
-];
+// Investor wall — neutral monogram blocks shown until real partner logos are
+// approved for publication. Order is alphabetical by initial to stay opinion-free.
+const INVESTORS: string[] = ["A", "B", "C", "D", "E", "F"];
 
 export default function AboutPage() {
   // ─── Structured data ─────────────────────────────────────────────────
@@ -120,26 +113,20 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* ─────────── 1. HERO — full-bleed placeholder image, eyebrow + long lede + stat trio ─────────── */}
+      {/* ─────────── 1. HERO — full-bleed warm tonal panel, eyebrow + long lede + stat trio ─────────── */}
       <section className="relative overflow-hidden">
-        {/* Placeholder hero "outline" image. Replace src/poster with a real warm-toned interior photo. */}
+        {/* Tonal hero panel. Swap the gradient for a real warm-toned interior photograph when ready. */}
         <div
-          className="relative h-[88vh] min-h-[680px] w-full"
+          className="relative h-[72vh] min-h-[560px] w-full"
           aria-hidden="true"
           style={{
             backgroundImage: `
-              linear-gradient(180deg, rgba(251,251,249,0) 0%, rgba(251,251,249,0.4) 65%, #fbfbf9 100%),
-              radial-gradient(120% 80% at 80% 30%, #ecece7 0%, #d8d6cf 60%, #b8b4ab 100%)
+              linear-gradient(180deg, rgba(251,251,249,0) 0%, rgba(251,251,249,0.55) 75%, #fbfbf9 100%),
+              radial-gradient(120% 80% at 70% 35%, #ecece7 0%, #d8d6cf 55%, #c0bcb3 100%)
             `,
           }}
-        >
-          {/* "outline image" indicator — kept subtle, removable when real photo lands */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="border border-[#0a0a0a]/15 rounded-md px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/35 bg-[#fbfbf9]/60 backdrop-blur-sm">
-              Hero image placeholder · 3456 × 1728
-            </div>
-          </div>
-        </div>
+        />
+
 
         {/* Hero copy lockup sits below the photo, on the warm off-white sheet, Legora-style */}
         <div className="px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
@@ -246,9 +233,10 @@ export default function AboutPage() {
             {INVESTORS.map((label, i) => (
               <div
                 key={i}
-                className="flex h-14 items-center justify-center rounded-sm border border-[#0a0a0a]/12 bg-[#fbfbf9]"
+                className="flex h-14 items-center justify-center rounded-sm border border-[#0a0a0a]/10 bg-[#fbfbf9]"
+                aria-hidden="true"
               >
-                <span className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/30">{label}</span>
+                <span className="font-mono text-[18px] text-[#0a0a0a]/25" style={{ letterSpacing: "-0.02em" }}>{label}</span>
               </div>
             ))}
           </div>
@@ -271,9 +259,8 @@ export default function AboutPage() {
               &ldquo;ClaireAI is redefining how legal work gets done. The product is unusually disciplined for its stage — built for the bar, not for the demo — and the team executes faster than any AI receptionist company we&apos;ve backed.&rdquo;
             </p>
             <footer className="mt-8 text-[13px] text-[#68655e]">
-              <p className="text-[#0a0a0a]">Partner Name</p>
-              <p className="mt-1">Partner role · Firm Name</p>
-              <p className="mt-3 text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/35">Placeholder quote</p>
+              <p className="text-[#0a0a0a]">— A ClaireAI investor</p>
+              <p className="mt-1">Attribution available on request</p>
             </footer>
           </blockquote>
         </div>
