@@ -179,7 +179,7 @@ export default function HelpCenterPage() {
       <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
         <div className="mx-auto max-w-[1100px] pt-16">
           <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-8">Popular articles</p>
-          <ul className="divide-y divide-[#0a0a0a]/[0.08] border-y border-[#0a0a0a]/[0.08]">
+          <ul className="divide-y divide-[#0a0a0a]/[0.08]">
             {popular.map((a) => {
               const cat = HELP_CATEGORIES.find((c) => c.slug === a.category);
               return (
@@ -229,7 +229,7 @@ export default function HelpCenterPage() {
                   </p>
                 </div>
                 <p className="mt-2 text-[14px] text-[#0a0a0a]/55">{c.desc}</p>
-                <ul className="mt-6 divide-y divide-[#0a0a0a]/[0.06] border-y border-[#0a0a0a]/[0.06]">
+                <ul className="mt-6 divide-y divide-[#0a0a0a]/[0.06]">
                   {arts.map((a) => (
                     <li key={a.slug}>
                       <Link
