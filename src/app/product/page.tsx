@@ -595,22 +595,6 @@ export default function ProductOverviewPage() {
               </tbody>
             </table>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/compare-smith-ai"
-              className="inline-flex items-center gap-2 rounded border border-[#0a0a0a]/15 px-4 py-2.5 text-[14px] text-[#0a0a0a] hover:border-[#0a0a0a]/40 transition-colors"
-            >
-              vs Smith.ai
-              <span className="text-[13px]">→</span>
-            </Link>
-            <Link
-              href="/compare-ruby-receptionists"
-              className="inline-flex items-center gap-2 rounded border border-[#0a0a0a]/15 px-4 py-2.5 text-[14px] text-[#0a0a0a] hover:border-[#0a0a0a]/40 transition-colors"
-            >
-              vs Ruby Receptionists
-              <span className="text-[13px]">→</span>
-            </Link>
-          </div>
         </div>
       </section>
 

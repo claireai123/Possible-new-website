@@ -4,14 +4,14 @@ import Link from "next/link";
 const BASE_URL = "https://theclaireai.com";
 
 const DESCRIPTION =
-  "ClaireAI was founded in 2024 in Miami to build the first AI receptionist purpose-built for U.S. law firms — not a general-purpose agent retrofitted for legal intake.";
+  "ClaireAI is building the AI receptionist that answers, qualifies, and books matters for U.S. law firms — purpose-built for legal intake, not retrofitted from a general-purpose agent.";
 
 export const metadata: Metadata = {
-  title: "About — Built by legal-tech and voice-AI engineers",
+  title: "About — Building the AI receptionist for law firms",
   description: DESCRIPTION,
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
-    title: "About ClaireAI",
+    title: "About ClaireAI — Building the AI receptionist for law firms",
     description: DESCRIPTION,
     url: `${BASE_URL}/about`,
     type: "website",
@@ -19,62 +19,47 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "About ClaireAI", description: DESCRIPTION },
 };
 
-const TIMELINE: { date: string; title: string; body: string }[] = [
+// "The ClaireAI way" — two-word titles, short adjective-pair body, per Legora pattern.
+const VALUES: { eyebrow: string; headline: string; body: string }[] = [
   {
-    date: "2024",
-    title: "Founded in Miami",
-    body: "ClaireAI starts as a single-firm pilot in personal injury, answering after-hours calls for a Florida PI practice. Within 90 days, 38% of after-hours intake converts to signed retainers.",
+    eyebrow: "Built for legal",
+    headline: "Calibrated, not adapted.",
+    body: "Every prompt, script, and integration is shaped around legal intake. Personal injury, criminal defense, family law, and twelve more practice areas — each gets its own qualification logic, conflict screen, and disposition tree. We do not sell a horizontal AI receptionist with a legal landing page.",
   },
   {
-    date: "2025",
-    title: "Practice-area calibration",
-    body: "We add criminal defense and family law scripts, then immigration, employment, and estate planning. Conflict screening under Model Rule 1.18 ships in May. By year-end, 200 firms are live.",
+    eyebrow: "Privilege first",
+    headline: "Ethics and clarity.",
+    body: "Conflict screening under Model Rule 1.18 runs before any matter details are captured. HIPAA Business Associate Agreements are standard. Audit logs are retained for seven years. We build for the bar exam reader, not the demo buyer.",
   },
   {
-    date: "2026 — early",
-    title: "Integration platform",
-    body: "Native two-way sync ships for Clio, Filevine, MyCase, and PracticePanther — then 62 more systems via the integration platform. No per-sync fees, no Zapier middleman.",
-  },
-  {
-    date: "2026 — today",
-    title: "1,000-firm benchmark",
-    body: "We publish the 2026 Legal Intake Benchmark covering 1,000 firms and 5,000 inbound calls — the largest dataset on U.S. legal phone intake outside the AmLaw 100.",
+    eyebrow: "Flat pricing",
+    headline: "No integration tax.",
+    body: "Every native integration is included. We do not gate per-sync. We do not charge a per-connector fee. Your monthly bill is one number, and it should not punish you for connecting your CRM.",
   },
 ];
 
-const VALUES: { title: string; body: string }[] = [
-  {
-    title: "Built for legal, not retrofitted",
-    body: "Every prompt, script, and integration is calibrated for U.S. law firms. We do not sell a horizontal AI receptionist with a legal landing page bolted on.",
-  },
-  {
-    title: "Privilege and ethics are first-class",
-    body: "Rule 1.18 conflict screening runs before any matter details are captured. HIPAA BAAs are standard. Audit logs are retained for seven years.",
-  },
-  {
-    title: "Flat pricing, no add-on tax",
-    body: "Every integration is included. We do not gate per-sync or charge a per-integration fee. Your bill should not punish you for connecting your CRM.",
-  },
-  {
-    title: "Ship dates beat road-maps",
-    body: "Customer-requested features land in days, not quarters. The dashboard, scripts, and routing rules update without a release cycle.",
-  },
+// Real ClaireAI numbers, sourced from existing site copy (home-faq.tsx, blog benchmark).
+const STATS: { value: string; label: string }[] = [
+  { value: "1,000+", label: "law firms live" },
+  { value: "66", label: "native integrations" },
+  { value: "16", label: "practice areas calibrated" },
 ];
 
-const FOUNDERS: { name: string; role: string; bio: string }[] = [
-  {
-    name: "Tiago Strammiello",
-    role: "Founder & CEO",
-    bio: "Tiago leads product and engineering at ClaireAI. Before ClaireAI he built voice and conversational systems used by U.S. small businesses and legal practices.",
-  },
-  {
-    name: "Caleo Tsiapalis",
-    role: "Co-Founder & Head of Customer Success",
-    bio: "Caleo runs ClaireAI's customer onboarding and writes the runbooks every new firm follows. He has worked alongside more than 200 small and mid-size firms on intake.",
-  },
+// Investor logos — placeholder outline blocks per the brief.
+// Replace with real SVGs once committed.
+const INVESTORS: string[] = [
+  "Investor logo",
+  "Investor logo",
+  "Investor logo",
+  "Investor logo",
+  "Investor logo",
+  "Investor logo",
 ];
 
 export default function AboutPage() {
+  // ─── Structured data ─────────────────────────────────────────────────
+  // Organization carries the brand graph site-wide via the @id.
+  // foundingDate and foundingLocation feed Google's knowledge panel.
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -83,21 +68,25 @@ export default function AboutPage() {
     legalName: "ClaireAI, Inc.",
     url: BASE_URL,
     foundingDate: "2024",
-    foundingLocation: { "@type": "Place", name: "Miami, Florida" },
+    foundingLocation: { "@type": "Place", name: "Miami, Florida, United States" },
     description:
-      "ClaireAI is an AI receptionist purpose-built for U.S. law firms — answering, qualifying, screening for conflicts, and booking matters around the clock.",
+      "ClaireAI is an AI receptionist purpose-built for U.S. law firms — answering, qualifying, and screening for conflicts around the clock.",
+    industry: "Legal Technology",
+    knowsAbout: [
+      "AI receptionist",
+      "legal intake",
+      "law firm operations",
+      "Model Rule 1.18 conflict screening",
+      "HIPAA compliance",
+      "Clio Grow integration",
+    ],
     sameAs: [
       "https://www.linkedin.com/company/claireai",
       "https://x.com/claireai",
     ],
-    founder: FOUNDERS.map((f) => ({
-      "@type": "Person",
-      name: f.name,
-      jobTitle: f.role,
-      description: f.bio,
-    })),
   };
 
+  // AboutPage points at the org via @id — a clean entity graph for AI crawlers.
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -107,6 +96,12 @@ export default function AboutPage() {
     description: DESCRIPTION,
     inLanguage: "en-US",
     mainEntity: { "@id": `${BASE_URL}/#organization` },
+    // Speakable on the lede paragraph — voice assistants and AI Overviews
+    // will read the lede as the canonical answer to "what is ClaireAI".
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".about-lede"],
+    },
   };
 
   const breadcrumbSchema = {
@@ -120,178 +115,197 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="bg-white text-[#0a0a0a]">
+    <main className="bg-[#fbfbf9] text-[#0a0a0a]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* ─────────── Hero ─────────── */}
-      <section className="px-6 pt-24 pb-20 sm:pt-32 sm:pb-24">
-        <div className="mx-auto max-w-[1100px]">
-          <nav aria-label="Breadcrumb" className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/45">
-            <Link href="/" className="hover:text-[#0a0a0a]">ClaireAI</Link>
-            <span className="px-2 text-[#0a0a0a]/25">/</span>
-            <span className="text-[#0a0a0a]/75">About</span>
-          </nav>
-
-          <h1
-            className="mt-6 font-serif max-w-[18ch]"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 72px)", lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: 500 }}
-          >
-            We answer the phone for law firms.
-          </h1>
-          <p className="mt-8 max-w-[62ch] text-[19px] leading-[1.55] text-[#0a0a0a]/75">
-            ClaireAI is an AI receptionist purpose-built for U.S. law firms. Every script, every integration, every routing rule was designed for legal intake — not retrofitted from a general-purpose agent. We were founded in Miami in 2024 by a team of voice-AI and legal-tech engineers.
-          </p>
-        </div>
-      </section>
-
-      {/* ─────────── Mission / lead paragraph ─────────── */}
-      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
-        <div className="mx-auto max-w-[1100px] pt-16 grid grid-cols-1 gap-12 lg:grid-cols-[200px_1fr]">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55">Mission</p>
-          <div className="max-w-[68ch]">
-            <p className="text-[20px] leading-[1.55] text-[#0a0a0a]/85" style={{ letterSpacing: "-0.005em" }}>
-              U.S. law firms miss 35% of their inbound calls. Every missed call is a missed retainer — and at $1,500–$8,000 in average case value, the cost runs into hundreds of thousands of dollars per firm per year. We exist to close that gap with a receptionist that never sleeps, never panics, and knows the difference between a slip-and-fall and a wrongful-death case.
-            </p>
-            <p className="mt-6 text-[17px] leading-[1.65] text-[#0a0a0a]/70">
-              We are not a horizontal AI agent. We are a focused voice product built for one market — the practicing attorney — and we have the calibration, conflict screening, CRM integrations, and HIPAA posture to prove it.
-            </p>
+      {/* ─────────── 1. HERO — full-bleed placeholder image, eyebrow + long lede + stat trio ─────────── */}
+      <section className="relative overflow-hidden">
+        {/* Placeholder hero "outline" image. Replace src/poster with a real warm-toned interior photo. */}
+        <div
+          className="relative h-[88vh] min-h-[680px] w-full"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `
+              linear-gradient(180deg, rgba(251,251,249,0) 0%, rgba(251,251,249,0.4) 65%, #fbfbf9 100%),
+              radial-gradient(120% 80% at 80% 30%, #ecece7 0%, #d8d6cf 60%, #b8b4ab 100%)
+            `,
+          }}
+        >
+          {/* "outline image" indicator — kept subtle, removable when real photo lands */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="border border-[#0a0a0a]/15 rounded-md px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/35 bg-[#fbfbf9]/60 backdrop-blur-sm">
+              Hero image placeholder · 3456 × 1728
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* ─────────── Timeline ─────────── */}
-      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
-        <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-10">Timeline</p>
-          <ol className="space-y-12">
-            {TIMELINE.map((t, i) => (
-              <li key={i} className="grid grid-cols-1 gap-6 lg:grid-cols-[200px_1fr]">
-                <div>
-                  <p className="font-mono text-[12px] tracking-wider text-[#0a0a0a]/55">{t.date}</p>
-                </div>
-                <div className="max-w-[68ch]">
-                  <h3
+        {/* Hero copy lockup sits below the photo, on the warm off-white sheet, Legora-style */}
+        <div className="px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
+          <div className="mx-auto max-w-[1100px]">
+            <p className="text-[13px] font-normal text-[#6b6b6b]">Shaping the future of legal intake</p>
+
+            <h1
+              className="about-lede mt-6 max-w-[26ch] text-[#0a0a0a]"
+              style={{
+                fontSize: "clamp(2rem, 4.2vw, 48px)",
+                lineHeight: "1.0",
+                letterSpacing: "-0.03em",
+                fontWeight: 400,
+              }}
+            >
+              ClaireAI helps America&apos;s best law firms answer every call, qualify every lead, and book every matter — without growing the intake team. By taking the repetitive work off the phone, we free attorneys to do the work only attorneys can do.
+            </h1>
+
+            {/* Stat trio — three numbers in display size, label below */}
+            <dl className="mt-16 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-10">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <dt
                     className="text-[#0a0a0a]"
-                    style={{ fontSize: "22px", lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: 500 }}
+                    style={{
+                      fontSize: "clamp(2rem, 4vw, 44px)",
+                      lineHeight: "1.0",
+                      letterSpacing: "-0.03em",
+                      fontWeight: 400,
+                    }}
                   >
-                    {t.title}
-                  </h3>
-                  <p className="mt-3 text-[16px] leading-[1.65] text-[#0a0a0a]/75">{t.body}</p>
+                    {s.value}
+                  </dt>
+                  <dd className="mt-3 text-[15px] text-[#6b6b6b]">{s.label}</dd>
                 </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ─────────── Values ─────────── */}
-      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
-        <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-10">What we believe</p>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-            {VALUES.map((v) => (
-              <div key={v.title} className="max-w-[44ch]">
-                <h3
-                  className="text-[#0a0a0a]"
-                  style={{ fontSize: "20px", lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: 500 }}
-                >
-                  {v.title}
-                </h3>
-                <p className="mt-3 text-[15.5px] leading-[1.6] text-[#0a0a0a]/70">{v.body}</p>
-              </div>
-            ))}
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
-      {/* ─────────── Founders ─────────── */}
-      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
-        <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-10">Founders</p>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2">
-            {FOUNDERS.map((f) => (
-              <div key={f.name} className="max-w-[44ch]">
-                <h3
-                  className="text-[#0a0a0a]"
-                  style={{ fontSize: "22px", lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: 500 }}
-                >
-                  {f.name}
-                </h3>
-                <p className="mt-2 text-[13px] text-[#0a0a0a]/55">{f.role}</p>
-                <p className="mt-4 text-[15.5px] leading-[1.65] text-[#0a0a0a]/75">{f.bio}</p>
-              </div>
-            ))}
+      {/* ─────────── 2. Mission paragraph block — no heading ─────────── */}
+      <section className="px-6 pb-24">
+        <div className="mx-auto max-w-[1100px]">
+          <div className="max-w-[68ch] space-y-8">
+            <p
+              className="text-[#0a0a0a]"
+              style={{ fontSize: "clamp(20px, 2vw, 24px)", lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: 400 }}
+            >
+              We are building ClaireAI to unlock unparalleled coverage between law firms and the people who call them. The cost of a missed phone call at a U.S. law firm is not measured in inconvenience — it is measured in lost retainers, in clients who hire the next firm on the list, in cases that walk out the door because the first call after an accident found a voicemail.
+            </p>
+            <p
+              className="text-[#0a0a0a]"
+              style={{ fontSize: "clamp(20px, 2vw, 24px)", lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: 400 }}
+            >
+              Our mission is to make the first phone call to a law firm the best phone call a prospective client makes that day. We do this by building the world&apos;s first truly purpose-built AI receptionist for the practice of law.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ─────────── Stats strip ─────────── */}
+      {/* ─────────── 3. The ClaireAI way — 3-up values ─────────── */}
       <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
         <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-10">By the numbers</p>
-          <dl className="grid grid-cols-2 gap-y-10 sm:grid-cols-4">
-            {[
-              { k: "Firms live", v: "1,000+" },
-              { k: "Native integrations", v: "66" },
-              { k: "Practice areas calibrated", v: "16" },
-              { k: "Average answer speed", v: "0.8s" },
-            ].map((s) => (
-              <div key={s.k}>
-                <dt className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/50">{s.k}</dt>
-                <dd
-                  className="mt-3 font-serif text-[#0a0a0a]"
-                  style={{ fontSize: "clamp(2rem, 3.5vw, 44px)", lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: 500 }}
-                >
-                  {s.v}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* ─────────── Final CTA ─────────── */}
-      <section
-        className="px-6 py-[120px]"
-        style={{
-          backgroundColor: "#8c9c82",
-          backgroundImage: `
-            url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
-            radial-gradient(120% 90% at 20% 10%, #a9b8a0 0%, #8c9c82 45%, #7a8a72 100%)
-          `,
-          backgroundSize: "280px 280px, 100% 100%",
-          backgroundRepeat: "repeat, no-repeat",
-        }}
-      >
-        <div className="mx-auto max-w-[1680px]">
           <h2
-            className="font-serif text-[#0a0a0a] max-w-[22ch]"
+            className="text-[#0a0a0a] max-w-[18ch]"
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 72px)",
-              lineHeight: "1.05",
+              fontSize: "clamp(28px, 3vw, 36px)",
+              lineHeight: "1.1",
               letterSpacing: "-0.02em",
-              fontWeight: 500,
+              fontWeight: 400,
             }}
           >
-            See ClaireAI handle a live intake call.
+            The ClaireAI way
           </h2>
-          <p className="mt-6 max-w-[55ch] text-[18px] leading-[1.55] text-[#0a0a0a]/75">
-            Book a 20-minute demo. We&apos;ll calibrate the agent to your intake script live, on the call.
+
+          <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-14 sm:grid-cols-3">
+            {VALUES.map((v) => (
+              <div key={v.eyebrow}>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/55">{v.eyebrow}</p>
+                <p
+                  className="mt-4 text-[#0a0a0a]"
+                  style={{ fontSize: "20px", lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: 400 }}
+                >
+                  {v.headline}
+                </p>
+                <p
+                  className="mt-4 max-w-[40ch] text-[#0a0a0a]"
+                  style={{ fontSize: "16.5px", lineHeight: "1.55", fontWeight: 400 }}
+                >
+                  {v.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────── 4. Backed by — investor logo wall (placeholder outlines) ─────────── */}
+      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
+        <div className="mx-auto max-w-[1100px] pt-16">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/55">Backed by</p>
+          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+            {INVESTORS.map((label, i) => (
+              <div
+                key={i}
+                className="flex h-14 items-center justify-center rounded-sm border border-[#0a0a0a]/12 bg-[#fbfbf9]"
+              >
+                <span className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/30">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────── 5. Investor pull-quote ─────────── */}
+      <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
+        <div className="mx-auto max-w-[1100px] pt-16">
+          <blockquote className="max-w-[42ch]">
+            <p
+              className="text-[#0a0a0a]"
+              style={{
+                fontSize: "clamp(24px, 3vw, 36px)",
+                lineHeight: "1.15",
+                letterSpacing: "-0.02em",
+                fontWeight: 400,
+              }}
+            >
+              &ldquo;ClaireAI is redefining how legal work gets done. The product is unusually disciplined for its stage — built for the bar, not for the demo — and the team executes faster than any AI receptionist company we&apos;ve backed.&rdquo;
+            </p>
+            <footer className="mt-8 text-[13px] text-[#68655e]">
+              <p className="text-[#0a0a0a]">Partner Name</p>
+              <p className="mt-1">Partner role · Firm Name</p>
+              <p className="mt-3 text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/35">Placeholder quote</p>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* ─────────── 6. Careers CTA — full-bleed deep-green inverted panel ─────────── */}
+      <section
+        className="px-6 py-[120px]"
+        style={{ backgroundColor: "#00301e" }}
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <h2
+            className="text-white max-w-[22ch]"
+            style={{
+              fontSize: "clamp(28px, 3.4vw, 40px)",
+              lineHeight: "1.1",
+              letterSpacing: "-0.02em",
+              fontWeight: 400,
+            }}
+          >
+            Ready for your best career step?
+          </h2>
+          <p className="mt-6 max-w-[55ch] text-[17px] leading-[1.55] text-white/75">
+            We&apos;re hiring across engineering, product, and customer success. View our currently open roles to see if you&apos;re a good fit.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10">
             <Link
-              href="/contact"
-              className="inline-flex items-center rounded bg-[#0a0a0a] px-5 py-3 text-[14px] font-normal text-white hover:bg-[#0a0a0a]/85"
+              href="/careers"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-[14px] font-normal text-[#00301e] hover:bg-[#edfedc]"
             >
-              Book a demo
-            </Link>
-            <Link
-              href="/pricing"
-              className="inline-flex items-center rounded border border-[#0a0a0a]/20 bg-white/10 px-5 py-3 text-[14px] font-normal text-[#0a0a0a] hover:bg-white/20"
-            >
-              See pricing
+              View roles
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
