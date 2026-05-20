@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { POSTS } from "@/data/posts";
+import { cloudinaryCrop } from "@/lib/cloudinary";
 
 const BASE_URL = "https://theclaireai.com/blog";
 
@@ -77,9 +78,10 @@ const blogSchema = {
 
 function CardImage({ ratio = "aspect-[4/3]", img, alt }: { ratio?: string; img?: string; alt?: string }) {
   if (img) {
+    const src = cloudinaryCrop(img, ratio) ?? img;
     return (
       <div className={`relative ${ratio} overflow-hidden rounded-md bg-[#ecebe7]`}>
-        <img src={img} alt={alt ?? ""} className="absolute inset-0 h-full w-full object-contain" loading="lazy" />
+        <img src={src} alt={alt ?? ""} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       </div>
     );
   }

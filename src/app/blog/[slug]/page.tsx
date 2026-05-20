@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { POSTS, getPost, getRelatedPosts, type ArticleSection, type ParagraphSpan } from "@/data/posts";
+import { cloudinaryCrop } from "@/lib/cloudinary";
 
 const BASE_URL = "https://theclaireai.com";
 
@@ -401,12 +402,23 @@ export default async function ArticlePage({ params }: PageProps) {
           <div className="mx-auto max-w-[1100px]">
             <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-8">Related reading</p>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) => (
+              {related.map((r) => {
+                const heroSrc = cloudinaryCrop(r.hero?.img, "aspect-[16/10]") ?? r.hero?.img;
+                return (
                 <Link key={r.slug} href={`/blog/${r.slug}`} className="group block">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#ecebe7]">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <p className="text-[10px] text-[#0a0a0a]/25">Article image</p>
-                    </div>
+                    {heroSrc ? (
+                      <img
+                        src={heroSrc}
+                        alt={r.hero?.imgAlt ?? r.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <p className="text-[10px] text-[#0a0a0a]/25">Article image</p>
+                      </div>
+                    )}
                   </div>
                   <p className="mt-4 text-[12px] text-[#0a0a0a]/55">{r.date}</p>
                   <h3
@@ -416,7 +428,8 @@ export default async function ArticlePage({ params }: PageProps) {
                     {r.title}
                   </h3>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

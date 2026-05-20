@@ -867,7 +867,7 @@ export const POSTS: Post[] = [
     excerpt:
       "Comparative analysis of the top 7 AI receptionist platforms — features, integrations, pricing, and the practice areas each handles best. Independent benchmark data from 1,000 firms.",
     hero: {
-      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779216707/ChatGPT_Image_May_19_2026_at_02_51_25_PM.jpg",
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1779302723/ChatGPT_Image_May_20_2026_at_02_45_06_PM.jpg",
       imgAlt: "Best AI receptionist for law firms in 2026 — comparative analysis",
     },
     author: {
@@ -955,7 +955,10 @@ export const POSTS: Post[] = [
     title: "The $100,000 missed-call problem at U.S. law firms",
     excerpt:
       "Analysis of inbound call data showing how the average PI firm loses $250,000 per year to missed and mishandled intake — and how AI recovers 92% of the gap.",
-    hero: { img: undefined, imgAlt: "Missed call revenue loss at U.S. law firms — the $100K problem" },
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1779303819/ChatGPT_Image_May_20_2026_at_03_03_15_PM.jpg",
+      imgAlt: "Missed call revenue loss at U.S. law firms — the $100K problem",
+    },
     author: {
       name: "Caleo Tsiapalis",
       credentials: "Co-Founder, ClaireAI",
@@ -1054,9 +1057,9 @@ export function getPost(slug: string): Post | undefined {
   return POSTS.find((p) => p.slug === slug);
 }
 
-export function getRelatedPosts(slugs: string[]): Pick<Post, "slug" | "category" | "date" | "title" | "excerpt">[] {
+export function getRelatedPosts(slugs: string[]): Pick<Post, "slug" | "category" | "date" | "title" | "excerpt" | "hero">[] {
   return slugs
     .map((s) => POSTS.find((p) => p.slug === s))
     .filter((p): p is Post => !!p)
-    .map(({ slug, category, date, title, excerpt }) => ({ slug, category, date, title, excerpt }));
+    .map(({ slug, category, date, title, excerpt, hero }) => ({ slug, category, date, title, excerpt, hero }));
 }
