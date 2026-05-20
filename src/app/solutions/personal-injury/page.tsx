@@ -59,19 +59,19 @@ const FEATURES: { headline: string; body: string; img?: string; imgAlt?: string 
   {
     headline: "Qualify a PI lead in under two minutes.",
     body: "Claire runs your firm's exact intake script — mechanism, fault, treatment, every insurance layer (PIP, BI, UIM/UM, MedPay), police report, prior counsel, conflict screen. Captured verbatim into your CRM before the caller hangs up.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779129517/ChatGPT_Image_May_18_2026_at_02_38_21_PM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779129517/ChatGPT_Image_May_18_2026_at_02_38_21_PM.jpg",
     imgAlt: "ClaireAI personal injury intake qualifying script — structured CRM record built live on the call",
   },
   {
     headline: "Statute-of-limitations triage by jurisdiction.",
     body: "Claire knows the SoL window for every state you practice in — 2 or 3 years for negligence, plus discovery-rule extensions, government-claim notice, and minor-tolling. Calls within 90 days of a deadline skip auto-rejection and route straight to a partner. A wrong-grade D never costs you a seven-figure case.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779132672/ChatGPT_Image_May_18_2026_at_03_30_41_PM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779132672/ChatGPT_Image_May_18_2026_at_03_30_41_PM.jpg",
     imgAlt: "ClaireAI statute-of-limitations triage panel — jurisdiction-aware SoL windows with 90-day partner-routing guard",
   },
   {
     headline: "Bilingual intake, accident-hour pickup.",
     body: "English and Spanish out of the box, detected on the first phrase. After-hours, weekend, and overnight calls — the highest-value PI moments — answered identically to business hours. No surcharge, no shift gaps, no voicemail dead-ends.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
     imgAlt: "ClaireAI bilingual English and Spanish PI intake — 24/7 accident-hour pickup with first-phrase language detection",
   },
 ];
@@ -268,9 +268,9 @@ export default function PersonalInjuryPage() {
       {/* ─────────── Hero image (full-width wide) ─────────── */}
       <section className="bg-white px-6 pb-12 md:pb-16">
         <div className="mx-auto max-w-[1680px]">
-          <div className="relative aspect-[16/9] max-h-[520px] overflow-hidden rounded-lg">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
             <img
-              src="https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg"
+              src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg"
               alt="Personal injury law firm reception — ClaireAI handles every inbound PI call"
               className="h-full w-full object-cover"
             />
@@ -372,7 +372,7 @@ export default function PersonalInjuryPage() {
                   className={`relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl ${
                     textLeft ? "lg:order-2" : "lg:order-1"
                   }`}
-                  style={{ backgroundColor: "#f5f4f1" }}
+                  style={{ backgroundColor: f.img ? "transparent" : "#f5f4f1" }}
                 >
                   {f.img ? (
                     <img
@@ -417,7 +417,7 @@ export default function PersonalInjuryPage() {
               <Link
                 key={item.area}
                 href={item.href}
-                className="group relative block aspect-[4/5] cursor-pointer overflow-hidden rounded-lg"
+                className="group relative block aspect-[3/4] cursor-pointer overflow-hidden rounded-lg"
               >
                 {/* Image */}
                 <img

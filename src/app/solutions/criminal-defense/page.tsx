@@ -59,19 +59,19 @@ const FEATURES: { headline: string; body: string; img?: string; imgAlt?: string 
   {
     headline: "Arraignment and bail-hearing urgency triaged in seconds.",
     body: "Arrests trigger a constitutional clock — 48 to 72 hours to arraignment. Claire knows the deadline math by jurisdiction. Calls inside the window skip auto-rejection and route to a partner with charge, bond, jurisdiction, and next court date already in the brief.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779204750/ChatGPT_Image_May_19_2026_at_11_32_15_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779204750/ChatGPT_Image_May_19_2026_at_11_32_15_AM.jpg",
     imgAlt: "ClaireAI criminal-defense arraignment and bail-hearing urgency dashboard — 48 to 72 hour constitutional clock tracked by jurisdiction with charge, bond, and next court date captured live",
   },
   {
     headline: "Collect calls from jail, answered like any other call.",
     body: "Detention-facility collect calls are the highest-value intake call in criminal defense — and the one most firms miss. Claire accepts the charges, runs a conflict screen, captures charge, bond, jurisdiction, and court date, and pages your on-call counsel before the inmate's call window expires. Bilingual on the first phrase.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779205499/ChatGPT_Image_May_19_2026_at_11_44_43_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779205499/ChatGPT_Image_May_19_2026_at_11_44_43_AM.jpg",
     imgAlt: "ClaireAI criminal-defense detention-facility collect call intake — Claire accepts the charges, captures charge, bond, jurisdiction, and court date, and pages on-call counsel before the inmate's call window expires",
   },
   {
     headline: "Conflict screening before any case fact — co-defendants included.",
     body: "Criminal defense has the trickiest conflict matrix — co-defendants, prior representation of alleged victims, witnesses, prior testimony. Claire collects caller, charge, co-defendants, alleged victim, and prior counsel, then fuzzy-matches against your CRM before any case fact. Rule 1.18 prospective-client confidentiality, enforced at the door.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779205248/ChatGPT_Image_May_19_2026_at_11_39_07_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779205248/ChatGPT_Image_May_19_2026_at_11_39_07_AM.jpg",
     imgAlt: "ClaireAI criminal-defense conflict-screening dashboard — fuzzy-match check across co-defendants, alleged victim, witnesses, and prior counsel before any case fact, enforcing ABA Model Rule 1.18 prospective-client confidentiality",
   },
 ];
@@ -81,7 +81,7 @@ const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: str
     area: "Personal Injury",
     desc: "Accident-hour pickup, statute-of-limitations triage, full insurance-layer capture, grade-A retainer dispatch. Mass-tort overflow at unlimited concurrency.",
     href: "/solutions/personal-injury",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
   },
   {
     area: "Family Law",
@@ -270,9 +270,9 @@ export default function CriminalDefensePage() {
       {/* ─────────── Hero image (full-width wide) ─────────── */}
       <section className="bg-white px-6 pb-12 md:pb-16">
         <div className="mx-auto max-w-[1680px]">
-          <div className="relative aspect-[16/9] max-h-[520px] overflow-hidden rounded-lg">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
             <img
-              src="https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg"
+              src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg"
               alt="Criminal defense law firm reception — ClaireAI handles every arraignment, bail hearing, and jail call"
               className="h-full w-full object-cover"
             />
@@ -372,7 +372,7 @@ export default function CriminalDefensePage() {
                   className={`relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl ${
                     textLeft ? "lg:order-2" : "lg:order-1"
                   }`}
-                  style={{ backgroundColor: "#f5f4f1" }}
+                  style={{ backgroundColor: f.img ? "transparent" : "#f5f4f1" }}
                 >
                   {f.img ? (
                     <img
@@ -414,7 +414,7 @@ export default function CriminalDefensePage() {
               <Link
                 key={item.area}
                 href={item.href}
-                className="group relative block aspect-[4/5] cursor-pointer overflow-hidden rounded-lg"
+                className="group relative block aspect-[3/4] cursor-pointer overflow-hidden rounded-lg"
               >
                 <img
                   src={item.img}
