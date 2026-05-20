@@ -59,19 +59,19 @@ const FEATURES: { headline: string; body: string; img?: string; imgAlt?: string 
   {
     headline: "Empathetic intake calibrated for family-law callers.",
     body: "Family-law prospects often call at the worst moment — separation, custody dispute, DV, served papers. Claire validates, slows the pace, and captures case type, opposing party, children, prior orders, and jurisdiction in your CRM without re-traumatizing the caller.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779201988/ChatGPT_Image_May_19_2026_at_10_46_10_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779201988/ChatGPT_Image_May_19_2026_at_10_46_10_AM.jpg",
     imgAlt: "ClaireAI empathetic family-law intake — distressed-caller pacing with structured CRM record built live on the call",
   },
   {
     headline: "DV and emergency-signal escalation, on the line.",
     body: "Claire detects domestic violence, child abduction risk, financial waste, and ex-parte urgency in real time. Emergencies warm-transfer to on-call counsel with a pre-briefed handoff. If unavailable, Claire offers 911 and the National DV Hotline (1-800-799-7233) and pages your escalation chain by SMS, push, and voice.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202513/ChatGPT_Image_May_19_2026_at_10_54_57_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779202513/ChatGPT_Image_May_19_2026_at_10_54_57_AM.jpg",
     imgAlt: "ClaireAI family-law DV and emergency-signal escalation — domestic violence, child abduction risk, and ex-parte urgency detected and warm-transferred to on-call attorney",
   },
   {
     headline: "Conflict screening before a single privileged detail.",
     body: "Family law has the highest conflict-rate of any practice — spouses, paramours, in-laws, prior counsel. Claire collects caller, opposing party's full legal name, prior counsel, and related parties up front, then runs a fuzzy-match conflict check against your CRM before any case facts. Rule 1.18 prospective-client confidentiality, enforced at the door.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202793/ChatGPT_Image_May_19_2026_at_10_59_38_AM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779202793/ChatGPT_Image_May_19_2026_at_10_59_38_AM.jpg",
     imgAlt: "ClaireAI family-law conflict screening — fuzzy-match check against caller, opposing party, prior counsel, and related parties before any privileged detail is taken (Rule 1.18 prospective-client confidentiality)",
   },
 ];
@@ -81,7 +81,7 @@ const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: str
     area: "Personal Injury",
     desc: "Sub-1-second pickup. Statute-of-limitations triage, full insurance-layer capture (PIP, BI, UIM/UM, MedPay), DocuSign retainer dispatch on grade-A leads.",
     href: "/solutions/personal-injury",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
   },
   {
     area: "Criminal Defense",
@@ -272,7 +272,7 @@ export default function FamilyLawPage() {
         <div className="mx-auto max-w-[1680px]">
           <div className="relative aspect-[16/9] max-h-[520px] overflow-hidden rounded-lg">
             <img
-              src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg"
+              src="https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,b_rgb:f5f4f1,ar_16:10,q_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg"
               alt="Family law firm reception — ClaireAI handles every divorce, custody, and DV intake call"
               className="h-full w-full object-cover"
             />
