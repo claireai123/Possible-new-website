@@ -87,7 +87,7 @@ const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: str
     area: "Family Law",
     desc: "DV detection on the first phrase. PFA, TPO, and emergency-custody filings flagged. Rule 1.18 screening covers paramours and prior counsel.",
     href: "/solutions/family-law",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto:eco,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
   },
 ];
 
@@ -372,14 +372,15 @@ export default function CriminalDefensePage() {
                   className={`relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl ${
                     textLeft ? "lg:order-2" : "lg:order-1"
                   }`}
-                  style={{ backgroundColor: f.img ? "transparent" : "#f5f4f1" }}
+                  style={{ backgroundColor: "#f5f4f1" }}
                 >
                   {f.img ? (
                     <img
                       src={f.img}
                       alt={f.imgAlt ?? f.headline}
                       className="absolute inset-0 h-full w-full object-contain"
-                      loading="lazy"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                      fetchPriority={idx === 0 ? "high" : "auto"}
                     />
                   ) : (
                     <div className="text-center">
