@@ -343,12 +343,12 @@ export default function CriminalDefensePage() {
           <section key={idx} className={`bg-white px-6 pb-10 md:pb-16 ${firstClasses}`}>
             <div className="mx-auto max-w-[1680px]">
               <div
-                className={`grid grid-cols-1 gap-6 lg:gap-8 items-center ${
+                className={`grid grid-cols-1 gap-6 lg:gap-8 items-start ${
                   textLeft ? "lg:grid-cols-[1fr_1.6fr]" : "lg:grid-cols-[1.6fr_1fr]"
                 }`}
               >
                 <div
-                  className={`flex flex-col justify-center lg:pr-10 ${
+                  className={`flex flex-col justify-start lg:pr-10 ${
                     textLeft ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
