@@ -378,7 +378,7 @@ export default function PersonalInjuryPage() {
                     <img
                       src={f.img}
                       alt={f.imgAlt ?? f.headline}
-                      className="absolute inset-0 h-full w-full object-contain"
+                      className="absolute inset-0 h-full w-full object-cover object-center"
                       loading={idx === 0 ? "eager" : "lazy"}
                       fetchPriority={idx === 0 ? "high" : "auto"}
                     />
