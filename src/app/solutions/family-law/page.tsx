@@ -195,7 +195,7 @@ const webApplicationSchema = {
 
 const techArticle = {
   "@context": "https://schema.org",
-  "@type": "TechArticle",
+  "@type": "WebPage",
   inLanguage: "en-US",
   headline: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
   description: STAGE_ANSWER,
@@ -244,7 +244,7 @@ export default function FamilyLawPage() {
             <span className="text-[#0a0a0a]">Family Law</span>
           </p>
           <h1
-            className="mt-8 font-serif text-[#0a0a0a] mx-auto"
+            className="mt-8 text-[#0a0a0a] mx-auto"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 84px)",
               lineHeight: "1.04",
@@ -270,7 +270,7 @@ export default function FamilyLawPage() {
       {/* ─────────── Hero image (full-width wide) ─────────── */}
       <section className="bg-white px-6 pb-12 md:pb-16">
         <div className="mx-auto max-w-[1680px]">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+          <div className="relative aspect-[16/9] max-h-[520px] overflow-hidden rounded-lg">
             <img
               src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg"
               alt="Family law firm reception — ClaireAI handles every divorce, custody, and DV intake call"
@@ -319,7 +319,7 @@ export default function FamilyLawPage() {
             Use cases
           </p>
           <h2
-            className="font-serif text-[#0a0a0a] max-w-[24ch]"
+            className="text-[#0a0a0a] max-w-[24ch]"
             style={{
               fontSize: "clamp(1.5rem, 2.8vw, 40px)",
               lineHeight: "1.1",
@@ -419,7 +419,7 @@ export default function FamilyLawPage() {
               <Link
                 key={item.area}
                 href={item.href}
-                className="group relative block aspect-[3/4] cursor-pointer overflow-hidden rounded-lg"
+                className="group relative block aspect-[4/5] cursor-pointer overflow-hidden rounded-lg"
               >
                 {/* Image */}
                 <img
@@ -465,7 +465,7 @@ export default function FamilyLawPage() {
             FAQ
           </p>
           <h2
-            className="font-serif text-[#0a0a0a] max-w-[28ch] mb-16"
+            className="text-[#0a0a0a] max-w-[28ch] mb-16"
             style={{
               fontSize: "clamp(2rem, 4vw, 56px)",
               lineHeight: "1.05",
@@ -521,7 +521,7 @@ export default function FamilyLawPage() {
       >
         <div className="mx-auto max-w-[1680px]">
           <h2
-            className="font-serif text-[#0a0a0a] max-w-[22ch]"
+            className="text-[#0a0a0a] max-w-[22ch]"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 72px)",
               lineHeight: "1.05",

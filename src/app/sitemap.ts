@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { execSync } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 import { INTEGRATIONS } from "@/data/integrations";
 import { HELP_ARTICLES } from "@/data/help-articles";
@@ -41,6 +42,7 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/product`, source: "src/app/product/page.tsx" },
   { url: `${BASE_URL}/product/legal-intake`, source: "src/app/product/legal-intake/page.tsx" },
   { url: `${BASE_URL}/product/lead-iq`, source: "src/app/product/lead-iq/page.tsx" },
+  { url: `${BASE_URL}/solutions`, source: "src/app/solutions/page.tsx" },
   { url: `${BASE_URL}/solutions/personal-injury`, source: "src/app/solutions/personal-injury/page.tsx" },
   { url: `${BASE_URL}/solutions/criminal-defense`, source: "src/app/solutions/criminal-defense/page.tsx" },
   { url: `${BASE_URL}/solutions/family-law`, source: "src/app/solutions/family-law/page.tsx" },
@@ -54,11 +56,28 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/careers`, source: "src/app/careers/page.tsx" },
 ];
 
+/**
+ * In production builds, fail loudly if a sitemap row references a file that
+ * does not exist. This catches the class of bug where a route is removed but
+ * its sitemap row is forgotten, and Google ends up crawling 404s.
+ *
+ * Dev mode logs a warning instead so iteration stays unblocked.
+ */
+function assertSourceExists(source: string): void {
+  const abs = path.resolve(ROOT, source);
+  if (fs.existsSync(abs)) return;
+  const msg = `[sitemap] ${source} referenced in corePages but file does not exist`;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(msg);
+  }
+  console.warn(msg);
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const core: Entry[] = corePages.map(({ url, source }) => ({
-    url,
-    lastModified: gitMtime(source),
-  }));
+  const core: Entry[] = corePages.map(({ url, source }) => {
+    assertSourceExists(source);
+    return { url, lastModified: gitMtime(source) };
+  });
 
   const integrationsLastMod = gitMtime("src/data/integrations.ts");
   const integrationSlugTemplateLastMod = gitMtime("src/app/integrations/[slug]/page.tsx");
