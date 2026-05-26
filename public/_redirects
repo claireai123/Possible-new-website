@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects — Netlify-style format
+# https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Format: <source>  <destination>  <status>
+# 301 = permanent (used here so search engines update the canonical and
+# transfer any inbound link equity from /about to the homepage).
+
+/about    /    301

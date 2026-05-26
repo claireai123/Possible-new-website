@@ -6,6 +6,11 @@ import { INTEGRATIONS } from "@/data/integrations";
 import { HELP_ARTICLES } from "@/data/help-articles";
 import { POSTS } from "@/data/posts";
 
+// Required under `output: "export"`. The sitemap reads git history via
+// execSync at *build* time only — the rendered XML is fully static, so
+// `force-static` is the correct flag.
+export const dynamic = "force-static";
+
 const BASE_URL = "https://theclaireai.com";
 // process.cwd() is the project root during `next build` and `next dev`.
 // The previous path.resolve(__dirname, "../..") resolved to .next/ at build
