@@ -81,13 +81,13 @@ const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: str
     area: "Criminal Defense",
     desc: "Collect calls from jail accepted. Arraignment, bail-hearing, and grand-jury deadlines tracked. Charge and bond captured before any case fact.",
     href: "/solutions/criminal-defense",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto:eco,f_auto/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
   },
   {
     area: "Family Law",
     desc: "First-phrase DV detection. PFA, TPO, and emergency-custody filings flagged in the brief. Rule 1.18 screening covers paramours and prior counsel.",
     href: "/solutions/family-law",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto:eco,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
   },
 ];
 
@@ -217,12 +217,12 @@ const techArticle = {
 
 export default function PersonalInjuryPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <main className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
       {/* ─────────── Hero (Legora pattern — centered eyebrow + big serif + small CTA) ─────────── */}
-      <section className="bg-white px-6 pt-28 md:pt-36 pb-16">
+      <section className="bg-white px-6 pt-20 sm:pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">
           <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
             <span className="text-[#0a0a0a]/40">SOLUTIONS</span>
@@ -232,11 +232,11 @@ export default function PersonalInjuryPage() {
           <h1
             className="mt-8 text-[#0a0a0a] mx-auto"
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 84px)",
+              fontSize: "clamp(2.25rem, 6vw, 84px)",
               lineHeight: "1.04",
               letterSpacing: "-0.025em",
               fontWeight: 400,
-              maxWidth: "20ch",
+              maxWidth: "min(20ch, 100%)",
             }}
           >
             Never miss another personal injury lead.
@@ -259,8 +259,11 @@ export default function PersonalInjuryPage() {
           <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
             <img
               src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg"
-              alt="Personal injury law firm reception — ClaireAI handles every inbound PI call"
+              alt="Modern law-firm reception area with green accent wall"
               className="h-full w-full object-cover"
+              width="1920"
+              height="1080"
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -269,7 +272,7 @@ export default function PersonalInjuryPage() {
       {/* ─────────── Metric strip (Legora — eyebrow left, 3 metrics right) ─────────── */}
       <section className="bg-white px-6 pt-4 md:pt-6 pb-24 md:pb-32">
         <div className="mx-auto max-w-[1680px]">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 lg:gap-16 items-start">
             <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
               ClaireAI for personal injury
             </p>
@@ -314,7 +317,7 @@ export default function PersonalInjuryPage() {
             }}
           >
             <span className="text-[#0a0a0a]">Capture every PI call.</span>{" "}
-            <span className="text-[#0a0a0a]/40">
+            <span className="text-[#0a0a0a]/60">
               Claire answers, qualifies, and books — autonomously.
             </span>
           </h2>
@@ -358,7 +361,7 @@ export default function PersonalInjuryPage() {
                   {f.img ? (
                     <img
                       src={f.img}
-                      alt={f.imgAlt ?? f.headline}
+                      alt=""
                       className="block w-full h-auto rounded-2xl"
                       loading={idx === 0 ? "eager" : "lazy"}
                       fetchPriority={idx === 0 ? "high" : "auto"}
@@ -374,7 +377,7 @@ export default function PersonalInjuryPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-[13px] text-[#0a0a0a]/30">Feature mockup placeholder</p>
+                        <p className="text-[13px] text-[#0a0a0a]/60">Feature mockup placeholder</p>
                         <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#0a0a0a]/20">16 : 10</p>
                       </div>
                     </div>
@@ -393,9 +396,9 @@ export default function PersonalInjuryPage() {
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#0a0a0a]/[0.06]">
         <div className="mx-auto max-w-[1680px]">
           {/* Eyebrow above grid */}
-          <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12">
+          <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
             Works with these practice areas
-          </p>
+          </h2>
 
           {/* 3-column image-overlay grid (Legora pattern) */}
           <div className="grid gap-6 sm:grid-cols-2">
@@ -408,14 +411,14 @@ export default function PersonalInjuryPage() {
                 {/* Image */}
                 <img
                   src={item.img}
-                  alt={item.area}
+                  alt=""
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   loading="lazy"
                 />
 
                 {/* Bottom gradient + text overlay */}
                 <div
-                  className="absolute inset-x-0 bottom-0 pt-24 pb-7 px-7"
+                  className="absolute inset-x-0 bottom-0 pt-16 sm:pt-24 pb-7 px-7"
                   style={{
                     backgroundImage:
                       "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0) 100%)",
@@ -492,7 +495,7 @@ export default function PersonalInjuryPage() {
 
       {/* ─────────── Final CTA (sage radial — matches site pattern) ─────────── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `
@@ -528,6 +531,6 @@ export default function PersonalInjuryPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
