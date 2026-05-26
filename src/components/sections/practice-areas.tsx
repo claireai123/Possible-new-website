@@ -219,7 +219,7 @@ export function PracticeAreas() {
               className="text-right font-serif text-[clamp(2rem,4vw,48px)] text-[#0a0a0a]"
               style={{ letterSpacing: "-0.02em", lineHeight: "0.95", fontFeatureSettings: '"liga" 0' }}
             >
-              Built for every<br />
+              Built for every<br className="hidden md:inline" />
               practice area.
             </h2>
           </div>
@@ -229,11 +229,10 @@ export function PracticeAreas() {
           {rows.map((row, i) => (
             <FadeIn key={row.area} delay={0.05}>
               <div
-                className={`grid items-center gap-10 py-8 lg:gap-16 ${
+                className={`grid items-center gap-10 py-8 lg:gap-16 lg:min-h-[calc((100dvh-48px)/2)] ${
                   row.reverse ? "lg:grid-cols-[6fr_5fr]" : "lg:grid-cols-[5fr_6fr]"
                 }`}
                 style={{
-                  minHeight: "calc((100vh - 48px) / 2)",
                   scrollSnapAlign: "start",
                 }}
               >

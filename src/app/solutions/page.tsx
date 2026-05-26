@@ -171,7 +171,7 @@ export default function SolutionsIndexPage() {
 
       {/* ─────────── CTA ─────────── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `

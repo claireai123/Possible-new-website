@@ -55,8 +55,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function renderInline(spans: HelpInlineSpan[]): React.ReactNode {
   return spans.map((s, i) => {
     if (s.kind === "bold") return <strong key={i} className="font-medium text-[#0a0a0a]">{s.text}</strong>;
-    if (s.kind === "code") return <code key={i} className="rounded bg-[#f4f3ef] px-1.5 py-0.5 font-mono text-[0.9em] text-[#0a0a0a]">{s.text}</code>;
-    if (s.kind === "link") return <Link key={i} href={s.href} className="text-[#0a0a0a] underline underline-offset-2 decoration-[#0a0a0a]/30 hover:decoration-[#0a0a0a]">{s.text}</Link>;
+    if (s.kind === "code") return <code key={i} className="rounded bg-[#f6f7f4] px-1.5 py-0.5 font-mono text-[0.9em] text-[#0a0a0a]">{s.text}</code>;
+    if (s.kind === "link") return <Link key={i} href={s.href} className="text-[#0a0a0a] underline underline-offset-2 decoration-[#0a0a0a]/60 hover:decoration-[#0a0a0a]">{s.text}</Link>;
     return <span key={i}>{s.text}</span>;
   });
 }
@@ -67,7 +67,7 @@ function Section({ s }: { s: HelpSection }) {
       return (
         <h2
           id={s.id}
-          className="mt-14 scroll-mt-28 text-[#0a0a0a]"
+          className="mt-14 scroll-mt-16 md:scroll-mt-20 text-[#0a0a0a]"
           style={{ fontSize: "26px", lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: 500 }}
         >
           {s.text}
@@ -77,7 +77,7 @@ function Section({ s }: { s: HelpSection }) {
       return (
         <h3
           id={s.id}
-          className="mt-10 scroll-mt-28 text-[#0a0a0a]"
+          className="mt-10 scroll-mt-16 md:scroll-mt-20 text-[#0a0a0a]"
           style={{ fontSize: "19px", lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: 500 }}
         >
           {s.text}
@@ -91,7 +91,7 @@ function Section({ s }: { s: HelpSection }) {
       );
     case "ol":
       return (
-        <ol className="mt-5 list-decimal pl-6 space-y-2 text-[16.5px] leading-[1.65] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/40">
+        <ol className="mt-5 list-decimal pl-6 space-y-2 text-[16.5px] leading-[1.65] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/60">
           {s.items.map((i, idx) => (
             <li key={idx}>{i}</li>
           ))}
@@ -99,7 +99,7 @@ function Section({ s }: { s: HelpSection }) {
       );
     case "ul":
       return (
-        <ul className="mt-5 list-disc pl-6 space-y-2 text-[16.5px] leading-[1.65] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/40">
+        <ul className="mt-5 list-disc pl-6 space-y-2 text-[16.5px] leading-[1.65] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/60">
           {s.items.map((i, idx) => (
             <li key={idx}>{i}</li>
           ))}
@@ -203,7 +203,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-white text-[#0a0a0a] selection:bg-[#0a0a0a]/10">
+    <main className="min-h-[100dvh] bg-white text-[#0a0a0a] selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
@@ -256,7 +256,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
         <div className="mx-auto max-w-[1100px]">
           <div className="rounded-md border border-[#0a0a0a]/10 bg-[#fafaf9] px-6 py-6">
             <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55">TL;DR</p>
-            <ul className="help-article-tldr mt-4 list-disc pl-5 space-y-2 text-[15px] leading-[1.55] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/40">
+            <ul className="help-article-tldr mt-4 list-disc pl-5 space-y-2 text-[15px] leading-[1.55] text-[#0a0a0a]/85 marker:text-[#0a0a0a]/60">
               {article.tldr.map((t, i) => (
                 <li key={i}>{t}</li>
               ))}
@@ -268,10 +268,10 @@ export default async function HelpArticlePage({ params }: PageProps) {
       {/* ─────────── Two-column layout: TOC + body ─────────── */}
       <section className="px-6 pb-24">
         <div className="mx-auto max-w-[1100px] grid grid-cols-1 gap-12 lg:grid-cols-[220px_1fr]">
-          {/* TOC */}
+          {/* TOC — desktop sticky sidebar */}
           <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55">On this page</p>
+            <div className="sticky top-16">
+              <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60">On this page</p>
               <ul className="mt-4 space-y-2 text-[13.5px] leading-[1.45]">
                 {tocItems.map((h) => (
                   <li key={h.id}>
@@ -291,13 +291,36 @@ export default async function HelpArticlePage({ params }: PageProps) {
 
           {/* Body */}
           <article className="max-w-[680px]">
+            {/* TOC — mobile collapsible */}
+            {(tocItems.length > 0 || (article.faq && article.faq.length > 0)) && (
+              <details className="mb-10 lg:hidden rounded-md border border-[#0a0a0a]/10 bg-[#fafaf9] px-5 py-4 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/70">
+                  <span>On this page</span>
+                  <span aria-hidden="true" className="text-[#0a0a0a]/60 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <ul className="mt-4 space-y-2 text-[14px] leading-[1.45]">
+                  {tocItems.map((h) => (
+                    <li key={h.id}>
+                      <a href={`#${h.id}`} className="text-[#0a0a0a]/75 hover:text-[#0a0a0a]">
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                  {article.faq && article.faq.length > 0 && (
+                    <li>
+                      <a href="#faq" className="text-[#0a0a0a]/75 hover:text-[#0a0a0a]">FAQ</a>
+                    </li>
+                  )}
+                </ul>
+              </details>
+            )}
             {article.sections.map((s, i) => (
               <Section key={i} s={s} />
             ))}
 
             {/* ─────────── FAQ ─────────── */}
             {article.faq && article.faq.length > 0 && (
-              <div id="faq" className="mt-16 scroll-mt-28">
+              <div id="faq" className="mt-16 scroll-mt-16 md:scroll-mt-20">
                 <h2
                   className="text-[#0a0a0a]"
                   style={{ fontSize: "26px", lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: 500 }}
@@ -314,7 +337,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
                         >
                           {f.q}
                         </p>
-                        <span className="mt-1 shrink-0 text-[#0a0a0a]/40 transition-transform group-open:rotate-45">+</span>
+                        <span className="mt-1 shrink-0 text-[#0a0a0a]/60 transition-transform group-open:rotate-45">+</span>
                       </summary>
                       <p className="mt-3 text-[15.5px] leading-[1.65] text-[#0a0a0a]/85">{f.a}</p>
                     </details>
@@ -350,7 +373,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
                 return (
                   <li key={r.slug}>
                     <Link href={`/help/${r.slug}`} className="group block border-t border-[#0a0a0a]/[0.08] pt-5">
-                      <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/40">{rcat?.name}</p>
+                      <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60">{rcat?.name}</p>
                       <p
                         className="mt-2 text-[#0a0a0a] group-hover:text-[#0a0a0a]/70 transition-colors"
                         style={{ fontSize: "16.5px", lineHeight: "1.25", letterSpacing: "-0.005em", fontWeight: 450 }}

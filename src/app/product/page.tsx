@@ -255,7 +255,7 @@ const breadcrumb = {
 
 export default function ProductOverviewPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
@@ -267,7 +267,7 @@ export default function ProductOverviewPage() {
             <Link href="/" className="hover:text-[#0a0a0a] transition-colors">
               ClaireAI
             </Link>
-            <span className="mx-2 text-[#0a0a0a]/30">/</span>
+            <span className="mx-2 text-[#0a0a0a]/60">/</span>
             <span className="text-[#0a0a0a]">Product Overview</span>
           </p>
 
@@ -275,14 +275,14 @@ export default function ProductOverviewPage() {
             <h1
               className="font-serif text-[#0a0a0a]"
               style={{
-                fontSize: "clamp(3rem, 7.5vw, 112px)",
-                lineHeight: "1.02",
+                fontSize: "clamp(2.25rem, 7.5vw, 112px)",
+                lineHeight: "1.05",
                 letterSpacing: "-0.025em",
                 fontWeight: 400,
               }}
             >
-              The AI Receptionist<br />
-              for Law Firms
+              The AI Receptionist<br className="hidden md:inline" />
+              {" "}for Law Firms
             </h1>
 
             <div className="lg:pt-6">
@@ -301,9 +301,13 @@ export default function ProductOverviewPage() {
           <div className="mt-16 md:mt-20">
             <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
               <img
-                src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779107995/ChatGPT_Image_May_18_2026_at_08_39_31_AM.jpg"
+                src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1779107995/ChatGPT_Image_May_18_2026_at_08_39_31_AM.jpg"
                 alt="ClaireAI AI receptionist for law firms — product overview preview"
                 className="h-full w-full object-cover"
+                width={1920}
+                height={1080}
+                fetchPriority="high"
+                loading="eager"
               />
             </div>
           </div>
@@ -313,7 +317,7 @@ export default function ProductOverviewPage() {
       {/* ─────────── Definition lede ─────────── */}
       <section className="bg-white px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-10">
+          <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-10">
             What is ClaireAI?
           </p>
           <h2
@@ -338,9 +342,9 @@ export default function ProductOverviewPage() {
           ═══════════════════════════════════════════════════════ */}
 
       {/* ─────────── Stage 1: First ring ─────────── */}
-      <section id="stage-1" className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
+      <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/60 mb-6">
             Stage 1 · First ring
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-10 lg:gap-16 items-start">
@@ -371,7 +375,7 @@ export default function ProductOverviewPage() {
 
             <div>
               {[
-                { title: "Real conversation, never a menu", desc: "Sub-second response, natural turn-taking, full interruption handling. Callers don&rsquo;t know they&rsquo;re talking to AI until you tell them." },
+                { title: "Real conversation, never a menu", desc: "Sub-second response, natural turn-taking, full interruption handling. Callers don't know they're talking to AI until you tell them." },
                 { title: "Calibrated to your practice area", desc: "PI captures statute timing and treatment status. Criminal handles in-custody escalation. Family handles UCCJEA and protective orders. Immigration runs in 10+ languages." },
                 { title: "English, Spanish, 10+ on request", desc: "Bilingual by default with no quality drop. Additional languages — Mandarin, Vietnamese, Tagalog, Korean, Arabic, Russian, Haitian Creole, Portuguese, French, Polish — enabled per tenant." },
               ].map((item, i) => (
@@ -379,10 +383,9 @@ export default function ProductOverviewPage() {
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p
-                    className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -390,7 +393,7 @@ export default function ProductOverviewPage() {
 
           {/* Citable answer passage */}
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16">
-            <p className="text-[15.5px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
+            <p className="text-[15px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
               {STAGE_1_ANSWER}
             </p>
           </div>
@@ -398,9 +401,9 @@ export default function ProductOverviewPage() {
       </section>
 
       {/* ─────────── Stage 2: Qualify, book, brief ─────────── */}
-      <section id="stage-2" className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
+      <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/60 mb-6">
             Stage 2 · Qualify, book, brief
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-10 lg:gap-16 items-start">
@@ -431,18 +434,17 @@ export default function ProductOverviewPage() {
 
             <div>
               {[
-                { title: "Calendar-aware booking", desc: "Claire reads your attorneys&rsquo; availability in real time — Google Workspace, Microsoft 365, Calendly — and books directly into the right calendar." },
-                { title: "Lead IQ grading A through D", desc: "Every call is scored against your firm&rsquo;s rubric. Case type, jurisdiction, severity, statute timing, and conflict flags all evaluated before hang-up." },
+                { title: "Calendar-aware booking", desc: "Claire reads your attorneys' availability in real time — Google Workspace, Microsoft 365, Calendly — and books directly into the right calendar." },
+                { title: "Lead IQ grading A through D", desc: "Every call is scored against your firm's rubric. Case type, jurisdiction, severity, statute timing, and conflict flags all evaluated before hang-up." },
                 { title: "Brief dispatched in seconds", desc: "Letter grade, three-sentence summary, full intake answers, and case intelligence — delivered to SMS, Slack, Teams, email, or your CRM." },
               ].map((item, i) => (
                 <div key={i} className="border-t border-[#0a0a0a]/10 py-6 last:border-b">
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p
-                    className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
               <Link
@@ -456,7 +458,7 @@ export default function ProductOverviewPage() {
           </div>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16">
-            <p className="text-[15.5px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
+            <p className="text-[15px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
               {STAGE_2_ANSWER}
             </p>
           </div>
@@ -464,9 +466,9 @@ export default function ProductOverviewPage() {
       </section>
 
       {/* ─────────── Stage 3: Retainer & sync ─────────── */}
-      <section id="stage-3" className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
+      <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/10">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[12.5px] uppercase tracking-[0.2em] text-[#0a0a0a]/60 mb-6">
             Stage 3 · Retainer & sync
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-10 lg:gap-16 items-start">
@@ -497,18 +499,17 @@ export default function ProductOverviewPage() {
 
             <div>
               {[
-                { title: "DocuSign retainer dispatch", desc: "On grade-A leads pre-cleared by your firm, Claire drafts and e-sends the retainer with the prospect&rsquo;s data populated. Most retainers are signed before morning." },
+                { title: "DocuSign retainer dispatch", desc: "On grade-A leads pre-cleared by your firm, Claire drafts and e-sends the retainer with the prospect's data populated. Most retainers are signed before morning." },
                 { title: "Automatic CRM sync", desc: "Contacts, matters, calendar entries, and briefs land in Clio, MyCase, Filevine, Lawmatics, PracticePanther, Smokeball, CASEpeer, CloudLex, HubSpot, and 60+ more — automatically." },
-                { title: "Drip campaigns by grade", desc: "A leads get attorney callbacks. B leads get consult-booking SMS + 24-hour reminders. C leads get nurture. D leads get polite referral or decline copy in your firm&rsquo;s voice." },
+                { title: "Drip campaigns by grade", desc: "A leads get attorney callbacks. B leads get consult-booking SMS + 24-hour reminders. C leads get nurture. D leads get polite referral or decline copy in your firm's voice." },
               ].map((item, i) => (
                 <div key={i} className="border-t border-[#0a0a0a]/10 py-6 last:border-b">
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p
-                    className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
               <Link
@@ -522,7 +523,7 @@ export default function ProductOverviewPage() {
           </div>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16">
-            <p className="text-[15.5px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
+            <p className="text-[15px] md:text-[16px] leading-[1.65] text-[#0a0a0a]/70">
               {STAGE_3_ANSWER}
             </p>
           </div>
@@ -532,7 +533,7 @@ export default function ProductOverviewPage() {
       {/* ─────────── Comparison table ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#0a0a0a]/10">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             Comparison
           </p>
           <h2
@@ -546,20 +547,28 @@ export default function ProductOverviewPage() {
           >
             How does ClaireAI compare to a receptionist or answering service?
           </h2>
-          <div className="overflow-x-auto">
+          <p className="md:hidden mb-3 text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/60">
+            <span aria-hidden="true">←</span> swipe <span aria-hidden="true">→</span>
+          </p>
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Plan comparison"
+            className="relative overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a0a0a]/60 after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-8 after:bg-gradient-to-l after:from-white after:to-transparent md:after:hidden"
+          >
             <table className="w-full min-w-[760px] border-t border-[#0a0a0a]/10">
               <thead>
                 <tr className="border-b border-[#0a0a0a]/10">
-                  <th className="py-4 px-4 text-left text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 font-normal w-1/4">
-                    &nbsp;
+                  <th scope="col" className="py-4 px-4 text-left text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 font-normal w-1/4">
+                    <span className="sr-only">Feature</span>
                   </th>
-                  <th className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a] w-1/4">
+                  <th scope="col" className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a] w-1/4">
                     ClaireAI
                   </th>
-                  <th className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a]/55 w-1/4">
+                  <th scope="col" className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a]/60 w-1/4">
                     Human receptionist
                   </th>
-                  <th className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a]/55 w-1/4">
+                  <th scope="col" className="py-4 px-4 text-left text-[13px] font-medium text-[#0a0a0a]/60 w-1/4">
                     Answering service
                   </th>
                 </tr>
@@ -567,16 +576,16 @@ export default function ProductOverviewPage() {
               <tbody>
                 {COMPARISON_ROWS.map((row, i) => (
                   <tr key={i} className="border-b border-[#0a0a0a]/10">
-                    <td className="py-4 px-4 text-[13px] uppercase tracking-[0.14em] text-[#0a0a0a]/55">
+                    <th scope="row" className="py-4 px-4 text-left text-[13px] uppercase tracking-[0.14em] text-[#0a0a0a]/60 font-normal">
                       {row.feature}
-                    </td>
+                    </th>
                     <td className="py-4 px-4 text-[14px] md:text-[15px] text-[#0a0a0a] font-medium">
                       {row.claire}
                     </td>
-                    <td className="py-4 px-4 text-[14px] md:text-[15px] text-[#0a0a0a]/55">
+                    <td className="py-4 px-4 text-[14px] md:text-[15px] text-[#0a0a0a]/60">
                       {row.human}
                     </td>
-                    <td className="py-4 px-4 text-[14px] md:text-[15px] text-[#0a0a0a]/55">
+                    <td className="py-4 px-4 text-[14px] md:text-[15px] text-[#0a0a0a]/60">
                       {row.service}
                     </td>
                   </tr>
@@ -590,7 +599,7 @@ export default function ProductOverviewPage() {
       {/* ─────────── FAQ ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             FAQ
           </p>
           <h2
@@ -626,7 +635,7 @@ export default function ProductOverviewPage() {
                     </svg>
                   </span>
                 </summary>
-                <p className="pb-8 text-[15.5px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
+                <p className="pb-8 text-[15px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
                   {f.answer}
                 </p>
               </details>
@@ -637,7 +646,7 @@ export default function ProductOverviewPage() {
 
       {/* ─────────── Final CTA ─────────── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `

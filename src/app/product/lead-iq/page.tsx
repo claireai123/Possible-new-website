@@ -205,7 +205,7 @@ const breadcrumb = {
 
 export default function LeadIQPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
@@ -218,7 +218,7 @@ export default function LeadIQPage() {
             <Link href="/product" className="hover:text-[#0a0a0a] transition-colors">
               Product Overview
             </Link>
-            <span className="mx-2 text-[#0a0a0a]/30">/</span>
+            <span className="mx-2 text-[#0a0a0a]/60">/</span>
             <span className="text-[#0a0a0a]">Lead IQ</span>
           </p>
 
@@ -227,15 +227,15 @@ export default function LeadIQPage() {
             <h1
               className="font-serif text-[#0a0a0a]"
               style={{
-                fontSize: "clamp(3rem, 7.5vw, 112px)",
-                lineHeight: "1.02",
+                fontSize: "clamp(2.25rem, 7.5vw, 112px)",
+                lineHeight: "1.05",
                 letterSpacing: "-0.025em",
                 fontWeight: 400,
               }}
             >
-              Grade Every<br />
-              Lead Before<br />
-              Hang-Up
+              Grade Every<br className="hidden md:inline" />
+              {" "}Lead Before<br className="hidden md:inline" />
+              {" "}Hang-Up
             </h1>
 
             <div className="lg:pt-6">
@@ -255,9 +255,13 @@ export default function LeadIQPage() {
           <div className="mt-16 md:mt-20">
             <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
               <img
-                src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1778869168/ChatGPT_Image_May_15_2026_at_02_19_12_PM.jpg"
-                alt="Claire's Brief intake call — Grade A preview, placeholder mockup"
+                src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1778869168/ChatGPT_Image_May_15_2026_at_02_19_12_PM.jpg"
+                alt="ClaireAI Lead IQ dashboard mockup — Claire's Brief preview with Grade A intake call"
                 className="h-full w-full object-cover"
+                width={1920}
+                height={1080}
+                fetchPriority="high"
+                loading="eager"
               />
             </div>
           </div>
@@ -267,7 +271,7 @@ export default function LeadIQPage() {
       {/* ─────────── Definition — Harvey-style two-tone lede ─────────── */}
       <section className="bg-white px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-10">
+          <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-10">
             What is Lead IQ?
           </p>
           <h2
@@ -327,16 +331,15 @@ export default function LeadIQPage() {
               {[
                 { title: "Real-time grading", desc: "Every qualifying call is scored before hang-up using audio in flight, not a post-call transcript pass." },
                 { title: "Firm-specific rubric", desc: "A/B/C/D criteria you define — case type, jurisdiction, severity, conflict flags, and economic threshold." },
-                { title: "Continuous tuning", desc: "Lead IQ learns from your team&rsquo;s overrides. No quarterly recalibration meeting required." },
+                { title: "Continuous tuning", desc: "Lead IQ learns from your team's overrides. No quarterly recalibration meeting required." },
               ].map((item, i) => (
                 <div key={i} className="border-t border-[#0a0a0a]/10 py-6 last:border-b">
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p
-                    className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -386,7 +389,7 @@ export default function LeadIQPage() {
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55">
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55">
                     {item.desc}
                   </p>
                 </div>
@@ -422,7 +425,7 @@ export default function LeadIQPage() {
               <img
                 src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779114642/ChatGPT_Image_May_18_2026_at_10_29_25_AM.jpg"
                 alt="Grade-A lead cadence timeline — attorney SMS at T+0:00, caller confirmation at T+0:30, retainer pre-fill at T+1 day, post-consult e-sign at T+2 days"
-                className="absolute inset-0 h-full w-full object-contain"
+                className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
             </div>
@@ -431,17 +434,16 @@ export default function LeadIQPage() {
             <div>
               {[
                 { title: "A leads — attorney touch", desc: "Callback prompt to the on-call attorney within 30 minutes. Retainer dispatch where pre-cleared by your firm." },
-                { title: "B leads — consult sequence", desc: "Consult-booking SMS, 24-hour reminder, and 72-hour second attempt if the caller doesn&apos;t book." },
-                { title: "C & D leads — nurture or decline", desc: "C leads get a single nurture message and CRM-only tracking. D leads get a polite referral or decline drafted in your firm&apos;s voice." },
+                { title: "B leads — consult sequence", desc: "Consult-booking SMS, 24-hour reminder, and 72-hour second attempt if the caller doesn't book." },
+                { title: "C & D leads — nurture or decline", desc: "C leads get a single nurture message and CRM-only tracking. D leads get a polite referral or decline drafted in your firm's voice." },
               ].map((item, i) => (
                 <div key={i} className="border-t border-[#0a0a0a]/10 py-6 last:border-b">
                   <h3 className="text-[18px] md:text-[20px] font-medium text-[#0a0a0a] mb-2" style={{ letterSpacing: "-0.01em" }}>
                     {item.title}
                   </h3>
-                  <p
-                    className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-[15px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -458,14 +460,14 @@ export default function LeadIQPage() {
                 className="text-[#0a0a0a]"
                 style={{
                   fontSize: "clamp(2.5rem, 5vw, 72px)",
-                  lineHeight: "1.0",
+                  lineHeight: "1.05",
                   letterSpacing: "-0.025em",
                   fontWeight: 500,
                 }}
               >
                 ~50%
               </p>
-              <p className="mt-4 text-[15.5px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
+              <p className="mt-4 text-[15px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
                 less time spent reviewing each intake call. Coordinators read a 30-second brief instead of a 15-minute transcript.
               </p>
             </div>
@@ -474,14 +476,14 @@ export default function LeadIQPage() {
                 className="text-[#0a0a0a]"
                 style={{
                   fontSize: "clamp(2.5rem, 5vw, 72px)",
-                  lineHeight: "1.0",
+                  lineHeight: "1.05",
                   letterSpacing: "-0.025em",
                   fontWeight: 500,
                 }}
               >
                 A–D
               </p>
-              <p className="mt-4 text-[15.5px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
+              <p className="mt-4 text-[15px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
                 grades calibrated to your firm&apos;s case criteria. Every call is graded; every grade gets its own follow-up cadence.
               </p>
             </div>
@@ -490,15 +492,16 @@ export default function LeadIQPage() {
                 className="text-[#0a0a0a]"
                 style={{
                   fontSize: "clamp(2.5rem, 5vw, 72px)",
-                  lineHeight: "1.0",
+                  lineHeight: "1.05",
                   letterSpacing: "-0.025em",
                   fontWeight: 500,
                 }}
               >
                 60+
               </p>
-              <p className="mt-4 text-[15.5px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
-                integrations push the brief into the tools your team already runs. Placeholder for firm-count once we have a confirmed number.
+              {/* TODO: real copy — replace with confirmed firm-count once available. */}
+              <p className="mt-4 text-[15px] md:text-[16px] leading-[1.5] text-[#0a0a0a]/65 max-w-[40ch]">
+                integrations push the brief into the tools your team already runs — Clio, MyCase, Filevine, Lawmatics, HubSpot, and 60+ more.
               </p>
             </div>
           </div>
@@ -510,7 +513,7 @@ export default function LeadIQPage() {
         <div className="mx-auto max-w-[1680px]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
             <div>
-              <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+              <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
                 Calibration
               </p>
               <h2
@@ -531,7 +534,7 @@ export default function LeadIQPage() {
             <ol className="space-y-10">
               {CALIBRATION_STEPS.map((step, idx) => (
                 <li key={idx} className="flex gap-6 border-b border-[#e4e4e7] pb-10 last:border-0 last:pb-0">
-                  <span className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 flex-shrink-0 w-12 pt-1">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 flex-shrink-0 w-12 pt-1">
                     0{idx + 1}
                   </span>
                   <p className="text-[16px] md:text-[17px] leading-[1.5] text-[#0a0a0a]/75 max-w-[60ch]">
@@ -547,7 +550,7 @@ export default function LeadIQPage() {
       {/* ─────────── FAQ ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             FAQ
           </p>
           <h2
@@ -583,7 +586,7 @@ export default function LeadIQPage() {
                     </svg>
                   </span>
                 </summary>
-                <p className="pb-8 text-[15.5px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
+                <p className="pb-8 text-[15px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
                   {f.answer}
                 </p>
               </details>
@@ -594,7 +597,7 @@ export default function LeadIQPage() {
 
       {/* ─────────── Final CTA ─────────── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `

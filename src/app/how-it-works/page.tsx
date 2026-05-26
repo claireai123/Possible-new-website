@@ -16,15 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const SERIF_DISPLAY = {
-  fontFamily: "var(--font-serif)",
-  letterSpacing: "-0.02em",
-  lineHeight: "0.95",
-  fontFeatureSettings: '"liga" 0',
-  fontWeight: 400,
-  fontVariationSettings: '"opsz" 144',
-} as const;
-
 const steps: {
   n: string;
   title: string;
@@ -308,7 +299,7 @@ const articleSchema = {
 const CrmLogoBar = () => (
   <section className="bg-white px-6 py-16 md:py-20">
     <div className="mx-auto max-w-[1680px]">
-      <div className="grid grid-cols-3 md:grid-cols-6 items-center gap-y-12 gap-x-10">
+      <div className="grid grid-cols-3 md:grid-cols-6 items-center gap-y-12 gap-x-4 sm:gap-x-6 md:gap-x-10">
         {crmLogos.map((logo) => (
           <div key={logo.name} className="flex items-center justify-center">
             <img
@@ -347,13 +338,13 @@ const SecurityStrip = () => (
         {securityPillars.map((p, i) => (
           <div
             key={p.title}
-            className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-[500px]"
+            className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-0 md:min-h-[500px]"
           >
             <h3
               className="text-[#0a0a0a] mb-8 leading-[1.25]"
               style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.01em" }}
             >
-              <span className="opacity-40 text-[10px] block mb-3 uppercase tracking-[0.14em] font-medium">
+              <span className="opacity-60 text-[10px] block mb-3 uppercase tracking-[0.14em] font-medium">
                 {String(i + 1).padStart(2, "0")} //
               </span>
               {p.title}
@@ -399,7 +390,7 @@ const HERO_IMAGE =
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -410,10 +401,10 @@ export default function HowItWorksPage() {
       />
       {/* ─────────── Hero ─────────── */}
       <section className="pt-2 pb-12 md:pt-3 md:pb-16 px-6">
-        <div className="mx-auto max-w-[1680px] grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-[10px] items-stretch lg:min-h-[820px]">
+        <div className="mx-auto max-w-[1680px] grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-[10px] items-stretch lg:min-h-[640px] xl:min-h-[820px]">
           {/* Left column — eyebrow + H1 + paragraph at top, CTAs anchored at bottom */}
           <div className="lg:max-w-[560px] lg:pt-[180px] lg:pb-10 flex flex-col h-full">
-            <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-7 leading-[1.55]">
+            <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-7 leading-[1.55]">
               How it works
             </p>
             <h1
@@ -447,7 +438,7 @@ export default function HowItWorksPage() {
           </div>
 
           {/* Right column — full-cover hero image */}
-          <div className="overflow-hidden bg-[#f6f7f4] min-h-[640px] lg:min-h-[820px]">
+          <div className="overflow-hidden bg-[#f6f7f4] min-h-[640px] lg:min-h-[640px] xl:min-h-[820px]">
             <img
               src={HERO_IMAGE}
               alt="ClaireAI in action — a live AI legal intake call answered in 0.8 seconds, with practice-area qualification and CRM sync visible on screen."
@@ -472,8 +463,8 @@ export default function HowItWorksPage() {
                     reverse ? "lg:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Image column — 66%, image at natural aspect (text aligns to image top, no crop) */}
-                  <div className="lg:basis-[66%] lg:flex-shrink-0 w-full overflow-hidden">
+                  {/* Image column — 64%, image at natural aspect (text aligns to image top, no crop) */}
+                  <div className="lg:basis-[64%] lg:flex-shrink-0 w-full overflow-hidden">
                     {step.image ? (
                       <img
                         src={step.image}
@@ -483,16 +474,20 @@ export default function HowItWorksPage() {
                       />
                     ) : (
                       <div className="w-full aspect-[3/2] flex items-center justify-center bg-[#f6f7f4]">
-                        <p className="text-[11px] tracking-[0.18em] uppercase text-[#0a0a0a]/30">
+                        <p className="text-[11px] tracking-[0.18em] uppercase text-[#0a0a0a]/60">
                           {step.title} visual coming soon
                         </p>
                       </div>
                     )}
                   </div>
 
-                  {/* Text column — 30%, top-aligned with image top, matches hero paragraph spec */}
-                  <div className="lg:basis-[30%] lg:flex-shrink-0 lg:max-w-[414px]">
-                    <p className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]">
+                  {/* Text column — 28%, top-aligned with image top, matches hero paragraph spec */}
+                  <div className="lg:basis-[28%] lg:flex-shrink-0 lg:max-w-[414px]">
+                    <span className="text-[#0a0a0a]/60 text-xs tracking-widest uppercase">{step.n}</span>
+                    <h3 className="mt-2 text-[19px] md:text-[22px] font-semibold text-[#0a0a0a] leading-[1.2]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-4 text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]">
                       {step.headline}
                     </p>
                     <p className="mt-1 text-[15.5px] md:text-[16px] leading-[1.55] text-[#6b6b6b]">
@@ -509,7 +504,7 @@ export default function HowItWorksPage() {
       {/* ─────────── Works with these practice areas — three vertical cards ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/55 mb-10 md:mb-12">
+          <p className="text-[15.5px] md:text-[16px] leading-[1.55] text-[#0a0a0a]/60 mb-10 md:mb-12">
             Works with these practice areas
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -528,10 +523,10 @@ export default function HowItWorksPage() {
                 />
                 {/* Gradient scrim for caption legibility — tighter, sits under the caption only */}
                 <div
-                  className="absolute inset-x-0 bottom-0 h-1/4 pointer-events-none"
+                  className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
                   style={{
                     backgroundImage:
-                      "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0) 100%)",
+                      "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0) 100%)",
                   }}
                 />
                 {/* Bottom-left caption — tighter padding */}
@@ -539,7 +534,7 @@ export default function HowItWorksPage() {
                   <p className="text-[15.5px] md:text-[16px] leading-[1.55] text-white">
                     {area.name}
                   </p>
-                  <p className="mt-1 text-[15.5px] md:text-[16px] leading-[1.55] text-white/80 max-w-[36ch]">
+                  <p className="mt-1 text-[14px] sm:text-[15.5px] md:text-[16px] leading-[1.55] text-white max-w-[36ch]">
                     {area.desc}
                   </p>
                 </div>
@@ -569,7 +564,7 @@ export default function HowItWorksPage() {
 
       {/* ─────────── Final CTA ─────────── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `
@@ -590,7 +585,7 @@ export default function HowItWorksPage() {
               fontWeight: 500,
             }}
           >
-            See Claire handle<br />
+            See Claire handle<br className="hidden md:inline" />
             a live call.
           </h2>
           <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">

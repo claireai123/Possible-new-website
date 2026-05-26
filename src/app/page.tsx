@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 import { FeatureBoxes } from "@/components/sections/feature-boxes";
-import { SocialProof } from "@/components/sections/social-proof";
 import { PracticeAreas } from "@/components/sections/practice-areas";
 import { AudioDemo } from "@/components/sections/audio-demo";
 import { CoreSecurity } from "@/components/sections/core-security";
@@ -16,6 +15,36 @@ const logos = [
   { name: "HubSpot", src: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1765854439/6408dec3a5cfb436515b7177_5b466ff95de4cb8a3e25d9de_hubspot-logomark-4.png" },
   { name: "Slack", src: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1765854404/6477e8387c4665b59cd9fa35_6438745c487cb0d27bf44527_Slack_icon_2019-2.png" },
   { name: "Microsoft Teams", src: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1765854403/6408dec595246d433dd21165_5f49949fd6e1ac54e531e2e7_microsoft-teams-sq.png" },
+];
+
+const practiceAreas = [
+  {
+    name: "Personal Injury",
+    href: "/solutions/personal-injury",
+    desc: "Captures police report number, statute-of-limitations window, and UM/UIM coverage before the caller dials the next firm.",
+    image:
+      "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto,f_auto/v1778776633/ChatGPT_Image_May_14_2026_at_12_34_04_PM.jpg",
+    imageAlt:
+      "ClaireAI personal injury intake — capturing mechanism of injury, treatment status, liability, and insurance details on a live call.",
+  },
+  {
+    name: "Criminal Defense",
+    href: "/solutions/criminal-defense",
+    desc: "Captures booking number, charges, and bond status during 3 a.m. arrest calls — pages the on-call attorney before arraignment.",
+    image:
+      "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto,f_auto/v1778776630/ChatGPT_Image_May_14_2026_at_12_36_50_PM.jpg",
+    imageAlt:
+      "ClaireAI criminal defense intake — capturing charges, custody status, court date, and bond information for in-custody and out-of-custody matters.",
+  },
+  {
+    name: "Family Law",
+    href: "/solutions/family-law",
+    desc: "Runs a Rule 1.18 conflict check, screens for IPV and UCCJEA flags, and books bilingual custody consultations.",
+    image:
+      "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_900,q_auto,f_auto/v1778776631/ChatGPT_Image_May_14_2026_at_12_36_46_PM.jpg",
+    imageAlt:
+      "ClaireAI family law intake — softer pacing with UCCJEA flags and emergency-signal escalation for domestic violence and abduction risk.",
+  },
 ];
 
 export default function Home() {
@@ -42,6 +71,10 @@ export default function Home() {
               key={`${logo.name}-${i}`}
               src={logo.src}
               alt={logo.name}
+              width={48}
+              height={48}
+              loading={i < 4 ? undefined : "lazy"}
+              decoding="async"
               className="mx-14 h-12 w-auto shrink-0 opacity-50 grayscale transition-opacity hover:opacity-90"
             />
           ))}
@@ -83,7 +116,7 @@ export default function Home() {
               lineHeight: "0.95",
             }}
           >
-            How does ClaireAI turn<br />
+            How does ClaireAI turn<br className="hidden md:inline" />
             missed calls into signed retainers?
           </h2>
           <p className="mt-6 max-w-3xl text-[18px] leading-[1.5] text-[#0a0a0a]/50">
@@ -100,13 +133,65 @@ export default function Home() {
 
       <CoreSecurity />
 
-      <SocialProof />
+      {/* ── Practice areas (overview cards) ── */}
+      <section className="bg-white px-6 py-[120px]">
+        <div className="mx-auto max-w-[1728px]">
+          <p className="text-[11px] font-medium uppercase tracking-wider text-[#0a0a0a]/40">Practice areas</p>
+          <h2
+            className="mt-6 max-w-4xl font-serif text-[#0a0a0a]"
+            style={{
+              fontSize: "clamp(1.75rem, 3vw, 40px)",
+              letterSpacing: "-0.02em",
+              fontFeatureSettings: '"liga" 0',
+              lineHeight: "0.95",
+            }}
+          >
+            Built for every<br className="hidden md:inline" />
+            practice area.
+          </h2>
+          <p className="mt-6 max-w-3xl text-[18px] leading-[1.5] text-[#0a0a0a]/50">
+            ClaireAI runs after-hours and overflow intake for personal injury, criminal defense, and family law firms across the United States — each with a distinct qualifying flow, escalation policy, and tone calibrated to the matter type.
+          </p>
+
+          <div className="mt-[80px] grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+            {practiceAreas.map((area) => (
+              <Link
+                key={area.name}
+                href={area.href}
+                className="group relative block aspect-[3/4] overflow-hidden bg-[#f6f7f4]"
+              >
+                <img
+                  src={area.image}
+                  alt={area.imageAlt}
+                  className="absolute inset-0 block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)",
+                  }}
+                />
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 lg:p-7">
+                  <p className="text-[15.5px] leading-[1.55] text-white md:text-[16px]">
+                    {area.name}
+                  </p>
+                  <p className="mt-1 max-w-[42ch] text-[15.5px] leading-[1.55] text-white md:text-[16px]">
+                    {area.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <HomeFaq />
 
       {/* ── Final CTA ── */}
       <section
-        className="px-6 py-[120px]"
+        className="px-6 py-20 md:py-[120px]"
         style={{
           backgroundColor: "#8c9c82",
           backgroundImage: `
@@ -127,7 +212,7 @@ export default function Home() {
               fontFeatureSettings: '"liga" 0',
             }}
           >
-            The future of legal intake<br />
+            The future of legal intake<br className="hidden md:inline" />
             is already here.
           </h2>
           <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">

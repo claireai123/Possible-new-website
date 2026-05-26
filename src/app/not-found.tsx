@@ -18,12 +18,12 @@ const SUGGESTED: { href: string; label: string }[] = [
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-white text-[#0a0a0a]">
+    <main className="min-h-[100dvh] bg-white text-[#0a0a0a]">
       <section className="px-6 pt-32 pb-24 sm:pt-40">
         <div className="mx-auto max-w-[1100px]">
           <p className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/55">404</p>
           <h1
-            className="mt-6 max-w-[20ch] text-[#0a0a0a]"
+            className="mt-6 max-w-[20ch] text-balance text-pretty text-[#0a0a0a]"
             style={{
               fontSize: "clamp(2.25rem, 4.5vw, 56px)",
               lineHeight: "1.05",
@@ -55,7 +55,7 @@ export default function NotFound() {
             </ul>
           </div>
 
-          <div className="mt-16 flex flex-wrap gap-3">
+          <div className="mt-16 flex flex-col flex-wrap gap-3 sm:flex-row">
             <Link
               href="/"
               className="inline-flex items-center rounded bg-[#0a0a0a] px-5 py-3 text-[14px] font-normal text-white hover:bg-[#0a0a0a]/85"

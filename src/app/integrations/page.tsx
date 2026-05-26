@@ -135,12 +135,12 @@ function FeaturedTile({ integration }: { integration: Integration }) {
       </div>
 
       {/* Center: partner logo at full scale — or wordmark fallback */}
-      <div className="flex flex-1 items-center justify-center">
+      <div className="flex flex-1 min-h-0 items-center justify-center">
         {hasLogo ? (
           <img
             src={integration.logoUrl}
             alt={`${integration.name} logo`}
-            className="w-[88%] h-[88%] object-contain"
+            className="max-h-[80%] max-w-[80%] object-contain"
             loading="lazy"
           />
         ) : (
@@ -190,7 +190,7 @@ function DirectoryRow({ integration }: { integration: Integration }) {
         >
           {integration.name}
         </span>
-        <span className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/40">
+        <span className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/60">
           {CATEGORIES[integration.category].short}
         </span>
       </div>
@@ -216,7 +216,7 @@ export default function IntegrationsPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(integrationItemListSchema) }}
@@ -254,7 +254,7 @@ export default function IntegrationsPage() {
         <div className="mx-auto max-w-[1680px]">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16 gap-6">
             <div>
-              <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+              <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
                 The full directory
               </p>
               <h2
@@ -289,7 +289,7 @@ export default function IntegrationsPage() {
                   >
                     {CATEGORIES[group.category].label}
                   </h3>
-                  <span className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/40">
+                  <span className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/60">
                     {group.integrations.length} {group.integrations.length === 1 ? "integration" : "integrations"}
                   </span>
                 </div>
@@ -305,7 +305,7 @@ export default function IntegrationsPage() {
       {/* ─────────── FAQ ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             FAQ
           </p>
           <h2
@@ -381,7 +381,7 @@ export default function IntegrationsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-6 sm:px-9 py-5 text-[15px] sm:text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
               Request an integration
             </Link>

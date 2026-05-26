@@ -208,7 +208,7 @@ function Section({ s }: { s: ArticleSection }) {
               </p>
               <p className="mt-2 text-[13px] leading-[1.4] text-[#0a0a0a]/65">{stat.label}</p>
               {stat.source && (
-                <p className="mt-1 text-[11px] text-[#0a0a0a]/40">{stat.source}</p>
+                <p className="mt-1 text-[11px] text-[#0a0a0a]/60">{stat.source}</p>
               )}
             </div>
           ))}
@@ -238,7 +238,7 @@ function Section({ s }: { s: ArticleSection }) {
           <div
             className={`relative ${s.ratio ?? "aspect-[16/9]"} flex items-center justify-center overflow-hidden rounded-sm bg-[#ecebe7]`}
           >
-            <p className="text-[11px] text-[#0a0a0a]/30">Image</p>
+            <p className="text-[11px] text-[#0a0a0a]/60">Image</p>
           </div>
           {s.caption && (
             <figcaption className="mt-3 text-[12px] leading-[1.5] text-[#0a0a0a]/55 italic">{s.caption}</figcaption>
@@ -248,7 +248,7 @@ function Section({ s }: { s: ArticleSection }) {
     case "callout":
       // Render as a small italic editor's note — no panel, no box.
       return (
-        <p className="my-6 border-l border-[#0a0a0a]/30 pl-5 text-[14px] leading-[1.5] italic text-[#0a0a0a]/70">
+        <p className="my-6 border-l border-[#0a0a0a]/60 pl-5 text-[14px] leading-[1.5] italic text-[#0a0a0a]/70">
           {s.title && <strong className="not-italic font-medium text-[#0a0a0a] mr-1">{s.title}.</strong>}
           <InlineContent content={s.text} />
         </p>
@@ -298,7 +298,7 @@ export default async function ArticlePage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] text-[#0a0a0a] selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-[#fafaf9] text-[#0a0a0a] selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* ─────────── Hero — left-aligned title, no centering, no eyebrow card ─────────── */}
@@ -324,7 +324,15 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="mx-auto max-w-[1100px]">
           <div className="relative aspect-[16/9] overflow-hidden rounded-sm bg-[#ecebe7]">
             {post.hero.img ? (
-              <img src={post.hero.img} alt={post.hero.imgAlt ?? post.title} className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={post.hero.img}
+                alt={post.hero.imgAlt ?? post.title}
+                width={1600}
+                height={900}
+                decoding="async"
+                fetchPriority="high"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
                 <p className="text-[11px] text-[#0a0a0a]/25">Hero image</p>
@@ -339,7 +347,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="mx-auto max-w-[1100px]">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[100px_1fr] lg:gap-20">
             {/* Sidebar — minimal metadata */}
-            <aside className="lg:sticky lg:top-24 lg:self-start">
+            <aside className="lg:sticky lg:top-16 lg:self-start">
               <div className="space-y-5 text-[12px]">
                 <div>
                   <p className="uppercase tracking-[0.12em] text-[#0a0a0a]/45 text-[10px] mb-1">Category</p>
@@ -363,7 +371,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </aside>
 
             {/* Main column — prose-first, 720px max */}
-            <article className="max-w-[720px]">
+            <article className="max-w-[640px]">
               {/* Author byline as small lead — Legora pattern */}
               <p className="text-[13px] text-[#0a0a0a]/65 mb-8">
                 By {post.author.name}
@@ -409,7 +417,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {related.length > 0 && (
         <section className="bg-[#fafaf9] px-6 py-16 border-t border-[#0a0a0a]/[0.08]">
           <div className="mx-auto max-w-[1100px]">
-            <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-8">Related reading</p>
+            <h2 className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60 mb-8">Related reading</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => {
                 const heroSrc = cloudinaryCrop(r.hero?.img, "aspect-[16/10]") ?? r.hero?.img;

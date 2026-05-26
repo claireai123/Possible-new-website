@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Role = "claire" | "caller";
 type Capability =
@@ -18,89 +18,33 @@ interface Line {
   chip?: Capability;
 }
 
-interface Scenario {
-  id: string;
-  label: string;
-  subtitle: string;
-  duration: number;
-  lines: Line[];
-}
+// Drop the real intake MP3 at /public/audio/personal-injury-intake.mp3.
+// Update the `lines` array below so each `t` (seconds) matches the real audio.
+const audioSrc = "/audio/personal-injury-intake.mp3";
+const subtitle = "Personal injury intake — daytime call";
 
-const scenarios: Scenario[] = [
-  {
-    id: "pi",
-    label: "Personal Injury",
-    subtitle: "After-hours car accident intake",
-    duration: 107,
-    lines: [
-      { t: 0, role: "claire", text: "Good evening, Johnson & Associates. This is Claire — how can I help you tonight?" },
-      { t: 5.5, role: "caller", text: "Hi, uh, I was in a car accident about an hour ago and I don't really know what to do." },
-      { t: 12, role: "claire", text: "I'm so sorry that happened — are you safe right now? Are you hurt?", chip: "AI Empathy" },
-      { t: 17.5, role: "caller", text: "I'm home. My neck and back are killing me but the paramedics said I should be fine." },
-      { t: 25, role: "claire", text: "Okay. Let's take this one step at a time. Can I get your full name?", chip: "Lead Intake" },
-      { t: 30, role: "caller", text: "Maria Santos." },
-      { t: 33, role: "claire", text: "Thank you, Maria. Were you the driver, and was anyone else in the car with you?" },
-      { t: 39, role: "caller", text: "I was driving, alone. The other driver ran a red light on Main and 4th." },
-      { t: 46, role: "claire", text: "Did the police come to the scene and file a report?" },
-      { t: 50, role: "caller", text: "Yeah, they filed a report. I have the reference number here." },
-      { t: 55, role: "claire", text: "Perfect. Before I book your consultation, I need to check you aren't a current client elsewhere at the firm — one moment.", chip: "Conflict Check" },
-      { t: 63, role: "claire", text: "All clear. Given ER-level injuries and a police report, this qualifies as urgent — I'll get you in first thing tomorrow.", chip: "Urgency Triage" },
-      { t: 72, role: "caller", text: "That would be amazing, thank you." },
-      { t: 76, role: "claire", text: "Attorney Johnson has 10 AM open. I'll book that now and send you a calendar invite.", chip: "Booking" },
-      { t: 84, role: "caller", text: "Okay, perfect." },
-      { t: 87, role: "claire", text: "I'm also sending a preliminary retainer to your email and phone — no signature needed tonight, just review when you can.", chip: "Retainer" },
-      { t: 96, role: "caller", text: "Got it. Thank you so much, Claire." },
-      { t: 100, role: "claire", text: "You're welcome, Maria. Rest tonight. We'll see you at 10." },
-    ],
-  },
-  {
-    id: "family",
-    label: "Family Law",
-    subtitle: "Divorce consultation request",
-    duration: 92,
-    lines: [
-      { t: 0, role: "claire", text: "Thank you for calling Johnson & Associates, this is Claire." },
-      { t: 4, role: "caller", text: "Hi. I'm looking for help with a divorce. I don't even know where to start." },
-      { t: 10, role: "claire", text: "I understand — this is a hard call to make, and I appreciate you reaching out.", chip: "AI Empathy" },
-      { t: 16, role: "caller", text: "Thank you." },
-      { t: 18, role: "claire", text: "So I can match you with the right attorney, can I ask a few questions? Your name first.", chip: "Lead Intake" },
-      { t: 24, role: "caller", text: "David Chen." },
-      { t: 26.5, role: "claire", text: "Thanks, David. Have you or your spouse already filed anything with the court?" },
-      { t: 32, role: "caller", text: "No, nothing filed yet. We've talked but that's it." },
-      { t: 37, role: "claire", text: "Are there children involved, and do you currently live in the same home?" },
-      { t: 43, role: "caller", text: "Two kids, seven and ten. We're still under one roof for now." },
-      { t: 49, role: "claire", text: "Let me make sure neither party is already a client of the firm.", chip: "Conflict Check" },
-      { t: 55, role: "claire", text: "No conflicts. Family law consults are typically in-person — we have Thursday at 2 PM with Attorney Rivera.", chip: "Booking" },
-      { t: 64, role: "caller", text: "Thursday at 2 works." },
-      { t: 67, role: "claire", text: "Booked. I'm texting you a confirmation plus an intake form so we can hit the ground running.", chip: "Retainer" },
-      { t: 76, role: "caller", text: "Perfect, thank you." },
-      { t: 79, role: "claire", text: "Take care, David. We'll see you Thursday." },
-    ],
-  },
-  {
-    id: "criminal",
-    label: "Criminal Defense",
-    subtitle: "Urgent arraignment — 11 PM",
-    duration: 78,
-    lines: [
-      { t: 0, role: "claire", text: "Johnson & Associates, this is Claire." },
-      { t: 3, role: "caller", text: "My brother was just arrested. He has an arraignment tomorrow morning. I need a lawyer tonight." },
-      { t: 10, role: "claire", text: "Okay, I hear you — we'll move fast. Is your brother currently in custody?", chip: "AI Empathy" },
-      { t: 17, role: "caller", text: "Yes, he's at county. Bail hearing at 9 AM." },
-      { t: 22, role: "claire", text: "Can you give me his full name and your name too?", chip: "Lead Intake" },
-      { t: 27, role: "caller", text: "I'm Alex Brooks. My brother is Jordan Brooks." },
-      { t: 32, role: "claire", text: "Do you know the charges he's facing?" },
-      { t: 35, role: "caller", text: "Felony DUI. First offense I think." },
-      { t: 40, role: "claire", text: "Checking for conflicts — one moment.", chip: "Conflict Check" },
-      { t: 44, role: "claire", text: "We're clear. This is time-critical, so I'm paging Attorney Rivera's on-call line right now.", chip: "Urgency Triage" },
-      { t: 52, role: "caller", text: "Thank you." },
-      { t: 54, role: "claire", text: "Attorney Rivera will call you within fifteen minutes. I've also reserved a 7 AM prep slot before the arraignment.", chip: "Booking" },
-      { t: 64, role: "claire", text: "I'm texting you the retainer now so Rivera can file appearance tonight.", chip: "Retainer" },
-      { t: 70, role: "caller", text: "Got it. Thank you so much." },
-    ],
-  },
+const lines: Line[] = [
+  { t: 0, role: "claire", text: "Hello. Thanks for calling Exotic Law Firm. This is Mila on the intake team. How can I help you today?" },
+  { t: 8, role: "caller", text: "Hi, I just got in a car accident. I'm looking for a lawyer." },
+  { t: 13, role: "claire", text: "I'm sorry to hear about your accident. I can help get you scheduled for a free strategy session with one of our attorneys.", chip: "AI Empathy" },
+  { t: 19, role: "claire", text: "May I have your full name, please?", chip: "Lead Intake" },
+  { t: 21, role: "caller", text: "Yes, it's Tiffany White." },
+  { t: 24, role: "claire", text: "Thank you, Tiffany. What's the best phone number to reach you at?" },
+  { t: 28, role: "caller", text: "954-550-1234." },
+  { t: 33, role: "claire", text: "Got it. And could you please provide your email address?" },
+  { t: 37, role: "caller", text: "Yes, it's Tiffany.White@gmail.com." },
+  { t: 42, role: "claire", text: "Thank you, Tiffany. Could you tell me the city and state where the accident occurred?" },
+  { t: 47, role: "caller", text: "Yes, it was in Boca Raton, Florida." },
+  { t: 52, role: "claire", text: "Thank you. Can you tell me the date when the accident happened?" },
+  { t: 56, role: "caller", text: "It was September 9, 2024." },
+  { t: 60, role: "claire", text: "Thank you. Could you please describe the type of incident? For example, was it a car, truck, or motorcycle accident?" },
+  { t: 68, role: "caller", text: "It was a car accident." },
+  { t: 71, role: "claire", text: "Thank you for the information. Were there any injuries, and did you receive any medical treatment, such as visiting the ER or urgent care?" },
+  { t: 79, role: "caller", text: "No, I was fine." },
+  { t: 82, role: "claire", text: "I'm glad to hear that you weren't injured. Do you have any information about the other party involved or their insurance?" },
 ];
 
+const FALLBACK_DURATION = 107;
 const waveform = generateWaveform(96);
 
 function generateWaveform(n: number): number[] {
@@ -116,7 +60,7 @@ function generateWaveform(n: number): number[] {
     const conversation = 0.35 + 0.5 * Math.abs(Math.sin(pos * 11));
     const noise = rand() * 0.35;
     const silence = rand() < 0.08 ? 0.08 : 1;
-    out.push(Math.min(0.98, envelope * conversation + noise) * silence);
+    out.push(Math.round(Math.min(0.98, envelope * conversation + noise) * silence * 1000) / 1000);
   }
   return out;
 }
@@ -127,55 +71,38 @@ function fmt(s: number) {
 }
 
 export function AudioDemo() {
-  const [scenarioId, setScenarioId] = useState(scenarios[0].id);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [elapsed, setElapsed] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const rafRef = useRef<number>(0);
-  const startedAtRef = useRef(0);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const transcriptRef = useRef<HTMLDivElement>(null);
-
-  const scenario = useMemo(
-    () => scenarios.find((s) => s.id === scenarioId) ?? scenarios[0],
-    [scenarioId]
-  );
+  const [duration, setDuration] = useState(FALLBACK_DURATION);
 
   useEffect(() => {
-    if (!isPlaying) return;
-    startedAtRef.current = Date.now() - elapsed * 1000;
-    const tick = () => {
-      const next = Math.min((Date.now() - startedAtRef.current) / 1000, scenario.duration);
-      setElapsed(next);
-      if (next >= scenario.duration) {
-        setIsPlaying(false);
-        return;
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onTime = () => setElapsed(audio.currentTime);
+    const onLoaded = () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        setDuration(audio.duration);
       }
-      rafRef.current = requestAnimationFrame(tick);
     };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [isPlaying, scenario.duration]);
-
-  useEffect(() => {
-    setElapsed(0);
-    setIsPlaying(false);
-  }, [scenarioId]);
-
-  useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    const onEnded = () => setIsPlaying(false);
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("loadedmetadata", onLoaded);
+    audio.addEventListener("ended", onEnded);
+    return () => {
+      audio.removeEventListener("timeupdate", onTime);
+      audio.removeEventListener("loadedmetadata", onLoaded);
+      audio.removeEventListener("ended", onEnded);
     };
-    if (menuOpen) document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, [menuOpen]);
+  }, []);
 
-  const progress = elapsed / scenario.duration;
-  const activeIndex = scenario.lines.findIndex((l, i) => {
-    const next = scenario.lines[i + 1]?.t ?? scenario.duration;
+  const progress = duration > 0 ? elapsed / duration : 0;
+  const activeIndex = lines.findIndex((l, i) => {
+    const next = lines[i + 1]?.t ?? duration;
     return elapsed >= l.t && elapsed < next;
   });
-  const visibleLines = scenario.lines.slice(0, Math.max(activeIndex + 1, 0));
+  const visibleLines = lines.slice(0, Math.max(activeIndex + 1, 0));
 
   useEffect(() => {
     const container = transcriptRef.current;
@@ -198,24 +125,61 @@ export function AudioDemo() {
   }, [activeIndex]);
 
   const togglePlay = () => {
-    if (elapsed >= scenario.duration) setElapsed(0);
-    setIsPlaying((v) => !v);
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+      return;
+    }
+    if (audio.ended || elapsed >= duration) {
+      audio.currentTime = 0;
+      setElapsed(0);
+    }
+    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
   };
 
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const audio = audioRef.current;
+    if (!audio) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const ratio = (e.clientX - rect.left) / rect.width;
-    const next = Math.max(0, Math.min(1, ratio)) * scenario.duration;
+    const next = Math.max(0, Math.min(1, ratio)) * duration;
+    audio.currentTime = next;
     setElapsed(next);
-    if (isPlaying) startedAtRef.current = Date.now() - next * 1000;
+  };
+
+  const seekTo = (next: number) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const clamped = Math.max(0, Math.min(duration, next));
+    audio.currentTime = clamped;
+    setElapsed(clamped);
+  };
+
+  const onWaveformKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      seekTo(elapsed - 5);
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      seekTo(elapsed + 5);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      seekTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      seekTo(duration);
+    }
   };
 
   return (
     <section className="bg-[#ffffff] px-6 py-[120px]">
+      <audio ref={audioRef} src={audioSrc} preload="metadata" />
       <div className="mx-auto grid max-w-[1728px] gap-16 lg:grid-cols-[0.9fr_1.1fr]">
         {/* Left column wrapper (stretches to grid row) */}
         <div>
-          <div style={{ position: "sticky", top: "72px" }}>
+          <div className="lg:sticky lg:top-[72px]">
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#0a0a0a]/40">
               Hear a real call
             </p>
@@ -249,7 +213,7 @@ export function AudioDemo() {
           style={{ boxShadow: "0 1px 2px rgba(10,10,10,0.04), 0 20px 60px -16px rgba(10,10,10,0.12)" }}
         >
           {/* Player row */}
-          <div className="flex items-center gap-4 border-b border-[#0a0a0a]/[0.06] px-6 py-5">
+          <div className="flex flex-wrap items-center gap-4 border-b border-[#0a0a0a]/[0.06] px-6 py-5">
             <button
               onClick={togglePlay}
               aria-label={isPlaying ? "Pause" : "Play"}
@@ -269,8 +233,10 @@ export function AudioDemo() {
 
             {/* Waveform */}
             <div
-              className="flex h-10 flex-1 cursor-pointer items-center gap-[2px]"
+              className="flex h-10 flex-1 cursor-pointer items-center gap-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a0a0a]/30 rounded"
               onClick={seek}
+              onKeyDown={onWaveformKeyDown}
+              tabIndex={0}
               role="slider"
               aria-label="Seek"
               aria-valuenow={Math.round(progress * 100)}
@@ -296,57 +262,28 @@ export function AudioDemo() {
             <span className="shrink-0 text-[12px] tabular-nums text-[#0a0a0a]/45">
               {fmt(elapsed)}
               <span className="text-[#0a0a0a]/20">{" / "}</span>
-              {fmt(scenario.duration)}
+              {fmt(duration)}
             </span>
 
-            {/* Scenario picker */}
-            <div ref={menuRef} className="relative">
-              <button
-                onClick={() => setMenuOpen((v) => !v)}
-                className="flex items-center gap-2 rounded-md border border-[#0a0a0a]/[0.08] bg-[#ffffff] px-3 py-2 text-[13px] text-[#0a0a0a]/80 transition-colors hover:bg-[#f5f4f1]"
-              >
-                {scenario.label}
-                <svg width="10" height="10" viewBox="0 0 10 10" className="opacity-50">
-                  <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-
-              {menuOpen && (
-                <div className="absolute right-0 top-full z-10 mt-2 w-[260px] overflow-hidden rounded-lg border border-[#0a0a0a]/[0.08] bg-white shadow-lg">
-                  {scenarios.map((s) => (
-                    <button
-                      key={s.id}
-                      onClick={() => {
-                        setScenarioId(s.id);
-                        setMenuOpen(false);
-                      }}
-                      className={`flex w-full flex-col items-start gap-0.5 px-4 py-3 text-left transition-colors hover:bg-[#f5f4f1] ${
-                        s.id === scenario.id ? "bg-[#f5f4f1]" : ""
-                      }`}
-                    >
-                      <span className="text-[13px] font-medium text-[#0a0a0a]">{s.label}</span>
-                      <span className="text-[11px] text-[#0a0a0a]/50">{s.subtitle}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* Static practice-area badge */}
+            <span className="hidden md:inline-flex shrink-0 rounded-md border border-[#0a0a0a]/[0.08] bg-[#ffffff] px-3 py-2 text-[13px] text-[#0a0a0a]/80">
+              Personal Injury
+            </span>
           </div>
 
           {/* Transcript */}
           <div
             ref={transcriptRef}
-            className="relative h-[520px] overflow-y-auto px-6 py-6"
+            className="relative h-[420px] md:h-[520px] overflow-y-auto px-6 py-6 md:[overscroll-behavior:contain]"
             style={{
               scrollbarWidth: "thin",
               scrollbarColor: "rgba(10,10,10,0.15) transparent",
-              overscrollBehavior: "contain",
             }}
           >
             {visibleLines.length === 0 && (
               <div className="flex min-h-[460px] flex-col items-center justify-center text-center">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-[#0a0a0a]/30">
-                  {scenario.subtitle}
+                  {subtitle}
                 </div>
                 <div className="mt-3 text-[15px] text-[#0a0a0a]/50">
                   Press play to hear Claire.
@@ -356,7 +293,7 @@ export function AudioDemo() {
 
             {visibleLines.map((line, i) => (
               <TranscriptLine
-                key={`${scenario.id}-${i}`}
+                key={`pi-${i}`}
                 line={line}
                 idx={i}
                 isActive={i === activeIndex}

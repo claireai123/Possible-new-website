@@ -21,7 +21,8 @@ const pillars = [
 
 export function CoreSecurity() {
   return (
-    <div className="w-full max-w-[1728px] mx-auto px-6 md:px-12 py-24 bg-white">
+    <section className="bg-white px-6 py-24">
+      <div className="w-full max-w-[1680px] mx-auto">
       <div className="mb-16 border-b border-[#0a0a0a]/15 pb-6">
         <h2
           className="font-serif text-[#0a0a0a]"
@@ -59,6 +60,7 @@ export function CoreSecurity() {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

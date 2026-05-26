@@ -256,7 +256,7 @@ export default function PersonalInjuryPage() {
       {/* ─────────── Hero image (full-width wide) ─────────── */}
       <section className="bg-white px-6 pb-12 md:pb-16">
         <div className="mx-auto max-w-[1680px]">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+          <div className="relative aspect-[5/4] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-lg">
             <img
               src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg"
               alt="Modern law-firm reception area with green accent wall"

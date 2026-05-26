@@ -138,8 +138,8 @@ export default function HelpCenterPage() {
             </Suspense>
           </div>
 
-          <p className="mt-4 text-[12px] text-[#0a0a0a]/40">
-            Press <kbd className="rounded border border-[#0a0a0a]/15 px-1 py-px text-[10px] font-mono">/</kbd> from anywhere on this page to focus search.
+          <p className="mt-4 text-[12px] text-[#0a0a0a]/60">
+            Press <kbd aria-hidden="true" className="rounded border border-[#0a0a0a]/15 px-1 py-px text-[10px] font-mono">/</kbd> from anywhere on this page to focus search.
           </p>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function HelpCenterPage() {
       {/* ─────────── Categories grid ─────────── */}
       <section className="px-6 pb-20 border-t border-[#0a0a0a]/[0.08]">
         <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-8">Browse by category</p>
+          <h2 className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60 mb-8">Browse by category</h2>
           <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {HELP_CATEGORIES.map((c) => {
               const count = getArticlesByCategory(c.slug).length;
@@ -158,14 +158,14 @@ export default function HelpCenterPage() {
                   className="group block border-t border-[#0a0a0a]/[0.08] pt-6"
                   aria-label={`${c.name} — ${count} articles`}
                 >
-                  <h2
+                  <h3
                     className="text-[#0a0a0a] group-hover:text-[#0a0a0a]/70 transition-colors"
                     style={{ fontSize: "20px", lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: 450 }}
                   >
                     {c.name}
-                  </h2>
+                  </h3>
                   <p className="mt-2 text-[14px] leading-[1.5] text-[#0a0a0a]/55">{c.desc}</p>
-                  <p className="mt-4 text-[12px] text-[#0a0a0a]/40">
+                  <p className="mt-4 text-[12px] text-[#0a0a0a]/60">
                     {count} article{count === 1 ? "" : "s"}
                   </p>
                 </Link>
@@ -178,7 +178,7 @@ export default function HelpCenterPage() {
       {/* ─────────── Popular articles ─────────── */}
       <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
         <div className="mx-auto max-w-[1100px] pt-16">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/55 mb-8">Popular articles</p>
+          <h2 className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60 mb-8">Popular articles</h2>
           <ul className="divide-y divide-[#0a0a0a]/[0.08]">
             {popular.map((a) => {
               const cat = HELP_CATEGORIES.find((c) => c.slug === a.category);
@@ -189,7 +189,7 @@ export default function HelpCenterPage() {
                     className="group flex items-center justify-between gap-6 py-5"
                   >
                     <div className="min-w-0">
-                      <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/40">{cat?.name ?? ""}</p>
+                      <p className="text-[11px] uppercase tracking-[0.12em] text-[#0a0a0a]/60">{cat?.name ?? ""}</p>
                       <p
                         className="mt-1 text-[#0a0a0a] group-hover:text-[#0a0a0a]/70 transition-colors"
                         style={{ fontSize: "18px", lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: 450 }}
@@ -198,8 +198,8 @@ export default function HelpCenterPage() {
                       </p>
                     </div>
                     <div className="flex shrink-0 items-center gap-4">
-                      <span className="text-[12px] text-[#0a0a0a]/40">{a.readingTime}</span>
-                      <span className="text-[#0a0a0a]/30 group-hover:text-[#0a0a0a]/60 transition-colors">→</span>
+                      <span className="text-[12px] text-[#0a0a0a]/60">{a.readingTime}</span>
+                      <span className="text-[#0a0a0a]/60 group-hover:text-[#0a0a0a]/80 transition-colors">→</span>
                     </div>
                   </Link>
                 </li>
@@ -216,7 +216,7 @@ export default function HelpCenterPage() {
             const arts = getArticlesByCategory(c.slug);
             if (arts.length === 0) return null;
             return (
-              <div key={c.slug} id={c.slug} className="scroll-mt-28">
+              <div key={c.slug} id={c.slug} className="scroll-mt-16 md:scroll-mt-20">
                 <div className="flex items-baseline justify-between gap-6">
                   <h2
                     className="text-[#0a0a0a]"
@@ -224,7 +224,7 @@ export default function HelpCenterPage() {
                   >
                     {c.name}
                   </h2>
-                  <p className="text-[12px] text-[#0a0a0a]/40">
+                  <p className="text-[12px] text-[#0a0a0a]/60">
                     {arts.length} article{arts.length === 1 ? "" : "s"}
                   </p>
                 </div>
@@ -248,8 +248,8 @@ export default function HelpCenterPage() {
                           </p>
                         </div>
                         <div className="flex shrink-0 items-center gap-4">
-                          <span className="text-[12px] text-[#0a0a0a]/40">{a.readingTime}</span>
-                          <span className="text-[#0a0a0a]/30 group-hover:text-[#0a0a0a]/60 transition-colors">→</span>
+                          <span className="text-[12px] text-[#0a0a0a]/60">{a.readingTime}</span>
+                          <span className="text-[#0a0a0a]/60 group-hover:text-[#0a0a0a]/80 transition-colors">→</span>
                         </div>
                       </Link>
                     </li>

@@ -25,10 +25,18 @@ export default function ContactLayout({
     <>
       {/* SSR-rendered content for AI crawlers — hidden visually */}
       <div
-        style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)" }}
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+          clipPath: "inset(50%)",
+          whiteSpace: "nowrap",
+          pointerEvents: "none",
+        }}
         aria-hidden="true"
       >
-        <h1>Book a Demo with ClaireAI — AI Legal Receptionist</h1>
+        <h2>Book a Demo with ClaireAI — AI Legal Receptionist</h2>
         <p>
           ClaireAI is an AI-powered legal receptionist that answers every law firm call in under one second,
           24 hours a day, 7 days a week, in both English and Spanish. Trusted by more than 50 law firms across

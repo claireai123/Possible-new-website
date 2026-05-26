@@ -10,7 +10,7 @@ export function Hero() {
         <h1
           className="font-serif text-[#0a0a0a]"
           style={{
-            fontSize: "clamp(3.5rem, 11vw, 180px)",
+            fontSize: "clamp(2.5rem, 11vw, 180px)",
             fontWeight: 500,
             letterSpacing: "-0.02em",
             lineHeight: "0.92",
@@ -18,16 +18,16 @@ export function Hero() {
           }}
         >
           <span style={{ display: "block" }}>Your firm,</span>
-          <span style={{ display: "block", textIndent: "18vw" }}>never sleeps.</span>
+          <span style={{ display: "block", textIndent: "clamp(0px, 18vw, 200px)" }}>never sleeps.</span>
         </h1>
 
         {/* Platform visual — matches the original placeholder's 16:8 short-wide frame; image is anchored to the TOP so the dashboard stays fully visible and only the bottom of the photo gets trimmed. */}
-        <div className="mt-[80px] relative overflow-hidden rounded-lg bg-[#e8e5de] aspect-[16/8]">
+        <div className="mt-[80px] relative overflow-hidden rounded-lg bg-[#e8e5de] aspect-[5/4] sm:aspect-[16/10] md:aspect-[16/8]">
           <img
             src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1778767032/ChatGPT_Image_May_14_2026_at_09_54_21_AM.jpg"
             alt="ClaireAI in action — a live AI legal intake call answered in 0.8 seconds, with practice-area qualification and CRM sync on screen."
             className="absolute inset-0 w-full h-full object-cover block"
-            style={{ objectPosition: "center top" }}
+            style={{ objectPosition: "center center" }}
             fetchPriority="high"
             loading="eager"
             decoding="async"

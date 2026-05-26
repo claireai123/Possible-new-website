@@ -49,15 +49,6 @@ const GRID_POSTS: CardPost[] = ALL_AS_CARDS.slice(1, 7);
 // List posts = remaining posts (rendered as horizontal cards).
 const LIST_POSTS: CardPost[] = ALL_AS_CARDS.slice(7);
 
-const CATEGORIES = [
-  "All",
-  "Reports & research",
-  "Guides",
-  "Product",
-  "Industry",
-  "Switching",
-];
-
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -94,7 +85,7 @@ function CardImage({ ratio = "aspect-[4/3]", img, alt }: { ratio?: string; img?:
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
-          <p className="text-[11px] text-[#0a0a0a]/30">Article image</p>
+          <p className="text-[11px] text-[#0a0a0a]/60">Article image</p>
         </div>
       </div>
     </div>
@@ -103,7 +94,7 @@ function CardImage({ ratio = "aspect-[4/3]", img, alt }: { ratio?: string; img?:
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-[#fafaf9] text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-[#fafaf9] text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
 
       {/* ─────────── Hero (full-width heading, Legora pattern) ─────────── */}
@@ -127,7 +118,7 @@ export default function BlogPage() {
       <section className="bg-[#fafaf9] px-6 pt-12 md:pt-14 pb-16 md:pb-20">
         <div className="mx-auto max-w-[1680px]">
           <Link href={FEATURED.href} className="group block">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-12 items-start">
               {/* Text left */}
               <div className="flex flex-col">
                 <p className="text-[12px] text-[#0a0a0a]/70">Featured</p>
@@ -154,27 +145,6 @@ export default function BlogPage() {
               </div>
             </div>
           </Link>
-        </div>
-      </section>
-
-      {/* ─────────── Category filter (Legora flat pills) ─────────── */}
-      <section className="bg-[#fafaf9] px-6 pb-10">
-        <div className="mx-auto max-w-[1680px]">
-          <div className="flex flex-wrap items-center gap-1">
-            {CATEGORIES.map((cat, i) => (
-              <button
-                key={cat}
-                type="button"
-                className={`rounded px-3 py-2 text-[12px] font-normal transition-colors ${
-                  i === 0
-                    ? "bg-[#0a0a0a] text-white"
-                    : "bg-transparent text-[#0a0a0a]/85 hover:bg-[#0a0a0a]/[0.04]"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 const CAL_LINK = "tiago-strammiello-d57dr3/claireai-consultation";
 const CAL_NS = "claireai-consultation";
 const FORMSPREE_URL = "https://formspree.io/f/mpqolvpw";
+const MAILTO_FALLBACK =
+  "mailto:hello@theclaireai.com?subject=Demo%20Request";
+
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 export default function BookDemo() {
   const [form, setForm] = useState({
@@ -15,10 +19,11 @@ export default function BookDemo() {
     firmSize: "",
     practiceArea: "",
   });
-  const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [statusMessage, setStatusMessage] = useState<string>("");
   const calLoaded = useRef(false);
 
-  useEffect(() => {
+  const loadCalEmbed = () => {
     if (calLoaded.current) return;
     calLoaded.current = true;
 
@@ -55,17 +60,22 @@ export default function BookDemo() {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
-  }, []);
+  };
 
   const update = (field: string, value: string) =>
     setForm((p) => ({ ...p, [field]: value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
+    setSubmitStatus("loading");
+    setStatusMessage("Sending your request...");
 
+    // Lazy-load Cal embed only on first submit
+    loadCalEmbed();
+
+    let formspreeOk = false;
     try {
-      await fetch(FORMSPREE_URL, {
+      const res = await fetch(FORMSPREE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -76,11 +86,22 @@ export default function BookDemo() {
           practiceArea: form.practiceArea,
         }),
       });
+      formspreeOk = res.ok;
     } catch {
-      // Still open Cal even if Formspree fails
+      formspreeOk = false;
     }
 
-    setSubmitting(false);
+    if (formspreeOk) {
+      setSubmitStatus("success");
+      setStatusMessage(
+        "Thanks — opening your calendar now to pick a time.",
+      );
+    } else {
+      setSubmitStatus("error");
+      setStatusMessage(
+        "We couldn't submit your request. Please email hello@theclaireai.com or try again.",
+      );
+    }
 
     const Cal = (window as any).Cal;
     if (Cal?.ns?.[CAL_NS]) {
@@ -99,7 +120,7 @@ export default function BookDemo() {
   const inputBox: React.CSSProperties = {
     width: "100%",
     padding: "13px 14px",
-    fontSize: 15,
+    fontSize: 16,
     fontFamily: "inherit",
     border: "1px solid #d1d1d6",
     borderRadius: 4,
@@ -111,6 +132,8 @@ export default function BookDemo() {
   const selectBox: React.CSSProperties = {
     ...inputBox,
     appearance: "none" as const,
+    WebkitAppearance: "none",
+    MozAppearance: "none" as any,
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "right 14px center",
@@ -124,15 +147,16 @@ export default function BookDemo() {
     marginBottom: 8,
   };
 
+  const submitting = submitStatus === "loading";
+
   return (
     <section
+      className="grid grid-cols-1 lg:grid-cols-[52fr_48fr]"
       style={{
-        display: "grid",
-        gridTemplateColumns: "52fr 48fr",
-        minHeight: "100vh",
+        minHeight: "100dvh",
       }}
     >
-      {/* ── LEFT: Green textured panel with white form card ── */}
+      {/* LEFT: Green textured panel with white form card */}
       <div
         style={{
           backgroundColor: "#1b4332",
@@ -168,24 +192,30 @@ export default function BookDemo() {
             boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
           }}
         >
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             {/* First / Last Name */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr]" style={{ gap: 20 }}>
               <div>
-                <label style={label}>First Name *</label>
+                <label htmlFor="contact-firstName" style={label}>First Name *</label>
                 <input
+                  id="contact-firstName"
+                  name="firstName"
                   type="text"
                   required
+                  autoComplete="given-name"
                   value={form.firstName}
                   onChange={(e) => update("firstName", e.target.value)}
                   style={inputBox}
                 />
               </div>
               <div>
-                <label style={label}>Last Name *</label>
+                <label htmlFor="contact-lastName" style={label}>Last Name *</label>
                 <input
+                  id="contact-lastName"
+                  name="lastName"
                   type="text"
                   required
+                  autoComplete="family-name"
                   value={form.lastName}
                   onChange={(e) => update("lastName", e.target.value)}
                   style={inputBox}
@@ -195,10 +225,14 @@ export default function BookDemo() {
 
             {/* Email */}
             <div style={{ marginTop: 24 }}>
-              <label style={label}>Email *</label>
+              <label htmlFor="contact-email" style={label}>Email *</label>
               <input
+                id="contact-email"
+                name="email"
                 type="email"
                 required
+                autoComplete="email"
+                inputMode="email"
                 value={form.email}
                 onChange={(e) => update("email", e.target.value)}
                 style={inputBox}
@@ -207,10 +241,13 @@ export default function BookDemo() {
 
             {/* Firm Name */}
             <div style={{ marginTop: 24 }}>
-              <label style={label}>Firm Name *</label>
+              <label htmlFor="contact-firmName" style={label}>Firm Name *</label>
               <input
+                id="contact-firmName"
+                name="firmName"
                 type="text"
                 required
+                autoComplete="organization"
                 value={form.firmName}
                 onChange={(e) => update("firmName", e.target.value)}
                 style={inputBox}
@@ -219,14 +256,16 @@ export default function BookDemo() {
 
             {/* Firm Size */}
             <div style={{ marginTop: 24 }}>
-              <label style={label}>Firm Size *</label>
+              <label htmlFor="contact-firmSize" style={label}>Firm Size *</label>
               <select
+                id="contact-firmSize"
+                name="firmSize"
                 required
                 value={form.firmSize}
                 onChange={(e) => update("firmSize", e.target.value)}
                 style={selectBox}
               >
-                <option value=""></option>
+                <option value="" disabled hidden>Select firm size...</option>
                 <option value="Solo Practitioner">Solo Practitioner</option>
                 <option value="2-5 Attorneys">2-5 Attorneys</option>
                 <option value="6-20 Attorneys">6-20 Attorneys</option>
@@ -237,14 +276,17 @@ export default function BookDemo() {
 
             {/* Practice Area */}
             <div style={{ marginTop: 24 }}>
-              <label style={label}>Practice Area *</label>
+              <label htmlFor="contact-practiceArea" style={label}>Practice Area *</label>
               <select
+                id="contact-practiceArea"
+                name="practiceArea"
                 required
+                autoComplete="organization-title"
                 value={form.practiceArea}
                 onChange={(e) => update("practiceArea", e.target.value)}
                 style={selectBox}
               >
-                <option value=""></option>
+                <option value="" disabled hidden>Select practice area...</option>
                 <option value="Personal Injury">Personal Injury</option>
                 <option value="Criminal Defense">Criminal Defense</option>
                 <option value="Family Law">Family Law</option>
@@ -255,10 +297,10 @@ export default function BookDemo() {
             </div>
 
             {/* Privacy */}
-            <p style={{ marginTop: 28, fontSize: 13, lineHeight: 1.6, color: "rgba(10,10,10,0.45)" }}>
+            <p style={{ marginTop: 28, fontSize: 13, lineHeight: 1.6, color: "rgba(10,10,10,0.6)" }}>
               ClaireAI will use your information to provide the content or service you requested.
             </p>
-            <p style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "rgba(10,10,10,0.45)" }}>
+            <p style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "rgba(10,10,10,0.6)" }}>
               We may use your information to send you marketing emails. You can unsubscribe at any time using
               the link in our emails. Learn more in our{" "}
               <a href="/privacy-policy" style={{ color: "#2563eb", textDecoration: "none" }}>
@@ -276,7 +318,7 @@ export default function BookDemo() {
                 padding: "15px 44px",
                 backgroundColor: "#0a0a0a",
                 color: "#fff",
-                fontSize: 14,
+                fontSize: 16,
                 fontWeight: 500,
                 fontFamily: "inherit",
                 border: "none",
@@ -287,11 +329,43 @@ export default function BookDemo() {
             >
               {submitting ? "Sending..." : "Book a Demo"}
             </button>
+
+            {/* Status / a11y live region */}
+            <div
+              role="status"
+              aria-live="polite"
+              style={{
+                marginTop: 16,
+                minHeight: 20,
+                fontSize: 14,
+                lineHeight: 1.5,
+                color:
+                  submitStatus === "error"
+                    ? "#b91c1c"
+                    : submitStatus === "success"
+                      ? "#166534"
+                      : "rgba(10,10,10,0.6)",
+              }}
+            >
+              {statusMessage}
+              {submitStatus === "error" && (
+                <>
+                  {" "}
+                  <a
+                    href={MAILTO_FALLBACK}
+                    style={{ color: "#2563eb", textDecoration: "underline" }}
+                  >
+                    Email us instead
+                  </a>
+                  .
+                </>
+              )}
+            </div>
           </form>
         </div>
       </div>
 
-      {/* ── RIGHT: White panel with centered copy ── */}
+      {/* RIGHT: White panel with centered copy */}
       <div
         style={{
           backgroundColor: "#fefefc",
@@ -303,7 +377,7 @@ export default function BookDemo() {
         }}
       >
         <div style={{ maxWidth: 460 }}>
-          <h1
+          <h2
             className="font-serif"
             style={{
               fontSize: "clamp(3rem, 5vw, 72px)",
@@ -314,13 +388,13 @@ export default function BookDemo() {
             }}
           >
             Book a demo
-          </h1>
+          </h2>
           <p
             style={{
               marginTop: 20,
               fontSize: 19,
               lineHeight: 1.5,
-              color: "rgba(10,10,10,0.35)",
+              color: "rgba(10,10,10,0.6)",
               fontWeight: 400,
             }}
           >
@@ -329,10 +403,9 @@ export default function BookDemo() {
 
           {/* Stats row */}
           <div
+            className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr]"
             style={{
               marginTop: 48,
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
               gap: 24,
               textAlign: "center",
             }}
@@ -346,7 +419,7 @@ export default function BookDemo() {
                 <p style={{ fontSize: 28, fontWeight: 600, color: "#0a0a0a", letterSpacing: "-0.02em" }}>
                   {item.stat}
                 </p>
-                <p style={{ marginTop: 4, fontSize: 11, color: "rgba(10,10,10,0.25)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                <p style={{ marginTop: 4, fontSize: 11, color: "rgba(10,10,10,0.6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
                   {item.label}
                 </p>
               </div>

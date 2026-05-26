@@ -50,44 +50,49 @@ const features = [
 
 export function AllPlansFeatures() {
   return (
-    <div className="w-full max-w-[1728px] mx-auto px-6 md:px-12 py-24 bg-[#ffffff]">
-      <div className="mb-16 border-b border-[#0a0a0a]/15 pb-6">
-        <h2
-          className="font-serif text-[#0a0a0a]"
-          style={{
-            fontSize: "clamp(2.25rem, 4vw, 56px)",
-            lineHeight: "1",
-            letterSpacing: "-0.01em",
-            fontWeight: 400,
-            fontVariationSettings: '"opsz" 144',
-            fontFeatureSettings: '"liga" 0',
-          }}
-        >
-          Core Infrastructure
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-5 w-full border-t border-l border-[#e4e4e7]">
-        {features.map((feature, i) => (
-          <div 
-            key={i} 
-            className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-[500px]"
+    <section className="px-6 py-24">
+      <div className="w-full max-w-[1680px] mx-auto">
+        <div className="mb-16 border-b border-[#0a0a0a]/15 pb-6">
+          <h2
+            className="font-serif text-[#0a0a0a]"
+            style={{
+              fontSize: "clamp(2.25rem, 4vw, 56px)",
+              lineHeight: "1",
+              letterSpacing: "-0.01em",
+              fontWeight: 400,
+              fontVariationSettings: '"opsz" 144',
+              fontFeatureSettings: '"liga" 0',
+            }}
           >
-            <h3
-              className="text-[#0a0a0a] mb-8 leading-[1.25]"
-              style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.01em" }}
+            Core Infrastructure
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 w-full border-t border-l border-[#e4e4e7]">
+          {features.map((feature, i) => (
+            <div
+              key={i}
+              className="bg-white p-10 md:p-14 flex flex-col justify-start border-r border-b border-[#e4e4e7] hover:bg-[#fafafa] transition-colors h-full min-h-0 md:min-h-[500px]"
             >
-              <span className="opacity-40 text-[10px] block mb-3 uppercase tracking-[0.14em] font-medium">
-                {String(i + 1).padStart(2, '0')} //
-              </span>
-              {feature.title}
-            </h3>
-            <p className="text-[#0a0a0a]/60 text-base md:text-lg leading-relaxed font-sans">
-              {feature.desc}
-            </p>
-          </div>
-        ))}
+              <div className="mb-8" aria-hidden="true">
+                {feature.icon}
+              </div>
+              <h3
+                className="text-[#0a0a0a] mb-8 leading-[1.25]"
+                style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.01em" }}
+              >
+                <span className="opacity-60 text-[10px] block mb-3 uppercase tracking-[0.14em] font-medium">
+                  {String(i + 1).padStart(2, '0')} //
+                </span>
+                {feature.title}
+              </h3>
+              <p className="text-[#0a0a0a]/60 text-base md:text-lg leading-relaxed font-sans">
+                {feature.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

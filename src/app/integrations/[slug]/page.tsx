@@ -14,12 +14,12 @@ import {
 export const dynamicParams = false;
 
 const CLAIRE_LOGO =
-  "https://res.cloudinary.com/dwzsqumf6/image/upload/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png";
+  "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png";
 
 // Icon-only crop (leftmost glyph) — used in the paired-logo lockup so the
 // "ClaireAI" wordmark doesn't duplicate the H1 text below.
 const CLAIRE_ICON =
-  "https://res.cloudinary.com/dwzsqumf6/image/upload/c_crop,w_95,h_116,g_west/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png";
+  "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/c_crop,w_95,h_116,g_west/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png";
 
 const PUBLISHED = "2026-01-15";
 const LAST_UPDATED = "2026-05-15";
@@ -718,7 +718,7 @@ export default async function IntegrationDetailPage({
   ).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
+    <div className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
@@ -737,27 +737,31 @@ export default async function IntegrationDetailPage({
           {/* Paired-logo lockup — ClaireAI shows icon-only (the H1 already
               renders the "ClaireAI × {Vendor}" lockup as text). Vendor side
               shows whichever logo file the vendor publishes. */}
-          <div className="mt-14 flex items-center gap-8 md:gap-10">
-            <div className="flex items-center justify-center h-16 md:h-20 w-16 md:w-20">
+          <div className="mt-14 flex items-center gap-4 sm:gap-8 md:gap-10">
+            <div className="flex items-center justify-center h-12 sm:h-16 md:h-20 w-12 sm:w-16 md:w-20">
               <img
                 src={CLAIRE_ICON}
                 alt="ClaireAI icon"
+                width={80}
+                height={80}
                 className="max-h-full max-w-full object-contain"
                 loading="eager"
               />
             </div>
             <span
               aria-hidden="true"
-              className="text-[32px] md:text-[40px] text-[#0a0a0a]/30"
+              className="text-[22px] sm:text-[32px] md:text-[40px] text-[#0a0a0a]/30"
               style={{ fontWeight: 300 }}
             >
               ×
             </span>
             {integration.logoUrl ? (
-              <div className="flex items-center justify-center h-16 md:h-20 w-[180px] md:w-[220px]">
+              <div className="flex items-center justify-center h-12 sm:h-16 md:h-20 w-[140px] sm:w-[180px] md:w-[220px]">
                 <img
                   src={integration.logoUrl}
                   alt={`${integration.name} logo`}
+                  width={220}
+                  height={80}
                   className="max-h-full max-w-full object-contain"
                   loading="eager"
                 />
@@ -800,15 +804,15 @@ export default async function IntegrationDetailPage({
             </div>
 
             {/* Right column — metadata */}
-            <div className="text-[15px] leading-[1.55] text-[#0a0a0a]/55 space-y-3 lg:pt-14">
-              <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+            <div className="text-[15px] leading-[1.55] text-[#0a0a0a]/60 space-y-3 lg:pt-14">
+              <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                 <span className="uppercase tracking-[0.18em] text-[11px]">Status</span>
-                <span className="text-[#0a0a0a]">{STATUS_LABEL[integration.status]}</span>
+                <span className="text-[#0a0a0a] sm:text-right sm:max-w-[60%]">{STATUS_LABEL[integration.status]}</span>
               </div>
               {integration.access ? (
-                <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+                <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                   <span className="uppercase tracking-[0.18em] text-[11px]">Access</span>
-                  <span className="text-[#0a0a0a]">
+                  <span className="text-[#0a0a0a] sm:text-right sm:max-w-[60%]">
                     {integration.access === "OPEN"
                       ? "Open API"
                       : integration.access === "PARTNER"
@@ -818,36 +822,36 @@ export default async function IntegrationDetailPage({
                 </div>
               ) : null}
               {integration.auth ? (
-                <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+                <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                   <span className="uppercase tracking-[0.18em] text-[11px]">Auth</span>
-                  <span className="text-[#0a0a0a]">{integration.auth}</span>
+                  <span className="text-[#0a0a0a] sm:text-right sm:max-w-[60%]">{integration.auth}</span>
                 </div>
               ) : null}
-              <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+              <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                 <span className="uppercase tracking-[0.18em] text-[11px]">Practice areas</span>
-                <span className="text-[#0a0a0a]">
+                <span className="text-[#0a0a0a] sm:text-right sm:max-w-[60%]">
                   {integration.practiceAreas.map((p) => PRACTICE_AREA_LABEL[p]).join(", ")}
                 </span>
               </div>
-              <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+              <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                 <span className="uppercase tracking-[0.18em] text-[11px]">Category</span>
-                <span className="text-[#0a0a0a]">{CATEGORIES[integration.category].label}</span>
+                <span className="text-[#0a0a0a] sm:text-right sm:max-w-[60%]">{CATEGORIES[integration.category].label}</span>
               </div>
               {integration.docsUrl ? (
-                <div className="flex justify-between border-b border-[#0a0a0a]/10 pb-3">
+                <div className="flex flex-col gap-1 sm:flex-row sm:justify-between border-b border-[#0a0a0a]/10 pb-3">
                   <span className="uppercase tracking-[0.18em] text-[11px]">Vendor docs</span>
                   <a
                     href={integration.docsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0a0a0a] underline-offset-2 hover:underline"
+                    className="text-[#0a0a0a] underline-offset-2 hover:underline sm:text-right sm:max-w-[60%]"
                   >
                     Reference ↗
                   </a>
                 </div>
               ) : null}
               {integration.notes ? (
-                <p className="text-[13px] leading-[1.6] text-[#0a0a0a]/55 mt-4">{integration.notes}</p>
+                <p className="text-[13px] leading-[1.6] text-[#0a0a0a]/60 mt-4">{integration.notes}</p>
               ) : null}
             </div>
           </div>
@@ -879,7 +883,7 @@ export default async function IntegrationDetailPage({
       {/* ─────────── Sync table ─────────── */}
       <section className="bg-white px-6 py-20 md:py-24 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             Sync map
           </p>
           <h2
@@ -897,12 +901,12 @@ export default async function IntegrationDetailPage({
             {syncRows.map((row, idx) => (
               <div
                 key={idx}
-                className="flex items-baseline justify-between border-b border-[#0a0a0a]/10 py-5"
+                className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between border-b border-[#0a0a0a]/10 py-5"
               >
                 <span className="text-[15.5px] md:text-[16px] text-[#0a0a0a]" style={{ fontWeight: 500 }}>
                   {row.left}
                 </span>
-                <span className="text-[14px] md:text-[15px] text-[#0a0a0a]/65 text-right">
+                <span className="text-[14px] md:text-[15px] text-[#0a0a0a]/65 sm:text-right sm:max-w-[60%] max-w-[60ch]">
                   {row.right}
                 </span>
               </div>
@@ -914,7 +918,7 @@ export default async function IntegrationDetailPage({
       {/* ─────────── Workflows ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             How it works
           </p>
           <h2
@@ -931,7 +935,7 @@ export default async function IntegrationDetailPage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
             {workflows.map((w, idx) => (
               <div key={idx}>
-                <p className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-5">
+                <p className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-5">
                   0{idx + 1}
                 </p>
                 <p
@@ -954,7 +958,7 @@ export default async function IntegrationDetailPage({
         <div className="mx-auto max-w-[1680px]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
             <div>
-              <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+              <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
                 Setup
               </p>
               <h2
@@ -975,7 +979,7 @@ export default async function IntegrationDetailPage({
             <ol className="space-y-10">
               {setupSteps.map((step, idx) => (
                 <li key={idx} className="flex gap-6 border-b border-[#e4e4e7] pb-10 last:border-0 last:pb-0">
-                  <span className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 flex-shrink-0 w-12 pt-1">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 flex-shrink-0 w-12 pt-1">
                     0{idx + 1}
                   </span>
                   <p className="text-[16px] md:text-[17px] leading-[1.5] text-[#0a0a0a]/75 max-w-[60ch]">
@@ -991,7 +995,7 @@ export default async function IntegrationDetailPage({
       {/* ─────────── FAQ ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
         <div className="mx-auto max-w-[1680px]">
-          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+          <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
             FAQ
           </p>
           <h2
@@ -1007,17 +1011,30 @@ export default async function IntegrationDetailPage({
           </h2>
           <div className="border-t border-[#e4e4e7]">
             {faqs.map((f, idx) => (
-              <div key={idx} className="border-b border-[#e4e4e7] py-8">
-                <p
-                  className="text-[#0a0a0a] mb-3 text-[18px] md:text-[20px] leading-[1.3]"
-                  style={{ letterSpacing: "-0.01em", fontWeight: 500 }}
+              <details
+                key={idx}
+                className="group border-b border-[#e4e4e7] [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary
+                  className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 text-[#0a0a0a] hover:text-[#0a0a0a]/70 transition-colors"
+                  style={{ letterSpacing: "-0.01em" }}
                 >
-                  {f.question}
-                </p>
-                <p className="text-[15.5px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
+                  <span className="text-[18px] md:text-[20px] leading-[1.3] font-medium">
+                    {f.question}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#0a0a0a]/15 text-[#0a0a0a]/60 transition-transform duration-200 group-open:rotate-45"
+                  >
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                      <path d="M6 1.5v9M1.5 6h9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <p className="pb-8 text-[15.5px] md:text-[16px] leading-[1.6] text-[#0a0a0a]/65 max-w-[120ch]">
                   {f.answer}
                 </p>
-              </div>
+              </details>
             ))}
           </div>
         </div>
@@ -1027,7 +1044,7 @@ export default async function IntegrationDetailPage({
       {related.length ? (
         <section className="bg-white px-6 py-24 md:py-32 border-t border-[#e4e4e7]">
           <div className="mx-auto max-w-[1680px]">
-            <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-6">
+            <p className="text-[15.5px] md:text-[16px] uppercase tracking-[0.18em] text-[#0a0a0a]/60 mb-6">
               Related integrations
             </p>
             <h2
@@ -1070,7 +1087,7 @@ export default async function IntegrationDetailPage({
                         <img
                           src={r.logoUrl}
                           alt={`${r.name} logo`}
-                          className="w-[78%] h-[55%] object-contain"
+                          className="max-h-[80%] max-w-[80%] object-contain"
                           loading="lazy"
                         />
                       </div>
@@ -1125,7 +1142,7 @@ export default async function IntegrationDetailPage({
             </p>
             <Link
               href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-6 sm:px-9 py-5 text-[15px] sm:text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
               Book a demo
             </Link>

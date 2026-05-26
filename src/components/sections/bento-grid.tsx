@@ -211,22 +211,22 @@ export function BentoGrid() {
                 {
                   area: "Personal Injury",
                   desc: "Capture every lead at first ring — qualify police reports, treatment status, and fault in seconds.",
-                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646534/alex-robertson-RPFvgzbPWxA-unsplash_zkn0wy.jpg",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1774646534/alex-robertson-RPFvgzbPWxA-unsplash_zkn0wy.jpg",
                 },
                 {
                   area: "Criminal Defense",
                   desc: "Route urgent felony and DUI calls 24/7 with instant attorney escalation, day or night.",
-                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
                 },
                 {
                   area: "Family Law",
                   desc: "Sensitive intake in English or Spanish — custody, divorce, and protective orders handled with care.",
-                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
                 },
                 {
                   area: "Immigration",
                   desc: "10+ languages supported. Visa deadlines tracked. Consultations booked across every time zone.",
-                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1774646535/jean-philippe-delberghe-zZvYBYY70uo-unsplash_x0davy.jpg",
+                  img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1774646535/jean-philippe-delberghe-zZvYBYY70uo-unsplash_x0davy.jpg",
                 },
               ].map((item, i) => (
                 <FadeIn key={item.area} delay={0.08 * i}>
