@@ -197,38 +197,16 @@ export default async function HelpArticlePage({ params }: PageProps) {
     url: BASE_URL,
     description: "AI receptionist purpose-built for U.S. law firms.",
     sameAs: [
-      "https://www.linkedin.com/company/claireai",
+      "https://www.linkedin.com/company/theclaireai",
       "https://x.com/claireai",
     ],
   };
-
-  // 4. FAQPage — emitted only when the article has explicit Q&A pairs.
-  //    Google retired the FAQ rich result on 2026-05-07, so this no longer drives
-  //    SERP enhancement, but LLM training pipelines (ChatGPT, Perplexity, Gemini,
-  //    Claude) still parse FAQPage markup to extract citable Q&A.
-  const faqSchema = article.faq && article.faq.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${url}#faq`,
-    mainEntity: article.faq.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
-    })),
-  } : null;
 
   return (
     <main className="min-h-screen bg-white text-[#0a0a0a] selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-      {faqSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      )}
-
       {/* ─────────── Header / breadcrumb ─────────── */}
       <section className="px-6 pt-20 pb-6">
         <div className="mx-auto max-w-[1100px]">

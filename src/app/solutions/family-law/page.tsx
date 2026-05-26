@@ -8,9 +8,9 @@ const LAST_UPDATED = "2026-05-18";
 const BASE_URL = "https://theclaireai.com/solutions/family-law";
 
 export const metadata: Metadata = {
-  title: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
+  title: "Family Law Intake — AI Receptionist | ClaireAI",
   description:
-    "ClaireAI is the AI receptionist purpose-built for family law intake. Empathetic pacing, domestic violence escalation, conflict screening per Rule 1.18, response-deadline tracking, and native sync with Clio, MyCase, Smokeball, and PracticePanther. Built for divorce, custody, support, and DV practices.",
+    "AI receptionist for family law. Empathetic pacing, DV escalation, Rule 1.18 conflict checks, deadline tracking, bilingual intake.",
   keywords: [
     "AI receptionist family law",
     "family law intake automation",
@@ -216,16 +216,6 @@ const techArticle = {
   ].join(", "),
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 export default function FamilyLawPage() {
   return (
@@ -233,8 +223,6 @@ export default function FamilyLawPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
       {/* ─────────── Hero (Legora pattern — centered eyebrow + big serif + small CTA) ─────────── */}
       <section className="bg-white px-6 pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">

@@ -28,10 +28,13 @@ export function Hero() {
             alt="ClaireAI in action — a live AI legal intake call answered in 0.8 seconds, with practice-area qualification and CRM sync on screen."
             className="absolute inset-0 w-full h-full object-cover block"
             style={{ objectPosition: "center top" }}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute top-6 left-6 z-10">
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#0a0a0a]/40">Platform</p>
-            <p className="mt-1 text-[15px] text-[#0a0a0a]/70">The AI Legal Receptionist</p>
+            <p className="mt-1 text-[15px] text-[#0a0a0a]/70">ClaireAI 365</p>
           </div>
         </div>
       </div>

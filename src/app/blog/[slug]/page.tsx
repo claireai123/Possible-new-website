@@ -12,6 +12,15 @@ export async function generateStaticParams() {
 
 type PageProps = { params: Promise<{ slug: string }> };
 
+// Schema.org / Open Graph require ISO 8601 dates. Posts ship human-readable
+// strings ("Feb 14, 2026"); convert here so the schema is valid without
+// touching the display layer.
+function toISO(s: string | undefined): string | undefined {
+  if (!s) return undefined;
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? undefined : d.toISOString().slice(0, 10);
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
@@ -27,8 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt,
       type: "article",
       url,
-      publishedTime: post.date,
-      modifiedTime: post.lastUpdated ?? post.date,
+      publishedTime: toISO(post.date),
+      modifiedTime: toISO(post.lastUpdated ?? post.date),
       authors: [post.author.name],
     },
   };
@@ -251,7 +260,7 @@ function Section({ s }: { s: ArticleSection }) {
           {s.items.map((item, i) => (
             <div key={i}>
               <p className="text-[15px] leading-[1.5] font-medium text-[#0a0a0a]">{item.q}</p>
-              <p className="mt-2 text-[15px] leading-[1.5] text-[#0a0a0a]/80">{item.a}</p>
+              <p className="mt-2 text-[15px] leading-[1.5] text-[#0a0a0a]/80"><InlineContent content={item.a} /></p>
             </div>
           ))}
         </div>
@@ -275,8 +284,8 @@ export default async function ArticlePage({ params }: PageProps) {
     headline: post.title,
     description: post.excerpt,
     image: post.hero.img ? [post.hero.img] : undefined,
-    datePublished: post.date,
-    dateModified: post.lastUpdated ?? post.date,
+    datePublished: toISO(post.date),
+    dateModified: toISO(post.lastUpdated ?? post.date),
     author: {
       "@type": "Person",
       name: post.author.name,

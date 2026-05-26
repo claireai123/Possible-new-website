@@ -8,9 +8,9 @@ const LAST_UPDATED = "2026-05-19";
 const BASE_URL = "https://theclaireai.com/solutions/criminal-defense";
 
 export const metadata: Metadata = {
-  title: "Criminal Defense Intake — AI Receptionist for DUI, Drug, and Federal Defense Firms",
+  title: "Criminal Defense Intake — AI Receptionist | ClaireAI",
   description:
-    "ClaireAI is the AI receptionist purpose-built for criminal defense intake. Arraignment-deadline triage, collect calls from jail accepted, bilingual intake, Rule 1.18 conflict screening, and native sync with Clio, MyCase, PracticePanther, and Smokeball. Built for DUI, drug, assault, white-collar, and federal defense.",
+    "AI receptionist for criminal defense. Arraignment-deadline triage, accepts collect calls from jail, Rule 1.18 conflict checks, bilingual.",
   keywords: [
     "AI receptionist criminal defense",
     "criminal defense intake automation",
@@ -216,16 +216,6 @@ const techArticle = {
   ].join(", "),
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 export default function CriminalDefensePage() {
   return (
@@ -233,8 +223,6 @@ export default function CriminalDefensePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
       {/* ─────────── Hero ─────────── */}
       <section className="bg-white px-6 pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">

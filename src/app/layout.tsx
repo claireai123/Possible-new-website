@@ -5,11 +5,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "ClaireAI — AI Legal Receptionist | Every Call Answered in 0.8s",
+    default: "ClaireAI 365 — AI Legal Receptionist, Every Call in 0.8s",
     template: "%s | ClaireAI",
   },
   description:
-    "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers — in English or Spanish, 24/7/365. Plans start at $450/month.",
+    "AI legal receptionist: every call answered in 0.8s, qualifies leads, books consults, sends retainers — English/Spanish, 24/7. From $450/mo.",
   metadataBase: new URL("https://theclaireai.com"),
   keywords: [
     "AI legal receptionist",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://theclaireai.com",
     siteName: "ClaireAI",
-    title: "ClaireAI — AI Legal Receptionist | Every Call Answered in 0.8s",
+    title: "ClaireAI 365 — AI Legal Receptionist, Every Call in 0.8s",
     description:
-      "AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers — in English or Spanish, 24/7/365.",
+      "AI legal receptionist: every call answered in 0.8s, qualifies leads, books consults, sends retainers — English/Spanish, 24/7. From $450/mo.",
     images: [
       {
         url: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1772837716/Claire_AI_White-removebg-preview.png",
@@ -111,15 +111,21 @@ const jsonLd = {
         {
           "@type": "ContactPoint",
           contactType: "sales",
+          telephone: "+1-561-250-5789",
           availableLanguage: ["English", "Spanish"],
           url: "https://theclaireai.com/contact",
         },
         {
           "@type": "ContactPoint",
           contactType: "customer support",
+          telephone: "+1-561-250-5789",
           availableLanguage: ["English", "Spanish"],
           url: "https://theclaireai.com/contact",
         },
+      ],
+      founders: [
+        { "@type": "Person", name: "Tiago Stram", jobTitle: "Co-founder & CEO" },
+        { "@type": "Person", name: "Cal Stein", jobTitle: "Co-founder & CTO" },
       ],
       sameAs: [
         "https://www.linkedin.com/company/theclaireai",

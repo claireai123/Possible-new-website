@@ -3,9 +3,9 @@ import Link from "next/link";
 import { FaqAccordion, type FaqItem } from "@/components/how-it-works/faq-accordion";
 
 export const metadata: Metadata = {
-  title: "How ClaireAI Works — AI Legal Intake for Personal Injury, Criminal Defense & Family Law",
+  title: "How ClaireAI Works — AI Legal Intake in 0.8s",
   description:
-    "ClaireAI answers every law firm call in 0.8 seconds, qualifies the matter with a practice-area intake script, books the consultation, and dispatches the retainer.",
+    "From the first ring to a signed retainer — ClaireAI answers every law firm call in 0.8s, qualifies the matter, books the consult, and ships the retainer.",
   alternates: { canonical: "/how-it-works" },
   openGraph: {
     title: "How ClaireAI Works",
@@ -276,15 +276,6 @@ const faqs: FaqItem[] = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -417,11 +408,6 @@ export default function HowItWorksPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       {/* ─────────── Hero ─────────── */}
       <section className="pt-2 pb-12 md:pt-3 md:pb-16 px-6">
         <div className="mx-auto max-w-[1680px] grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-[10px] items-stretch lg:min-h-[820px]">

@@ -42,7 +42,7 @@ export type ArticleSection =
     }
   | {
       type: "faq";
-      items: { q: string; a: string }[];
+      items: { q: string; a: string | ParagraphSpan[] }[];
     };
 
 export type Post = {
@@ -837,7 +837,7 @@ export const POSTS: Post[] = [
           { q: "What does Smith.ai actually cost for a 4-attorney firm?", a: "Across surveyed 4-attorney firms, Smith.ai averaged $890/month including overages and after-hours premium. The published Starter tier ($255) doesn't cover the call volume of a typical 4-attorney firm; most land in the Standard or Pro tier with overages." },
           { q: "What does Ruby actually cost?", a: "The 847-firm survey shows Ruby's average legal-account spend is $1,245/month. The published Solo tier ($389) covers fewer than 100 receptionist-minutes — most law firms exceed this on the first week of the month and pay overage all month." },
           { q: "Is AI cheaper than human answering services?", a: "Almost always, yes — and the gap widens as volume increases. At 50 calls/month, human and AI are comparable. At 250+ calls/month, AI is typically 50-70% cheaper. At 500+ calls/month, AI is 70-85% cheaper." },
-          { q: "What does ClaireAI actually cost for a law firm?", a: [{ kind: "text", text: "Plans start at $450/month flat with unlimited calls, minutes, after-hours, bilingual, conflict screening, CRM integration, and retainer dispatch on grade-A leads. " }, { kind: "link", text: "See ClaireAI pricing", href: "/pricing" }, { kind: "text", text: "." }] as ParagraphSpan[] as any },
+          { q: "What does ClaireAI actually cost for a law firm?", a: [{ kind: "text", text: "Plans start at $450/month flat with unlimited calls, minutes, after-hours, bilingual, conflict screening, CRM integration, and retainer dispatch on grade-A leads. " }, { kind: "link", text: "See ClaireAI pricing", href: "/pricing" }, { kind: "text", text: "." }] },
           { q: "What's the catch with flat-fee AI pricing?", a: "There isn't a per-call catch. The 'catch' for some firms is that AI requires upfront calibration of your intake script — 2-4 hours of onboarding. Once configured, performance is consistent. Per-minute human services don't require upfront calibration but lose intake quality due to constant staff turnover." },
         ],
       },

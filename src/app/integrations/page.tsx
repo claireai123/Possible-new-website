@@ -100,16 +100,6 @@ const FAQS: { question: string; answer: string }[] = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 function FeaturedTile({ integration }: { integration: Integration }) {
   const hasLogo = !!integration.logoUrl;
@@ -231,11 +221,6 @@ export default function IntegrationsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(integrationItemListSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       {/* ─────────── Hero — Legora pattern: just the title in the top-left ─────────── */}
       <section className="bg-white px-6 pt-32 md:pt-40 pb-8">
         <div className="mx-auto max-w-[1680px]">

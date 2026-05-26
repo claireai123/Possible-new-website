@@ -97,7 +97,7 @@ export default function HelpCenterPage() {
     name: "ClaireAI",
     url: BASE_URL,
     sameAs: [
-      "https://www.linkedin.com/company/claireai",
+      "https://www.linkedin.com/company/theclaireai",
       "https://x.com/claireai",
     ],
   };

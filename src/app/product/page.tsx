@@ -8,7 +8,7 @@ const BASE_URL = "https://theclaireai.com/product";
 export const metadata: Metadata = {
   title: "AI Receptionist for Law Firms — ClaireAI Product Overview",
   description:
-    "ClaireAI is the autonomous AI receptionist built for U.S. law firms. Every inbound call answered, qualified, booked, graded A–D, and dispatched with a one-page brief — 24/7, in English and Spanish, with 60+ CRM integrations.",
+    "ClaireAI 365: autonomous AI receptionist for U.S. law firms. Every call answered, qualified, booked, and graded A–D — 24/7, English + Spanish.",
   keywords: [
     "AI receptionist for law firms",
     "AI legal intake",
@@ -170,7 +170,7 @@ const organization = {
   url: "https://theclaireai.com",
   logo: "https://res.cloudinary.com/dwzsqumf6/image/upload/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png",
   sameAs: [
-    "https://linkedin.com/company/theclaireai",
+    "https://www.linkedin.com/company/theclaireai",
     "https://www.crunchbase.com/organization/claireai",
   ],
 };
@@ -243,16 +243,6 @@ const techArticle = {
   ].join(", "),
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 const breadcrumb = {
   "@context": "https://schema.org",
@@ -267,7 +257,6 @@ export default function ProductOverviewPage() {
   return (
     <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 

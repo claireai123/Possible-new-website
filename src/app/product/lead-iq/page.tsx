@@ -8,7 +8,7 @@ const BASE_URL = "https://theclaireai.com/product/lead-iq";
 export const metadata: Metadata = {
   title: "Lead IQ — AI Lead Scoring for Law Firms",
   description:
-    "Claire's Lead IQ grades every inbound intake call A through D and ships a one-page brief to your team within seconds of hang-up. Cuts intake review time roughly in half.",
+    "Lead IQ grades every inbound intake call A–D and ships a one-page brief to your team within seconds of hang-up.",
   alternates: { canonical: "/product/lead-iq" },
   openGraph: {
     title: "Lead IQ — AI Lead Scoring for Law Firms",
@@ -134,7 +134,7 @@ const organization = {
   url: "https://theclaireai.com",
   logo: "https://res.cloudinary.com/dwzsqumf6/image/upload/e_colorize:100,co_rgb:0a0a0a/v1772837716/Claire_AI_White-removebg-preview.png",
   sameAs: [
-    "https://linkedin.com/company/theclaireai",
+    "https://www.linkedin.com/company/theclaireai",
     "https://www.crunchbase.com/organization/claireai",
   ],
 };
@@ -177,16 +177,6 @@ const webApplicationSchema = {
   ],
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 const techArticle = {
   "@context": "https://schema.org",
@@ -217,7 +207,6 @@ export default function LeadIQPage() {
   return (
     <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 

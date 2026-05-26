@@ -1,11 +1,65 @@
 import React from 'react';
+import type { Metadata } from "next";
 import Link from 'next/link';
 import { FaqSection } from '@/components/pricing/faq-section';
 import { AllPlansFeatures } from '@/components/pricing/all-plans-features';
 
+const BASE_URL = "https://theclaireai.com";
+const DESCRIPTION =
+  "ClaireAI 365 pricing: $450/mo Starter, $850/mo Growth, $1,800/mo Scale. Flat fee, every integration included, 7-day free trial.";
+
+export const metadata: Metadata = {
+  title: "Pricing — ClaireAI 365 plans for law firms",
+  description: DESCRIPTION,
+  alternates: { canonical: `${BASE_URL}/pricing` },
+  openGraph: {
+    title: "ClaireAI 365 pricing — flat-fee plans for law firms",
+    description: DESCRIPTION,
+    url: `${BASE_URL}/pricing`,
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "ClaireAI 365 pricing", description: DESCRIPTION },
+};
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": `${BASE_URL}/pricing#webapp`,
+  name: "ClaireAI 365",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: `${BASE_URL}/pricing`,
+  description: DESCRIPTION,
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: "450",
+    highPrice: "1800",
+    offerCount: 3,
+    offers: [
+      { "@type": "Offer", name: "Starter", price: "450", priceCurrency: "USD" },
+      { "@type": "Offer", name: "Growth", price: "850", priceCurrency: "USD" },
+      { "@type": "Offer", name: "Scale", price: "1800", priceCurrency: "USD" },
+    ],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${BASE_URL}/pricing#breadcrumb`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "Pricing", item: `${BASE_URL}/pricing` },
+  ],
+};
+
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#0a0a0a] pt-32 pb-24 font-sans selection:bg-[#0a0a0a]/10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <div className="min-h-screen bg-[#ffffff] text-[#0a0a0a] pt-32 pb-24 font-sans selection:bg-[#0a0a0a]/10">
       
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-20 space-y-6">
@@ -203,6 +257,7 @@ export default function PricingPage() {
       </div>
 
     </div>
+    </>
   );
 }
 

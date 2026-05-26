@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
 /* ── Dropdown data (trimmed) ── */
@@ -35,6 +36,7 @@ const resourceItems = [
 /* ── Header component ── */
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -45,6 +47,12 @@ export function Header() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  // Close any open menus when route changes so they don't snap back on return to "/".
+  useEffect(() => {
+    setActive(null);
+    setMobileOpen(false);
+  }, [pathname]);
 
   const open = (id: string) => {
     if (timer.current) clearTimeout(timer.current);
@@ -81,7 +89,6 @@ export function Header() {
               <NavDrop label="Solutions" id="solutions" active={active} open={open} close={close} />
               <NL href="/pricing">Pricing</NL>
               <NavDrop label="Resources" id="resources" active={active} open={open} close={close} />
-              <NL href="/about">About</NL>
             </div>
 
             {/* Right */}
@@ -189,16 +196,22 @@ export function Header() {
               <div className="w-[420px]">
                 <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
                 <Link href="/solutions/personal-injury" className="group block">
-                  <div
-                    className="aspect-[16/9] overflow-hidden rounded-lg"
-                    style={{
-                      backgroundColor: "#8c9c82",
-                      backgroundImage:
-                        "radial-gradient(120% 90% at 20% 10%, #a9b8a0 0%, #8c9c82 45%, #7a8a72 100%)",
-                    }}
-                  >
-                    <div className="flex h-full flex-col justify-end p-6 text-white">
-                      <p className="text-[11px] uppercase tracking-wider opacity-70">Solution spotlight</p>
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-[#8c9c82]">
+                    <img
+                      src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1779215106/ChatGPT_Image_May_19_2026_at_02_24_50_PM.jpg"
+                      alt="ClaireAI personal injury intake — purpose-built for PI firms."
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%)",
+                      }}
+                    />
+                    <div className="relative flex h-full flex-col justify-end p-6 text-white">
+                      <p className="text-[11px] uppercase tracking-wider opacity-80">Solution spotlight</p>
                       <p className="mt-2 font-serif text-[22px] leading-tight" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
                         Personal injury intake
                       </p>
@@ -233,9 +246,12 @@ export function Header() {
                 <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
                 <Link href="/blog/2026-legal-intake-benchmark-report" className="group block">
                   <div className="aspect-[16/9] overflow-hidden rounded-lg bg-[#e8e5de]">
-                    <div className="flex h-full items-center justify-center text-[13px] text-[#0a0a0a]/20">
-                      Report cover
-                    </div>
+                    <img
+                      src="https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,ar_16:9,w_840,g_center,q_auto,f_auto/v1779817604/ChatGPT_Image_May_26_2026_at_01_46_32_PM.jpg"
+                      alt="ClaireAI 1000 Firm Study 2026 — definitive report on AI adoption, growth, and efficiency in top law firms"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
                   </div>
                   <p className="mt-4 text-[11px] text-[#0a0a0a]/30">Research</p>
                   <p className="mt-1 text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>
@@ -259,7 +275,6 @@ export function Header() {
             <div className="mt-6 border-t border-[#e4e4e7] pt-6">
               {[
                 { name: "Pricing", href: "/pricing" },
-                { name: "About", href: "/about" },
               ].map((t) => (
                 <Link key={t.href} href={t.href} className="block py-2.5 text-base text-[#0a0a0a]" onClick={() => setMobileOpen(false)}>{t.name}</Link>
               ))}

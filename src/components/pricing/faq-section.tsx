@@ -109,25 +109,12 @@ const faqs = [
   }
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="w-full max-w-[1200px] mx-auto mt-40 mb-32 px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="text-center mb-16">
         <h2 className="text-5xl md:text-[56px] text-[#0a0a0a] font-serif mb-6 tracking-[-0.02em]">
           Frequently Asked Questions

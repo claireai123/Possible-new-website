@@ -4,18 +4,22 @@ import fs from "node:fs";
 import path from "node:path";
 import { INTEGRATIONS } from "@/data/integrations";
 import { HELP_ARTICLES } from "@/data/help-articles";
+import { POSTS } from "@/data/posts";
 
 const BASE_URL = "https://theclaireai.com";
-const ROOT = path.resolve(__dirname, "../..");
+// process.cwd() is the project root during `next build` and `next dev`.
+// The previous path.resolve(__dirname, "../..") resolved to .next/ at build
+// time, silently making `git log -- "<path>"` return nothing — every URL
+// then fell back to `new Date()` and shipped the same lastmod, which trips
+// Google's lastmod-inaccuracy detection.
+const ROOT = process.cwd();
 const FALLBACK_DATE = new Date();
 
 /**
  * Resolve the last real edit timestamp for a file via `git log -1 --format=%cI`.
  *
- * Why: Google's sitemap docs (developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
- * say lastmod is only used "if consistently and verifiably accurate." Emitting `new Date()` on every URL
- * on every build trips Google's inaccuracy detection and causes the entire domain's lastmod to be ignored.
- * Per-file git mtime keeps the signal honest.
+ * Google's sitemap docs say lastmod is only honored "if consistently and
+ * verifiably accurate." Per-file git mtime keeps the signal honest.
  */
 function gitMtime(relativePath: string): Date {
   try {
@@ -38,9 +42,7 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/pricing`, source: "src/app/pricing/page.tsx" },
   { url: `${BASE_URL}/integrations`, source: "src/app/integrations/page.tsx" },
   { url: `${BASE_URL}/contact`, source: "src/app/contact/page.tsx" },
-  { url: `${BASE_URL}/about`, source: "src/app/about/page.tsx" },
   { url: `${BASE_URL}/product`, source: "src/app/product/page.tsx" },
-  { url: `${BASE_URL}/product/legal-intake`, source: "src/app/product/legal-intake/page.tsx" },
   { url: `${BASE_URL}/product/lead-iq`, source: "src/app/product/lead-iq/page.tsx" },
   { url: `${BASE_URL}/solutions`, source: "src/app/solutions/page.tsx" },
   { url: `${BASE_URL}/solutions/personal-injury`, source: "src/app/solutions/personal-injury/page.tsx" },
@@ -48,20 +50,12 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/solutions/family-law`, source: "src/app/solutions/family-law/page.tsx" },
   { url: `${BASE_URL}/blog`, source: "src/app/blog/page.tsx" },
   { url: `${BASE_URL}/help`, source: "src/app/help/page.tsx" },
-  { url: `${BASE_URL}/blog/2026-legal-intake-benchmark-report`, source: "src/data/posts.ts" },
-  { url: `${BASE_URL}/compare-smith-ai`, source: "src/app/compare-smith-ai/page.tsx" },
-  { url: `${BASE_URL}/compare-ruby-receptionists`, source: "src/app/compare-ruby-receptionists/page.tsx" },
-  { url: `${BASE_URL}/privacy-policy`, source: "src/app/privacy-policy/page.tsx" },
-  { url: `${BASE_URL}/terms-of-service`, source: "src/app/terms-of-service/page.tsx" },
-  { url: `${BASE_URL}/careers`, source: "src/app/careers/page.tsx" },
 ];
 
 /**
  * In production builds, fail loudly if a sitemap row references a file that
  * does not exist. This catches the class of bug where a route is removed but
  * its sitemap row is forgotten, and Google ends up crawling 404s.
- *
- * Dev mode logs a warning instead so iteration stays unblocked.
  */
 function assertSourceExists(source: string): void {
   const abs = path.resolve(ROOT, source);
@@ -77,6 +71,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: Entry[] = corePages.map(({ url, source }) => {
     assertSourceExists(source);
     return { url, lastModified: gitMtime(source) };
+  });
+
+  // Blog posts — every entry in POSTS becomes a sitemap row. Lastmod uses the
+  // post's own `lastUpdated` string when parseable, falling back to posts.ts
+  // git mtime so removing-a-post-from-array doesn't ship a stale date for it.
+  const postsDataMtime = gitMtime("src/data/posts.ts");
+  const blog: Entry[] = POSTS.map((p) => {
+    const dateStr = p.lastUpdated ?? p.date;
+    const parsed = dateStr ? new Date(dateStr) : null;
+    return {
+      url: `${BASE_URL}/blog/${p.slug}`,
+      lastModified: parsed && !isNaN(parsed.getTime()) ? parsed : postsDataMtime,
+    };
   });
 
   const integrationsLastMod = gitMtime("src/data/integrations.ts");
@@ -102,5 +109,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...core, ...help, ...integrations];
+  return [...core, ...blog, ...help, ...integrations];
 }

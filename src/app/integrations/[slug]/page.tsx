@@ -25,7 +25,7 @@ const PUBLISHED = "2026-01-15";
 const LAST_UPDATED = "2026-05-15";
 
 const CLAIRE_SAMEAS = [
-  "https://linkedin.com/company/theclaireai",
+  "https://www.linkedin.com/company/theclaireai",
   "https://www.crunchbase.com/organization/claireai",
 ];
 
@@ -628,31 +628,7 @@ function buildSchemas(i: Integration) {
     sameAs: CLAIRE_SAMEAS,
   };
 
-  const howTo = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    inLanguage: "en-US",
-    name: `Connect ClaireAI to ${i.name}`,
-    description: `How a U.S. law firm connects the ClaireAI AI legal receptionist to ${i.name}.`,
-    totalTime: "PT60M",
-    step: defaultSetupSteps(i).map((text, idx) => ({
-      "@type": "HowToStep",
-      position: idx + 1,
-      name: `Step ${idx + 1}`,
-      text,
-    })),
-  };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    inLanguage: "en-US",
-    mainEntity: allFaqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
 
   const softwareSchema = {
     "@context": "https://schema.org",
@@ -716,7 +692,7 @@ function buildSchemas(i: Integration) {
     articleSection: CATEGORIES[i.category].label,
   };
 
-  return { howTo, faqSchema, softwareSchema, breadcrumb, techArticle };
+  return { softwareSchema, breadcrumb, techArticle };
 }
 
 export default async function IntegrationDetailPage({
@@ -735,7 +711,7 @@ export default async function IntegrationDetailPage({
   const baseFaqs = template.faqs(integration);
   const faqs = integration.featured ? [...baseFaqs, ...featuredExtraFaqs(integration)] : baseFaqs;
   const setupSteps = defaultSetupSteps(integration);
-  const { howTo, faqSchema, softwareSchema, breadcrumb, techArticle } = buildSchemas(integration);
+  const { softwareSchema, breadcrumb, techArticle } = buildSchemas(integration);
 
   const related = INTEGRATIONS.filter(
     (x) => x.id !== integration.id && x.category === integration.category && !!x.logoUrl,
@@ -744,8 +720,6 @@ export default async function IntegrationDetailPage({
   return (
     <div className="min-h-screen bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
 

@@ -10,7 +10,7 @@ const BASE_URL = "https://theclaireai.com/solutions/personal-injury";
 export const metadata: Metadata = {
   title: "Personal Injury Intake — AI Receptionist for PI Law Firms",
   description:
-    "ClaireAI is the AI receptionist purpose-built for personal injury intake. Sub-1-second pickup, statute-of-limitations triage, police-report capture, bilingual English and Spanish, native sync into Clio, Filevine, CASEpeer, and Litify. Recover the 60% of PI calls firms miss today.",
+    "AI receptionist purpose-built for personal-injury intake. SOL triage, bilingual, native sync with Clio, Filevine, CASEpeer, and Litify.",
   keywords: [
     "AI receptionist personal injury",
     "personal injury intake automation",
@@ -214,16 +214,6 @@ const techArticle = {
   ].join(", "),
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
 
 export default function PersonalInjuryPage() {
   return (
@@ -231,8 +221,6 @@ export default function PersonalInjuryPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
       {/* ─────────── Hero (Legora pattern — centered eyebrow + big serif + small CTA) ─────────── */}
       <section className="bg-white px-6 pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">
