@@ -51,7 +51,7 @@ export default async function TeamMemberPage({ params }: PageProps) {
     description: m.bio,
     url,
     worksFor: { "@id": `${BASE_URL}/#organization` },
-    sameAs: m.sameAs,
+    ...(m.sameAs.length > 0 ? { sameAs: m.sameAs } : {}),
     knowsAbout: m.knowsAbout,
   };
 
@@ -97,21 +97,28 @@ export default async function TeamMemberPage({ params }: PageProps) {
         <div className="mx-auto max-w-[1100px] pt-16">
           <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-[1fr_2fr]">
             <div className="md:sticky md:top-24 md:self-start">
-              <p className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/45">Profiles</p>
-              <ul className="mt-4 space-y-2">
-                {m.sameAs.map((href) => {
-                  const host = new URL(href).hostname.replace(/^www\./, "").replace(/^x\.com$/, "X");
-                  const label = host.split(".")[0];
-                  return (
-                    <li key={href}>
-                      <a href={href} target="_blank" rel="noopener noreferrer me" className="inline-flex items-center gap-2 text-[15px] text-[#0a0a0a] underline decoration-[#0a0a0a]/25 underline-offset-[3px] hover:decoration-[#0a0a0a]">
-                        {label.charAt(0).toUpperCase() + label.slice(1)}
-                        <span aria-hidden="true">↗</span>
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+              <p className="text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/45">Role</p>
+              <p className="mt-3 text-[15px] text-[#0a0a0a]">{m.role}</p>
+              <p className="mt-1 text-[13.5px] text-[#0a0a0a]/55">ClaireAI &middot; Miami, FL</p>
+              {m.sameAs.length > 0 && (
+                <>
+                  <p className="mt-8 text-[12px] uppercase tracking-[0.18em] text-[#0a0a0a]/45">Profiles</p>
+                  <ul className="mt-3 space-y-2">
+                    {m.sameAs.map((href) => {
+                      const host = new URL(href).hostname.replace(/^www\./, "").replace(/^x\.com$/, "X");
+                      const label = host.split(".")[0];
+                      return (
+                        <li key={href}>
+                          <a href={href} target="_blank" rel="noopener noreferrer me" className="inline-flex items-center gap-2 text-[15px] text-[#0a0a0a] underline decoration-[#0a0a0a]/25 underline-offset-[3px] hover:decoration-[#0a0a0a]">
+                            {label.charAt(0).toUpperCase() + label.slice(1)}
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              )}
             </div>
 
             <div>

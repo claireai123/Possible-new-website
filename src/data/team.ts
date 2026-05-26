@@ -32,10 +32,12 @@ export const TEAM: TeamMember[] = [
       "Voice AI infrastructure",
       "B2B SaaS go-to-market",
     ],
-    sameAs: [
-      "https://www.linkedin.com/in/tiagostram",
-      "https://x.com/tiagostram",
-    ],
+    // Personal sameAs intentionally omitted until verified personal LinkedIn/X
+    // handles are provided. The Person → worksFor → Organization edge still
+    // links to the verified company sameAs (LinkedIn company page, X company
+    // account) defined in src/app/layout.tsx, which is the canonical pattern
+    // and sufficient for the entity graph.
+    sameAs: [],
   },
   {
     slug: "cal-stein",
@@ -54,9 +56,7 @@ export const TEAM: TeamMember[] = [
       "Distributed systems",
       "AWS infrastructure",
     ],
-    sameAs: [
-      "https://www.linkedin.com/in/calstein",
-    ],
+    sameAs: [],
   },
 ];
 
