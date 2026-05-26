@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   description:
     "AI legal receptionist: every call answered in 0.8s, qualifies leads, books consults, sends retainers — English/Spanish, 24/7. From $450/mo.",
   metadataBase: new URL("https://theclaireai.com"),
+  icons: {
+    icon: [
+      { url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,w_32,h_32,b_white,q_auto,f_png/v1772837716/Claire_AI_White-removebg-preview.png", sizes: "32x32", type: "image/png" },
+      { url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,w_192,h_192,b_white,q_auto,f_png/v1772837716/Claire_AI_White-removebg-preview.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: { url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_pad,w_180,h_180,b_white,q_auto,f_png/v1772837716/Claire_AI_White-removebg-preview.png", sizes: "180x180", type: "image/png" },
+  },
   keywords: [
     "AI legal receptionist",
     "law firm virtual receptionist",
@@ -50,7 +57,7 @@ export const metadata: Metadata = {
       "AI legal receptionist: every call answered in 0.8s, qualifies leads, books consults, sends retainers — English/Spanish, 24/7. From $450/mo.",
     images: [
       {
-        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1772837716/Claire_AI_White-removebg-preview.png",
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1772837716/Claire_AI_White-removebg-preview.png",
         width: 1200,
         height: 630,
         alt: "ClaireAI — AI Legal Receptionist",
@@ -63,7 +70,7 @@ export const metadata: Metadata = {
     description:
       "Every call answered in 0.8 seconds. Qualifies leads, books consultations, sends retainers. English & Spanish, 24/7.",
     images: [
-      "https://res.cloudinary.com/dwzsqumf6/image/upload/v1772837716/Claire_AI_White-removebg-preview.png",
+      "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1772837716/Claire_AI_White-removebg-preview.png",
     ],
   },
   alternates: {
@@ -88,7 +95,7 @@ const jsonLd = {
       alternateName: ["Claire AI", "Claire"],
       legalName: "ClaireAI, Inc.",
       url: "https://theclaireai.com",
-      logo: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1772837716/Claire_AI_White-removebg-preview.png",
+      logo: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1772837716/Claire_AI_White-removebg-preview.png",
       foundingDate: "2024",
       foundingLocation: {
         "@type": "Place",
@@ -218,10 +225,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen">
+      <body className="min-h-[100dvh]">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only fixed left-4 top-4 z-[100] rounded bg-[#0a0a0a] px-4 py-2 text-white"
+        >
+          Skip to content
+        </a>
         <Header />
         <div style={{ paddingTop: 48 }}>
-          <main>{children}</main>
+          <main id="main">{children}</main>
         </div>
         <Footer />
       </body>
