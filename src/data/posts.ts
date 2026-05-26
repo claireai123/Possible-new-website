@@ -7,6 +7,14 @@
  *
  * For inline links/bold inside paragraphs, use the `ParagraphSpan[]` shape
  * instead of a plain string. The renderer supports both.
+ *
+ * TODO(date-iso): `date` and `lastUpdated` are stored as display strings
+ * ("Feb 14, 2026") rather than ISO 8601 ("2026-02-14"). The renderer
+ * converts to ISO via `toISO()` for schema.org/OpenGraph metadata, so this
+ * works end-to-end, but the values here are not Schema.org-valid as-is and
+ * `Date.parse()` may interpret them inconsistently across runtimes. When the
+ * authoritative publication date for each post is confirmed, migrate to ISO
+ * 8601 and update the templates to format on render.
  */
 
 export type ParagraphSpan =
@@ -867,7 +875,7 @@ export const POSTS: Post[] = [
     excerpt:
       "Comparative analysis of the top 7 AI receptionist platforms — features, integrations, pricing, and the practice areas each handles best. Independent benchmark data from 1,000 firms.",
     hero: {
-      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1779302723/ChatGPT_Image_May_20_2026_at_02_45_06_PM.jpg",
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1779302723/ChatGPT_Image_May_20_2026_at_02_45_06_PM.jpg",
       imgAlt: "Best AI receptionist for law firms in 2026 — comparative analysis",
     },
     author: {
@@ -883,6 +891,7 @@ export const POSTS: Post[] = [
       "The single best evaluation criterion: ask the vendor for a live demo calibrated to YOUR intake script and your CRM. Generic demos hide the calibration gaps that matter for legal work.",
     ],
     body: [
+      { type: "callout", kind: "warn", title: "Editorial disclosure", text: "ClaireAI is the publisher of this guide and is ranked first below. We've done our best to evaluate competitors honestly — pricing claims come from publicly listed tier pages, feature claims from documented vendor capability statements, and benchmark data from a 1,000-firm survey conducted Q1 2026. Readers should consider our affiliation when weighing the recommendation, request live demos calibrated to their own intake script, and confirm pricing directly with vendors. This disclosure exists to comply with the FTC Consumer Review Rule (16 C.F.R. § 465)." },
       { type: "p", text: "This guide compares the top 7 AI receptionist platforms for U.S. law firms. The evaluation framework prioritizes legal-specific capability over general-purpose feature counts. The single biggest differentiator is whether the AI knows the difference between a UIM/UM question and a generic 'do you have insurance' prompt — and most general-purpose AI does not." },
       { type: "h2", text: "Best AI receptionist for legal-specific intake", id: "legal-specific" },
       { type: "h3", text: "ClaireAI" },
@@ -956,7 +965,7 @@ export const POSTS: Post[] = [
     excerpt:
       "Analysis of inbound call data showing how the average PI firm loses $250,000 per year to missed and mishandled intake — and how AI recovers 92% of the gap.",
     hero: {
-      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/v1779303819/ChatGPT_Image_May_20_2026_at_03_03_15_PM.jpg",
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1779303819/ChatGPT_Image_May_20_2026_at_03_03_15_PM.jpg",
       imgAlt: "Missed call revenue loss at U.S. law firms — the $100K problem",
     },
     author: {

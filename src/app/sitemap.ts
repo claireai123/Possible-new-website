@@ -5,6 +5,7 @@ import path from "node:path";
 import { INTEGRATIONS } from "@/data/integrations";
 import { HELP_ARTICLES } from "@/data/help-articles";
 import { POSTS } from "@/data/posts";
+import { TEAM } from "@/data/team";
 
 // Required under `output: "export"`. The sitemap reads git history via
 // execSync at *build* time only — the rendered XML is fully static, so
@@ -55,6 +56,9 @@ const corePages: { url: string; source: string }[] = [
   { url: `${BASE_URL}/solutions/family-law`, source: "src/app/solutions/family-law/page.tsx" },
   { url: `${BASE_URL}/blog`, source: "src/app/blog/page.tsx" },
   { url: `${BASE_URL}/help`, source: "src/app/help/page.tsx" },
+  { url: `${BASE_URL}/careers`, source: "src/app/careers/page.tsx" },
+  { url: `${BASE_URL}/privacy-policy`, source: "src/app/privacy-policy/page.tsx" },
+  { url: `${BASE_URL}/terms-of-service`, source: "src/app/terms-of-service/page.tsx" },
 ];
 
 /**
@@ -114,5 +118,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...core, ...blog, ...help, ...integrations];
+  const teamDataMtime = gitMtime("src/data/team.ts");
+  const team: Entry[] = TEAM.map((m) => ({
+    url: `${BASE_URL}/team/${m.slug}`,
+    lastModified: teamDataMtime,
+  }));
+
+  return [...core, ...blog, ...team, ...help, ...integrations];
 }

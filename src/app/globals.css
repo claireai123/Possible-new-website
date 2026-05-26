@@ -16,7 +16,10 @@
   --color-cta: #18181b;
   --color-cta-text: #fafafa;
 
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  /* Manrope is self-hosted via next/font/google (see src/app/layout.tsx).
+     `--font-manrope` is the variable next/font emits; we expose it as the
+     primary sans stack with sane fallbacks for the first paint window. */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
   /* Site is sans-serif everywhere — alias kept for any code still referencing var(--font-serif) or the `font-serif` Tailwind class */
   --font-serif: var(--font-sans);
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
@@ -69,5 +72,37 @@ body {
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(196, 145, 60, 0.4); }
   50% { box-shadow: 0 0 0 12px rgba(196, 145, 60, 0); }
+}
+
+/* Accessibility: honor users who request reduced motion (WCAG 2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global focus ring — keyboard-only via :focus-visible so mouse clicks stay clean. */
+:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* WebKit scrollbar styling — mirrors the Firefox `scrollbar-color` rule used elsewhere. */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(10, 10, 10, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 

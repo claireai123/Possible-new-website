@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
+
+// Self-host Manrope at build time. Next.js will:
+//   - download the woff2 subsets to ./out/_next/static/media at build
+//   - emit the CSS @font-face with size-adjust to prevent CLS during swap
+//   - eliminate the runtime request to fonts.googleapis.com (faster TTFB +
+//     better privacy, no Google logging of every page load)
+//   - subset to latin only (you can add others if you go bilingual later)
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -212,20 +226,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-[100dvh]">
+      <body className="min-h-[100dvh] font-sans">
         <a
           href="#main"
           className="sr-only focus:not-sr-only fixed left-4 top-4 z-[100] rounded bg-[#0a0a0a] px-4 py-2 text-white"

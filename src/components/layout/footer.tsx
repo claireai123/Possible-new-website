@@ -18,13 +18,19 @@ const cols = {
     { name: "Family Law", href: "/solutions/family-law" },
     { name: "Criminal Defense", href: "/solutions/criminal-defense" },
   ],
-  Contact: [
+  Resources: [
+    { name: "Blog", href: "/blog" },
+    { name: "Help Center", href: "/help" },
     { name: "Book a demo", href: "/contact" },
   ],
+  Company: [
+    { name: "Careers", href: "/careers" },
+    { name: "Tiago Stram, CEO", href: "/team/tiago-stram" },
+    { name: "Cal Stein, CTO", href: "/team/cal-stein" },
+  ],
   Legal: [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
   ],
 };
 
