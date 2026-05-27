@@ -21,20 +21,22 @@ export function Hero() {
           <span style={{ display: "block", textIndent: "clamp(0px, 18vw, 200px)" }}>never sleeps.</span>
         </h1>
 
-        {/* Platform visual — matches the original placeholder's 16:8 short-wide frame; image is anchored to the TOP so the dashboard stays fully visible and only the bottom of the photo gets trimmed. */}
-        <div className="mt-[80px] relative overflow-hidden rounded-lg bg-[#e8e5de] aspect-[5/4] sm:aspect-[16/10] md:aspect-[16/8]">
-          <img
-            src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1778767032/ChatGPT_Image_May_14_2026_at_09_54_21_AM.jpg"
-            alt="ClaireAI in action — a live AI legal intake call answered in 0.8 seconds, with practice-area qualification and CRM sync on screen."
-            className="absolute inset-0 w-full h-full object-cover block"
-            style={{ objectPosition: "center center" }}
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-          />
-          <div className="absolute top-6 left-6 z-10">
+        {/* Platform visual — label sits ABOVE the image (not overlaid) so it never collides with the tablet regardless of viewport. Container matches the image's natural 1706:922 ratio so the full tablet mockup renders without cropping. */}
+        <div className="mt-[80px]">
+          <div className="mb-3">
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#0a0a0a]/40">Platform</p>
             <p className="mt-1 text-[15px] text-[#0a0a0a]/70">ClaireAI 365</p>
+          </div>
+          <div className="relative overflow-hidden rounded-lg bg-[#e8e5de] aspect-[1706/922]">
+            <img
+              src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto/f_auto/v1779890062/ChatGPT_Image_May_27_2026_at_09_54_08_AM.jpg"
+              alt="ClaireAI 365 dashboard — lead velocity over the last 7 days, critical pipeline of high-priority intake calls, active-now status, and a CRM-synced call log with lead scores."
+              className="absolute inset-0 w-full h-full object-cover block"
+              style={{ objectPosition: "center center" }}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
