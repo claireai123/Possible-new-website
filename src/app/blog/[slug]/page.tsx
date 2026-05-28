@@ -39,6 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: toISO(post.date),
       modifiedTime: toISO(post.lastUpdated ?? post.date),
       authors: [post.author.name],
+      images: post.hero.img ? [{ url: post.hero.img, alt: post.hero.imgAlt }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.hero.img ? [post.hero.img] : undefined,
     },
   };
 }
@@ -48,12 +55,19 @@ function Span({ s }: { s: ParagraphSpan }) {
   if (s.kind === "text") return <>{s.text}</>;
   if (s.kind === "bold") return <strong className="font-medium text-[#0a0a0a]">{s.text}</strong>;
   if (s.kind === "italic") return <em className="italic">{s.text}</em>;
-  if (s.kind === "link")
-    return (
-      <Link href={s.href} className="text-[#0a0a0a] underline decoration-[#0a0a0a]/25 underline-offset-[3px] hover:decoration-[#0a0a0a] transition-colors">
+  if (s.kind === "link") {
+    const isExternal = /^https?:\/\//i.test(s.href);
+    const className = "text-[#0a0a0a] underline decoration-[#0a0a0a]/25 underline-offset-[3px] hover:decoration-[#0a0a0a] transition-colors";
+    return isExternal ? (
+      <a href={s.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {s.text}
+      </a>
+    ) : (
+      <Link href={s.href} className={className}>
         {s.text}
       </Link>
     );
+  }
   return null;
 }
 
