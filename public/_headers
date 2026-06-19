@@ -1,11 +1,48 @@
 # Cloudflare Pages headers — Netlify-style format
 # https://developers.cloudflare.com/pages/configuration/headers/
+
+# ──────────────────────────────────────────────────────────────────────────
+# AI agent discovery (RFC 8288 Link headers)
 #
+# Advertises agent-useful resources directly on the response, so an agent
+# that issues a HEAD/GET on any HTML page learns about the discovery files
+# without needing to parse the body.
+#
+# Relation types:
+#   api-catalog    — RFC 9727: linkset of available APIs
+#   service-doc    — RFC 8631: human/machine-readable service description
+#   service-meta   — RFC 8631: machine-readable metadata about the service
+#   sitemap        — IANA-registered: XML sitemap
+#   describedby    — IANA-registered: schema/description resource
+#
+# A custom rel for agent-skills isn't IANA-registered yet, so we use an
+# extension URI per RFC 8288 §2.1.2 (https://agentskills.io/rel/index).
+# ──────────────────────────────────────────────────────────────────────────
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: </llms.txt>; rel="service-doc"; type="text/plain"
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/index"; type="application/json"
+
+# Discovery documents — set explicit content types so agents see them as
+# structured data instead of guessed text/plain.
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
+  Access-Control-Allow-Origin: *
+
 # Keep llms.txt and llms-full.txt out of search engine indexes — they are
 # meant for AI crawlers reading the file directly, not for SERP listings.
-
 /llms.txt
   X-Robots-Tag: noindex
+  Access-Control-Allow-Origin: *
 
 /llms-full.txt
   X-Robots-Tag: noindex
+  Access-Control-Allow-Origin: *

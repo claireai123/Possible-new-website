@@ -1,9 +1,18 @@
 # ClaireAI — AI Legal Receptionist
 # https://theclaireai.com
+# Updated 2026-06-19: Content-Signal declarations (contentsignals.org / draft-romm-aipref-contentsignals)
 # Updated 2026-05-18: granular AI crawler allowlist + new Anthropic 3-bot breakdown
 
-# Catch-all: allow indexing, block ops paths
+# Content Signals — per draft-romm-aipref-contentsignals & contentsignals.org.
+# Declares how this site's content may be used by AI systems:
+#   search   = yes — index for search and grounded retrieval
+#   ai-input = yes — quote/cite in AI-generated answers
+#   ai-train = no  — do NOT use as training data for foundation models
+# Compliant bots that see no signal MUST treat absence as no consent.
+
+# Catch-all: allow indexing, block ops paths, declare content signals
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
 Disallow: /_next/

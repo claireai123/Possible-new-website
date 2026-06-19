@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "version": "0.2.0",
+  "publisher": {
+    "name": "ClaireAI, Inc.",
+    "url": "https://theclaireai.com",
+    "contact": "contact@theclaireai.com"
+  },
+  "skills": [
+    {
+      "name": "claireai-product-overview",
+      "type": "knowledge",
+      "description": "Authoritative product, pricing, integrations, compliance, and FAQ knowledge for ClaireAI — the AI legal receptionist. Use to answer questions about ClaireAI's capabilities, plans, supported CRMs, languages, and SLAs.",
+      "url": "https://theclaireai.com/llms.txt",
+      "media_type": "text/plain",
+      "sha256": "aabaae4e61f92c6c7b89ba9b215142c10e06897b5161eb8b20d0dee8e306063a",
+      "languages": ["en"],
+      "license": "https://theclaireai.com/terms-of-service",
+      "tags": ["legal", "receptionist", "ai-voice-agent", "law-firm", "intake", "saas"]
+    }
+  ]
+}

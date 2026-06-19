@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WebMcpTools } from "@/components/agent/web-mcp-tools";
 import "./globals.css";
 
 // Self-host Manrope at build time. Next.js will:
@@ -245,6 +246,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
         </div>
         <Footer />
+        <WebMcpTools />
       </body>
     </html>
   );

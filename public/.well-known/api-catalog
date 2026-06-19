@@ -1,0 +1,46 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://theclaireai.com/",
+      "service-doc": [
+        {
+          "href": "https://theclaireai.com/llms.txt",
+          "type": "text/plain",
+          "hreflang": "en",
+          "title": "ClaireAI service description (llms.txt)"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://theclaireai.com/llms.txt",
+          "type": "text/plain",
+          "title": "ClaireAI product, pricing, integrations, and FAQ in machine-readable form"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://theclaireai.com/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills discovery index"
+        }
+      ],
+      "related": [
+        {
+          "href": "https://theclaireai.com/help",
+          "type": "text/html",
+          "title": "Help center — answers to common attorney intake questions"
+        },
+        {
+          "href": "https://theclaireai.com/integrations",
+          "type": "text/html",
+          "title": "Live integrations directory (Clio, Filevine, MyCase, Salesforce, HubSpot, etc.)"
+        },
+        {
+          "href": "https://theclaireai.com/pricing",
+          "type": "text/html",
+          "title": "Pricing and plan comparison"
+        }
+      ]
+    }
+  ]
+}
