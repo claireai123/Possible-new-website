@@ -2069,8 +2069,9 @@ export const POSTS: Post[] = [
     excerpt:
       "A plain-English walkthrough of the three free Google reports every firm should check each week — and the one number none of them can show you: which calls became signed cases.",
     hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1782240947/ChatGPT_Image_Jun_23_2026_at_02_55_35_PM.jpg",
       imgAlt:
-        "ClaireAI portal performance overview — lead velocity, answered vs missed calls, and Lead IQ distribution in a single view.",
+        "Reading a law firm's performance data across GA4, Google Search Console, and Google Business Profile.",
     },
     author: {
       name: "Tiago Stram",
@@ -2209,18 +2210,8 @@ export const POSTS: Post[] = [
         ],
       },
       {
-        type: "image-placeholder",
-        caption:
-          "[Replace] ClaireAI portal — performance overview: lead velocity, answered vs missed, and Lead IQ A–D distribution.",
-      },
-      {
         type: "p",
         text: "Used together, the four dashboards finally close the loop. GA4, Search Console, and Business Profile tell you which sources create demand; ClaireAI tells you which sources create clients. Lay them side by side and you can compute the only marketing number that matters — cost per signed case, by source.",
-      },
-      {
-        type: "image-placeholder",
-        caption:
-          "[Replace] ClaireAI portal — call log: each call with its Lead IQ grade, source number, recording/transcript, and retainer status.",
       },
       {
         type: "h2",
@@ -2296,8 +2287,9 @@ export const POSTS: Post[] = [
     excerpt:
       "Forms and chat are easy to attribute. Calls — where law firms win their highest-value cases — are where attribution dies. Here is how to track all three through to the signed retainer.",
     hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1782241084/ChatGPT_Image_Jun_23_2026_at_02_57_52_PM.jpg",
       imgAlt:
-        "ClaireAI portal lead-source view — every call, form, and chat tagged by source and tracked to a signed case.",
+        "Tracking every law-firm lead source — calls, forms, and chat — through to the signed case.",
     },
     author: {
       name: "Tiago Stram",
@@ -2396,16 +2388,6 @@ export const POSTS: Post[] = [
           [{ kind: "bold", text: "Answered, booked, signed: " }, { kind: "text", text: "the call's path through answered → qualified → booked consult → retainer sent/signed, all on one timeline." }],
           [{ kind: "link", text: "CRM sync: ", href: "/integrations" }, { kind: "text", text: "the source rides with the matter into Clio, Filevine, MyCase, or PracticePanther — so attribution is intact when you later look up the case value." }],
         ],
-      },
-      {
-        type: "image-placeholder",
-        caption:
-          "[Replace] ClaireAI portal — lead source view: calls grouped by tracking number/source with answered, qualified, and signed counts.",
-      },
-      {
-        type: "image-placeholder",
-        caption:
-          "[Replace] ClaireAI portal — single lead timeline: source → call → Lead IQ grade → booked consult → retainer.",
       },
       {
         type: "h2",
