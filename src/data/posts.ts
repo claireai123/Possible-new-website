@@ -2287,7 +2287,7 @@ export const POSTS: Post[] = [
     excerpt:
       "Forms and chat are easy to attribute. Calls — where law firms win their highest-value cases — are where attribution dies. Here is how to track all three through to the signed retainer.",
     hero: {
-      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1782241084/ChatGPT_Image_Jun_23_2026_at_02_57_52_PM.jpg",
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/e_gen_remove:prompt_text/e_gen_remove:region_(x_560;y_420;w_290;h_150)/q_auto,f_auto/v1782241084/ChatGPT_Image_Jun_23_2026_at_02_57_52_PM.jpg",
       imgAlt:
         "Tracking every law-firm lead source — calls, forms, and chat — through to the signed case.",
     },
