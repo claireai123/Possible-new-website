@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WebMcpTools } from "@/components/agent/web-mcp-tools";
+import { GA4 } from "@/components/analytics/ga4";
 import "./globals.css";
 
 // Self-host Manrope at build time. Next.js will:
@@ -250,6 +251,7 @@ export default function RootLayout({
         </div>
         <Footer />
         <WebMcpTools />
+        <GA4 />
       </body>
     </html>
   );
