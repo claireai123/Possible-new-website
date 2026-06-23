@@ -25,6 +25,16 @@
   Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
   Link: </.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/index"; type="application/json"
 
+# Content-hashed build assets are immutable — cache hard at the browser so
+# repeat views skip revalidation (fixes the prior max-age=0 on /_next/static/*).
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# RSC payloads (e.g. /pricing.txt) stay crawlable but must not be indexed as
+# thin/duplicate pages. (llms.txt keeps its own explicit noindex below too.)
+/*.txt
+  X-Robots-Tag: noindex
+
 # Discovery documents — set explicit content types so agents see them as
 # structured data instead of guessed text/plain.
 /.well-known/api-catalog

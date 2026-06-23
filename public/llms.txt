@@ -21,16 +21,15 @@ ClaireAI is a cloud-based AI receptionist that replaces missed calls with signed
 - Call recording with transcript storage
 
 ## Pricing
-- Starter: $650/month (solo practitioners, up to 100 calls/month)
-- Growth: $1,299/month (small firms, up to 500 calls/month)
-- Enterprise: $2,999/month (multi-office firms, unlimited calls)
-- No per-minute billing. No hidden fees. Cancel anytime.
+- Starter: $450/month
+- Growth: $850/month
+- Scale: $1,800/month
+- Flat monthly fee, unlimited calls, every integration included. 7-day free trial. No per-minute billing. No hidden fees. Cancel anytime.
 
 ## Practice Areas
 - [Personal Injury](https://theclaireai.com/solutions/personal-injury): Qualifies MVA, slip-and-fall, and premises liability leads. Checks police reports, fault, and medical treatment status.
 - [Criminal Defense](https://theclaireai.com/solutions/criminal-defense): 24/7 urgent felony and DUI case routing with instant attorney escalation.
 - [Family Law](https://theclaireai.com/solutions/family-law): Sensitive bilingual intake for custody, divorce, and protective order cases.
-- [Immigration Law](https://theclaireai.com/solutions/immigration-law): 10+ languages supported. Visa deadline tracking. Cross-timezone consultation booking.
 
 ## Key Pages
 - [Homepage](https://theclaireai.com): Product overview and live demo
@@ -40,8 +39,6 @@ ClaireAI is a cloud-based AI receptionist that replaces missed calls with signed
 - [Measuring the impact of AI on 1,000 law firms](https://theclaireai.com/blog/2026-legal-intake-benchmark-report): The 2026 ClaireAI Legal Intake Benchmark — 1,000 firms surveyed, 5,000+ inbound calls analyzed
 - [Blog](https://theclaireai.com/blog): Legal tech insights and analysis
 - [Help Center](https://theclaireai.com/help): Setup guides and documentation
-- [Compare vs Smith.ai](https://theclaireai.com/compare-smith-ai): Feature comparison
-- [Compare vs Ruby](https://theclaireai.com/compare-ruby-receptionists): Feature comparison
 
 ## Integrations
 ClaireAI integrates with 66 systems law firms already run — every integration is live, with no per-sync fees. Each link below points to a dedicated integration page with setup steps, sync map, FAQs, and structured data.
@@ -154,7 +151,7 @@ ClaireAI integrates with 66 systems law firms already run — every integration 
   A: Yes. ClaireAI checks the statute of limitations, sends retainers via DocuSign or PandaDoc, and follows up — all autonomously while attorneys sleep.
 
 - Q: How much does ClaireAI cost?
-  A: Plans start at $650/month with no per-minute billing and no hidden fees. Enterprise plans for multi-office firms start at $2,999/month.
+  A: Plans start at $450/month (Starter), $850/month (Growth), and $1,800/month (Scale) — flat monthly fee, no per-minute billing, no hidden fees. 7-day free trial.
 
 - Q: Is ClaireAI compliant with legal industry standards?
   A: Yes. ClaireAI is SOC 2 Type II certified, HIPAA compliant, uses 256-bit encryption, and maintains a 99.9% uptime SLA.

@@ -146,8 +146,20 @@ const jsonLd = {
         },
       ],
       founders: [
-        { "@type": "Person", name: "Tiago Stram", jobTitle: "Co-founder & CEO" },
-        { "@type": "Person", name: "Cal Stein", jobTitle: "Co-founder & CTO" },
+        {
+          "@type": "Person",
+          "@id": "https://theclaireai.com/team/tiago-stram#person",
+          name: "Tiago Stram",
+          jobTitle: "Co-founder & CEO",
+          url: "https://theclaireai.com/team/tiago-stram",
+        },
+        {
+          "@type": "Person",
+          "@id": "https://theclaireai.com/team/cal-stein#person",
+          name: "Cal Stein",
+          jobTitle: "Co-founder & CTO",
+          url: "https://theclaireai.com/team/cal-stein",
+        },
       ],
       sameAs: [
         "https://www.linkedin.com/company/theclaireai",
@@ -178,16 +190,6 @@ const jsonLd = {
       name: "ClaireAI",
       publisher: { "@id": "https://theclaireai.com/#organization" },
       inLanguage: "en-US",
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://theclaireai.com/#webpage",
-      url: "https://theclaireai.com",
-      name: "ClaireAI — AI Legal Receptionist",
-      isPartOf: { "@id": "https://theclaireai.com/#website" },
-      about: { "@id": "https://theclaireai.com/#organization" },
-      description:
-        "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers.",
     },
     {
       "@type": "WebApplication",
@@ -229,6 +231,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={manrope.variable}>
       <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

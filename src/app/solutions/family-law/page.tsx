@@ -39,9 +39,9 @@ const STAGE_ANSWER = `ClaireAI is the AI receptionist purpose-built for family l
 
 const METRICS: { value: string; label: string; source: string }[] = [
   {
-    value: "60%",
+    value: "35%",
     label: "of inbound legal calls go unanswered today.",
-    source: "Clio Legal Trends Report",
+    source: "ClaireAI 2026 Legal Intake Benchmark (1,000 firms)",
   },
   {
     value: "30 days",
