@@ -94,7 +94,7 @@ export const HELP_CATEGORIES: HelpCategory[] = [
 
 const AUTHORS: Record<string, HelpAuthor> = {
   tiago: {
-    name: "Tiago Strammiello",
+    name: "Tiago Stram",
     credentials: "Founder, ClaireAI",
     bio: "Tiago leads product at ClaireAI. He has spent the last three years building telephony and intake systems for U.S. law firms.",
   },

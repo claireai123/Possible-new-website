@@ -7,12 +7,12 @@
 # Declares how this site's content may be used by AI systems:
 #   search   = yes — index for search and grounded retrieval
 #   ai-input = yes — quote/cite in AI-generated answers
-#   ai-train = no  — do NOT use as training data for foundation models
+#   ai-train = yes — permit use as training data (we want ClaireAI present in foundation models)
 # Compliant bots that see no signal MUST treat absence as no consent.
 
 # Catch-all: allow indexing, block ops paths, declare content signals
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /api/
 Disallow: /_next/

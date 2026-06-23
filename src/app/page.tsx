@@ -50,6 +50,23 @@ const practiceAreas = [
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://theclaireai.com/#webpage",
+            url: "https://theclaireai.com",
+            name: "ClaireAI 365 — AI Legal Receptionist, Every Call in 0.8s",
+            isPartOf: { "@id": "https://theclaireai.com/#website" },
+            about: { "@id": "https://theclaireai.com/#organization" },
+            description:
+              "ClaireAI is an AI-powered legal receptionist that answers every call in 0.8 seconds, qualifies leads, books consultations, and sends retainers.",
+            inLanguage: "en-US",
+          }),
+        }}
+      />
       <Hero />
 
       {/* ── Logo ticker ── */}

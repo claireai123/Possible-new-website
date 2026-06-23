@@ -347,7 +347,7 @@ export const POSTS: Post[] = [
       imgAlt: "Claude for Legal personal injury — the PI-shaped hole in Anthropic's open-source legal stack",
     },
     author: {
-      name: "Tiago Strammiello",
+      name: "Tiago Stram",
       credentials: "Founder, ClaireAI",
       bio: "Tiago founded ClaireAI after watching personal-injury firms lose six-figure cases to missed intake calls. He's spent the past two years benchmarking voice-AI stacks against the realities of Rule 1.18, state-bar advertising rules, and the operational quirks of plaintiff PI practice — UIM/UM coverage analysis, MIST-versus-significant-injury triage, policy-limits demands. He reads every ABA and state ethics opinion the day it drops and has read the entire claude-for-legal repository, file by file. This piece was reported from the GitHub source, from the published text of every bar opinion cited, and from a week of conversations with PI lawyers who actually take the calls.",
     },
@@ -826,7 +826,7 @@ export const POSTS: Post[] = [
       imgAlt: "Open-source legal intake software in 2026 — the missing layer of the legal AI stack",
     },
     author: {
-      name: "Tiago Strammiello",
+      name: "Tiago Stram",
       credentials: "Founder, ClaireAI",
       bio: "Tiago founded ClaireAI after watching law firms lose six-figure cases to missed intake calls, and has spent the last two years benchmarking voice-AI stacks against the realities of Rule 1.18 and state-bar advertising rules. He reads every ABA and state ethics opinion the day it drops and tracks the open-source legal stack repo-by-repo. This piece was reported from primary GitHub repositories, the published text of every bar opinion cited, and the public pricing pages of every named vendor.",
     },
@@ -1256,7 +1256,7 @@ export const POSTS: Post[] = [
       imgAlt: "Outsourced legal intake — vendor selection and cost breakdown",
     },
     author: {
-      name: "Tiago Strammiello",
+      name: "Tiago Stram",
       credentials: "Founder, ClaireAI",
       bio: "Tiago is the founder of ClaireAI. He's spent the past several years building AI systems that handle inbound voice traffic for U.S. law firms.",
     },
@@ -1699,7 +1699,7 @@ export const POSTS: Post[] = [
       imgAlt: "Answering service pricing comparison for law firms 2026",
     },
     author: {
-      name: "Tiago Strammiello",
+      name: "Tiago Stram",
       credentials: "Founder, ClaireAI",
       bio: "Tiago has compared answering-service pricing across 847 law firms to publish this transparency benchmark.",
     },
@@ -1832,7 +1832,7 @@ export const POSTS: Post[] = [
       imgAlt: "Best AI receptionist for law firms in 2026 — comparative analysis",
     },
     author: {
-      name: "Tiago Strammiello",
+      name: "Tiago Stram",
       credentials: "Founder, ClaireAI",
       bio: "Tiago benchmarked the top 7 AI receptionist platforms against law-firm specific criteria for this guide.",
     },
