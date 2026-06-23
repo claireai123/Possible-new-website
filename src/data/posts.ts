@@ -2054,6 +2054,419 @@ export const POSTS: Post[] = [
       "law firm answering service",
     ],
   },
+
+  // ──────────────────────────────────────────────────────────────
+  // 9. PERFORMANCE DATA — GA4 / GSC / GBP (+ native in ClaireAI)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "law-firm-performance-data-ga4-gsc-gbp",
+    category: "Guide",
+    date: "Jun 23, 2026",
+    lastUpdated: "Jun 23, 2026",
+    readingTime: "11 min read",
+    title:
+      "How to read your law firm's performance data in GA4, Search Console, and Google Business Profile",
+    excerpt:
+      "A plain-English walkthrough of the three free Google reports every firm should check each week — and the one number none of them can show you: which calls became signed cases.",
+    hero: {
+      imgAlt:
+        "ClaireAI portal performance overview — lead velocity, answered vs missed calls, and Lead IQ distribution in a single view.",
+    },
+    author: {
+      name: "Tiago Stram",
+      credentials: "Founder, ClaireAI",
+      bio: "Tiago works with law-firm owners on closing the gap between marketing analytics and intake outcomes — the point where most reporting quietly stops.",
+    },
+    tldr: [
+      "GA4, Google Search Console, and Google Business Profile each answer a different question: GA4 = what people do once they reach your site; Search Console = how you show up in Google Search; Business Profile = how you show up on Maps and in the local pack.",
+      "All three are free, and every firm should know how to read them. The exact reports that matter for a law firm are below.",
+      "But all three stop at the click — or, for Business Profile, at the first ring. None of them can tell you whether a call was answered, the lead qualified, the consult booked, or the case signed.",
+      "That outcome data lives downstream, in your intake. ClaireAI's portal records every call, scores the lead A–D, tracks the booked consult and the retainer, and ties it back to the source — so you can read performance from first click to signed case in one place.",
+      "Across the 2026 ClaireAI 1,000-firm benchmark, 35% of inbound calls go unanswered — so for most firms the single most important performance metric is invisible in Google's tools entirely.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "There are three free dashboards every law firm should be able to read: Google Analytics 4 (GA4), Google Search Console (GSC), and Google Business Profile (GBP). Each measures a different stage of how a prospective client finds you. None of them, on its own, tells you whether that prospect became a client. Here is how to read each one — and exactly where the trail goes cold.",
+      },
+      {
+        type: "h2",
+        text: "GA4: what people do once they reach your site",
+        id: "ga4",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Open " },
+          { kind: "link", text: "Google Analytics", href: "https://marketingplatform.google.com/about/analytics/" },
+          { kind: "text", text: " and you are looking at on-site behavior: how many people arrived, where they came from, and what they did. For a law firm, four things matter and the rest is noise:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Traffic acquisition " }, { kind: "text", text: "(Reports → Acquisition → Traffic acquisition): which channel — Organic Search, Paid, Direct, Referral, Organic Social — actually brings visitors. This is your top-of-funnel mix." }],
+          [{ kind: "bold", text: "Key events " }, { kind: "text", text: "(formerly 'conversions'): mark the actions that signal intent — a tel: phone-number click, a contact-form submit, a chat open. Until you mark these as key events, GA4 cannot tell you which channel drives leads." }],
+          [{ kind: "bold", text: "Engagement by landing page " }, { kind: "text", text: "(Reports → Engagement → Pages and screens): which practice-area pages hold attention and which bounce." }],
+          [{ kind: "bold", text: "Geography " }, { kind: "text", text: "(Reports → User → Demographics): confirm your traffic matches your jurisdiction, not a different metro." }],
+        ],
+      },
+      {
+        type: "callout",
+        kind: "info",
+        title: "The phone-click trap",
+        text: "A GA4 'phone-click' key event tells you someone tapped your number on a mobile page. It does not tell you the call connected, was answered, or lasted more than three seconds. Treat phone-clicks as intent, never as outcome.",
+      },
+      {
+        type: "h2",
+        text: "Google Search Console: how you show up in Search",
+        id: "gsc",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Where GA4 measures behavior on your site, " },
+          { kind: "link", text: "Google Search Console", href: "https://search.google.com/search-console/about" },
+          { kind: "text", text: " measures behavior in the Google results before the click. The Performance report is the one to live in:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Queries: " }, { kind: "text", text: "the actual searches you appear for. Filter for your practice area plus your city ('car accident lawyer [city]') to see where you rank and where you are merely impressed but not clicked." }],
+          [{ kind: "bold", text: "Clicks, impressions, CTR, average position: " }, { kind: "text", text: "rising impressions with flat clicks means you are visible but unconvincing — usually a title-tag or meta-description problem." }],
+          [{ kind: "bold", text: "Pages: " }, { kind: "text", text: "which URLs earn the impressions. Thin or missing practice-area pages show up here as gaps." }],
+          [{ kind: "bold", text: "Indexing → Pages: " }, { kind: "text", text: "confirm Google has actually indexed your key pages. An unindexed page earns zero — and is also ineligible to be cited in Google's AI Overviews." }],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Google Business Profile: how you show up on Maps and the local pack",
+        id: "gbp",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "For most firms, the " },
+          { kind: "link", text: "Google Business Profile", href: "https://www.google.com/business/" },
+          { kind: "text", text: " (the Maps/local listing) drives more phone calls than the website does. Its Performance tab reports:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Calls: " }, { kind: "text", text: "how many people tapped 'Call' directly from your listing, by day and time." }],
+          [{ kind: "bold", text: "Directions and website clicks: " }, { kind: "text", text: "downstream actions from the listing." }],
+          [{ kind: "bold", text: "Searches that showed your profile: " }, { kind: "text", text: "the queries that surfaced you on Maps, split by Search vs Maps surface." }],
+        ],
+      },
+      {
+        type: "callout",
+        kind: "info",
+        title: "Read this one carefully",
+        text: "Business Profile's 'Calls' metric counts calls placed — not calls answered. It is counting the same ring that, 35% of the time, no one at the firm picks up. The chart goes up; the cases do not.",
+      },
+      {
+        type: "h2",
+        text: "Where all three go dark",
+        id: "the-gap",
+      },
+      {
+        type: "p",
+        text: "Stitch GA4, Search Console, and Business Profile together and you get a complete picture of demand — who searched, who saw you, who clicked, who dialed. Then the picture ends. Every one of these tools stops at the moment of contact. The most expensive question in your firm — of the people who called, which became clients, and what were those cases worth — is answered by none of them.",
+      },
+      {
+        type: "table",
+        headers: ["Tool", "Answers", "Cannot tell you"],
+        rows: [
+          ["GA4", "What visitors do on your site; which channel drives form-fills and phone-clicks", "Whether a call connected, qualified, or signed"],
+          ["Search Console", "Which queries you rank for; clicks, impressions, position", "Anything that happens after the click"],
+          ["Business Profile", "Calls placed, directions, listing views", "Whether the call was answered or became a case"],
+        ],
+        caption: "All three measure visibility and initiation. None measures intake outcome.",
+      },
+      {
+        type: "h2",
+        text: "Reading performance from click to signed case in ClaireAI",
+        id: "claireai",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "The outcome data the Google tools cannot see is exactly the data an intake system holds. Inside the " },
+          { kind: "link", text: "ClaireAI portal", href: "/product" },
+          { kind: "text", text: ", every inbound call is captured and carried all the way through the funnel — no spreadsheet, no manual call-listening, no guesswork:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Answered vs missed: " }, { kind: "text", text: "the metric Business Profile cannot give you — what share of calls were actually picked up (Claire answers in 0.8 seconds, 24/7)." }],
+          [{ kind: "link", text: "Lead IQ grade (A–D): ", href: "/product/lead-iq" }, { kind: "text", text: "every call scored on case fit and value, so you see lead quality by source, not just lead count." }],
+          [{ kind: "bold", text: "Booked consults and retainer status: " }, { kind: "text", text: "which calls converted to a calendar booking and a sent/signed retainer." }],
+          [{ kind: "bold", text: "Source and number: " }, { kind: "text", text: "which tracking number or campaign produced the call — the bridge back to GA4 and Business Profile." }],
+          [{ kind: "bold", text: "Lead velocity: " }, { kind: "text", text: "answered calls, qualified leads, and signed matters trended over the last 7 and 30 days." }],
+        ],
+      },
+      {
+        type: "image-placeholder",
+        caption:
+          "[Replace] ClaireAI portal — performance overview: lead velocity, answered vs missed, and Lead IQ A–D distribution.",
+      },
+      {
+        type: "p",
+        text: "Used together, the four dashboards finally close the loop. GA4, Search Console, and Business Profile tell you which sources create demand; ClaireAI tells you which sources create clients. Lay them side by side and you can compute the only marketing number that matters — cost per signed case, by source.",
+      },
+      {
+        type: "image-placeholder",
+        caption:
+          "[Replace] ClaireAI portal — call log: each call with its Lead IQ grade, source number, recording/transcript, and retainer status.",
+      },
+      {
+        type: "h2",
+        text: "A 15-minute weekly performance routine",
+        id: "routine",
+      },
+      {
+        type: "ol",
+        items: [
+          "Search Console → Performance: scan your top queries and average position. Note any practice-area query losing position.",
+          "GA4 → Traffic acquisition: check key events (form-fills, phone-clicks) by channel. Which channel is trending up?",
+          "Business Profile → Performance: read calls and website clicks for the week.",
+          [{ kind: "text", text: "ClaireAI portal: read answered-rate, Lead IQ distribution, and signed matters — then reconcile each signed case back to its source. " }, { kind: "link", text: "See it on a live call", href: "/contact" }, { kind: "text", text: "." }],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Frequently asked questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Which Google tool matters most for a law firm?",
+            a: "There is no single one — they cover different stages. Google Business Profile usually drives the most phone calls; Search Console shows whether you are findable; GA4 shows what people do on your site. Read all three weekly. The blind spot they share is intake outcome, which lives in your phone system or intake platform.",
+          },
+          {
+            q: "How do I track phone calls in GA4?",
+            a: "Mark a tel: link click as a key event, or pass a call-tracking event into GA4. This captures intent — that someone tried to call. It does not capture whether the call was answered or became a client; for that you need call-outcome data from your intake system.",
+          },
+          {
+            q: "Can Google Analytics tell me which calls became clients?",
+            a: "No. GA4 can record that a phone number was clicked, but it has no visibility into the call itself — connection, duration, qualification, or signed retainer. Closing that loop requires tying the call's source to its outcome, which is what an intake platform like ClaireAI records natively.",
+          },
+          {
+            q: "What does ClaireAI show that Google's tools don't?",
+            a: [
+              { kind: "text", text: "Outcome. For every call, ClaireAI records whether it was answered, the Lead IQ grade, whether a consult was booked, and whether a retainer was sent or signed — tied back to the source number. That turns Google's visibility metrics into a cost-per-signed-case picture. " },
+              { kind: "link", text: "See ClaireAI's reporting", href: "/product" },
+              { kind: "text", text: "." },
+            ],
+          },
+        ],
+      },
+    ],
+    related: [
+      "lead-source-tracking-attribution-law-firms",
+      "missed-call-revenue-loss-law-firms",
+      "2026-legal-intake-benchmark-report",
+    ],
+    keywords: [
+      "GA4 for law firms",
+      "google search console for law firms",
+      "google business profile law firm",
+      "law firm marketing analytics",
+      "how to track phone calls law firm",
+      "legal intake performance metrics",
+      "law firm reporting dashboard",
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // 10. LEAD SOURCE TRACKING & ATTRIBUTION (+ native in ClaireAI)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "lead-source-tracking-attribution-law-firms",
+    category: "Guide",
+    date: "Jun 23, 2026",
+    lastUpdated: "Jun 23, 2026",
+    readingTime: "10 min read",
+    title:
+      "How to track every lead source that matters — calls, forms, and chat — so no signed case goes unattributed",
+    excerpt:
+      "Forms and chat are easy to attribute. Calls — where law firms win their highest-value cases — are where attribution dies. Here is how to track all three through to the signed retainer.",
+    hero: {
+      imgAlt:
+        "ClaireAI portal lead-source view — every call, form, and chat tagged by source and tracked to a signed case.",
+    },
+    author: {
+      name: "Tiago Stram",
+      credentials: "Founder, ClaireAI",
+      bio: "Tiago works with law-firm owners on attribution that survives all the way to the signed retainer — not just the lead.",
+    },
+    tldr: [
+      "Attribution answers one question: which marketing source produced revenue — not just clicks or leads, but signed cases.",
+      "Forms and chat are straightforward to attribute with UTM parameters and a CRM. Calls are the black hole — and for most firms, calls produce the highest-value cases.",
+      "The fix for calls is source-tagged tracking that survives to the outcome: which number rang, whether it was answered, whether it qualified, and whether it signed.",
+      "ClaireAI captures the source on every call, scores the lead A–D, and tracks it through the booked consult and the retainer — closing the loop from source to signed case natively in the portal.",
+      "Across the 2026 ClaireAI 1,000-firm benchmark, 35% of inbound calls go unanswered. An unanswered call is not just lost revenue — it is unattributed, so you cannot even tell which campaign you wasted.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Most law firms can tell you how many leads they got last month. Far fewer can tell you which marketing source produced the cases they actually signed. That gap — between counting leads and attributing revenue — is where marketing budgets quietly bleed. This guide covers how to track all three lead sources that matter (forms, chat, and calls), and how to make the attribution survive all the way to the signed retainer.",
+      },
+      {
+        type: "h2",
+        text: "The three lead sources and how attribution actually works",
+        id: "three-sources",
+      },
+      {
+        type: "h3",
+        text: "Forms",
+      },
+      {
+        type: "p",
+        text: "Forms are the easy case. Tag every inbound link with UTM parameters (utm_source, utm_medium, utm_campaign), capture those parameters into hidden fields on the form, and pass them into your CRM with the submission. Mark the submit as a GA4 key event. Done correctly, every form lead arrives stamped with exactly where it came from.",
+      },
+      {
+        type: "h3",
+        text: "Chat",
+      },
+      {
+        type: "p",
+        text: "Chat is nearly as tractable. Capture the landing page and UTM parameters at the moment the conversation opens, log the full transcript, and pass the source into your CRM alongside the contact. The transcript itself doubles as qualification evidence.",
+      },
+      {
+        type: "h3",
+        text: "Calls — the attribution black hole",
+      },
+      {
+        type: "p",
+        text: "Calls are where it breaks. A prospect sees three of your ads, two Maps listings, and a referral, then dials the number they remember — and your CRM records a lead with no source. The standard fix is call tracking: dynamic number insertion (DNI) swaps the displayed phone number based on how the visitor arrived, so each source rings a distinct tracked number. That recovers the source of the call. It still does not tell you what happened on the call.",
+      },
+      {
+        type: "table",
+        headers: ["Source", "Easy to attribute?", "Standard method", "Where it breaks"],
+        rows: [
+          ["Forms", "Yes", "UTM params → hidden fields → CRM", "Rarely — only if UTMs are missing"],
+          ["Chat", "Mostly", "Capture UTM + landing page at open", "Source lost if widget isn't configured"],
+          ["Calls", "Hard", "Call tracking / dynamic number insertion", "Source recovered, but outcome (answered? signed?) is still missing"],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Why 'lead attribution' isn't enough — you need outcome attribution",
+        id: "outcome",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Two campaigns can deliver the same number of leads and wildly different revenue. One floods you with tire-kickers; the other sends three callers who all sign. If you optimize on lead count, you defund the campaign that pays the bills. Outcome attribution — tying the source to the signed case, not just the lead — is the only version that protects the budget. And it depends on a call actually being answered fast: the " },
+          { kind: "link", text: "Forrester/InsideSales five-minute response data", href: "https://hbr.org/2011/03/the-short-life-of-online-sales-leads" },
+          { kind: "text", text: " shows a roughly 400% conversion lift when contact happens inside the window. A missed or slow call doesn't just lose the case — it erases the attribution." },
+        ],
+      },
+      {
+        type: "stat-grid",
+        stats: [
+          { value: "35%", label: "of inbound legal calls go unanswered — lost and unattributed", source: "ClaireAI 2026 Legal Intake Benchmark (1,000 firms)" },
+          { value: "~400%", label: "conversion lift when contact happens within five minutes", source: "Forrester / InsideSales" },
+          { value: "1", label: "place the source-to-signed-case loop should close: your intake", source: "ClaireAI" },
+        ],
+      },
+      {
+        type: "h2",
+        text: "Closing the loop: source to signed case in ClaireAI",
+        id: "claireai",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "An intake platform is the natural place attribution should finish, because it is the only system present for the entire call. The " },
+          { kind: "link", text: "ClaireAI portal", href: "/product" },
+          { kind: "text", text: " carries the source the whole way down:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Source on every call: " }, { kind: "text", text: "the tracking number or campaign that produced the call is recorded against the lead automatically." }],
+          [{ kind: "link", text: "Lead IQ grade (A–D): ", href: "/product/lead-iq" }, { kind: "text", text: "case fit and value scored on the call, so you see which sources send A-grade cases, not just call volume." }],
+          [{ kind: "bold", text: "Answered, booked, signed: " }, { kind: "text", text: "the call's path through answered → qualified → booked consult → retainer sent/signed, all on one timeline." }],
+          [{ kind: "link", text: "CRM sync: ", href: "/integrations" }, { kind: "text", text: "the source rides with the matter into Clio, Filevine, MyCase, or PracticePanther — so attribution is intact when you later look up the case value." }],
+        ],
+      },
+      {
+        type: "image-placeholder",
+        caption:
+          "[Replace] ClaireAI portal — lead source view: calls grouped by tracking number/source with answered, qualified, and signed counts.",
+      },
+      {
+        type: "image-placeholder",
+        caption:
+          "[Replace] ClaireAI portal — single lead timeline: source → call → Lead IQ grade → booked consult → retainer.",
+      },
+      {
+        type: "h2",
+        text: "A simple attribution stack for a law firm",
+        id: "stack",
+      },
+      {
+        type: "ol",
+        items: [
+          "Put UTM parameters on every link you control — ads, email, social, directory listings.",
+          "Capture form and chat sources into hidden fields and pass them to your CRM; mark both as GA4 key events.",
+          "Use call-tracking numbers (DNI) so each marketing source rings a distinct, attributable line.",
+          [{ kind: "text", text: "Record the call outcome — answered, Lead IQ grade, booked, signed — and sync it to the matter. " }, { kind: "link", text: "ClaireAI does this natively", href: "/product" }, { kind: "text", text: "." }],
+          "Each month, rank sources by cost per signed case — not by leads — and move budget accordingly.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Frequently asked questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "How do I track which calls become clients?",
+            a: "Recover the source with call tracking (a distinct number per marketing source), then record the call's outcome — answered, qualified, booked, signed — and tie it back to that source. Call tracking alone gives you the source; an intake platform gives you the outcome. You need both to know which calls became clients.",
+          },
+          {
+            q: "What is dynamic number insertion (DNI)?",
+            a: "DNI swaps the phone number displayed on your site based on how the visitor arrived (which ad, campaign, or channel), so each source rings a separate tracked number. It is the standard way to attribute phone calls to a marketing source.",
+          },
+          {
+            q: "Why can't GA4 attribute phone calls to revenue?",
+            a: "GA4 can record a phone-number click as a key event, but it has no visibility into the call itself — whether it connected, who answered, or whether it became a case. Revenue attribution for calls requires call-outcome data, which lives in your phone or intake system, not in web analytics.",
+          },
+          {
+            q: "How does ClaireAI attribute leads?",
+            a: [
+              { kind: "text", text: "ClaireAI records the source on every call, scores it with Lead IQ, tracks it through booked consult and retainer, and syncs the whole record — source included — to your CRM. The result is source-to-signed-case attribution without manual call review. " },
+              { kind: "link", text: "See how it works", href: "/how-it-works" },
+              { kind: "text", text: "." },
+            ],
+          },
+        ],
+      },
+    ],
+    related: [
+      "law-firm-performance-data-ga4-gsc-gbp",
+      "missed-call-revenue-loss-law-firms",
+      "best-ai-receptionist-law-firms-2026",
+    ],
+    keywords: [
+      "lead source tracking law firm",
+      "call tracking for lawyers",
+      "marketing attribution law firm",
+      "how to track leads law firm",
+      "which marketing brings clients law firm",
+      "legal intake attribution",
+      "dynamic number insertion law firm",
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
