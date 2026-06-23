@@ -2054,6 +2054,224 @@ export const POSTS: Post[] = [
       "law firm answering service",
     ],
   },
+
+  // ──────────────────────────────────────────────────────────────
+  // 9. PERFORMANCE DATA — GA4 / GSC / GBP (+ native in ClaireAI)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "law-firm-performance-data-ga4-gsc-gbp",
+    category: "Guide",
+    date: "Jun 23, 2026",
+    lastUpdated: "Jun 23, 2026",
+    readingTime: "11 min read",
+    title:
+      "How to read your law firm's performance data in GA4, Search Console, and Google Business Profile",
+    excerpt:
+      "A plain-English walkthrough of the three free Google reports every firm should check each week — and the one number none of them can show you: which calls became signed cases.",
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1782240947/ChatGPT_Image_Jun_23_2026_at_02_55_35_PM.jpg",
+      imgAlt:
+        "Reading a law firm's performance data across GA4, Google Search Console, and Google Business Profile.",
+    },
+    author: {
+      name: "Tiago Stram",
+      credentials: "Founder, ClaireAI",
+      bio: "Tiago works with law-firm owners on closing the gap between marketing analytics and intake outcomes — the point where most reporting quietly stops.",
+    },
+    tldr: [
+      "GA4, Google Search Console, and Google Business Profile each answer a different question: GA4 = what people do once they reach your site; Search Console = how you show up in Google Search; Business Profile = how you show up on Maps and in the local pack.",
+      "All three are free, and every firm should know how to read them. The exact reports that matter for a law firm are below.",
+      "But all three stop at the click — or, for Business Profile, at the first ring. None of them can tell you whether a call was answered, the lead qualified, the consult booked, or the case signed.",
+      "That outcome data lives downstream, in your intake. ClaireAI's portal records every call, scores the lead A–D, tracks the booked consult and the retainer, and ties it back to the source — so you can read performance from first click to signed case in one place.",
+      "Across the 2026 ClaireAI 1,000-firm benchmark, 35% of inbound calls go unanswered — so for most firms the single most important performance metric is invisible in Google's tools entirely.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "There are three free dashboards every law firm should be able to read: Google Analytics 4 (GA4), Google Search Console (GSC), and Google Business Profile (GBP). Each measures a different stage of how a prospective client finds you. None of them, on its own, tells you whether that prospect became a client. Here is how to read each one — and exactly where the trail goes cold.",
+      },
+      {
+        type: "h2",
+        text: "GA4: what people do once they reach your site",
+        id: "ga4",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Open " },
+          { kind: "link", text: "Google Analytics", href: "https://marketingplatform.google.com/about/analytics/" },
+          { kind: "text", text: " and you are looking at on-site behavior: how many people arrived, where they came from, and what they did. For a law firm, four things matter and the rest is noise:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Traffic acquisition " }, { kind: "text", text: "(Reports → Acquisition → Traffic acquisition): which channel — Organic Search, Paid, Direct, Referral, Organic Social — actually brings visitors. This is your top-of-funnel mix." }],
+          [{ kind: "bold", text: "Key events " }, { kind: "text", text: "(formerly 'conversions'): mark the actions that signal intent — a tel: phone-number click, a contact-form submit, a chat open. Until you mark these as key events, GA4 cannot tell you which channel drives leads." }],
+          [{ kind: "bold", text: "Engagement by landing page " }, { kind: "text", text: "(Reports → Engagement → Pages and screens): which practice-area pages hold attention and which bounce." }],
+          [{ kind: "bold", text: "Geography " }, { kind: "text", text: "(Reports → User → Demographics): confirm your traffic matches your jurisdiction, not a different metro." }],
+        ],
+      },
+      {
+        type: "callout",
+        kind: "info",
+        title: "The phone-click trap",
+        text: "A GA4 'phone-click' key event tells you someone tapped your number on a mobile page. It does not tell you the call connected, was answered, or lasted more than three seconds. Treat phone-clicks as intent, never as outcome.",
+      },
+      {
+        type: "h2",
+        text: "Google Search Console: how you show up in Search",
+        id: "gsc",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Where GA4 measures behavior on your site, " },
+          { kind: "link", text: "Google Search Console", href: "https://search.google.com/search-console/about" },
+          { kind: "text", text: " measures behavior in the Google results before the click. The Performance report is the one to live in:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Queries: " }, { kind: "text", text: "the actual searches you appear for. Filter for your practice area plus your city ('car accident lawyer [city]') to see where you rank and where you are merely impressed but not clicked." }],
+          [{ kind: "bold", text: "Clicks, impressions, CTR, average position: " }, { kind: "text", text: "rising impressions with flat clicks means you are visible but unconvincing — usually a title-tag or meta-description problem." }],
+          [{ kind: "bold", text: "Pages: " }, { kind: "text", text: "which URLs earn the impressions. Thin or missing practice-area pages show up here as gaps." }],
+          [{ kind: "bold", text: "Indexing → Pages: " }, { kind: "text", text: "confirm Google has actually indexed your key pages. An unindexed page earns zero — and is also ineligible to be cited in Google's AI Overviews." }],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Google Business Profile: how you show up on Maps and the local pack",
+        id: "gbp",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "For most firms, the " },
+          { kind: "link", text: "Google Business Profile", href: "https://www.google.com/business/" },
+          { kind: "text", text: " (the Maps/local listing) drives more phone calls than the website does. Its Performance tab reports:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Calls: " }, { kind: "text", text: "how many people tapped 'Call' directly from your listing, by day and time." }],
+          [{ kind: "bold", text: "Directions and website clicks: " }, { kind: "text", text: "downstream actions from the listing." }],
+          [{ kind: "bold", text: "Searches that showed your profile: " }, { kind: "text", text: "the queries that surfaced you on Maps, split by Search vs Maps surface." }],
+        ],
+      },
+      {
+        type: "callout",
+        kind: "info",
+        title: "Read this one carefully",
+        text: "Business Profile's 'Calls' metric counts calls placed — not calls answered. It is counting the same ring that, 35% of the time, no one at the firm picks up. The chart goes up; the cases do not.",
+      },
+      {
+        type: "h2",
+        text: "Where all three go dark",
+        id: "the-gap",
+      },
+      {
+        type: "p",
+        text: "Stitch GA4, Search Console, and Business Profile together and you get a complete picture of demand — who searched, who saw you, who clicked, who dialed. Then the picture ends. Every one of these tools stops at the moment of contact. The most expensive question in your firm — of the people who called, which became clients, and what were those cases worth — is answered by none of them.",
+      },
+      {
+        type: "table",
+        headers: ["Tool", "Answers", "Cannot tell you"],
+        rows: [
+          ["GA4", "What visitors do on your site; which channel drives form-fills and phone-clicks", "Whether a call connected, qualified, or signed"],
+          ["Search Console", "Which queries you rank for; clicks, impressions, position", "Anything that happens after the click"],
+          ["Business Profile", "Calls placed, directions, listing views", "Whether the call was answered or became a case"],
+        ],
+        caption: "All three measure visibility and initiation. None measures intake outcome.",
+      },
+      {
+        type: "h2",
+        text: "Reading performance from click to signed case in ClaireAI",
+        id: "claireai",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "The outcome data the Google tools cannot see is exactly the data an intake system holds. Inside the " },
+          { kind: "link", text: "ClaireAI portal", href: "/product" },
+          { kind: "text", text: ", every inbound call is captured and carried all the way through the funnel — no spreadsheet, no manual call-listening, no guesswork:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [{ kind: "bold", text: "Answered vs missed: " }, { kind: "text", text: "the metric Business Profile cannot give you — what share of calls were actually picked up (Claire answers in 0.8 seconds, 24/7)." }],
+          [{ kind: "link", text: "Lead IQ grade (A–D): ", href: "/product/lead-iq" }, { kind: "text", text: "every call scored on case fit and value, so you see lead quality by source, not just lead count." }],
+          [{ kind: "bold", text: "Booked consults and retainer status: " }, { kind: "text", text: "which calls converted to a calendar booking and a sent/signed retainer." }],
+          [{ kind: "bold", text: "Source and number: " }, { kind: "text", text: "which tracking number or campaign produced the call — the bridge back to GA4 and Business Profile." }],
+          [{ kind: "bold", text: "Lead velocity: " }, { kind: "text", text: "answered calls, qualified leads, and signed matters trended over the last 7 and 30 days." }],
+        ],
+      },
+      {
+        type: "p",
+        text: "Used together, the four dashboards finally close the loop. GA4, Search Console, and Business Profile tell you which sources create demand; ClaireAI tells you which sources create clients. Lay them side by side and you can compute the only marketing number that matters — cost per signed case, by source.",
+      },
+      {
+        type: "h2",
+        text: "A 15-minute weekly performance routine",
+        id: "routine",
+      },
+      {
+        type: "ol",
+        items: [
+          "Search Console → Performance: scan your top queries and average position. Note any practice-area query losing position.",
+          "GA4 → Traffic acquisition: check key events (form-fills, phone-clicks) by channel. Which channel is trending up?",
+          "Business Profile → Performance: read calls and website clicks for the week.",
+          [{ kind: "text", text: "ClaireAI portal: read answered-rate, Lead IQ distribution, and signed matters — then reconcile each signed case back to its source. " }, { kind: "link", text: "See it on a live call", href: "/contact" }, { kind: "text", text: "." }],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Frequently asked questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Which Google tool matters most for a law firm?",
+            a: "There is no single one — they cover different stages. Google Business Profile usually drives the most phone calls; Search Console shows whether you are findable; GA4 shows what people do on your site. Read all three weekly. The blind spot they share is intake outcome, which lives in your phone system or intake platform.",
+          },
+          {
+            q: "How do I track phone calls in GA4?",
+            a: "Mark a tel: link click as a key event, or pass a call-tracking event into GA4. This captures intent — that someone tried to call. It does not capture whether the call was answered or became a client; for that you need call-outcome data from your intake system.",
+          },
+          {
+            q: "Can Google Analytics tell me which calls became clients?",
+            a: "No. GA4 can record that a phone number was clicked, but it has no visibility into the call itself — connection, duration, qualification, or signed retainer. Closing that loop requires tying the call's source to its outcome, which is what an intake platform like ClaireAI records natively.",
+          },
+          {
+            q: "What does ClaireAI show that Google's tools don't?",
+            a: [
+              { kind: "text", text: "Outcome. For every call, ClaireAI records whether it was answered, the Lead IQ grade, whether a consult was booked, and whether a retainer was sent or signed — tied back to the source number. That turns Google's visibility metrics into a cost-per-signed-case picture. " },
+              { kind: "link", text: "See ClaireAI's reporting", href: "/product" },
+              { kind: "text", text: "." },
+            ],
+          },
+        ],
+      },
+    ],
+    related: [
+      "missed-call-revenue-loss-law-firms",
+      "2026-legal-intake-benchmark-report",
+      "best-ai-receptionist-law-firms-2026",
+    ],
+    keywords: [
+      "GA4 for law firms",
+      "google search console for law firms",
+      "google business profile law firm",
+      "law firm marketing analytics",
+      "how to track phone calls law firm",
+      "legal intake performance metrics",
+      "law firm reporting dashboard",
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
