@@ -28,6 +28,13 @@ const solutionsLinks = [
   { name: "Family Law", desc: "Sensitive, bilingual intake", href: "/solutions/family-law" },
 ];
 
+const serviceLinks = [
+  { name: "Legal Answering Service", desc: "24/7 AI answering for law firms", href: "/solutions/legal-answering-service" },
+  { name: "Virtual Receptionist", desc: "Greets, routes, books in 0.8s", href: "/solutions/virtual-receptionist" },
+  { name: "Legal Intake", desc: "Qualify, screen, book, sign", href: "/solutions/legal-intake" },
+  { name: "Bilingual Answering Service", desc: "Spanish on the first phrase", href: "/solutions/bilingual-answering-service" },
+];
+
 const resourceItems = [
   { name: "Blog", desc: "Insights and analysis", href: "/blog" },
   { name: "Help Center", desc: "Guides and documentation", href: "/help" },
@@ -358,6 +365,15 @@ export function Header() {
                     </Link>
                   ))}
                 </div>
+                <p className="mb-6 mt-10 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">By service</p>
+                <div className="grid grid-cols-2 gap-x-16 gap-y-2">
+                  {serviceLinks.map((i) => (
+                    <Link key={i.href} href={i.href} className="group block py-4">
+                      <p className="text-[18px] text-[#0a0a0a] group-hover:text-[#0a0a0a]/60" style={{ fontWeight: 450, letterSpacing: "-0.02em" }}>{i.name}</p>
+                      <p className="mt-1 text-[14px] text-[#0a0a0a]/35">{i.desc}</p>
+                    </Link>
+                  ))}
+                </div>
               </div>
               <div className="w-[420px]">
                 <p className="mb-8 text-[11px] font-normal uppercase tracking-wider text-[#0a0a0a]/30">Featured</p>
@@ -455,6 +471,7 @@ export function Header() {
             <div className="h-full overflow-y-auto px-6 pb-8">
               <MG title="Product" items={productLinks} close={closeMobile} />
               <MG title="Practice areas" items={solutionsLinks} close={closeMobile} />
+              <MG title="By service" items={serviceLinks} close={closeMobile} />
               <MG title="Resources" items={resourceItems} close={closeMobile} />
               <div className="mt-6 border-t border-[#e4e4e7] pt-6">
                 <Link

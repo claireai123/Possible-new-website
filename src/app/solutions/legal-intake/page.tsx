@@ -3,31 +3,31 @@ import Link from "next/link";
 import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
-const PUBLISHED = "2026-05-18";
-const LAST_UPDATED = "2026-05-18";
-const BASE_URL = "https://theclaireai.com/solutions/family-law";
+const PUBLISHED = "2026-06-25";
+const LAST_UPDATED = "2026-06-25";
+const BASE_URL = "https://theclaireai.com/solutions/legal-intake";
 
 export const metadata: Metadata = {
-  title: "Family Law Intake — AI Receptionist",
+  title: "Legal Intake Service — AI New-Client Intake for Law Firms",
   description:
-    "AI receptionist for family law. Empathetic pacing, DV escalation, Rule 1.18 conflict checks, deadline tracking, bilingual intake.",
+    "AI legal intake service. Claire runs your qualifying script on every call, screens conflicts, grades the lead, books the consult, and dispatches the retainer. 24/7, bilingual.",
   keywords: [
-    "AI receptionist family law",
-    "family law intake automation",
-    "divorce law firm answering service",
-    "custody intake 24/7",
-    "domestic violence intake AI",
-    "Clio family law integration",
-    "MyCase intake family law",
-    "Smokeball family law AI",
-    "family law lead qualification",
-    "family law conflict check",
+    "legal intake service",
+    "legal intake services",
+    "legal intake call center",
+    "law firm intake service",
+    "intake service for law firms",
+    "legal intake answering service",
+    "client intake for law firms",
+    "new client intake service",
+    "attorney intake service",
+    "legal intake automation",
   ],
   alternates: { canonical: BASE_URL },
   openGraph: {
-    title: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
+    title: "Legal Intake Service — AI New-Client Intake for Law Firms",
     description:
-      "Empathetic pacing, DV escalation, conflict screening, deadline tracking, bilingual intake, retainer dispatch. Built for family law.",
+      "The AI legal intake service for law firms. Claire runs your qualifying script on every call, screens conflicts under Rule 1.18, grades the lead, books the consult, and dispatches the retainer. 24/7, bilingual.",
     url: BASE_URL,
     type: "article",
     publishedTime: PUBLISHED,
@@ -35,112 +35,102 @@ export const metadata: Metadata = {
   },
 };
 
-const STAGE_ANSWER = `ClaireAI is the AI receptionist purpose-built for family law intake. Claire picks up on the first ring — no IVR, no hold music — runs your firm's family-law qualifying flow with empathetic pacing, captures the case type (divorce, legal separation, custody, support, modification, DV/PFA), screens for conflicts under Rule 1.18 before any privileged detail is shared, flags emergency signals (domestic violence, child abduction risk, financial waste, court-ordered deadlines), books the consult, grades the lead A through D, and dispatches a one-page Claire's Brief to your intake team within seconds. Bilingual English and Spanish out of the box.`;
+const STAGE_ANSWER = `ClaireAI is an AI legal intake service for law firms. On every inbound call — 24/7/365 — Claire runs your firm's new-client intake script, captures the matter, jurisdiction, and urgency, screens for conflicts under ABA Rule 1.18, grades the lead A through D with Lead IQ, books the consult on your calendar, and dispatches a DocuSign retainer to pre-cleared grade-A leads. Every contact, matter, intake note, and recording is written into Clio, MyCase, or PracticePanther during the call, so your team gets structured, qualified matters instead of message slips. It replaces an outsourced intake call center or a human intake coordinator, handles unlimited concurrent calls, and runs bilingually in English and Spanish. Starts at $450/month.`;
 
 const METRICS: { value: string; label: string; source: string }[] = [
   {
-    value: "35%",
-    label: "of inbound legal calls go unanswered today.",
-    source: "ClaireAI 2026 Legal Intake Benchmark (1,000 firms)",
-  },
-  {
-    value: "30 days",
-    label: "typical response deadline to a divorce or custody petition.",
-    source: "State rules of civil procedure",
-  },
-  {
     value: "5×",
-    label: "conversion lift when leads are contacted within five minutes.",
+    label: "conversion lift when a new lead is contacted within five minutes.",
     source: "Forrester / InsideSales",
+  },
+  {
+    value: "62%",
+    label: "of callers who reach a law firm's voicemail hang up without leaving a message.",
+    source: "Industry call-tracking benchmarks",
+  },
+  {
+    value: "24/7",
+    label: "intake coverage with unlimited concurrent calls — every new client captured.",
+    source: "ClaireAI uptime SLA",
   },
 ];
 
 const FEATURES: { headline: string; body: string; img?: string; imgAlt?: string }[] = [
   {
-    headline: "Empathetic intake calibrated for family-law callers.",
-    body: "Family-law prospects often call at the worst moment — separation, custody dispute, DV, served papers. Claire validates, slows the pace, and captures case type, opposing party, children, prior orders, and jurisdiction in your CRM without re-traumatizing the caller.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779201988/ChatGPT_Image_May_19_2026_at_10_46_10_AM.jpg",
-    imgAlt: "ClaireAI empathetic family-law intake — distressed-caller pacing with structured CRM record built live on the call",
+    headline: "Your qualifying script, run perfectly on every call.",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779129517/ChatGPT_Image_May_18_2026_at_02_38_21_PM.jpg",
+    imgAlt: "ClaireAI running a firm's qualifying script live and building a structured intake record on the call.",
+    body: "Claire runs your firm's intake flow exactly as written — matter type, jurisdiction, key dates, opposing party, and fee posture — on every call, with no skipped questions and no off-script improvisation. It captures the facts that decide whether a caller is a fit before a human ever picks up, so your team spends time on qualified matters, not triage.",
   },
   {
-    headline: "DV and emergency-signal escalation, on the line.",
-    body: "Claire detects domestic violence, child abduction risk, financial waste, and ex-parte urgency in real time. Emergencies warm-transfer to on-call counsel with a pre-briefed handoff. If unavailable, Claire offers 911 and the National DV Hotline (1-800-799-7233) and pages your escalation chain by SMS, push, and voice.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202513/ChatGPT_Image_May_19_2026_at_10_54_57_AM.jpg",
-    imgAlt: "ClaireAI family-law DV and emergency-signal escalation — domestic violence, child abduction risk, and ex-parte urgency detected and warm-transferred to on-call attorney",
+    headline: "Conflict screening and A–D lead grading before the lead reaches you.",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779205248/ChatGPT_Image_May_19_2026_at_11_39_07_AM.jpg",
+    imgAlt: "ClaireAI conflict-screening a prospective client against the CRM and grading the lead before it reaches the attorney.",
+    body: "Claire screens every prospective client for conflicts under ABA Rule 1.18 against your CRM, then grades the lead A through D with Lead IQ against your rubric — matter value, urgency, jurisdiction, and fee fit. A-grade leads reach an attorney in minutes; lower grades enter the right nurture or referral path. Read how Lead IQ scores and routes a call.",
   },
   {
-    headline: "Conflict screening before a single privileged detail.",
-    body: "Family law has the highest conflict-rate of any practice — spouses, paramours, in-laws, prior counsel. Claire collects caller, opposing party's full legal name, prior counsel, and related parties up front, then runs a fuzzy-match conflict check against your CRM before any case facts. Rule 1.18 prospective-client confidentiality, enforced at the door.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202793/ChatGPT_Image_May_19_2026_at_10_59_38_AM.jpg",
-    imgAlt: "ClaireAI family-law conflict screening — fuzzy-match check against caller, opposing party, prior counsel, and related parties before any privileged detail is taken (Rule 1.18 prospective-client confidentiality)",
+    headline: "Consult booked, retainer dispatched, CRM updated — on the call.",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779204750/ChatGPT_Image_May_19_2026_at_11_32_15_AM.jpg",
+    imgAlt: "Example ClaireAI brief produced on the call — matter, score, and next steps written back to the CRM.",
+    body: "For qualified callers, Claire books the consult on your calendar and, for pre-cleared grade-A leads, e-sends your DocuSign retainer before the call ends. Every contact, matter, intake note, and recording is written into Clio, MyCase, PracticePanther, Smokeball, Rocket Matter, or CosmoLex live — no copy-paste, no after-the-fact data entry.",
   },
 ];
 
-const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: string }[] = [
+const RELATED: { area: string; desc: string; href: string; img: string }[] = [
   {
-    area: "Personal Injury",
-    desc: "Sub-1-second pickup. Statute-of-limitations triage, full insurance-layer capture (PIP, BI, UIM/UM, MedPay), DocuSign retainer dispatch on grade-A leads.",
-    href: "/solutions/personal-injury",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+    area: "Legal Answering Service",
+    desc: "24/7 first-ring answering, after-hours and overflow coverage, full intake and conflict screening — the AI answering service for law firms.",
+    href: "/solutions/legal-answering-service",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg",
   },
   {
-    area: "Criminal Defense",
-    desc: "Collect calls from detention facilities accepted. Arraignment, bail-hearing, and grand-jury deadlines tracked; on-call counsel paged by SMS for in-custody matters.",
-    href: "/solutions/criminal-defense",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
+    area: "Virtual Receptionist for Law Firms",
+    desc: "First-ring pickup, calendar booking, call routing, and warm transfers — a 24/7 virtual receptionist tuned for legal callers.",
+    href: "/solutions/virtual-receptionist",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
   },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
   {
-    question: "How does Claire handle a domestic violence caller?",
+    question: "What is a legal intake service, and how does ClaireAI's work?",
     answer:
-      "Claire is calibrated to detect DV markers — present-danger language, mentions of a current incident, fear of the other party, children present, a recent ER visit — and warm-transfers to your on-call attorney within seconds with a pre-briefed handoff so the caller does not repeat their story. If no attorney is available, Claire stays on the line, offers 911 and the National Domestic Violence Hotline (1-800-799-7233), and pages your escalation chain by SMS, push, and voice simultaneously. PFA, TPO, and emergency-custody filings are flagged in the brief.",
+      "A legal intake service handles a law firm's new-client intake — qualifying callers, capturing the matter, screening for conflicts, and getting promising leads booked and signed. ClaireAI is an AI legal intake service: on every call, Claire runs your qualifying script, screens conflicts under ABA Rule 1.18, grades the lead A–D with Lead IQ, books the consult, dispatches the retainer to pre-cleared grade-A leads, and writes everything into your CRM. Your team receives structured, qualified matters instead of voicemail slips, 24/7.",
   },
   {
-    question: "Will Claire run a conflict check before taking case facts?",
+    question: "Is ClaireAI a replacement for an outsourced legal intake call center?",
     answer:
-      "Yes — at the door, before any privileged fact lands in your file. Claire takes the caller's legal name, the opposing party's legal name, every paramour named, prior counsel, and any related parties, then runs a fuzzy-match check against your CRM in real time. Flagged conflicts get a name-and-number-only retention and route to your conflict-clearance workflow — Rule 1.18 prospective-client confidentiality enforced at intake.",
+      "Yes. A traditional legal intake call center staffs human agents who follow a script and bill per call or per minute, with quality that varies by agent and shift. ClaireAI runs your intake flow identically on every call, screens conflicts, grades leads, books consults, and updates your CRM — at a flat monthly rate, with unlimited concurrency and no after-hours gaps. For a deeper comparison, see our guide on whether to outsource legal intake.",
   },
   {
-    question: "Can Claire qualify a family-law caller in Spanish?",
+    question: "Does the intake service work for solo attorneys and small law firms?",
     answer:
-      "Yes. First-phrase language detection. Claire runs the family-law intake in Spanish — case type, opposing party, children, prior orders, urgency — and supports mid-call switching when callers default to English for legal terminology. Transcripts translated to English for attorney review, with the original Spanish stored alongside.",
+      "Yes — it's a force multiplier for solo and small firms that can't staff a dedicated intake coordinator. Claire captures and qualifies every new client around the clock, so a solo attorney in court or with a client never loses a lead to voicemail. You get the intake operation of a large firm without the headcount.",
   },
   {
-    question: "How does Claire handle court-deadline urgency on a family-law call?",
+    question: "How does Claire qualify and grade a legal intake lead?",
     answer:
-      "Claire is jurisdiction-aware on response deadlines (most states are 20 or 30 days from service), ex-parte and TRO hearings, PFA return dates, and emergency-custody filings. Calls within the deadline window are hard-coded to skip auto-rejection and route to a partner with the deadline math, the case type, and the urgency context already in the brief. A 19-day-out response deadline never gets parked in a queue.",
+      "Claire runs your firm's qualifying rubric on the call and grades each lead A through D with Lead IQ, weighing matter type and value, urgency, jurisdiction, conflict-screen status, and fee fit. A grades route to an attorney within minutes; B grades book a consult; C grades enter nurture; D grades (out of jurisdiction, conflicts, non-fit) route to referral. The rubric is tuned to your firm and improves from your intake team's overrides.",
   },
   {
-    question: "How does Claire grade a family-law lead A through D?",
+    question: "Does the intake service screen for conflicts of interest?",
     answer:
-      "Lead IQ scores every call against your family-law rubric in real time: case type, asset complexity, custody contest, jurisdiction, prior counsel, urgency, ability to pay the retainer, and conflict-screen status. A grades reach a partner within minutes; B grades book a consult by SMS; C grades enter a softer family-law nurture sequence; D grades (pro-se, out-of-jurisdiction, conflicts) route to a referral. The rubric retrains weekly from your intake lead's overrides.",
+      "Yes — before any privileged case fact is shared. Claire collects the caller, the matter, and the relevant parties up front, runs a fuzzy-match conflict check against your CRM contacts and matters in real time, and, if a conflict surfaces, takes only a name and number and routes the lead to your conflict-clearance workflow. This satisfies ABA Model Rule 1.18 prospective-client confidentiality at the front door.",
   },
   {
-    question: "Does Claire integrate with Clio, MyCase, Smokeball, and PracticePanther?",
+    question: "Can Claire send a retainer agreement during the intake call?",
     answer:
-      "Yes — natively. Family-law field mappings are pre-built: Clio Grow with custom matter types and conflict-screen fields, MyCase intake forms with party roles and child information, Smokeball form automations, PracticePanther custom case stages. Claire writes contacts, matters, party records, briefs, and calendar entries into your CRM during the call — no copy-paste, no manual data entry, no Zapier middleware.",
+      "For pre-cleared grade-A leads with a clean conflict screen, yes. Claire confirms the prospect's name, contact details, and engagement scope on the call, then e-sends your firm's DocuSign retainer (firm-branded, your fee schedule) within seconds. Lower-grade leads enter your standard nurture flow instead.",
   },
   {
-    question: "Can Claire send a retainer agreement on the call?",
+    question: "Does the intake service integrate with Clio, MyCase, and PracticePanther?",
     answer:
-      "For pre-cleared grade-A leads where conflict screening is clean, yes. Claire confirms the prospect's name, mailing address, and engagement scope on the call, then e-sends your firm's DocuSign retainer template (firm-branded, your fee schedule) within seconds. Family law commonly requires a higher-touch consultation before retainer, and the rubric can be set to consult-first if that's your firm's preference. For B, C, and D leads the standard nurture flow runs instead.",
+      "Yes — natively. Claire writes contacts, matters, intake notes, lead grades, briefs, and call recordings into Clio Grow, MyCase, PracticePanther, Smokeball, Rocket Matter, and CosmoLex during the call. No copy-paste, no Zapier middleware, no manual entry after the fact.",
   },
   {
-    question: "What if the caller is distressed, crying, or in active crisis?",
+    question: "What does a legal intake service cost with ClaireAI?",
     answer:
-      "Family-law callers in crisis show different markers than other practices — \"served,\" \"my kids,\" fear of the other party, present-danger language. Claire warm-transfers to your on-call attorney within seconds with a pre-briefed handoff. If no attorney is available, Claire stays on line, offers 911 and the National DV Hotline (1-800-799-7233), and pages your escalation chain by SMS, push, and voice.",
-  },
-  {
-    question: "How does Claire handle high-asset divorce intake?",
-    answer:
-      "Claire's rubric flags high-asset markers — business ownership, real-estate portfolio, retirement-plan complexity, equity compensation, premarital assets, suspected hidden assets — and routes those leads to a partner within minutes. The brief surfaces the asset profile so the partner walks into the consult already calibrated on case value. Lead grading prioritizes asset complexity and contested-custody flags above call volume.",
-  },
-  {
-    question: "What does family-law intake cost with ClaireAI?",
-    answer:
-      "Family-law firms deploy Claire at $450/month with DV-escalation protocols, Rule 1.18 conflict screening (including paramour matching), PFA/TPO deadline tracking, and DocuSign retainer dispatch on cleared leads. No per-call surcharge, no after-hours premium. Most firms replace a $2,500-$4,500/month answering service or $4,000+ FTE receptionist with a $450-$1,800/month Claire plan.",
+      "ClaireAI starts at $450/month with 24/7 intake, conflict screening, Lead IQ grading, consult booking, retainer dispatch, and CRM sync — no per-call or per-lead surcharge. Most firms replace an outsourced intake call center or a $4,000+/month intake coordinator. See the pricing page for current plans.",
   },
 ];
 
@@ -150,7 +140,7 @@ const breadcrumb = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://theclaireai.com" },
     { "@type": "ListItem", position: 2, name: "Solutions", item: "https://theclaireai.com/solutions" },
-    { "@type": "ListItem", position: 3, name: "Family Law", item: BASE_URL },
+    { "@type": "ListItem", position: 3, name: "Legal Intake", item: BASE_URL },
   ],
 };
 
@@ -159,17 +149,17 @@ const webApplicationSchema = {
   "@type": "WebApplication",
   "@id": `${BASE_URL}#webapp`,
   inLanguage: "en-US",
-  name: "ClaireAI — Family Law Intake",
-  alternateName: "AI Receptionist for Family Law Firms",
+  name: "ClaireAI — Legal Intake Service",
+  alternateName: "AI New-Client Intake for Law Firms",
   applicationCategory: "BusinessApplication",
-  applicationSubCategory: "Family Law Intake Automation",
+  applicationSubCategory: "Legal Intake Service",
   operatingSystem: "Web, iOS, Android",
   description: STAGE_ANSWER,
   url: BASE_URL,
   provider: { "@id": "https://theclaireai.com/#organization" },
   audience: {
     "@type": "Audience",
-    audienceType: "U.S. family law firms — divorce, custody, support, domestic violence",
+    audienceType: "U.S. law firms — solo, boutique, and multi-office practices across all practice areas",
   },
   offers: {
     "@type": "AggregateOffer",
@@ -180,16 +170,15 @@ const webApplicationSchema = {
     offerCount: 3,
   },
   featureList: [
-    "Sub-1-second pickup on every family-law call, 24/7/365",
-    "Empathetic intake pacing calibrated for distressed callers",
-    "Domestic violence and emergency-signal escalation",
-    "Conflict screening per ABA Rule 1.18 before any privileged detail",
-    "Response-deadline and ex-parte hearing tracking by jurisdiction",
+    "Your new-client qualifying script run on every call, 24/7/365",
+    "Conflict screening per ABA Rule 1.18 before any case fact",
+    "A–D lead grading with Lead IQ",
+    "Consult booking on your calendar",
+    "DocuSign retainer dispatch to pre-cleared grade-A leads",
+    "Live CRM write-back of contacts, matters, notes, and recordings",
+    "Unlimited concurrent calls — no missed new clients",
     "Bilingual English and Spanish intake",
-    "A–D lead grading with one-page Claire's Brief",
-    "DocuSign retainer dispatch on pre-cleared grade-A leads",
-    "Native sync with Clio, MyCase, Smokeball, PracticePanther, CosmoLex, Lawmatics",
-    "Unlimited concurrency for high-volume firms",
+    "Flat monthly pricing — no per-call or per-lead surcharge",
   ],
 };
 
@@ -197,7 +186,7 @@ const techArticle = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   inLanguage: "en-US",
-  headline: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
+  headline: "Legal Intake Service — AI New-Client Intake for Law Firms",
   description: STAGE_ANSWER,
   url: BASE_URL,
   datePublished: PUBLISHED,
@@ -205,31 +194,29 @@ const techArticle = {
   author: { "@id": "https://theclaireai.com/#organization" },
   publisher: { "@id": "https://theclaireai.com/#organization" },
   mainEntityOfPage: BASE_URL,
-  about: { "@type": "Thing", name: "Family Law Intake Automation" },
+  about: { "@type": "Thing", name: "Legal Intake Service" },
   keywords: [
-    "AI receptionist family law",
-    "family law intake automation",
-    "Clio MyCase Smokeball integration",
-    "family law answering service",
-    "domestic violence intake",
-    "conflict screening Rule 1.18",
+    "legal intake service",
+    "legal intake services",
+    "legal intake call center",
+    "law firm intake service",
+    "client intake for law firms",
   ].join(", "),
 };
 
-
-export default function FamilyLawPage() {
+export default function LegalIntakePage() {
   return (
     <main className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
-      {/* ─────────── Hero (Legora pattern — centered eyebrow + big serif + small CTA) ─────────── */}
+      {/* ─────────── Hero ─────────── */}
       <section className="bg-white px-6 pt-20 sm:pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">
           <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
             <span className="text-[#0a0a0a]/40">SOLUTIONS</span>
             <span className="mx-3 text-[#0a0a0a]/25">·</span>
-            <span className="text-[#0a0a0a]">Family Law</span>
+            <span className="text-[#0a0a0a]">Legal Intake</span>
           </p>
           <h1
             className="mt-8 text-[#0a0a0a] mx-auto"
@@ -241,8 +228,11 @@ export default function FamilyLawPage() {
               maxWidth: "min(20ch, 100%)",
             }}
           >
-            Never miss another divorce, custody, or DV lead.
+            Legal intake that qualifies, books, and signs — on the first call.
           </h1>
+          <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
+            ClaireAI runs your new-client intake on every call, 24/7 — screens conflicts, grades the lead, books the consult, dispatches the retainer, and updates your CRM. Bilingual.
+          </p>
           <div className="mt-10">
             <Link
               href="/contact"
@@ -261,7 +251,7 @@ export default function FamilyLawPage() {
           <div className="relative aspect-[5/4] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-lg">
             <img
               src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg"
-              alt="Modern law-firm reception area with green accent wall"
+              alt="Law-firm building entrance — ClaireAI runs new-client intake on every call, 24/7"
               className="h-full w-full object-cover"
               width="1920"
               height="1080"
@@ -271,12 +261,12 @@ export default function FamilyLawPage() {
         </div>
       </section>
 
-      {/* ─────────── Metric strip (Legora — eyebrow left, 3 metrics right) ─────────── */}
+      {/* ─────────── Metric strip ─────────── */}
       <section className="bg-white px-6 pt-4 md:pt-6 pb-24 md:pb-32">
         <div className="mx-auto max-w-[1680px]">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 lg:gap-16 items-start">
             <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
-              ClaireAI for family law
+              ClaireAI for new-client intake
             </p>
             {METRICS.map((m, i) => (
               <div key={i}>
@@ -307,7 +297,7 @@ export default function FamilyLawPage() {
       <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/[0.06]">
         <div className="mx-auto max-w-[1680px]">
           <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-8">
-            Use cases
+            Why ClaireAI
           </p>
           <h2
             className="text-[#0a0a0a] max-w-[24ch]"
@@ -318,15 +308,15 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            <span className="text-[#0a0a0a]">Built for family-law intake.</span>{" "}
+            <span className="text-[#0a0a0a]">Intake that qualifies the lead, not just records it.</span>{" "}
             <span className="text-[#0a0a0a]/60">
-              Empathetic pacing, conflict-clean, emergency-aware.
+              Screened, graded, booked, and signed — on the first call.
             </span>
           </h2>
         </div>
       </section>
 
-      {/* ─────────── Three feature subsections — Legora alternating bento ─────────── */}
+      {/* ─────────── Three feature subsections — alternating bento ─────────── */}
       {FEATURES.map((f, idx) => {
         const textLeft = idx % 2 === 0;
         const firstClasses = idx === 0 ? "pt-4 md:pt-6" : "";
@@ -363,7 +353,7 @@ export default function FamilyLawPage() {
                   {f.img ? (
                     <img
                       src={f.img}
-                      alt=""
+                      alt={f.imgAlt ?? ""}
                       className="block w-full h-auto rounded-2xl"
                       loading={idx === 0 ? "eager" : "lazy"}
                       fetchPriority={idx === 0 ? "high" : "auto"}
@@ -391,34 +381,59 @@ export default function FamilyLawPage() {
         );
       })}
 
-      {/* ─────────── Security & privacy (4-card grid, family-law-framed) ─────────── */}
-      <TrustGrid variant="family-law" />
+      {/* ─────────── Security & privacy ─────────── */}
+      <TrustGrid variant="default" />
 
-      {/* ─────────── Other practice areas (Legora image-overlay pattern) ─────────── */}
+      {/* ─────────── Intake resources (topic cluster cross-links) ─────────── */}
+      <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/[0.06]">
+        <div className="mx-auto max-w-[1680px]">
+          <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-8 font-normal">
+            Legal intake resources
+          </h2>
+          <ul className="grid gap-x-12 gap-y-4 sm:grid-cols-2 text-[16px] md:text-[17px] leading-[1.5]">
+            <li>
+              <Link href="/blog/2026-legal-intake-benchmark-report" className="text-[#0a0a0a]/75 underline decoration-[#0a0a0a]/20 underline-offset-4 hover:text-[#0a0a0a]">
+                2026 Legal Intake Benchmark Report
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/outsource-legal-intake-guide" className="text-[#0a0a0a]/75 underline decoration-[#0a0a0a]/20 underline-offset-4 hover:text-[#0a0a0a]">
+                Should you outsource legal intake?
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/legal-intake-question-bank" className="text-[#0a0a0a]/75 underline decoration-[#0a0a0a]/20 underline-offset-4 hover:text-[#0a0a0a]">
+                The legal intake question bank
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/open-source-legal-intake-software-2026" className="text-[#0a0a0a]/75 underline decoration-[#0a0a0a]/20 underline-offset-4 hover:text-[#0a0a0a]">
+                Open-source legal intake software in 2026
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ─────────── Related solutions ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#0a0a0a]/[0.06]">
         <div className="mx-auto max-w-[1680px]">
-          {/* Eyebrow above grid */}
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
-            Works with these practice areas
+            Related solutions
           </h2>
-
-          {/* 3-column image-overlay grid (Legora pattern) */}
           <div className="grid gap-6 sm:grid-cols-2">
-            {OTHER_PRACTICE_AREAS.map((item) => (
+            {RELATED.map((item) => (
               <Link
                 key={item.area}
                 href={item.href}
                 className="group relative block aspect-[3/4] cursor-pointer overflow-hidden rounded-lg"
               >
-                {/* Image */}
                 <img
                   src={item.img}
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-
-                {/* Bottom gradient + text overlay */}
                 <div
                   className="absolute inset-x-0 bottom-0 pt-16 sm:pt-24 pb-7 px-7"
                   style={{
@@ -462,7 +477,7 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            Family-law intake, answered.
+            Legal intake, answered.
           </h2>
           <div className="border-t border-[#0a0a0a]/[0.06]">
             {FAQS.map((f, idx) => (
@@ -495,7 +510,7 @@ export default function FamilyLawPage() {
         </div>
       </section>
 
-      {/* ─────────── Final CTA (sage radial — matches site pattern) ─────────── */}
+      {/* ─────────── Final CTA ─────────── */}
       <section
         className="px-6 py-20 md:py-[120px]"
         style={{
@@ -518,11 +533,11 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            Catch every family-law call — with the care it deserves.
+            Turn every call into a qualified matter.
           </h2>
           <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
-              Book a 30-minute walk-through. We&apos;ll show Claire handling a live family-law intake call calibrated to your jurisdiction and rubric.
+              Book a 30-minute walk-through. We&apos;ll show Claire running a live new-client intake calibrated to your firm&apos;s qualifying rubric, conflict rules, and CRM.
             </p>
             <Link
               href="/contact"

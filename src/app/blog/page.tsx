@@ -6,7 +6,7 @@ import { cloudinaryCrop } from "@/lib/cloudinary";
 const BASE_URL = "https://theclaireai.com/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Research, guides, and insights for legal intake | ClaireAI",
+  title: "Blog — Research, guides, and insights for legal intake",
   description:
     "Research, guides, and insights on legal intake, AI receptionists, missed-call recovery, and law firm operations from the ClaireAI team.",
   alternates: { canonical: BASE_URL },

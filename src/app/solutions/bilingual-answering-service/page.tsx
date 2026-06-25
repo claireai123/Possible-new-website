@@ -3,31 +3,31 @@ import Link from "next/link";
 import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
-const PUBLISHED = "2026-05-18";
-const LAST_UPDATED = "2026-05-18";
-const BASE_URL = "https://theclaireai.com/solutions/family-law";
+const PUBLISHED = "2026-06-25";
+const LAST_UPDATED = "2026-06-25";
+const BASE_URL = "https://theclaireai.com/solutions/bilingual-answering-service";
 
 export const metadata: Metadata = {
-  title: "Family Law Intake — AI Receptionist",
+  title: "Bilingual Answering Service for Law Firms — Spanish, 24/7",
   description:
-    "AI receptionist for family law. Empathetic pacing, DV escalation, Rule 1.18 conflict checks, deadline tracking, bilingual intake.",
+    "Spanish answering service for attorneys. Claire detects Spanish on the first phrase, runs full intake in Spanish, and translates transcripts for review. Bilingual, 24/7.",
   keywords: [
-    "AI receptionist family law",
-    "family law intake automation",
-    "divorce law firm answering service",
-    "custody intake 24/7",
-    "domestic violence intake AI",
-    "Clio family law integration",
-    "MyCase intake family law",
-    "Smokeball family law AI",
-    "family law lead qualification",
-    "family law conflict check",
+    "spanish answering service for attorneys",
+    "bilingual law firm answering service",
+    "bilingual answering service",
+    "spanish answering service for lawyers",
+    "spanish speaking answering service",
+    "spanish legal intake",
+    "bilingual virtual receptionist",
+    "spanish virtual receptionist for lawyers",
+    "spanish legal answering service",
+    "bilingual answering service for law firms",
   ],
   alternates: { canonical: BASE_URL },
   openGraph: {
-    title: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
+    title: "Bilingual Answering Service for Law Firms — Spanish and English, 24/7",
     description:
-      "Empathetic pacing, DV escalation, conflict screening, deadline tracking, bilingual intake, retainer dispatch. Built for family law.",
+      "The bilingual answering service built for law firms. Claire detects Spanish on the first phrase, runs full intake in Spanish, translates transcripts for attorney review, and works 24/7.",
     url: BASE_URL,
     type: "article",
     publishedTime: PUBLISHED,
@@ -35,112 +35,97 @@ export const metadata: Metadata = {
   },
 };
 
-const STAGE_ANSWER = `ClaireAI is the AI receptionist purpose-built for family law intake. Claire picks up on the first ring — no IVR, no hold music — runs your firm's family-law qualifying flow with empathetic pacing, captures the case type (divorce, legal separation, custody, support, modification, DV/PFA), screens for conflicts under Rule 1.18 before any privileged detail is shared, flags emergency signals (domestic violence, child abduction risk, financial waste, court-ordered deadlines), books the consult, grades the lead A through D, and dispatches a one-page Claire's Brief to your intake team within seconds. Bilingual English and Spanish out of the box.`;
+const STAGE_ANSWER = `ClaireAI is a bilingual answering service built for law firms. Claire detects Spanish on the caller's first phrase and runs your firm's entire intake in Spanish — capturing the matter, jurisdiction, and urgency, screening for conflicts under ABA Rule 1.18, grading the lead, and booking the consult — with seamless mid-call switching between Spanish and English. Every transcript is translated to English for attorney review, with the original Spanish stored alongside as a record of the caller's statements. It answers 24/7/365 with unlimited concurrent calls and writes every contact and matter into Clio, MyCase, or PracticePanther during the call. For firms serving Spanish-speaking communities, no qualified caller is lost at hello. Starts at $450/month.`;
 
 const METRICS: { value: string; label: string; source: string }[] = [
   {
-    value: "35%",
-    label: "of inbound legal calls go unanswered today.",
-    source: "ClaireAI 2026 Legal Intake Benchmark (1,000 firms)",
-  },
-  {
-    value: "30 days",
-    label: "typical response deadline to a divorce or custody petition.",
-    source: "State rules of civil procedure",
+    value: "42M",
+    label: "U.S. residents speak Spanish at home — the largest non-English language by far.",
+    source: "U.S. Census Bureau",
   },
   {
     value: "5×",
-    label: "conversion lift when leads are contacted within five minutes.",
+    label: "conversion lift when a new lead is contacted within five minutes.",
     source: "Forrester / InsideSales",
+  },
+  {
+    value: "24/7",
+    label: "bilingual coverage — first-ring pickup in Spanish or English.",
+    source: "ClaireAI uptime SLA",
   },
 ];
 
 const FEATURES: { headline: string; body: string; img?: string; imgAlt?: string }[] = [
   {
-    headline: "Empathetic intake calibrated for family-law callers.",
-    body: "Family-law prospects often call at the worst moment — separation, custody dispute, DV, served papers. Claire validates, slows the pace, and captures case type, opposing party, children, prior orders, and jurisdiction in your CRM without re-traumatizing the caller.",
+    headline: "Spanish detected on the first phrase — not after a transfer.",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
+    imgAlt: "ClaireAI detecting Spanish on the caller's first phrase and continuing the call in Spanish — no hold, no transfer.",
+    body: "Traditional bilingual answering services put Spanish-speaking callers on hold while they find a bilingual agent, or route them to voicemail after hours. Claire detects Spanish on the caller's very first words and continues the entire conversation in Spanish — no hold, no transfer, no \"please wait.\" English-speaking callers are handled the same way, instantly.",
+  },
+  {
+    headline: "Full legal intake in Spanish — not just message-taking.",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779201988/ChatGPT_Image_May_19_2026_at_10_46_10_AM.jpg",
-    imgAlt: "ClaireAI empathetic family-law intake — distressed-caller pacing with structured CRM record built live on the call",
+    imgAlt: "ClaireAI running full legal intake and building a structured record from a Spanish-language call.",
+    body: "Claire runs your complete qualifying flow in Spanish: matter type, jurisdiction, urgency, opposing party, and conflict screening under Rule 1.18. It grades the lead, books the consult, and dispatches a brief — the same depth of intake a Spanish-speaking caller would get from your best bilingual receptionist, on every call, around the clock.",
   },
   {
-    headline: "DV and emergency-signal escalation, on the line.",
-    body: "Claire detects domestic violence, child abduction risk, financial waste, and ex-parte urgency in real time. Emergencies warm-transfer to on-call counsel with a pre-briefed handoff. If unavailable, Claire offers 911 and the National DV Hotline (1-800-799-7233) and pages your escalation chain by SMS, push, and voice.",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202513/ChatGPT_Image_May_19_2026_at_10_54_57_AM.jpg",
-    imgAlt: "ClaireAI family-law DV and emergency-signal escalation — domestic violence, child abduction risk, and ex-parte urgency detected and warm-transferred to on-call attorney",
-  },
-  {
-    headline: "Conflict screening before a single privileged detail.",
-    body: "Family law has the highest conflict-rate of any practice — spouses, paramours, in-laws, prior counsel. Claire collects caller, opposing party's full legal name, prior counsel, and related parties up front, then runs a fuzzy-match conflict check against your CRM before any case facts. Rule 1.18 prospective-client confidentiality, enforced at the door.",
+    headline: "Transcripts translated for your team — the original Spanish preserved.",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779202793/ChatGPT_Image_May_19_2026_at_10_59_38_AM.jpg",
-    imgAlt: "ClaireAI family-law conflict screening — fuzzy-match check against caller, opposing party, prior counsel, and related parties before any privileged detail is taken (Rule 1.18 prospective-client confidentiality)",
+    imgAlt: "ClaireAI structuring the call details with the transcript captured for translated attorney review.",
+    body: "Your attorneys don't need to speak Spanish to use the intake. Every Spanish call is transcribed and translated to English for review, with the original Spanish stored alongside as an accurate record of what the caller said. Mid-call English switching handles mixed-language households without missing a detail.",
   },
 ];
 
-const OTHER_PRACTICE_AREAS: { area: string; desc: string; href: string; img: string }[] = [
+const RELATED: { area: string; desc: string; href: string; img: string }[] = [
   {
-    area: "Personal Injury",
-    desc: "Sub-1-second pickup. Statute-of-limitations triage, full insurance-layer capture (PIP, BI, UIM/UM, MedPay), DocuSign retainer dispatch on grade-A leads.",
-    href: "/solutions/personal-injury",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+    area: "Legal Answering Service",
+    desc: "24/7 first-ring answering, after-hours and overflow coverage, full intake and conflict screening — the AI answering service for law firms.",
+    href: "/solutions/legal-answering-service",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg",
   },
   {
-    area: "Criminal Defense",
-    desc: "Collect calls from detention facilities accepted. Arraignment, bail-hearing, and grand-jury deadlines tracked; on-call counsel paged by SMS for in-custody matters.",
-    href: "/solutions/criminal-defense",
-    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774652618/kateryna-hliznitsova-8a1b7Ldia_w-unsplash.jpg",
+    area: "Virtual Receptionist for Law Firms",
+    desc: "First-ring pickup, calendar booking, call routing, and warm transfers — a 24/7 virtual receptionist tuned for legal callers.",
+    href: "/solutions/virtual-receptionist",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
   },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
   {
-    question: "How does Claire handle a domestic violence caller?",
+    question: "What is a bilingual answering service for a law firm?",
     answer:
-      "Claire is calibrated to detect DV markers — present-danger language, mentions of a current incident, fear of the other party, children present, a recent ER visit — and warm-transfers to your on-call attorney within seconds with a pre-briefed handoff so the caller does not repeat their story. If no attorney is available, Claire stays on the line, offers 911 and the National Domestic Violence Hotline (1-800-799-7233), and pages your escalation chain by SMS, push, and voice simultaneously. PFA, TPO, and emergency-custody filings are flagged in the brief.",
+      "A bilingual answering service answers a law firm's calls in both English and Spanish, so Spanish-speaking callers can be greeted, qualified, and helped without a language barrier. ClaireAI is an AI bilingual answering service: Claire detects Spanish on the caller's first phrase and runs your firm's entire intake in Spanish — capturing the matter, screening conflicts, grading the lead, and booking the consult — then translates the transcript to English for your team. It works 24/7 with no hold time and no transfer to a separate Spanish line.",
   },
   {
-    question: "Will Claire run a conflict check before taking case facts?",
+    question: "Is ClaireAI a Spanish answering service for attorneys specifically?",
     answer:
-      "Yes — at the door, before any privileged fact lands in your file. Claire takes the caller's legal name, the opposing party's legal name, every paramour named, prior counsel, and any related parties, then runs a fuzzy-match check against your CRM in real time. Flagged conflicts get a name-and-number-only retention and route to your conflict-clearance workflow — Rule 1.18 prospective-client confidentiality enforced at intake.",
+      "Yes. ClaireAI works as a Spanish answering service for attorneys and law firms across every practice area. Because so many high-value legal matters — personal injury, criminal defense, immigration-adjacent family law — disproportionately reach Spanish-speaking callers, capturing them in Spanish on the first call is often the difference between signing the client and losing them to the next firm. Claire qualifies the Spanish-speaking caller to the same depth as an English one.",
   },
   {
-    question: "Can Claire qualify a family-law caller in Spanish?",
+    question: "Does the caller get put on hold to wait for a Spanish speaker?",
     answer:
-      "Yes. First-phrase language detection. Claire runs the family-law intake in Spanish — case type, opposing party, children, prior orders, urgency — and supports mid-call switching when callers default to English for legal terminology. Transcripts translated to English for attorney review, with the original Spanish stored alongside.",
+      "No. That hold-and-transfer step is exactly where most bilingual answering services lose Spanish-speaking callers. Claire detects Spanish on the first phrase and continues the entire conversation in Spanish immediately — no hold music, no \"un momento,\" no transfer to a separate line. It also handles mid-call switching for mixed-language households.",
   },
   {
-    question: "How does Claire handle court-deadline urgency on a family-law call?",
+    question: "Can my attorneys review Spanish calls if they don't speak Spanish?",
     answer:
-      "Claire is jurisdiction-aware on response deadlines (most states are 20 or 30 days from service), ex-parte and TRO hearings, PFA return dates, and emergency-custody filings. Calls within the deadline window are hard-coded to skip auto-rejection and route to a partner with the deadline math, the case type, and the urgency context already in the brief. A 19-day-out response deadline never gets parked in a queue.",
+      "Yes. Every Spanish call is transcribed and translated to English for attorney review, with the original Spanish stored alongside as an accurate record of the caller's statements. Your team gets a clear English brief — matter, jurisdiction, urgency, conflict-screen status, and lead grade — without needing to speak Spanish.",
   },
   {
-    question: "How does Claire grade a family-law lead A through D?",
+    question: "Does the bilingual service work 24/7, including after hours?",
     answer:
-      "Lead IQ scores every call against your family-law rubric in real time: case type, asset complexity, custody contest, jurisdiction, prior counsel, urgency, ability to pay the retainer, and conflict-screen status. A grades reach a partner within minutes; B grades book a consult by SMS; C grades enter a softer family-law nurture sequence; D grades (pro-se, out-of-jurisdiction, conflicts) route to a referral. The rubric retrains weekly from your intake lead's overrides.",
+      "Yes. Claire answers in Spanish or English 24/7/365 — including nights, weekends, and holidays — with unlimited concurrent calls. After-hours coverage matters most for Spanish-speaking callers, who are even less likely to leave a voicemail when they reach a recording in a language other than their own.",
   },
   {
-    question: "Does Claire integrate with Clio, MyCase, Smokeball, and PracticePanther?",
+    question: "Does Claire integrate with Clio, MyCase, and PracticePanther for Spanish intake?",
     answer:
-      "Yes — natively. Family-law field mappings are pre-built: Clio Grow with custom matter types and conflict-screen fields, MyCase intake forms with party roles and child information, Smokeball form automations, PracticePanther custom case stages. Claire writes contacts, matters, party records, briefs, and calendar entries into your CRM during the call — no copy-paste, no manual data entry, no Zapier middleware.",
+      "Yes — natively. Claire writes contacts, matters, intake notes, briefs, and call recordings into Clio Grow, MyCase, PracticePanther, Smokeball, Rocket Matter, and CosmoLex during the call, with the translated English transcript and the original Spanish both attached. No copy-paste, no Zapier middleware.",
   },
   {
-    question: "Can Claire send a retainer agreement on the call?",
+    question: "What does a bilingual answering service cost with ClaireAI?",
     answer:
-      "For pre-cleared grade-A leads where conflict screening is clean, yes. Claire confirms the prospect's name, mailing address, and engagement scope on the call, then e-sends your firm's DocuSign retainer template (firm-branded, your fee schedule) within seconds. Family law commonly requires a higher-touch consultation before retainer, and the rubric can be set to consult-first if that's your firm's preference. For B, C, and D leads the standard nurture flow runs instead.",
-  },
-  {
-    question: "What if the caller is distressed, crying, or in active crisis?",
-    answer:
-      "Family-law callers in crisis show different markers than other practices — \"served,\" \"my kids,\" fear of the other party, present-danger language. Claire warm-transfers to your on-call attorney within seconds with a pre-briefed handoff. If no attorney is available, Claire stays on line, offers 911 and the National DV Hotline (1-800-799-7233), and pages your escalation chain by SMS, push, and voice.",
-  },
-  {
-    question: "How does Claire handle high-asset divorce intake?",
-    answer:
-      "Claire's rubric flags high-asset markers — business ownership, real-estate portfolio, retirement-plan complexity, equity compensation, premarital assets, suspected hidden assets — and routes those leads to a partner within minutes. The brief surfaces the asset profile so the partner walks into the consult already calibrated on case value. Lead grading prioritizes asset complexity and contested-custody flags above call volume.",
-  },
-  {
-    question: "What does family-law intake cost with ClaireAI?",
-    answer:
-      "Family-law firms deploy Claire at $450/month with DV-escalation protocols, Rule 1.18 conflict screening (including paramour matching), PFA/TPO deadline tracking, and DocuSign retainer dispatch on cleared leads. No per-call surcharge, no after-hours premium. Most firms replace a $2,500-$4,500/month answering service or $4,000+ FTE receptionist with a $450-$1,800/month Claire plan.",
+      "ClaireAI starts at $450/month with 24/7 bilingual answering, full Spanish-language intake, conflict screening, consult booking, transcript translation, and CRM sync — no per-call surcharge and no premium for Spanish-language calls. Most firms replace a human bilingual answering service that bills per minute. See the pricing page for current plans.",
   },
 ];
 
@@ -150,7 +135,7 @@ const breadcrumb = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://theclaireai.com" },
     { "@type": "ListItem", position: 2, name: "Solutions", item: "https://theclaireai.com/solutions" },
-    { "@type": "ListItem", position: 3, name: "Family Law", item: BASE_URL },
+    { "@type": "ListItem", position: 3, name: "Bilingual Answering Service", item: BASE_URL },
   ],
 };
 
@@ -159,17 +144,17 @@ const webApplicationSchema = {
   "@type": "WebApplication",
   "@id": `${BASE_URL}#webapp`,
   inLanguage: "en-US",
-  name: "ClaireAI — Family Law Intake",
-  alternateName: "AI Receptionist for Family Law Firms",
+  name: "ClaireAI — Bilingual Answering Service for Law Firms",
+  alternateName: "Spanish Answering Service for Attorneys",
   applicationCategory: "BusinessApplication",
-  applicationSubCategory: "Family Law Intake Automation",
+  applicationSubCategory: "Bilingual Legal Answering Service",
   operatingSystem: "Web, iOS, Android",
   description: STAGE_ANSWER,
   url: BASE_URL,
   provider: { "@id": "https://theclaireai.com/#organization" },
   audience: {
     "@type": "Audience",
-    audienceType: "U.S. family law firms — divorce, custody, support, domestic violence",
+    audienceType: "U.S. law firms serving Spanish-speaking clients across all practice areas",
   },
   offers: {
     "@type": "AggregateOffer",
@@ -180,16 +165,15 @@ const webApplicationSchema = {
     offerCount: 3,
   },
   featureList: [
-    "Sub-1-second pickup on every family-law call, 24/7/365",
-    "Empathetic intake pacing calibrated for distressed callers",
-    "Domestic violence and emergency-signal escalation",
-    "Conflict screening per ABA Rule 1.18 before any privileged detail",
-    "Response-deadline and ex-parte hearing tracking by jurisdiction",
-    "Bilingual English and Spanish intake",
-    "A–D lead grading with one-page Claire's Brief",
-    "DocuSign retainer dispatch on pre-cleared grade-A leads",
-    "Native sync with Clio, MyCase, Smokeball, PracticePanther, CosmoLex, Lawmatics",
-    "Unlimited concurrency for high-volume firms",
+    "Spanish detection on the caller's first phrase — no hold, no transfer",
+    "Full legal intake conducted in Spanish",
+    "Seamless mid-call switching between Spanish and English",
+    "Transcripts translated to English with original Spanish preserved",
+    "Conflict screening per ABA Rule 1.18",
+    "24/7/365 bilingual coverage with unlimited concurrent calls",
+    "A–D lead grading and consult booking",
+    "Native sync with Clio, MyCase, PracticePanther, Smokeball, Rocket Matter, CosmoLex",
+    "Flat monthly pricing — no per-call or Spanish-language premium",
   ],
 };
 
@@ -197,7 +181,7 @@ const techArticle = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   inLanguage: "en-US",
-  headline: "Family Law Intake — AI Receptionist for Divorce, Custody, and DV Firms",
+  headline: "Bilingual Answering Service for Law Firms — Spanish and English, 24/7",
   description: STAGE_ANSWER,
   url: BASE_URL,
   datePublished: PUBLISHED,
@@ -205,31 +189,29 @@ const techArticle = {
   author: { "@id": "https://theclaireai.com/#organization" },
   publisher: { "@id": "https://theclaireai.com/#organization" },
   mainEntityOfPage: BASE_URL,
-  about: { "@type": "Thing", name: "Family Law Intake Automation" },
+  about: { "@type": "Thing", name: "Bilingual Legal Answering Service" },
   keywords: [
-    "AI receptionist family law",
-    "family law intake automation",
-    "Clio MyCase Smokeball integration",
-    "family law answering service",
-    "domestic violence intake",
-    "conflict screening Rule 1.18",
+    "spanish answering service for attorneys",
+    "bilingual law firm answering service",
+    "bilingual answering service",
+    "spanish legal intake",
+    "bilingual virtual receptionist",
   ].join(", "),
 };
 
-
-export default function FamilyLawPage() {
+export default function BilingualAnsweringServicePage() {
   return (
     <main className="min-h-[100dvh] bg-white text-[#0a0a0a] font-sans selection:bg-[#0a0a0a]/10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
-      {/* ─────────── Hero (Legora pattern — centered eyebrow + big serif + small CTA) ─────────── */}
+      {/* ─────────── Hero ─────────── */}
       <section className="bg-white px-6 pt-20 sm:pt-28 md:pt-36 pb-16">
         <div className="mx-auto max-w-[1680px] text-center">
           <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
             <span className="text-[#0a0a0a]/40">SOLUTIONS</span>
             <span className="mx-3 text-[#0a0a0a]/25">·</span>
-            <span className="text-[#0a0a0a]">Family Law</span>
+            <span className="text-[#0a0a0a]">Bilingual Answering Service</span>
           </p>
           <h1
             className="mt-8 text-[#0a0a0a] mx-auto"
@@ -241,8 +223,11 @@ export default function FamilyLawPage() {
               maxWidth: "min(20ch, 100%)",
             }}
           >
-            Never miss another divorce, custody, or DV lead.
+            No Spanish-speaking caller lost at hello.
           </h1>
+          <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
+            ClaireAI detects Spanish on the first phrase, runs your full intake in Spanish, and translates every transcript for your team — bilingual, 24/7, no hold and no transfer.
+          </p>
           <div className="mt-10">
             <Link
               href="/contact"
@@ -260,8 +245,8 @@ export default function FamilyLawPage() {
         <div className="mx-auto max-w-[1680px]">
           <div className="relative aspect-[5/4] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-lg">
             <img
-              src="https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg"
-              alt="Modern law-firm reception area with green accent wall"
+              src="https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_16:9,w_1920,q_auto,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg"
+              alt="Law-firm conference room with a city view — ClaireAI answers Spanish-speaking callers on the first ring"
               className="h-full w-full object-cover"
               width="1920"
               height="1080"
@@ -271,12 +256,12 @@ export default function FamilyLawPage() {
         </div>
       </section>
 
-      {/* ─────────── Metric strip (Legora — eyebrow left, 3 metrics right) ─────────── */}
+      {/* ─────────── Metric strip ─────────── */}
       <section className="bg-white px-6 pt-4 md:pt-6 pb-24 md:pb-32">
         <div className="mx-auto max-w-[1680px]">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 lg:gap-16 items-start">
             <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55">
-              ClaireAI for family law
+              ClaireAI in Spanish and English
             </p>
             {METRICS.map((m, i) => (
               <div key={i}>
@@ -307,7 +292,7 @@ export default function FamilyLawPage() {
       <section className="bg-white px-6 py-20 md:py-24 border-t border-[#0a0a0a]/[0.06]">
         <div className="mx-auto max-w-[1680px]">
           <p className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-8">
-            Use cases
+            Why ClaireAI
           </p>
           <h2
             className="text-[#0a0a0a] max-w-[24ch]"
@@ -318,15 +303,15 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            <span className="text-[#0a0a0a]">Built for family-law intake.</span>{" "}
+            <span className="text-[#0a0a0a]">Real bilingual intake — not a transfer to a Spanish line.</span>{" "}
             <span className="text-[#0a0a0a]/60">
-              Empathetic pacing, conflict-clean, emergency-aware.
+              Detected, qualified, and translated for your team — 24/7.
             </span>
           </h2>
         </div>
       </section>
 
-      {/* ─────────── Three feature subsections — Legora alternating bento ─────────── */}
+      {/* ─────────── Three feature subsections — alternating bento ─────────── */}
       {FEATURES.map((f, idx) => {
         const textLeft = idx % 2 === 0;
         const firstClasses = idx === 0 ? "pt-4 md:pt-6" : "";
@@ -363,7 +348,7 @@ export default function FamilyLawPage() {
                   {f.img ? (
                     <img
                       src={f.img}
-                      alt=""
+                      alt={f.imgAlt ?? ""}
                       className="block w-full h-auto rounded-2xl"
                       loading={idx === 0 ? "eager" : "lazy"}
                       fetchPriority={idx === 0 ? "high" : "auto"}
@@ -391,34 +376,28 @@ export default function FamilyLawPage() {
         );
       })}
 
-      {/* ─────────── Security & privacy (4-card grid, family-law-framed) ─────────── */}
-      <TrustGrid variant="family-law" />
+      {/* ─────────── Security & privacy ─────────── */}
+      <TrustGrid variant="default" />
 
-      {/* ─────────── Other practice areas (Legora image-overlay pattern) ─────────── */}
+      {/* ─────────── Related solutions ─────────── */}
       <section className="bg-white px-6 py-24 md:py-32 border-t border-[#0a0a0a]/[0.06]">
         <div className="mx-auto max-w-[1680px]">
-          {/* Eyebrow above grid */}
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
-            Works with these practice areas
+            Related solutions
           </h2>
-
-          {/* 3-column image-overlay grid (Legora pattern) */}
           <div className="grid gap-6 sm:grid-cols-2">
-            {OTHER_PRACTICE_AREAS.map((item) => (
+            {RELATED.map((item) => (
               <Link
                 key={item.area}
                 href={item.href}
                 className="group relative block aspect-[3/4] cursor-pointer overflow-hidden rounded-lg"
               >
-                {/* Image */}
                 <img
                   src={item.img}
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-
-                {/* Bottom gradient + text overlay */}
                 <div
                   className="absolute inset-x-0 bottom-0 pt-16 sm:pt-24 pb-7 px-7"
                   style={{
@@ -462,7 +441,7 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            Family-law intake, answered.
+            Bilingual intake, answered.
           </h2>
           <div className="border-t border-[#0a0a0a]/[0.06]">
             {FAQS.map((f, idx) => (
@@ -495,7 +474,7 @@ export default function FamilyLawPage() {
         </div>
       </section>
 
-      {/* ─────────── Final CTA (sage radial — matches site pattern) ─────────── */}
+      {/* ─────────── Final CTA ─────────── */}
       <section
         className="px-6 py-20 md:py-[120px]"
         style={{
@@ -518,11 +497,11 @@ export default function FamilyLawPage() {
               fontWeight: 500,
             }}
           >
-            Catch every family-law call — with the care it deserves.
+            Answer every caller in their language.
           </h2>
           <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
-              Book a 30-minute walk-through. We&apos;ll show Claire handling a live family-law intake call calibrated to your jurisdiction and rubric.
+              Book a 30-minute walk-through. We&apos;ll show Claire running a live Spanish-language intake call calibrated to your firm&apos;s script and CRM.
             </p>
             <Link
               href="/contact"

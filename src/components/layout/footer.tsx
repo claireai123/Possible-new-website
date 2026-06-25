@@ -14,6 +14,10 @@ const cols = {
     { name: "Pricing", href: "/pricing" },
   ],
   Solutions: [
+    { name: "Legal Answering Service", href: "/solutions/legal-answering-service" },
+    { name: "Virtual Receptionist", href: "/solutions/virtual-receptionist" },
+    { name: "Legal Intake", href: "/solutions/legal-intake" },
+    { name: "Bilingual Answering Service", href: "/solutions/bilingual-answering-service" },
     { name: "Personal Injury", href: "/solutions/personal-injury" },
     { name: "Family Law", href: "/solutions/family-law" },
     { name: "Criminal Defense", href: "/solutions/criminal-defense" },

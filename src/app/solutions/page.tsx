@@ -62,6 +62,53 @@ const SOLUTIONS: SolutionCard[] = [
   },
 ];
 
+const SERVICES: SolutionCard[] = [
+  {
+    slug: "legal-answering-service",
+    area: "Legal Answering Service",
+    lead:
+      "The AI answering service for law firms. Every call answered on the first ring, 24/7 — after-hours and overflow included — then qualified, conflict-screened, booked, and briefed, not just taken as a message.",
+    bullets: [
+      "24/7 first-ring pickup, unlimited concurrent calls",
+      "Full intake and Rule 1.18 conflict screening on every call",
+      "Flat monthly pricing — no per-call or after-hours surcharge",
+    ],
+  },
+  {
+    slug: "virtual-receptionist",
+    area: "Virtual Receptionist",
+    lead:
+      "An AI virtual receptionist that greets and routes every caller in 0.8 seconds, books consults on your calendar, and warm-transfers live calls to your team — the front desk you never have to staff.",
+    bullets: [
+      "Call greeting, routing, and warm transfer",
+      "Consult booking with confirmations and reminders",
+      "Bilingual, 24/7, never a busy signal",
+    ],
+  },
+  {
+    slug: "legal-intake",
+    area: "Legal Intake",
+    lead:
+      "AI new-client intake on every call: your qualifying script, conflict screening, A–D lead grading with Lead IQ, consult booking, and DocuSign retainer dispatch — written back to your CRM live.",
+    bullets: [
+      "A–D lead grading against your rubric",
+      "Retainer dispatch to pre-cleared grade-A leads",
+      "Native Clio, MyCase, PracticePanther sync",
+    ],
+  },
+  {
+    slug: "bilingual-answering-service",
+    area: "Bilingual Answering Service",
+    lead:
+      "A bilingual answering service that detects Spanish on the first phrase and runs your full intake in Spanish — no hold, no transfer — then translates every transcript to English for your team.",
+    bullets: [
+      "Spanish detected on the first phrase",
+      "Full Spanish-language intake, transcripts translated",
+      "24/7 coverage for Spanish-speaking callers",
+    ],
+  },
+];
+
 export default function SolutionsIndexPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -74,7 +121,7 @@ export default function SolutionsIndexPage() {
     isPartOf: { "@id": `${BASE_URL}/#website` },
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: SOLUTIONS.map((s, i) => ({
+      itemListElement: [...SOLUTIONS, ...SERVICES].map((s, i) => ({
         "@type": "ListItem",
         position: i + 1,
         url: `${BASE_URL}/solutions/${s.slug}`,
@@ -125,7 +172,9 @@ export default function SolutionsIndexPage() {
 
       {/* ─────────── Solutions list ─────────── */}
       <section className="px-6 pb-24 border-t border-[#0a0a0a]/[0.08]">
-        <div className="mx-auto max-w-[1100px] pt-16 space-y-20">
+        <div className="mx-auto max-w-[1100px] pt-16">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/45">By practice area</p>
+          <div className="mt-12 space-y-20">
           {SOLUTIONS.map((s) => (
             <article key={s.slug} className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.6fr]">
               <div>
@@ -166,6 +215,51 @@ export default function SolutionsIndexPage() {
               </div>
             </article>
           ))}
+          </div>
+
+          <p className="mt-24 text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/45">By service line</p>
+          <div className="mt-12 space-y-20">
+          {SERVICES.map((s) => (
+            <article key={s.slug} className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.6fr]">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/55">{s.area}</p>
+                <h2
+                  className="mt-4 max-w-[14ch] text-[#0a0a0a]"
+                  style={{
+                    fontSize: "clamp(26px, 2.6vw, 32px)",
+                    lineHeight: "1.1",
+                    letterSpacing: "-0.02em",
+                    fontWeight: 400,
+                  }}
+                >
+                  Built for {s.area.toLowerCase()}.
+                </h2>
+              </div>
+              <div className="max-w-[58ch]">
+                <p
+                  className="text-[#0a0a0a]"
+                  style={{ fontSize: "18px", lineHeight: "1.55", fontWeight: 400 }}
+                >
+                  {s.lead}
+                </p>
+                <ul className="mt-6 list-disc pl-5 space-y-2 text-[15.5px] leading-[1.55] text-[#0a0a0a]/75 marker:text-[#0a0a0a]/35">
+                  {s.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <Link
+                    href={`/solutions/${s.slug}`}
+                    className="inline-flex items-center gap-2 text-[14px] text-[#0a0a0a] underline underline-offset-4 decoration-[#0a0a0a]/30 hover:decoration-[#0a0a0a]"
+                  >
+                    See the {s.area.toLowerCase()} build
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+          </div>
         </div>
       </section>
 

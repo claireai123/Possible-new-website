@@ -8,7 +8,7 @@ const LAST_UPDATED = "2026-05-19";
 const BASE_URL = "https://theclaireai.com/solutions/criminal-defense";
 
 export const metadata: Metadata = {
-  title: "Criminal Defense Intake — AI Receptionist | ClaireAI",
+  title: "Criminal Defense Intake — AI Receptionist",
   description:
     "AI receptionist for criminal defense. Arraignment-deadline triage, accepts collect calls from jail, Rule 1.18 conflict checks, bilingual.",
   keywords: [
