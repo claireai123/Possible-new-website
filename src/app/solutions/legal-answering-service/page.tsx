@@ -4,7 +4,7 @@ import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
 const PUBLISHED = "2026-06-25";
-const LAST_UPDATED = "2026-06-25";
+const LAST_UPDATED = "2026-06-26";
 const BASE_URL = "https://theclaireai.com/solutions/legal-answering-service";
 
 export const metadata: Metadata = {
@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     description:
       "Every call answered on the first ring, qualified, conflict-screened, and booked — 24/7/365. The AI legal answering service that does intake, not just message-taking. Bilingual.",
     url: BASE_URL,
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_1.91:1,w_1200,h_630,q_auto,f_jpg/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaireAI — AI legal answering service for law firms, answering every call 24/7",
+      },
+    ],
     type: "article",
     publishedTime: PUBLISHED,
     modifiedTime: LAST_UPDATED,
@@ -89,6 +97,12 @@ const RELATED: { area: string; desc: string; href: string; img: string }[] = [
     href: "/solutions/legal-intake",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
   },
+  {
+    area: "Bilingual Answering Service",
+    desc: "End-to-end intake in Spanish and English — Claire detects the caller’s language on the first phrase, so no Spanish-speaking client is lost at hello.",
+    href: "/solutions/bilingual-answering-service",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
+  },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
@@ -98,19 +112,19 @@ const FAQS: { question: string; answer: string }[] = [
       "A legal answering service answers a law firm's inbound calls when the firm can't — after hours, during overflow, or around the clock. A traditional service is a human call center that takes a message and forwards it. ClaireAI is an AI legal answering service: Claire answers on the first ring 24/7, runs your firm's intake script, qualifies the caller, screens for conflicts, books the consult, and writes the matter into your CRM during the call. You get booked consults and structured matters instead of message slips.",
   },
   {
-    question: "Does ClaireAI work as an answering service for attorneys and law firms of any size?",
+    question: "Does ClaireAI work as an attorney answering service for law firms of any size?",
     answer:
       "Yes. ClaireAI works as an answering service for solo attorneys, boutique firms, and high-volume multi-office practices alike. Because Claire handles unlimited concurrent calls, it never gives a busy signal during a spike — every caller is answered on the first ring, qualified, and routed. Intake scripts ship pre-calibrated for personal injury, criminal defense, and family law, and are fully customizable to your firm's matters and rules.",
   },
   {
     question: "Is ClaireAI a 24/7 answering service, including nights, weekends, and holidays?",
     answer:
-      "Yes — Claire answers 24/7/365 with first-ring pickup on nights, weekends, holidays, and lunch hours. It also handles daytime overflow: when your front desk is on another line, the call rolls to Claire instead of voicemail. Roughly two-thirds of callers sent to voicemail hang up without leaving a message, so after-hours and overflow coverage is where a legal answering service recovers the most clients.",
+      "Yes — Claire answers 24/7/365 with first-ring pickup on nights, weekends, holidays, and lunch hours. It also handles daytime overflow: when your front desk is on another line, the call rolls to Claire instead of voicemail. Roughly two-thirds of callers sent to voicemail hang up without leaving a message, so after-hours and overflow coverage is where a law firm answering service recovers the most clients.",
   },
   {
     question: "How is an AI answering service better than a human call center for lawyers?",
     answer:
-      "A human answering service for lawyers is limited by staffing, queue times, and per-minute or per-call billing, and it usually can't do more than take a message. ClaireAI answers instantly, never queues, handles unlimited calls at once, and actually qualifies the caller — conflict screening, lead grading, consult booking, and CRM write-back — at a flat monthly rate with no per-call surcharge. It also doesn't have turnover, sick days, or off-script calls.",
+      "A traditional lawyer answering service is limited by staffing, queue times, and per-minute or per-call billing, and it usually can't do more than take a message. ClaireAI answers instantly, never queues, handles unlimited calls at once, and actually qualifies the caller — conflict screening, lead grading, consult booking, and CRM write-back — at a flat monthly rate with no per-call surcharge. It also doesn't have turnover, sick days, or off-script calls.",
   },
   {
     question: "Does ClaireAI just take messages, or does it actually do intake?",
@@ -239,13 +253,19 @@ export default function LegalAnsweringServicePage() {
           <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
             ClaireAI answers every call on the first ring, 24/7 — qualifies the caller, screens for conflicts, books the consult, and briefs the right attorney. The AI answering service built for law firms.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#e8e6e1] px-6 py-3 text-[14.5px] text-[#0a0a0a] transition-colors hover:bg-[#0a0a0a] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0a0a0a] px-6 py-3 text-[14.5px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
-              Book a demo
+              Start your 7-day free trial
               <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[14.5px] text-[#0a0a0a]/70 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+            >
+              or book a demo
             </Link>
           </div>
         </div>
@@ -396,7 +416,7 @@ export default function LegalAnsweringServicePage() {
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
             Related solutions
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED.map((item) => (
               <Link
                 key={item.area}
@@ -514,12 +534,20 @@ export default function LegalAnsweringServicePage() {
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
               Book a 30-minute walk-through. We&apos;ll show Claire answering a live legal intake call calibrated to your firm&apos;s script, conflict rules, and CRM.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
-            >
-              Book a demo
-            </Link>
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[15px] text-[#0a0a0a]/75 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+              >
+                or start a 7-day free trial
+              </Link>
+            </div>
           </div>
         </div>
       </section>

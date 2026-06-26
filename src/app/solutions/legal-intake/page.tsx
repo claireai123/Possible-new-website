@@ -4,7 +4,7 @@ import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
 const PUBLISHED = "2026-06-25";
-const LAST_UPDATED = "2026-06-25";
+const LAST_UPDATED = "2026-06-26";
 const BASE_URL = "https://theclaireai.com/solutions/legal-intake";
 
 export const metadata: Metadata = {
@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     description:
       "The AI legal intake service for law firms. Claire runs your qualifying script on every call, screens conflicts under Rule 1.18, grades the lead, books the consult, and dispatches the retainer. 24/7, bilingual.",
     url: BASE_URL,
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_1.91:1,w_1200,h_630,q_auto,f_jpg/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaireAI — AI legal intake service for law firms: qualify, conflict-check, book, and sign on every call",
+      },
+    ],
     type: "article",
     publishedTime: PUBLISHED,
     modifiedTime: LAST_UPDATED,
@@ -89,6 +97,12 @@ const RELATED: { area: string; desc: string; href: string; img: string }[] = [
     href: "/solutions/virtual-receptionist",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
   },
+  {
+    area: "Bilingual Answering Service",
+    desc: "End-to-end intake in Spanish and English — Claire detects the caller’s language on the first phrase, so no Spanish-speaking client is lost at hello.",
+    href: "/solutions/bilingual-answering-service",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
+  },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
@@ -103,9 +117,9 @@ const FAQS: { question: string; answer: string }[] = [
       "Yes. A traditional legal intake call center staffs human agents who follow a script and bill per call or per minute, with quality that varies by agent and shift. ClaireAI runs your intake flow identically on every call, screens conflicts, grades leads, books consults, and updates your CRM — at a flat monthly rate, with unlimited concurrency and no after-hours gaps. For a deeper comparison, see our guide on whether to outsource legal intake.",
   },
   {
-    question: "Does the intake service work for solo attorneys and small law firms?",
+    question: "Do ClaireAI's legal intake services work for solo attorneys and small firms?",
     answer:
-      "Yes — it's a force multiplier for solo and small firms that can't staff a dedicated intake coordinator. Claire captures and qualifies every new client around the clock, so a solo attorney in court or with a client never loses a lead to voicemail. You get the intake operation of a large firm without the headcount.",
+      "Yes — it's a force multiplier for solo and small firms that can't staff a dedicated intake coordinator. Claire captures and qualifies every new client around the clock, so a solo attorney in court or with a client never loses a lead to voicemail. You get enterprise-grade law firm intake services without the headcount.",
   },
   {
     question: "How does Claire qualify and grade a legal intake lead?",
@@ -233,13 +247,19 @@ export default function LegalIntakePage() {
           <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
             ClaireAI runs your new-client intake on every call, 24/7 — screens conflicts, grades the lead, books the consult, dispatches the retainer, and updates your CRM. Bilingual.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#e8e6e1] px-6 py-3 text-[14.5px] text-[#0a0a0a] transition-colors hover:bg-[#0a0a0a] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0a0a0a] px-6 py-3 text-[14.5px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
-              Book a demo
+              Start your 7-day free trial
               <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[14.5px] text-[#0a0a0a]/70 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+            >
+              or book a demo
             </Link>
           </div>
         </div>
@@ -421,7 +441,7 @@ export default function LegalIntakePage() {
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
             Related solutions
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED.map((item) => (
               <Link
                 key={item.area}
@@ -539,12 +559,20 @@ export default function LegalIntakePage() {
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
               Book a 30-minute walk-through. We&apos;ll show Claire running a live new-client intake calibrated to your firm&apos;s qualifying rubric, conflict rules, and CRM.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
-            >
-              Book a demo
-            </Link>
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[15px] text-[#0a0a0a]/75 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+              >
+                or start a 7-day free trial
+              </Link>
+            </div>
           </div>
         </div>
       </section>

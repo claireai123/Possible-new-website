@@ -4,7 +4,7 @@ import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
 const PUBLISHED = "2026-06-25";
-const LAST_UPDATED = "2026-06-25";
+const LAST_UPDATED = "2026-06-26";
 const BASE_URL = "https://theclaireai.com/solutions/bilingual-answering-service";
 
 export const metadata: Metadata = {
@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     description:
       "The bilingual answering service built for law firms. Claire detects Spanish on the first phrase, runs full intake in Spanish, translates transcripts for attorney review, and works 24/7.",
     url: BASE_URL,
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_1.91:1,w_1200,h_630,q_auto,f_jpg/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaireAI — bilingual answering service for law firms: full intake in Spanish and English, 24/7",
+      },
+    ],
     type: "article",
     publishedTime: PUBLISHED,
     modifiedTime: LAST_UPDATED,
@@ -88,6 +96,12 @@ const RELATED: { area: string; desc: string; href: string; img: string }[] = [
     desc: "First-ring pickup, calendar booking, call routing, and warm transfers — a 24/7 virtual receptionist tuned for legal callers.",
     href: "/solutions/virtual-receptionist",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+  },
+  {
+    area: "Legal Intake Service",
+    desc: "Full new-client intake: qualifying script, conflict screening, lead grading, retainer dispatch, and CRM write-back on every call.",
+    href: "/solutions/legal-intake",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779136334/ChatGPT_Image_May_18_2026_at_04_31_59_PM.jpg",
   },
 ];
 
@@ -223,18 +237,24 @@ export default function BilingualAnsweringServicePage() {
               maxWidth: "min(20ch, 100%)",
             }}
           >
-            No Spanish-speaking caller lost at hello.
+            A bilingual answering service so no Spanish-speaking caller is lost at hello.
           </h1>
           <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
             ClaireAI detects Spanish on the first phrase, runs your full intake in Spanish, and translates every transcript for your team — bilingual, 24/7, no hold and no transfer.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#e8e6e1] px-6 py-3 text-[14.5px] text-[#0a0a0a] transition-colors hover:bg-[#0a0a0a] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0a0a0a] px-6 py-3 text-[14.5px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
-              Book a demo
+              Start your 7-day free trial
               <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[14.5px] text-[#0a0a0a]/70 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+            >
+              or book a demo
             </Link>
           </div>
         </div>
@@ -385,7 +405,7 @@ export default function BilingualAnsweringServicePage() {
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
             Related solutions
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED.map((item) => (
               <Link
                 key={item.area}
@@ -503,12 +523,20 @@ export default function BilingualAnsweringServicePage() {
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
               Book a 30-minute walk-through. We&apos;ll show Claire running a live Spanish-language intake call calibrated to your firm&apos;s script and CRM.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
-            >
-              Book a demo
-            </Link>
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[15px] text-[#0a0a0a]/75 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+              >
+                or start a 7-day free trial
+              </Link>
+            </div>
           </div>
         </div>
       </section>

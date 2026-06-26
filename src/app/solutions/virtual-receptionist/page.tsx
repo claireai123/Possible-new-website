@@ -4,7 +4,7 @@ import { MetricTicker } from "@/components/sections/metric-ticker";
 import { TrustGrid } from "@/components/sections/trust-grid";
 
 const PUBLISHED = "2026-06-25";
-const LAST_UPDATED = "2026-06-25";
+const LAST_UPDATED = "2026-06-26";
 const BASE_URL = "https://theclaireai.com/solutions/virtual-receptionist";
 
 export const metadata: Metadata = {
@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     description:
       "The AI virtual receptionist built for law firms. Answers in 0.8s, routes and books every caller, warm-transfers to your team, and writes to your CRM. Bilingual, around the clock.",
     url: BASE_URL,
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_1.91:1,w_1200,h_630,q_auto,f_jpg/v1779125994/ChatGPT_Image_May_18_2026_at_01_39_38_PM.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaireAI — AI virtual receptionist for law firms, answering and routing every call 24/7",
+      },
+    ],
     type: "article",
     publishedTime: PUBLISHED,
     modifiedTime: LAST_UPDATED,
@@ -89,6 +97,12 @@ const RELATED: { area: string; desc: string; href: string; img: string }[] = [
     href: "/solutions/legal-intake",
     img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1774646534/dane-deaner-_-KLkj7on_c-unsplash_jgkqae.jpg",
   },
+  {
+    area: "Bilingual Answering Service",
+    desc: "End-to-end intake in Spanish and English — Claire detects the caller’s language on the first phrase, so no Spanish-speaking client is lost at hello.",
+    href: "/solutions/bilingual-answering-service",
+    img: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_3:4,w_1200,q_auto:good,dpr_auto,f_auto/v1779133195/ChatGPT_Image_May_18_2026_at_03_39_39_PM.jpg",
+  },
 ];
 
 const FAQS: { question: string; answer: string }[] = [
@@ -105,7 +119,7 @@ const FAQS: { question: string; answer: string }[] = [
   {
     question: "Does the virtual receptionist work 24/7, including nights and weekends?",
     answer:
-      "Yes. Claire answers 24/7/365 — including nights, weekends, holidays, and lunch hours — and also catches daytime overflow when your front desk is on another line. Because it handles unlimited concurrent calls, callers are never queued or sent to a busy signal. After-hours coverage is where a virtual receptionist recovers the most new clients, since most callers won't leave a voicemail.",
+      "Yes. Claire answers 24/7/365 — including nights, weekends, holidays, and lunch hours — and also catches daytime overflow when your front desk is on another line. Because it handles unlimited concurrent calls, callers are never queued or sent to a busy signal. After-hours coverage is where a legal virtual receptionist recovers the most new clients, since most callers won't leave a voicemail.",
   },
   {
     question: "How is an AI virtual receptionist better than a human virtual receptionist service?",
@@ -229,18 +243,24 @@ export default function VirtualReceptionistPage() {
               maxWidth: "min(20ch, 100%)",
             }}
           >
-            The AI virtual receptionist your law firm never has to staff.
+            The AI virtual receptionist for lawyers you never have to staff.
           </h1>
           <p className="mx-auto mt-7 max-w-[52ch] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a0a]/60">
             ClaireAI answers in 0.8 seconds, greets and routes every caller, books consults on your calendar, and warm-transfers to your team — 24/7, in English and Spanish.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#e8e6e1] px-6 py-3 text-[14.5px] text-[#0a0a0a] transition-colors hover:bg-[#0a0a0a] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0a0a0a] px-6 py-3 text-[14.5px] text-white transition-colors hover:bg-[#0a0a0a]/85"
             >
-              Book a demo
+              Start your 7-day free trial
               <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[14.5px] text-[#0a0a0a]/70 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+            >
+              or book a demo
             </Link>
           </div>
         </div>
@@ -309,7 +329,7 @@ export default function VirtualReceptionistPage() {
               fontWeight: 500,
             }}
           >
-            <span className="text-[#0a0a0a]">A virtual receptionist that books clients, not just messages.</span>{" "}
+            <span className="text-[#0a0a0a]">A law-firm virtual receptionist that books clients, not just messages.</span>{" "}
             <span className="text-[#0a0a0a]/60">
               Answered, routed, transferred, and on the calendar — 24/7.
             </span>
@@ -391,7 +411,7 @@ export default function VirtualReceptionistPage() {
           <h2 className="text-[12.5px] uppercase tracking-[0.22em] text-[#0a0a0a]/55 mb-12 font-normal">
             Related solutions
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED.map((item) => (
               <Link
                 key={item.area}
@@ -509,12 +529,20 @@ export default function VirtualReceptionistPage() {
             <p className="max-w-[48ch] text-[18px] leading-[1.5] text-[#0a0a0a]/70">
               Book a 30-minute walk-through. We&apos;ll show Claire greeting, routing, and booking a live caller calibrated to your firm&apos;s intake script and calendar.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
-            >
-              Book a demo
-            </Link>
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex h-fit items-center justify-center rounded bg-[#0a0a0a] px-9 py-5 text-[17px] text-white transition-colors hover:bg-[#0a0a0a]/85"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[15px] text-[#0a0a0a]/75 underline-offset-4 transition-colors hover:text-[#0a0a0a] hover:underline"
+              >
+                or start a 7-day free trial
+              </Link>
+            </div>
           </div>
         </div>
       </section>

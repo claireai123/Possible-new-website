@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     title: "ClaireAI Solutions — Calibrated by practice area",
     description: DESCRIPTION,
     url: `${BASE_URL}/solutions`,
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwzsqumf6/image/upload/c_fill,g_auto,ar_1.91:1,w_1200,h_630,q_auto,f_jpg/v1779204128/ChatGPT_Image_May_19_2026_at_11_21_51_AM.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaireAI Solutions — AI receptionist and intake calibrated by practice area",
+      },
+    ],
     type: "website",
   },
   twitter: { card: "summary_large_image", title: "ClaireAI Solutions", description: DESCRIPTION },
