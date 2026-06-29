@@ -331,6 +331,289 @@ export const POSTS: Post[] = [
   },
 
   // ──────────────────────────────────────────────────────────────
+  // CONFLICT CHECK DURING LIVE INTAKE — Guide, Jun 29 2026
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "conflict-check-live-intake-call",
+    category: "Guide",
+    date: "Jun 29, 2026",
+    readingTime: "11 min read",
+    title: "How to run a conflict check during a live intake call",
+    excerpt:
+      "Most firms check conflicts the next morning — after the consult. Here's how to screen for conflicts of interest live, during the intake call: the full relationship graph to check, the ABA rule that makes it non-negotiable, and a copy-paste protocol your firm can adopt this week.",
+    hero: {
+      img: "https://res.cloudinary.com/dwzsqumf6/image/upload/q_auto,f_auto/v1782745531/ChatGPT_Image_Jun_29_2026_at_11_05_20_AM.jpg",
+      imgAlt:
+        "Running a real-time conflict check during a live legal intake call",
+    },
+    author: {
+      name: "Cal Stein",
+      credentials: "Co-Founder, ClaireAI",
+      bio: "Cal builds and calibrates ClaireAI's conflict-screening logic with the firms in its customer base. The protocol below is the one ClaireAI runs on live intake calls, and the one Cal walks new firms through during onboarding. Every rule cited here links to its published text on the American Bar Association's site.",
+    },
+    tldr: [
+      "A real-time conflict check screens the caller — and everyone connected to their matter — against your existing clients and adverse parties during the intake call, before any substantive discussion. Most firms still do this the next morning, after the consult.",
+      "A conflict caught after the consultation is wasted attorney time. One caught after signing is an ethics problem — a possible motion to disqualify, a returned fee, and a client you have to drop.",
+      "ABA Model Rule 1.18 means a prospective client you never sign can still disqualify your firm if they shared information that 'could be significantly harmful' to them in the matter. Screening before the story is told is what keeps you clear.",
+      "A CRM name-match clears the caller and misses the people who actually create the conflict: co-defendants, the alleged victim, witnesses, the opposing spouse, adverse companies and their subsidiaries, opposing counsel.",
+      "Criminal defense is the hardest version — multiple parties, partial names, and callers who don't volunteer who else was arrested. Screen the relationship graph, not one name field.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: [
+          { kind: "bold", text: "A real-time conflict check " },
+          { kind: "text", text: "is the practice of screening a caller — and every person and company connected to their matter — against your firm's existing clients and known adverse parties during the intake call itself, before the caller describes the facts of their case. It is the same conflict-of-interest search most firms already run, moved to the one moment it actually protects you: while the prospective client is still on the line and has not yet told you anything that can disqualify you." },
+        ],
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "The difference from the status quo is timing, and timing is the whole point. A conflict caught the next morning is a routine clearance task. A conflict caught after the consultation is " },
+          { kind: "bold", text: "wasted attorney time" },
+          { kind: "text", text: ". A conflict caught after the engagement letter is signed is an " },
+          { kind: "bold", text: "ethics problem" },
+          { kind: "text", text: " — the kind that ends in a motion to disqualify, a returned fee, and an awkward call to the client you now have to drop." },
+        ],
+      },
+
+      // ============ 1. WHY LATER ============
+      { type: "h2", text: "Why most firms check conflicts later, not live", id: "check-later" },
+      {
+        type: "p",
+        text: "Here is the honest status quo at most firms. The caller's name gets typed into a CRM or onto a legal pad during the call. The actual conflict search happens afterward — when the intake coordinator gets to it, when the file lands on a paralegal's desk, or in a batch the next morning. The consult, meanwhile, is already booked. Sometimes it has already happened.",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "That gap is survivable when callers wait around. They don't. In the " },
+          { kind: "link", text: "2026 ClaireAI legal intake benchmark", href: "/blog/2026-legal-intake-benchmark-report" },
+          { kind: "text", text: ", firms that responded within five minutes converted prospective clients at roughly four times the rate of firms that called back the next business day. High-intent callers — the injured, the arrested, the served — sign with whoever answers first. By the time an overnight conflict check clears or flags them, they are someone else's client, or they have already told your attorney things you now wish they hadn't." },
+        ],
+      },
+      { type: "h3", text: "What the ethics rules actually expect" },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "The compliance angle is where 'we'll check later' stops being merely inefficient. Under " },
+          { kind: "link", text: "ABA Model Rule 1.18", href: "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_18_duties_of_prospective_client/" },
+          { kind: "text", text: " (Duties to a Prospective Client), the duty attaches the moment a person 'consults with a lawyer about the possibility of forming a client-lawyer relationship.' From that point, Rule 1.18(c) bars the firm from representing someone with materially adverse interests in the same or a substantially related matter if the prospective client shared information that 'could be significantly harmful to that person in the matter.' " },
+          { kind: "bold", text: "You do not have to sign the caller to be disqualified by them." },
+        ],
+      },
+      {
+        type: "callout",
+        kind: "highlight",
+        title: "The Rule 1.18 trap",
+        text: "A stranger calls, describes their divorce or their arrest in detail, and hangs up without retaining you. Two weeks later the opposing party walks in. If the first caller told you something that could be significantly harmful to them in that matter, your firm may be barred from the second representation — for a client you never signed. The conflict check that would have caught it had to run before the first caller started talking, not after.",
+      },
+
+      // ============ 2. WHAT IS A CONFLICT ============
+      { type: "h2", text: "What counts as a conflict — and why a CRM name-match isn't enough", id: "what-is-a-conflict" },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "The easy case is a " },
+          { kind: "bold", text: "direct party match" },
+          { kind: "text", text: ": the caller is already your client, or is already on the other side of a matter you are handling. A name search in your case-management system catches these, and they are the conflicts everyone pictures when they say 'we run conflict checks.'" },
+        ],
+      },
+      {
+        type: "p",
+        text: "The conflicts that actually disqualify firms are the ones a single name field never sees, because the person creating the conflict is not the caller. A name lookup on the caller alone clears the call and hides the problem.",
+      },
+      {
+        type: "table",
+        headers: ["Practice area", "Who a caller-name search misses", "Why it's a conflict"],
+        rows: [
+          ["Criminal defense", "Co-defendants, the alleged victim, key witnesses, cooperating parties", "Representing two co-defendants can be directly adverse; you may already represent the victim or a witness in an unrelated matter"],
+          ["Family law", "The opposing spouse, paramours, in-laws, the child's other parent, prior counsel", "The adverse party may already be a client; intimate-party webs make imputation wide"],
+          ["Civil / business", "Adverse companies, their parents and subsidiaries, opposing counsel, guarantors, insurers", "A subsidiary of your client can be the adverse party under a different name"],
+        ],
+        caption: "The disqualifying party is rarely the person dialing the phone. Conflict screening has to reach past the caller.",
+      },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "This is also where " },
+          { kind: "link", text: "ABA Model Rule 1.7", href: "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_7_conflict_of_interest_current_clients/" },
+          { kind: "text", text: " (Conflict of Interest: Current Clients) does its work. A 'concurrent conflict of interest' exists when representing one client 'will be directly adverse to another client,' or when there is a 'significant risk' that the representation 'will be materially limited' by the firm's responsibilities to someone else. 'Someone else' is exactly the co-defendant, the subsidiary, or the opposing spouse that a caller-name search never surfaced." },
+        ],
+      },
+      { type: "h3", text: "Why criminal defense is the hardest version" },
+      {
+        type: "p",
+        text: [
+          { kind: "text", text: "Every practice area has a relationship graph; criminal defense has the densest one, under the most time pressure, with the least cooperative information. A single arrest can produce several co-defendants whose interests diverge the instant one of them considers cooperating. The caller frequently has only a partial name for a co-defendant ('they booked my cousin Ray too'), a street name, or no name at all. And callers from a detention facility are often guarded about who else was involved — sometimes deliberately. Representing two co-defendants is one of the most common ways a firm walks into a disqualifying conflict, and it almost never shows up in a search of the caller's name alone. See how this plays out in " },
+          { kind: "link", text: "ClaireAI for criminal defense intake", href: "/solutions/criminal-defense" },
+          { kind: "text", text: "." },
+        ],
+      },
+
+      // ============ 3. STEP BY STEP ============
+      { type: "h2", text: "How to run a conflict check during a live intake call, step by step", id: "step-by-step" },
+      {
+        type: "p",
+        text: "A real-time conflict check is four moves, in order. The goal is to clear or flag the matter before the caller narrates the facts — and to do it without making the call feel like an interrogation.",
+      },
+      {
+        type: "ol",
+        items: [
+          [
+            { kind: "bold", text: "Capture the right identifiers first — not just the caller. " },
+            { kind: "text", text: "Before the story, get the names that define the matter: the caller, the other side, and anyone connected. Full name plus at least one disambiguator (date of birth, employer, or address), because adverse parties share common names. Ask for aliases and nicknames explicitly. The " },
+            { kind: "link", text: "legal intake question bank", href: "/blog/legal-intake-question-bank" },
+            { kind: "text", text: " has practice-area question sets for exactly this." },
+          ],
+          [
+            { kind: "bold", text: "Screen against the full relationship graph, not one name field. " },
+            { kind: "text", text: "Run every captured name — caller and non-caller — against current clients, former clients, and known adverse parties. Match fuzzily: nicknames, maiden names, business d/b/a names, and parent/subsidiary relationships. A search that only checks the caller's exact name is not a conflict check; it's a duplicate-contact check." },
+          ],
+          [
+            { kind: "bold", text: "When information is partial, flag and hold — never clear. " },
+            { kind: "text", text: "A first name, a nickname, or 'I think his last name starts with M' is not a clearance. Record the partial identifier, mark the matter conflict-pending, and route it for attorney review before any consult is confirmed. The fail-safe direction is always to hold, not to wave through." },
+          ],
+          [
+            { kind: "bold", text: "If it's a true conflict, decline gracefully — on the call. " },
+            { kind: "text", text: "Don't book a consult you will have to cancel. Politely tell the caller your firm isn't able to take the matter, offer a neutral referral (your local bar's lawyer-referral service is a safe one), and end the call without taking facts or giving legal advice." },
+          ],
+        ],
+      },
+      { type: "h3", text: "What to do when you only have a first name or a nickname" },
+      {
+        type: "p",
+        text: "Partial information is the normal case, not the exception, and the worst response is to treat 'no exact match' as 'no conflict.' Capture whatever the caller can give — first name, approximate spelling, the relationship to the caller, the jurisdiction, the rough date. Mark the matter conflict-pending and escalate to the attorney or conflicts staff before the consult. A held matter costs you a few minutes. A missed conflict costs you the matter, the fee, and possibly a bar complaint.",
+      },
+      { type: "h3", text: "The graceful decline, without giving legal advice" },
+      {
+        type: "p",
+        text: "Turning someone away on the call is a skill, and it has a script. Be warm, be brief, and do not explain the conflict. Something like: 'I'm sorry — it turns out our firm isn't able to represent you on this one. I don't want to hold you up, so let me point you to the county bar's lawyer-referral line, which can match you with someone today.' Then stop. You are not their lawyer, and the call should not become a mini-consultation.",
+      },
+      {
+        type: "callout",
+        kind: "warn",
+        title: "Never tell the caller who the conflict is",
+        text: "Saying 'we already represent the other driver' confirms that you represent the other driver — which is itself confidential. Decline without naming the reason or the party. 'We're not able to take this matter' is complete and correct. Anything more can breach the duty you owe the existing client.",
+      },
+
+      // ============ 4. DOCUMENTATION ============
+      { type: "h2", text: "What to document so the check holds up later", id: "documentation" },
+      {
+        type: "p",
+        text: "A conflict check that isn't recorded didn't happen, as far as a later disqualification motion or bar inquiry is concerned. The point of documentation is to show that screening occurred, when it occurred, and on what information — so a reviewing attorney, or a court, can see the firm acted reasonably.",
+      },
+      { type: "p", text: "At a minimum, capture for every intake:" },
+      {
+        type: "ul",
+        items: [
+          [ { kind: "bold", text: "Timestamp. " }, { kind: "text", text: "When the screen ran, relative to the call and to any consult." } ],
+          [ { kind: "bold", text: "Every name screened. " }, { kind: "text", text: "Caller and all connected parties — not just the person who was retained or declined." } ],
+          [ { kind: "bold", text: "Sources checked. " }, { kind: "text", text: "Which systems the names ran against: case management, former-client archive, adverse-party list." } ],
+          [ { kind: "bold", text: "Result and disposition. " }, { kind: "text", text: "Clear, flagged, or conflict-pending — and what happened next (booked, held, declined, referred)." } ],
+          [ { kind: "bold", text: "Who cleared it. " }, { kind: "text", text: "The person or system that made the call, and the attorney who reviewed any flag." } ],
+        ],
+      },
+      {
+        type: "p",
+        text: "Then structure the result so the reviewing attorney sees the flag before the consult, not after. A conflict note buried in a CRM field that no one opens until the matter is already open is documentation in name only. The flag has to travel to the front of the file — surfaced on the intake summary the attorney reads before they walk into the room.",
+      },
+      {
+        type: "callout",
+        kind: "info",
+        title: "How an AI receptionist handles this",
+        text: [
+          { kind: "text", text: "Conflict screening is a good fit for automation precisely because it is mechanical and time-sensitive. ClaireAI runs a Rule 1.18 conflict pre-screen against the firm's existing client database during the call, before substantive facts are collected, captures every connected party the caller names, fails safe to attorney escalation on any partial match, and writes a timestamped record to the matter. The flag reaches the attorney on the intake summary — before the consult, not after. See " },
+          { kind: "link", text: "ClaireAI for legal intake", href: "/solutions/legal-intake" },
+          { kind: "text", text: "." },
+        ],
+      },
+
+      // ============ 5. CHECKLIST ============
+      { type: "h2", text: "A conflict-check protocol you can adopt this week", id: "checklist" },
+      {
+        type: "p",
+        text: "Copy this into your intake script and your training docs. It works the same whether a human or an AI receptionist runs the front door.",
+      },
+      {
+        type: "ol",
+        items: [
+          "Capture the caller's full legal name plus one disambiguator (date of birth, address, or employer).",
+          "Ask for, and record, the caller's aliases, nicknames, maiden or former names.",
+          "Identify and capture the other side — the adverse party or parties — by name.",
+          "Capture every connected party the matter touches: co-defendants, spouse, witnesses, related businesses, guarantors, insurers, prior counsel.",
+          "Run all of those names — not just the caller's — against current clients, former clients, and your adverse-party list.",
+          "Match fuzzily: nicknames, common-name variants, and d/b/a and parent/subsidiary relationships.",
+          "Treat any partial-information match as conflict-pending. Hold; do not clear.",
+          "Escalate every flag to an attorney before a consult is confirmed.",
+          "If it's a true conflict, decline on the call, offer a neutral referral, take no facts, give no advice.",
+          "Never disclose the reason for the decline or the conflicting party.",
+          "Timestamp and log the screen: names checked, sources, result, disposition, and who cleared it.",
+          "Surface the result on the intake summary the attorney reads before the consult.",
+        ],
+      },
+
+      // ============ CLOSE ============
+      { type: "h2", text: "The hard step everyone names and skips", id: "close" },
+      {
+        type: "p",
+        text: "Intake quality is decided by the steps everyone agrees are essential and quietly skips because they are inconvenient in the moment. Conflict checking is the cleanest example. Every firm will tell you they screen for conflicts. Far fewer screen the people who actually create conflicts, and far fewer still do it while the caller is on the line — when it is the only version of the check that protects both the client and the firm.",
+      },
+      {
+        type: "p",
+        text: "The reason it gets skipped is that doing it live is harder than doing it later: it takes a disciplined script, the patience to capture the whole relationship graph, and the nerve to decline a paying caller politely. That difficulty is exactly why it is worth getting right. The firms that screen at the door don't waste consults on conflicts, and they don't sign matters they have to give back.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is a conflict check in a law firm?",
+            a: "A conflict check is a search of a firm's current clients, former clients, and known adverse parties to determine whether taking a new matter would create a conflict of interest under the rules of professional conduct. Run during intake, it screens the prospective client and everyone connected to the matter before the firm agrees to represent anyone.",
+          },
+          {
+            q: "When should a conflict check be run during intake?",
+            a: [
+              { kind: "text", text: "Before the caller describes the substance of the matter, and before any consult is booked. Under " },
+              { kind: "link", text: "ABA Model Rule 1.18", href: "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_18_duties_of_prospective_client/" },
+              { kind: "text", text: ", duties attach the moment someone consults about possible representation, so the only fully protective time to screen is at the start of the call." },
+            ],
+          },
+          {
+            q: "Can a law firm be disqualified by someone it never represented?",
+            a: "Yes. Under Rule 1.18, if a prospective client shares information during a consultation that could be 'significantly harmful' to them in the matter, the firm can be barred from later representing an adverse party in the same or a substantially related matter — even though the prospective client was never signed. Screening before facts are shared is what prevents this.",
+          },
+          {
+            q: "What information do you need to run a conflict check on a call?",
+            a: "At minimum: the caller's full name plus a disambiguator like date of birth or address, any aliases or former names, and the names of all connected parties — the opposing side, co-defendants, witnesses, related businesses, and prior counsel. The caller's name alone is not enough to clear a matter.",
+          },
+          {
+            q: "How do you turn away a caller because of a conflict?",
+            a: "Politely and briefly, without naming the reason. Tell the caller your firm isn't able to take the matter, offer a neutral referral such as the local bar's lawyer-referral service, and end the call without collecting facts or giving legal advice. Never reveal the conflicting party, since that can itself breach a duty to an existing client.",
+          },
+          {
+            q: "Does an AI receptionist run conflict checks?",
+            a: [
+              { kind: "text", text: "A purpose-built one does. ClaireAI screens callers and connected parties against the firm's existing client database in real time during the call, holds and escalates on partial matches, and logs a timestamped record to the matter. See " },
+              { kind: "link", text: "ClaireAI for legal intake", href: "/solutions/legal-intake" },
+              { kind: "text", text: "." },
+            ],
+          },
+        ],
+      },
+    ],
+    related: ["legal-intake-question-bank", "2026-legal-intake-benchmark-report", "best-ai-receptionist-law-firms-2026"],
+    keywords: [
+      "conflict check intake call",
+      "real-time conflict check",
+      "conflict of interest check law firm",
+      "conflict of interest screening intake",
+      "ABA Rule 1.18 prospective client",
+      "criminal defense conflict check",
+      "law firm conflict checking process",
+      "how to run a conflict check",
+    ],
+  },
+
+  // ──────────────────────────────────────────────────────────────
   // CLAUDE FOR LEGAL — PERSONAL INJURY angle, May 28 2026
   // ──────────────────────────────────────────────────────────────
   {
@@ -1669,7 +1952,7 @@ export const POSTS: Post[] = [
         ],
       },
     ],
-    related: ["2026-legal-intake-benchmark-report", "conflict-aware-intake-prevention", "best-ai-receptionist-law-firms-2026"],
+    related: ["2026-legal-intake-benchmark-report", "conflict-check-live-intake-call", "best-ai-receptionist-law-firms-2026"],
     keywords: [
       "legal intake questions",
       "legal intake form template",

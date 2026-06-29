@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: "Not found" };
   const url = `${BASE_URL}/blog/${post.slug}`;
   return {
-    title: `${post.title} | ClaireAI`,
+    title: post.title,
     description: post.excerpt,
     keywords: post.keywords,
     alternates: { canonical: url },
